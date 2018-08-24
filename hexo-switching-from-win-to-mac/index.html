@@ -88,7 +88,7 @@
 <meta property="og:description" content="Hexo on GitHub Pages:Switching from Windows to Mac一直以來都有想換筆電的想法，但總是能撐則撐，畢竟是要噴個幾萬塊的事情呢．．．不過前陣子需要帶著筆電趴趴造，而跟著我8年的老Win筆電過於笨重，這實在令人感到非常困擾，所以就決定換掉囉，經考量後換了Mac Air．．．沒有所謂最好用的工具，只有最適合的工具，畢竟工具還是要人來使用的，關於工具的選擇就別">
 <meta property="og:locale" content="zh-tw">
 <meta property="og:image" content="https://i.imgur.com/iftnF8e.jpg">
-<meta property="og:updated_time" content="2018-08-24T16:48:17.142Z">
+<meta property="og:updated_time" content="2018-08-24T16:57:22.731Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo on GitHub Pages:從Win轉移到Mac">
 <meta name="twitter:description" content="Hexo on GitHub Pages:Switching from Windows to Mac一直以來都有想換筆電的想法，但總是能撐則撐，畢竟是要噴個幾萬塊的事情呢．．．不過前陣子需要帶著筆電趴趴造，而跟著我8年的老Win筆電過於笨重，這實在令人感到非常困擾，所以就決定換掉囉，經考量後換了Mac Air．．．沒有所謂最好用的工具，只有最適合的工具，畢竟工具還是要人來使用的，關於工具的選擇就別">
@@ -398,8 +398,10 @@
 <h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><p>官方下載：<a href="https://git-scm.com" target="_blank" rel="noopener">點我</a>，若是已安裝過自帶Git環境的XCode可以跳過。</p>
 <h2 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h2><p>官方下載：<a href="https://nodejs.org/en/" target="_blank" rel="noopener">點我</a></p>
 <h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><pre><code>sudo npm install -g hexo-cli
-cd {blog_name}               # build folder of blog
+sudo npm install hexo-deployer-git --save
+cd {blog_name}        # build folder of blog
 hexo init {blog_name}
+hexo
 npm install
 hexo s --debug  # run test server(127.0.0.1:4000)
 </code></pre><p><img src="https://i.imgur.com/iftnF8e.jpg" alt="test"></p>
