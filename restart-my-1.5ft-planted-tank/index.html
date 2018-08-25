@@ -2,6 +2,15 @@
 
 
 
+
+
+
+
+
+
+
+
+
   
 
 
@@ -9,8 +18,15 @@
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
 <meta name="theme-color" content="#222">
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
 
 
 
@@ -50,25 +66,19 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.4.0" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.0">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.0">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="aquarium,planted tank,水族,water grass,fishkeeping,水草缸," />
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.0" color="#222">
 
 
 
@@ -78,9 +88,36 @@
 
 
 
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.4.0',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    fastclick: ,
+    lazyload: ,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
 
-<meta name="description" content="Restart My 1.5ft Planted Tank放置play很久很久的魚缸本來是想撤掉了，因為需要定期維護清洗設備…但又覺得可惜。後來又想改設置好整理的一呎缸，不過又考慮到水體小、水質相對難維持穩定的問題。經過一番掙扎，還是決定翻缸重新設景(天啊，水草缸都成了 水藻缸，這工程之浩大用想的就覺得累了…)。因為，我還是想要一個很療癒的水草缸啊。">
-<meta name="keywords" content="aquarium,planted tank,水族,water grass,fishkeeping,水草缸">
+
+  
+
+
+
+
+  <meta name="description" content="Restart My 1.5ft Planted Tank放置play很久很久的魚缸本來是想撤掉了，因為需要定期維護清洗設備…但又覺得可惜。後來又想改設置好整理的一呎缸，不過又考慮到水體小、水質相對難維持穩定的問題。經過一番掙扎，還是決定翻缸重新設景(天啊，水草缸都成了 水藻缸，這工程之浩大用想的就覺得累了…)。因為，我還是想要一個很療癒的水草缸啊。">
+<meta name="keywords" content="aquarium,planted tank,water grass,fishkeeping,水族,水草缸">
 <meta property="og:type" content="article">
 <meta property="og:title" content="1.5呎翻缸重整">
 <meta property="og:url" content="https://laplacetw.github.io/restart-my-1.5ft-planted-tank/index.html">
@@ -100,29 +137,6 @@
 
 
 
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Mist',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '版主'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
 
 
 
@@ -130,7 +144,11 @@
 
 
 
-
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
   <title>1.5呎翻缸重整 | LaplaceTW's Blog</title>
   
@@ -141,6 +159,34 @@
 
 
 
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
 
 </head>
 
@@ -160,19 +206,21 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">LaplaceTW's Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
       
         <p class="site-subtitle">learning-by-doing</p>
       
+    
   </div>
 
   <div class="site-nav-toggle">
-    <button>
+    <button aria-label="Toggle navigation bar">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -180,66 +228,56 @@
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首頁
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            標籤
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            文庫
-          </a>
-        </li>
-      
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首頁</a>
+  </li>
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            時間軸
-          </a>
-        </li>
-      
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">標籤</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">文庫</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">時間軸</a>
+  </li>
 
+      
       
         <li class="menu-item menu-item-search">
           
             <a href="javascript:;" class="popup-trigger">
           
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            
-            檢索
-          </a>
+            檢索</a>
         </li>
       
     </ul>
+  
+
+  
+    
+
   
 
   
@@ -270,12 +308,20 @@
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
           <div id="content" class="content">
             
 
@@ -288,6 +334,8 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -296,9 +344,9 @@
     <link itemprop="mainEntityOfPage" href="https://laplacetw.github.io/restart-my-1.5ft-planted-tank/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LaplaceTW">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="版主">
+      <meta itemprop="description" content="learning-by-doing">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -310,11 +358,19 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">1.5呎翻缸重整</h1>
+          <h1 class="post-title" itemprop="name headline">1.5呎翻缸重整
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -322,11 +378,12 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-07-06T16:47:39+08:00">
-                2018-07-06
-              </time>
-            
 
+              
+                
+              
+
+              <time title="創建於：2018-07-06 16:47:39" itemprop="dateCreated datePublished" datetime="2018-07-06T16:47:39+08:00">2018-07-06</time>
             
 
             
@@ -344,11 +401,7 @@
                 <span class="post-meta-item-text">分類於</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Aquarium/" itemprop="url" rel="index">
-                    <span itemprop="name">Aquarium</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Aquarium/" itemprop="url" rel="index"><span itemprop="name">Aquarium</span></a></span>
 
                 
                 
@@ -364,6 +417,7 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/restart-my-1.5ft-planted-tank/#comments" itemprop="discussionUrl">
+                
                   <span class="post-comments-count disqus-comment-count"
                         data-disqus-identifier="restart-my-1.5ft-planted-tank/" itemprop="commentCount"></span>
                 </a>
@@ -374,11 +428,6 @@
           
           
 
-          
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-            </span>
           
 
           
@@ -406,6 +455,9 @@
 
       
     </div>
+
+    
+
     
     
     
@@ -418,17 +470,13 @@
       <div>
         <ul class="post-copyright">
   <li class="post-copyright-author">
-    <strong>Post author：</strong>
-    LaplaceTW
-  </li>
+    <strong>Post author： </strong>版主</li>
   <li class="post-copyright-link">
     <strong>Post link：</strong>
     <a href="https://laplacetw.github.io/restart-my-1.5ft-planted-tank/" title="1.5呎翻缸重整">https://laplacetw.github.io/restart-my-1.5ft-planted-tank/</a>
   </li>
   <li class="post-copyright-license">
-    <strong>Copyright Notice： </strong>
-    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY 4.0</a> unless stating additionally.
-  </li>
+    <strong>Copyright Notice： </strong>All articles in this blog are licensed under <a href="CC BY 4.0" rel="external nofollow" target="_blank">undefined</a> unless stating additionally.</li>
 </ul>
 
       </div>
@@ -442,11 +490,11 @@
           
             <a href="/tags/planted-tank/" rel="tag"># planted tank</a>
           
-            <a href="/tags/水族/" rel="tag"># 水族</a>
-          
             <a href="/tags/water-grass/" rel="tag"># water grass</a>
           
             <a href="/tags/fishkeeping/" rel="tag"># fishkeeping</a>
+          
+            <a href="/tags/水族/" rel="tag"># 水族</a>
           
             <a href="/tags/水草缸/" rel="tag"># 水草缸</a>
           
@@ -485,17 +533,10 @@
   </article>
 
 
-
-    <div class="post-spread">
-      
-    </div>
   </div>
 
 
           </div>
-          
-
-
           
 
   
@@ -547,74 +588,32 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="/images/avatar.png"
-                alt="LaplaceTW" />
-            
-              <p class="site-author-name" itemprop="name">LaplaceTW</p>
+              <p class="site-author-name" itemprop="name">版主</p>
               <p class="site-description motion-element" itemprop="description">learning-by-doing</p>
           </div>
 
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/">
-              
-                  <span class="site-state-item-count">14</span>
-                  <span class="site-state-item-name">文章</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-categories">
-                
-                  <span class="site-state-item-count">6</span>
-                  <span class="site-state-item-name">分類</span>
-                
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                
-                  <span class="site-state-item-count">42</span>
-                  <span class="site-state-item-name">標籤</span>
-                
-              </div>
-            
-
-          </nav>
+          
 
           
 
           
             <div class="links-of-author motion-element">
-                
-                  <span class="links-of-author-item">
-                    <a href="https://github.com/laplacetw" target="_blank" title="GitHub">
-                      
-                        <i class="fa fa-fw fa-github"></i>GitHub</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="https://www.linkedin.com/in/chi-yuan-liu-7a4341140" target="_blank" title="Linkedin">
-                      
-                        <i class="fa fa-fw fa-linkedin"></i>Linkedin</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="mailto:nicholas611469@gmail.com" target="_blank" title="E-Mail">
-                      
-                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                  </span>
-                
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/laplacetw" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.linkedin.com/in/chi-yuan-liu-7a4341140" target="_blank" title="Linkedin"><i class="fa fa-fw fa-linkedin"></i>Linkedin</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:nicholas611469@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
             </div>
           
 
@@ -630,6 +629,9 @@
           
           
 
+          
+            
+          
           
 
         </div>
@@ -666,24 +668,24 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
+  <span class="with-love" id="animate">
+    <i class="fa fa-"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">LaplaceTW</span>
+  <span class="author" itemprop="copyrightHolder">版主</span>
+
+  
 
   
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
-  <span class="post-meta-divider">|</span>
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Mist</a> v6.4.0</div>
 
 
 
@@ -693,21 +695,10 @@
   <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
-    <span class="site-uv">
-      <i class="fa fa-user"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      
-    </span>
-  
 
   
-    <span class="site-pv">
-      <i class="fa fa-eye"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      
-    </span>
-  
 </div>
+
 
 
 
@@ -736,7 +727,10 @@
         </span>
       </div>
     
+	
+    
 
+    
   </div>
 
   
@@ -755,7 +749,13 @@
 
 
 
+
+
+
   
+
+
+
 
 
 
@@ -771,16 +771,6 @@
   
   
     <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
   
 
   
@@ -802,65 +792,52 @@
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.0"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.0"></script>
 
 
 
   
+  
 
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.0"></script>
 
 
 
   
 
 
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.0"></script>
+
+
+
   
 
-    
-      <script id="dsq-count-scr" src="https://laplacetw.disqus.com/count.js" async></script>
-    
+  
+    <script id="dsq-count-scr" src="https://laplacetw.disqus.com/count.js" async></script>
+  
 
-    
-      <script type="text/javascript">
-        var disqus_config = function () {
-          this.page.url = 'https://laplacetw.github.io/restart-my-1.5ft-planted-tank/';
-          this.page.identifier = 'restart-my-1.5ft-planted-tank/';
-          this.page.title = '1.5呎翻缸重整';
+  
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = 'https://laplacetw.github.io/restart-my-1.5ft-planted-tank/';
+        this.page.identifier = 'restart-my-1.5ft-planted-tank/';
+        this.page.title = '1.5呎翻缸重整';
         };
+      function loadComments () {
         var d = document, s = d.createElement('script');
         s.src = 'https://laplacetw.disqus.com/embed.js';
         s.setAttribute('data-timestamp', '' + +new Date());
         (d.head || d.body).appendChild(s);
-      </script>
-    
-
+      }
+      
+        loadComments();
+      
+    </script>
   
-
-
-
-
-	
-
-
-
-
-
-  
-
-
 
 
 
@@ -924,6 +901,8 @@
         .css('overflow', 'hidden');
       $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
 
+      
+
       $.ajax({
         url: path,
         dataType: isXml ? "xml" : "json",
@@ -957,6 +936,7 @@
                 var title = data.title.trim();
                 var titleInLowerCase = title.toLowerCase();
                 var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
                 var contentInLowerCase = content.toLowerCase();
                 var articleUrl = decodeURIComponent(data.url);
                 var indexOfTitle = [];
@@ -1203,10 +1183,8 @@
   
 
   
-  
-  
-  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
 
+  
   
   
   <script src="/lib/needsharebutton/needsharebutton.js"></script>
@@ -1227,6 +1205,10 @@
       new needShareButton('#needsharebutton-float', flOptions);
     
   </script>
+
+  
+
+  
 
   
 
