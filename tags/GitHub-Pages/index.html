@@ -30,13 +30,6 @@
 
 
 
-  
-  
-    
-    
-  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
-  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
-
 
 
 
@@ -127,7 +120,7 @@
 <meta name="keywords" content="hexo, python, django, web crawler, data science, planted tank">
 <meta property="og:type" content="website">
 <meta property="og:title" content="LaplaceTW&#39;s Blog">
-<meta property="og:url" content="https://laplacetw.github.io/tags/github-pages/index.html">
+<meta property="og:url" content="https://laplacetw.github.io/tags/GitHub-Pages/index.html">
 <meta property="og:site_name" content="LaplaceTW&#39;s Blog">
 <meta property="og:description" content="learning-by-doing">
 <meta property="og:locale" content="zh-TW">
@@ -140,7 +133,7 @@
 
 
 
-  <link rel="canonical" href="https://laplacetw.github.io/tags/github-pages/"/>
+  <link rel="canonical" href="https://laplacetw.github.io/tags/GitHub-Pages/"/>
 
 
 
@@ -150,7 +143,7 @@
   };
 </script>
 
-  <title>標籤: github pages | LaplaceTW's Blog</title>
+  <title>標籤: GitHub Pages | LaplaceTW's Blog</title>
   
 
 
@@ -356,7 +349,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>github pages<small>標籤</small>
+        <h1>GitHub Pages<small>標籤</small>
         </h1>
       </div>
 
@@ -368,37 +361,9 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/hexo-switching-from-win-to-mac/" itemprop="url">
+            <a class="post-title-link" href="/build-blog-with-hexo-on-github-pages/" itemprop="url">
               
-                <span itemprop="name">Hexo on GitHub Pages:從Win轉移到Mac</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-24T21:52:28+08:00"
-              content="2018-08-24" >
-          08-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/first-post-on-github-pages/" itemprop="url">
-              
-                <span itemprop="name">Hexo on GitHub Pages:發文</span>
+                <span itemprop="name">Hexo on GitHub Pages:從零開始</span>
               
             </a>
         
@@ -406,9 +371,9 @@
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-08T10:24:53+08:00"
-              content="2018-08-08" >
-          08-08
+              datetime="2018-07-07T13:25:32+08:00"
+              content="2018-07-07" >
+          07-07
         </time>
       </div>
 
@@ -1247,6 +1212,33 @@
           return $(e).text()
         }).toArray().join('\n')
         var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('複製成功')
+          else $(this).text('複製失敗')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('複製')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+</body>
+</html>
+eElement('textarea')
         document.body.appendChild(ta)
         ta.style.position = 'absolute'
         ta.style.top = '0px'
