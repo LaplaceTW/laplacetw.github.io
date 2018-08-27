@@ -1,9 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[資料科學筆記(2)：BeautifulSoup模組]]></title>
+    <url>%2Fdata-sci-bs4%2F</url>
+    <content type="text"><![CDATA[Python:BeautifulSoup Module 使用Requests取得網頁內容後，會得到一堆密密麻麻的html，這時候便可以讓BeautifulSoup來協助解析網頁內容。 Install$pip3 install bs4 Web Analytics來試著寫一個簡單的web crawler去PTT西斯版逛逛吧，但因為西斯版有年齡驗證，所以必須利用Requests.Session()物件去做post，按下各位在美好童年就已經按過的「我已滿18歲按鈕」，web crawler取得伺服器驗證後就可以在西斯版橫行無阻啦。 從截圖可以看到，url為https://www.ptt.cc/ask/over18...這就是取得驗證的網址，注意url後頭的from=%2Fbbs%2Fsex...在post驗證的payload要寫入from這個key，表示這個post來自西斯版首頁。！PAuJRHa.png 關於BeautifulSoup更多細節請參考官方文件，這邊簡單說明，基本上就是把request取得的html丟給Soup去解析，接著可以使用find(), find_all(), select()等方法來篩選尋找目標數據所在的tag。 舉例來說，我要讓web crawler去爬取西斯版首頁的文章標題＆連結，檢視網頁原始碼後可以發現我要的數據就在class＝r-ent的tag裡面。！56hpBfq.png import requests as rq from bs4 import BeautifulSoup as bs url = &apos;https://www.ptt.cc/bbs/sex/index.html&apos; payload = { &apos;from&apos;:url, &apos;yes&apos;:&apos;yes&apos; } session = rq.Session() session.post(&apos;https://www.ptt.cc/ask/over18&apos;, data=payload) res = session.get(url) soup = bs(res.text, &apos;html.parser&apos;) result = soup.select(&apos;.r-ent .title a&apos;) for title in result: print(title.text, title[&apos;href&apos;]) 輸出結果：]]></content>
+      <categories>
+        <category>Data Science</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>requests</tag>
+        <tag>bs4</tag>
+        <tag>web crawler</tag>
+        <tag>data science</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[資料科學筆記(1)：Requests模組]]></title>
     <url>%2Fdata-sci-requests%2F</url>
-    <content type="text"><![CDATA[Python:Requests Module Get此例為對網頁做基本的請求＆接收回應，raise_for_status()為連線檢查，若返回異常則會拋出Error。 import requests as rq url = &apos;http://www.google.com.tw/search?&apos; # target url try: res = rq.get(url) res.raise_for_status() except rq.HTTPError: print(&apos;HTTP Error!&apos;) print(res.text) # html Payload必要時可以加上參數，例如Google Search: payload = {&apos;q&apos;:&apos;data science&apos;} res = rq.get(url, params=payload) # http://www.google.com.tw/search?q=data+science 參數的部分為字典結構，key則要視url結構而定。 Post針對網頁中的表單，可以使用Post來傳送Payload res = rq.post(url, params=payload) 不過．．．對Google Search頁面做Post會得到這樣的回應： &lt;a href=//www.google.com/&gt;&lt;span id=logo aria-label=Google&gt;&lt;/span&gt;&lt;/a&gt; &lt;p&gt;&lt;b&gt;405.&lt;/b&gt; &lt;ins&gt;That’s an error.&lt;/ins&gt; &lt;p&gt;The request method &lt;code&gt;POST&lt;/code&gt; is inappropriate for the URL &lt;code&gt;/search?q=data+science&lt;/code&gt;. &lt;ins&gt;That’s all we know.&lt;/ins&gt; Google說這樣是不當的行為呢，我只是做個示範，好孩子不要學呀＾.&lt;]]></content>
+    <content type="text"><![CDATA[Python:Requests Module Install$pip3 install requests Get此例為對網頁做基本的請求＆接收回應，raise_for_status()為連線檢查，若返回異常則會拋出Error。 import requests as rq url = &apos;http://www.google.com.tw/search?&apos; # target url try: res = rq.get(url) res.raise_for_status() except rq.HTTPError: print(&apos;HTTP Error!&apos;) print(res.text) # html Payload必要時可以加上參數，例如Google Search: payload = {&apos;q&apos;:&apos;data science&apos;} res = rq.get(url, params=payload) # http://www.google.com.tw/search?q=data+science 參數的部分為字典結構，key則要視url結構而定。 Post針對網頁中的表單，可以使用Post來傳送Payload res = rq.post(url, params=payload) 不過．．．對Google Search頁面做Post會得到這樣的回應： &lt;a href=//www.google.com/&gt;&lt;span id=logo aria-label=Google&gt;&lt;/span&gt;&lt;/a&gt; &lt;p&gt;&lt;b&gt;405.&lt;/b&gt; &lt;ins&gt;That’s an error.&lt;/ins&gt; &lt;p&gt;The request method &lt;code&gt;POST&lt;/code&gt; is inappropriate for the URL &lt;code&gt;/search?q=data+science&lt;/code&gt;. &lt;ins&gt;That’s all we know.&lt;/ins&gt; Google說這樣是不當的行為呢，我只是做個示範，好孩子不要學呀＾.&lt;]]></content>
       <categories>
         <category>Data Science</category>
       </categories>
@@ -118,11 +133,11 @@
       <tags>
         <tag>aquarium</tag>
         <tag>planted tank</tag>
-        <tag>algae control</tag>
         <tag>水族</tag>
-        <tag>草缸</tag>
+        <tag>algae control</tag>
         <tag>cyanobacteria</tag>
         <tag>Erythrocin</tag>
+        <tag>草缸</tag>
         <tag>除藻</tag>
         <tag>藍綠藻</tag>
         <tag>紅黴素</tag>
@@ -152,10 +167,10 @@
       <tags>
         <tag>aquarium</tag>
         <tag>planted tank</tag>
-        <tag>algae control</tag>
-        <tag>algae eaters</tag>
         <tag>水族</tag>
+        <tag>algae control</tag>
         <tag>草缸</tag>
+        <tag>algae eaters</tag>
         <tag>除藻生物</tag>
       </tags>
   </entry>
@@ -208,9 +223,9 @@
       <tags>
         <tag>aquarium</tag>
         <tag>planted tank</tag>
-        <tag>水族</tag>
         <tag>water grass</tag>
         <tag>fishkeeping</tag>
+        <tag>水族</tag>
         <tag>水草缸</tag>
       </tags>
   </entry>
