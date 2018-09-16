@@ -126,7 +126,7 @@
 <meta property="og:locale" content="zh-TW">
 <meta property="og:image" content="https://i.imgur.com/lZufQJS.png">
 <meta property="og:image" content="https://i.imgur.com/DIorI8v.png">
-<meta property="og:updated_time" content="2018-09-16T14:03:25.598Z">
+<meta property="og:updated_time" content="2018-09-16T14:06:39.884Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="資料科學筆記(4)：正則式與re模組">
 <meta name="twitter:description" content="Python re Module:Regular Expression">
@@ -460,7 +460,7 @@
         <h1 id="Python-re-Module-Regular-Expression"><a href="#Python-re-Module-Regular-Expression" class="headerlink" title="Python re Module:Regular Expression"></a>Python re Module:Regular Expression</h1><a id="more"></a>
 <p>什麼是正則式(Regex)？常見的說法有正規表示式、正則表達式…等等，維基百科是如此描述的：使用單個字串來描述、符合某個句法規則的字串。在很多文字編輯器裡，正則運算式通常被用來檢索、替換那些符合某個模式的文字，總之就是「描述某種規則的表達式」。</p>
 <p>↓舉例來說，email address其格式具有一定的規則，假設我要在一堆密密麻麻的html中尋找Gmail郵件地址，就必須使用正則式來表達規則，讓電腦能準確判斷出任何符合Gmail郵件地址格式的字串。<br><img src="https://i.imgur.com/lZufQJS.png" alt="lZufQJS.png"></p>
-<h2 id="Pythex"><a href="#Pythex" class="headerlink" title="Pythex"></a>Pythex</h2><p>上述示範如何用正則式表達Gmail郵件地址規則的網站為<a href="pythex.org">pythex.org</a>，可以用來驗證表達式正確與否，因為表達式的符號有點複雜，該頁面也相當貼心地放了表達式的速查表呢～只要按下regular expression cheatsheet按鈕即可查看。那麼懶人如我就不多解釋表達式符號了XD<br><img src="https://i.imgur.com/DIorI8v.png" alt="DIorI8v.png"></p>
+<h2 id="Pythex"><a href="#Pythex" class="headerlink" title="Pythex"></a>Pythex</h2><p>上述示範如何用正則式表達Gmail郵件地址規則的網站為<a href="https://pythex.org" target="_blank" rel="noopener">pythex.org</a>，可以用來驗證表達式正確與否，因為表達式的符號有點複雜，該頁面也相當貼心地放了表達式的速查表呢～只要按下regular expression cheatsheet按鈕即可查看。那麼懶人如我就不多解釋表達式符號了XD<br><img src="https://i.imgur.com/DIorI8v.png" alt="DIorI8v.png"></p>
 <h2 id="re-module"><a href="#re-module" class="headerlink" title="re module"></a>re module</h2><p>在Python中使用正則式需要import re模組，常用的方法有search()、match()、findall()等，請參考<a href="https://docs.python.org/2/library/re.html" target="_blank" rel="noopener">官方文件</a>以取得更詳盡的介紹。</p>
 <p>那麼，search跟match有什麼不同呢？當然不會只有字面上的意思不同而已XD 這是我一開始對這兩個方法的疑問，當然我們可以<a href="https://docs.python.org/2/library/re.html#search-vs-match" target="_blank" rel="noopener">看看官方文件怎麼說</a>，但實際編寫程式碼會幫助自己更加理解兩者間的差異。</p>
 <p><font color="black">根據官方文件對兩者差異的解釋：re.match() checks for a match only at the <font color="red">beginning<font> of the string, while re.search() checks for a match <font color="red">anywhere<font> in the string.</font></font></font></font></font></p>
