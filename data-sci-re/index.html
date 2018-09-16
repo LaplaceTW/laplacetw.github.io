@@ -126,7 +126,7 @@
 <meta property="og:locale" content="zh-TW">
 <meta property="og:image" content="https://i.imgur.com/lZufQJS.png">
 <meta property="og:image" content="https://i.imgur.com/DIorI8v.png">
-<meta property="og:updated_time" content="2018-09-16T14:12:22.275Z">
+<meta property="og:updated_time" content="2018-09-16T14:18:29.651Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="資料科學筆記(4)：正則式與re模組">
 <meta name="twitter:description" content="Python re Module:Regular Expression">
@@ -463,7 +463,7 @@
 <h2 id="Pythex"><a href="#Pythex" class="headerlink" title="Pythex"></a>Pythex</h2><p>上述示範如何用正則式表達Gmail郵件地址規則的網站為<a href="https://pythex.org" target="_blank" rel="noopener">pythex.org</a>，可以用來驗證表達式正確與否，因為表達式的符號有點複雜，該頁面也相當貼心地放了表達式的速查表呢～只要按下regular expression cheatsheet按鈕即可查看。那麼懶人如我就不多解釋表達式符號了XD<br><img src="https://i.imgur.com/DIorI8v.png" alt="DIorI8v.png"></p>
 <h2 id="re-module"><a href="#re-module" class="headerlink" title="re module"></a>re module</h2><p>在Python中使用正則式需要import re模組，常用的方法有search()、match()、findall()等，請參考<a href="https://docs.python.org/2/library/re.html" target="_blank" rel="noopener">官方文件</a>以取得更詳盡的介紹。</p>
 <p>那麼，search跟match有什麼不同呢？當然不會只有字面上的意思不同而已XD 這是我一開始對這兩個方法的疑問，當然我們可以<a href="https://docs.python.org/2/library/re.html#search-vs-match" target="_blank" rel="noopener">看看官方文件怎麼說</a>，但實際編寫程式碼會幫助自己更加理解兩者間的差異。</p>
-<p><font color="red"><font color="black">根據官方文件對兩者差異的解釋：re.match() checks for a match <font>only at the beginning<font color="black"> of the string, while re.search() checks for a match <font>anywhere<font color="black"> in the string.<font><font></font></font></font></font></font></font></font></font></p>
+<p>根據官方文件對兩者差異的解釋：re.match() checks for a match only at the <font color="red">beginning</font> of the string, while re.search() checks for a match <font color="red">anywhere</font> in the string.</p>
 <ul>
 <li>match的搜尋方式為「從字串起始開始搜索，遇到不符合的字元便停止」</li>
 <li>search的搜尋方式為「整個字串」</li>
