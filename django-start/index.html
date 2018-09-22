@@ -116,19 +116,19 @@
 
 
 
-  <meta name="description" content="其實這篇大部分內容是一個月前寫的，只單純想把這些操作筆記下來。但最近因為工作而耗費大量心力在Django上，為何說耗費心力呢？因為網路上的教學文多數停留在Django 1.x …而目前我所使用的版本為Django 2.1，於是我踩了相當多的坑，且WEB開發對一個只會寫點JS的人而言是相當生疏的(Ora)，總之就連HTML、CSS、JS一起學習啦…感謝Google教會我許多的事物。所以今天讓Djan">
-<meta name="keywords" content="python,django,web framework,virtual environment">
+  <meta name="description" content="其實這篇大部分內容是一個月前寫的，只單純想把這些操作筆記下來。但最近因為工作而耗費大量心力在Django上，為何說耗費心力呢？因為我找到的教學文多數停留在Django 1.x …且有許多細節都沒提到，以個人作為WEB初學者而言，Django有許多概念並不是很直觀，必須實際測試來幫助自己理解。目前我所使用的版本為Django 2.1，於是我踩了相當多的坑，且WEB開發對一個只會寫點JS的人而言是相當">
+<meta name="keywords" content="python,django,web framework">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Django2.0筆記(1):從零開始">
 <meta property="og:url" content="https://laplacetw.github.io/django-start/index.html">
 <meta property="og:site_name" content="LaplaceTW&#39;s Blog">
-<meta property="og:description" content="其實這篇大部分內容是一個月前寫的，只單純想把這些操作筆記下來。但最近因為工作而耗費大量心力在Django上，為何說耗費心力呢？因為網路上的教學文多數停留在Django 1.x …而目前我所使用的版本為Django 2.1，於是我踩了相當多的坑，且WEB開發對一個只會寫點JS的人而言是相當生疏的(Ora)，總之就連HTML、CSS、JS一起學習啦…感謝Google教會我許多的事物。所以今天讓Djan">
+<meta property="og:description" content="其實這篇大部分內容是一個月前寫的，只單純想把這些操作筆記下來。但最近因為工作而耗費大量心力在Django上，為何說耗費心力呢？因為我找到的教學文多數停留在Django 1.x …且有許多細節都沒提到，以個人作為WEB初學者而言，Django有許多概念並不是很直觀，必須實際測試來幫助自己理解。目前我所使用的版本為Django 2.1，於是我踩了相當多的坑，且WEB開發對一個只會寫點JS的人而言是相當">
 <meta property="og:locale" content="zh-TW">
 <meta property="og:image" content="https://i.imgur.com/9pdBamW.jpg">
-<meta property="og:updated_time" content="2018-09-19T17:20:20.512Z">
+<meta property="og:updated_time" content="2018-09-21T16:20:20.269Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Django2.0筆記(1):從零開始">
-<meta name="twitter:description" content="其實這篇大部分內容是一個月前寫的，只單純想把這些操作筆記下來。但最近因為工作而耗費大量心力在Django上，為何說耗費心力呢？因為網路上的教學文多數停留在Django 1.x …而目前我所使用的版本為Django 2.1，於是我踩了相當多的坑，且WEB開發對一個只會寫點JS的人而言是相當生疏的(Ora)，總之就連HTML、CSS、JS一起學習啦…感謝Google教會我許多的事物。所以今天讓Djan">
+<meta name="twitter:description" content="其實這篇大部分內容是一個月前寫的，只單純想把這些操作筆記下來。但最近因為工作而耗費大量心力在Django上，為何說耗費心力呢？因為我找到的教學文多數停留在Django 1.x …且有許多細節都沒提到，以個人作為WEB初學者而言，Django有許多概念並不是很直觀，必須實際測試來幫助自己理解。目前我所使用的版本為Django 2.1，於是我踩了相當多的坑，且WEB開發對一個只會寫點JS的人而言是相當">
 <meta name="twitter:image" content="https://i.imgur.com/9pdBamW.jpg">
 
 
@@ -456,8 +456,8 @@
       
 
       
-        <p>其實這篇大部分內容是一個月前寫的，只單純想把這些操作筆記下來。但最近因為工作而耗費大量心力在Django上，為何說耗費心力呢？因為網路上的教學文多數停留在Django 1.x …而目前我所使用的版本為Django 2.1，於是我踩了相當多的坑，且WEB開發對一個只會寫點JS的人而言是相當生疏的(Ora)，總之就連HTML、CSS、JS一起學習啦…感謝Google教會我許多的事物。所以今天讓Django Project在Apache Server順利運作後(汗)，我決定盡可能詳細地撰寫Django的學習筆記，取之網路、用之網路，希望可以幫助到在學習Django時不怎麼順利的人們，就醬。</p>
-<h1 id="Django-Virtual-Environment-amp-New-Project"><a href="#Django-Virtual-Environment-amp-New-Project" class="headerlink" title="Django:Virtual Environment &amp; New Project"></a>Django:Virtual Environment &amp; New Project</h1><p>關於Django虛擬環境建置和建立新專案。<br><a id="more"></a></p>
+        <p>其實這篇大部分內容是一個月前寫的，只單純想把這些操作筆記下來。但最近因為工作而耗費大量心力在Django上，為何說耗費心力呢？因為我找到的教學文多數停留在Django 1.x …且有許多細節都沒提到，以個人作為WEB初學者而言，Django有許多概念並不是很直觀，必須實際測試來幫助自己理解。目前我所使用的版本為Django 2.1，於是我踩了相當多的坑，且WEB開發對一個只會寫點JS的人而言是相當生疏的(Ora)，總之就連HTML、CSS、JS一起學習吧…感謝Google教會我好多。所以今天在各種線索的拼湊之下、終於讓Django Project在Apache Server順利運作後(汗)，我決定盡可能詳細地撰寫Django的學習筆記，取之網路、用之網路，也許哪天剛好有個誰也在學習Django，而我的筆記剛好能幫上忙，就醬。</p>
+<h1 id="Django-Virtual-Environment-amp-New-Project"><a href="#Django-Virtual-Environment-amp-New-Project" class="headerlink" title="Django:Virtual Environment &amp; New Project"></a>Django:Virtual Environment &amp; New Project</h1><p>關於Django虛擬環境建置和建立新專案。<br><a id="more"></a><br>＊ 雖然網路上有許多教學文，但最詳細也最可靠的還是官方文件囉：<a href="https://docs.djangoproject.com/en/2.1/" target="_blank" rel="noopener">Django2.1 Doc]</a>。</p>
 <h2 id="Virtual-Environment-for-Django"><a href="#Virtual-Environment-for-Django" class="headerlink" title="Virtual Environment for Django"></a>Virtual Environment for Django</h2><p>開發Django Project建議另建一個乾淨的虛擬環境，只安裝專案所需套件，Python環境建置就不贅述，從安裝及建立虛擬環境開始:</p>
 <pre><code>pip install virtualenv  # install virtual environment package
 cd c:\
@@ -467,22 +467,11 @@ cd {virtualenv_name}
 Scripts\activate  # start virtual environment
 pip install django  # install Django package
 deactivate  # stop virtual environment
-</code></pre><p>＊ 下次要啟動已建立的虛擬環境，只要切換到虛擬環境目錄下執行Scripts\activate即可<br>＊ 在Mac環境下啟動虛擬環境的指令為source bin/activate</p>
+</code></pre><p>＊ 在Mac環境下啟動虛擬環境的指令為source bin/activate<br>＊ 提示字元前面的(virtualenv_name)表示目前已啟動虛擬環境</p>
 <h2 id="Start-New-Django-Project"><a href="#Start-New-Django-Project" class="headerlink" title="Start New Django Project"></a>Start New Django Project</h2><p>建立專案。</p>
 <pre><code># start virtual environment first
 django-admin startproject {project_name}  # build new project
-</code></pre><h2 id="Build-Application"><a href="#Build-Application" class="headerlink" title="Build Application"></a>Build Application</h2><p>建立應用程式。</p>
-<pre><code># start virtual environment first
-cd {project_name}
-python manage.py startapp {app_name}  # build application
-
-md templates  # build folder for web templates
-md static  # build folder for static files(e.g. css, images...)
-
-python manage.py makemigrations {app_name(optional)}  # build data migration for database
-python manage.py migrate {app_name(optional)}  # data synchronization
-</code></pre><p>＊ 在專案目錄下建立templates和static資料夾的用途為放置網頁模板與靜態文件<br>＊ makemigrations與migrate為資料庫同步設定，預設為對所有應用程式同步，因此應用程式名稱為選填</p>
-<h2 id="Run-Django-Server"><a href="#Run-Django-Server" class="headerlink" title="Run Django Server"></a>Run Django Server</h2><p>啟動測試Server。</p>
+</code></pre><h2 id="Run-Django-Server"><a href="#Run-Django-Server" class="headerlink" title="Run Django Server"></a>Run Django Server</h2><p>啟動測試Server。</p>
 <pre><code># start virtual environment first
 cd {project_name}
 python manage.py runserver
@@ -530,8 +519,6 @@ python manage.py runserver
             <a href="/tags/django/" rel="tag"># django</a>
           
             <a href="/tags/web-framework/" rel="tag"># web framework</a>
-          
-            <a href="/tags/virtual-environment/" rel="tag"># virtual environment</a>
           
         </div>
       
@@ -774,9 +761,7 @@ python manage.py runserver
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">49</span>
+                    <span class="site-state-item-count">48</span>
                     <span class="site-state-item-name">標籤</span>
                   </a>
                 </div>
@@ -837,7 +822,7 @@ python manage.py runserver
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Django-Virtual-Environment-amp-New-Project"><span class="nav-number">1.</span> <span class="nav-text">Django:Virtual Environment &amp; New Project</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Virtual-Environment-for-Django"><span class="nav-number">1.1.</span> <span class="nav-text">Virtual Environment for Django</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Start-New-Django-Project"><span class="nav-number">1.2.</span> <span class="nav-text">Start New Django Project</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Build-Application"><span class="nav-number">1.3.</span> <span class="nav-text">Build Application</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Run-Django-Server"><span class="nav-number">1.4.</span> <span class="nav-text">Run Django Server</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Django-Virtual-Environment-amp-New-Project"><span class="nav-number">1.</span> <span class="nav-text">Django:Virtual Environment &amp; New Project</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Virtual-Environment-for-Django"><span class="nav-number">1.1.</span> <span class="nav-text">Virtual Environment for Django</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Start-New-Django-Project"><span class="nav-number">1.2.</span> <span class="nav-text">Start New Django Project</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Run-Django-Server"><span class="nav-number">1.3.</span> <span class="nav-text">Run Django Server</span></a></li></ol></li></ol></div>
             
 
           </div>
