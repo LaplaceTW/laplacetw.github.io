@@ -50,8 +50,8 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>data science</tag>
         <tag>web crawler</tag>
+        <tag>data science</tag>
         <tag>google search</tag>
       </tags>
   </entry>
@@ -64,9 +64,9 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>data science</tag>
-        <tag>web crawler</tag>
         <tag>bs4 module</tag>
+        <tag>web crawler</tag>
+        <tag>data science</tag>
       </tags>
   </entry>
   <entry>
@@ -78,8 +78,8 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>data science</tag>
         <tag>web crawler</tag>
+        <tag>data science</tag>
         <tag>requests</tag>
       </tags>
   </entry>
@@ -174,10 +174,10 @@
         <tag>aquarium</tag>
         <tag>planted tank</tag>
         <tag>水族</tag>
+        <tag>草缸</tag>
         <tag>algae control</tag>
         <tag>cyanobacteria</tag>
         <tag>Erythrocin</tag>
-        <tag>草缸</tag>
         <tag>除藻</tag>
         <tag>藍綠藻</tag>
         <tag>紅黴素</tag>
@@ -208,8 +208,8 @@
         <tag>aquarium</tag>
         <tag>planted tank</tag>
         <tag>水族</tag>
-        <tag>algae control</tag>
         <tag>草缸</tag>
+        <tag>algae control</tag>
         <tag>algae eaters</tag>
         <tag>除藻生物</tag>
       </tags>
