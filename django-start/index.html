@@ -116,19 +116,19 @@
 
 
 
-  <meta name="description" content="其實這篇大部分內容是一個月前寫的，只單純想把這些操作筆記下來。但最近因為工作而耗費大量心力在Django上，為何說耗費心力呢？因為我找到的教學文多數停留在Django 1.x …且有許多細節都沒提到，以個人作為WEB初學者而言，Django有許多概念並不是很直觀，必須實際測試來幫助自己理解。目前我所使用的版本為Django 2.1，於是我踩了相當多的坑，且WEB開發對一個只會寫點JS的人而言是相當">
+  <meta name="description" content="其實這篇大部分內容是一個月前寫的，只單純想把這些操作筆記下來。但最近因為工作而耗費大量心力在Django上，為何說耗費心力呢？因為我找到的教學文多數停留在Django 1.x …">
 <meta name="keywords" content="python,django,web framework">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Django2.0筆記(1):從零開始">
 <meta property="og:url" content="https://laplacetw.github.io/django-start/index.html">
 <meta property="og:site_name" content="LaplaceTW&#39;s Blog">
-<meta property="og:description" content="其實這篇大部分內容是一個月前寫的，只單純想把這些操作筆記下來。但最近因為工作而耗費大量心力在Django上，為何說耗費心力呢？因為我找到的教學文多數停留在Django 1.x …且有許多細節都沒提到，以個人作為WEB初學者而言，Django有許多概念並不是很直觀，必須實際測試來幫助自己理解。目前我所使用的版本為Django 2.1，於是我踩了相當多的坑，且WEB開發對一個只會寫點JS的人而言是相當">
+<meta property="og:description" content="其實這篇大部分內容是一個月前寫的，只單純想把這些操作筆記下來。但最近因為工作而耗費大量心力在Django上，為何說耗費心力呢？因為我找到的教學文多數停留在Django 1.x …">
 <meta property="og:locale" content="zh-TW">
 <meta property="og:image" content="https://i.imgur.com/9pdBamW.jpg">
-<meta property="og:updated_time" content="2018-09-21T16:20:20.269Z">
+<meta property="og:updated_time" content="2018-09-22T17:06:19.746Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Django2.0筆記(1):從零開始">
-<meta name="twitter:description" content="其實這篇大部分內容是一個月前寫的，只單純想把這些操作筆記下來。但最近因為工作而耗費大量心力在Django上，為何說耗費心力呢？因為我找到的教學文多數停留在Django 1.x …且有許多細節都沒提到，以個人作為WEB初學者而言，Django有許多概念並不是很直觀，必須實際測試來幫助自己理解。目前我所使用的版本為Django 2.1，於是我踩了相當多的坑，且WEB開發對一個只會寫點JS的人而言是相當">
+<meta name="twitter:description" content="其實這篇大部分內容是一個月前寫的，只單純想把這些操作筆記下來。但最近因為工作而耗費大量心力在Django上，為何說耗費心力呢？因為我找到的教學文多數停留在Django 1.x …">
 <meta name="twitter:image" content="https://i.imgur.com/9pdBamW.jpg">
 
 
@@ -456,8 +456,8 @@
       
 
       
-        <p>其實這篇大部分內容是一個月前寫的，只單純想把這些操作筆記下來。但最近因為工作而耗費大量心力在Django上，為何說耗費心力呢？因為我找到的教學文多數停留在Django 1.x …且有許多細節都沒提到，以個人作為WEB初學者而言，Django有許多概念並不是很直觀，必須實際測試來幫助自己理解。目前我所使用的版本為Django 2.1，於是我踩了相當多的坑，且WEB開發對一個只會寫點JS的人而言是相當生疏的(Ora)，總之就連HTML、CSS、JS一起學習吧…感謝Google教會我好多。所以今天在各種線索的拼湊之下、終於讓Django Project在Apache Server順利運作後(汗)，我決定盡可能詳細地撰寫Django的學習筆記，取之網路、用之網路，也許哪天剛好有個誰也在學習Django，而我的筆記剛好能幫上忙，就醬。</p>
-<h1 id="Django-Virtual-Environment-amp-New-Project"><a href="#Django-Virtual-Environment-amp-New-Project" class="headerlink" title="Django:Virtual Environment &amp; New Project"></a>Django:Virtual Environment &amp; New Project</h1><p>關於Django虛擬環境建置和建立新專案。<br><a id="more"></a><br>＊ 雖然網路上有許多教學文，但最詳細也最可靠的還是官方文件囉：<a href="https://docs.djangoproject.com/en/2.1/" target="_blank" rel="noopener">Django2.1 Doc]</a>。</p>
+        <p>其實這篇大部分內容是一個月前寫的，只單純想把這些操作筆記下來。但最近因為工作而耗費大量心力在Django上，為何說耗費心力呢？因為我找到的教學文多數停留在Django 1.x …<a id="more"></a>且有許多細節都沒提到，以個人作為WEB初學者而言，Django有許多概念並不是很直觀，必須實際測試來幫助自己理解。目前我所使用的版本為Django 2.1，於是我踩了相當多的坑，且WEB開發對一個只會寫點JS的人而言是相當生疏的(Ora)，總之就連HTML、CSS、JS一起學習吧…感謝Google教會我好多。所以今天在各種線索的拼湊之下、終於讓Django Project在Apache Server順利運作後(汗)，我決定盡可能詳細地撰寫Django的學習筆記，取之網路、用之網路，也許哪天剛好有個誰也在學習Django，而我的筆記剛好能幫上忙，就醬。</p>
+<h1 id="Django-Virtual-Environment-amp-New-Project"><a href="#Django-Virtual-Environment-amp-New-Project" class="headerlink" title="Django:Virtual Environment &amp; New Project"></a>Django:Virtual Environment &amp; New Project</h1><p>關於Django虛擬環境建置和建立新專案。<br>＊ 雖然網路上有許多教學文，但最詳細也最可靠的還是官方文件囉：<a href="https://docs.djangoproject.com/en/2.1/" target="_blank" rel="noopener">Django2.1 Doc]</a>。</p>
 <h2 id="Virtual-Environment-for-Django"><a href="#Virtual-Environment-for-Django" class="headerlink" title="Virtual Environment for Django"></a>Virtual Environment for Django</h2><p>開發Django Project建議另建一個乾淨的虛擬環境，只安裝專案所需套件，Python環境建置就不贅述，從安裝及建立虛擬環境開始:</p>
 <pre><code>pip install virtualenv  # install virtual environment package
 cd c:\
@@ -541,8 +541,8 @@ python manage.py runserver
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/django-app-and-settings/" rel="prev" title="Django2.0筆記(1):專案設定與應用程式">
-                Django2.0筆記(1):專案設定與應用程式 <i class="fa fa-chevron-right"></i>
+              <a href="/django-app-and-settings/" rel="prev" title="Django2.0筆記(2):專案設定與應用程式">
+                Django2.0筆記(2):專案設定與應用程式 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
