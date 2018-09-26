@@ -125,7 +125,7 @@
 <meta property="og:description" content="Django:Project Settings &amp;amp; App關於專案下的環境設定、如何建立Django App。">
 <meta property="og:locale" content="zh-TW">
 <meta property="og:image" content="https://i.imgur.com/19G7Lvu.jpg">
-<meta property="og:updated_time" content="2018-09-22T17:14:33.291Z">
+<meta property="og:updated_time" content="2018-09-24T16:20:26.756Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Django2.0筆記(2):專案設定與應用程式">
 <meta name="twitter:description" content="Django:Project Settings &amp;amp; App關於專案下的環境設定、如何建立Django App。">
@@ -458,7 +458,7 @@
       
         <h1 id="Django-Project-Settings-amp-App"><a href="#Django-Project-Settings-amp-App" class="headerlink" title="Django:Project Settings &amp; App"></a>Django:Project Settings &amp; App</h1><p>關於專案下的環境設定、如何建立Django App。<br><a id="more"></a></p>
 <h2 id="Settings-py"><a href="#Settings-py" class="headerlink" title="Settings.py"></a>Settings.py</h2><p>專案環境設定。</p>
-<p><img src="https://i.imgur.com/19G7Lvu.jpg" alt="19G7Lvu.jpg"><br>↑在Windows terminal透過tree指令可看到整個專案的結構，Mac環境下要使用tree指令則需另外安裝package:</p>
+<p>↓在Windows terminal透過tree指令可查看專案結構<br><img src="https://i.imgur.com/19G7Lvu.jpg" alt="19G7Lvu.jpg"><br>Mac環境下要使用tree指令則需另外安裝package:</p>
 <pre><code>brew install tree
 </code></pre><p>從專案結構可以發現，根目錄下有個和專案名稱相同的資料夾，其中主要有3個檔案:</p>
 <ul>
@@ -470,12 +470,13 @@
 <p>開啟settings.py，可以看到官方註解寫得蠻詳細的，我就提一下重點設定：</p>
 <ul>
 <li><p>除錯模式設定為True表示網頁拋出Error會直接顯示錯誤訊息，正式發佈你的網站前千萬記得設為False，以免暴露網站漏洞</p>
-<h1 id="SECURITY-WARNING-don’t-run-with-debug-turned-on-in-production"><a href="#SECURITY-WARNING-don’t-run-with-debug-turned-on-in-production" class="headerlink" title="SECURITY WARNING: don’t run with debug turned on in production!"></a>SECURITY WARNING: don’t run with debug turned on in production!</h1><p>  DEBUG = True</p>
+<p>  # SECURITY WARNING: don’t run with debug turned on in production!<br>  DEBUG = True</p>
 </li>
 </ul>
 <ul>
 <li><p>新建立的App必須在這裡被定義</p>
-<h1 id="Application-definition"><a href="#Application-definition" class="headerlink" title="Application definition"></a>Application definition</h1><p>  INSTALLED_APPS = [</p>
+<p>  # Application definition</p>
+<p>  INSTALLED_APPS = [</p>
 <pre><code>&apos;django.contrib.admin&apos;,
 &apos;django.contrib.auth&apos;,
 &apos;django.contrib.contenttypes&apos;,
@@ -487,42 +488,46 @@
 </li>
 </ul>
 <ul>
-<li>網頁模版路徑</li>
-</ul>
-<p>請在專案目錄下建立templates資料夾:</p>
-<pre><code>md templates  # build folder for web templates
-</code></pre><p>＊ Mac terminal建立資料夾指令和Linux同為mkdir</p>
-<p>接著在settings.py中設定路徑，請於TEMPLATES中的’DIRS’加入這一段：</p>
-<font color="red">os.path.join(BASE_DIR, ‘templates’)</font>
+<li><p>網頁模版路徑</p>
+<p>  請在專案目錄下建立templates資料夾:</p>
+<p>  md templates  # build folder for web templates</p>
+<p>  ＊ Mac terminal建立資料夾指令和Linux同為mkdir</p>
+<p>  接著在settings.py中設定路徑，請於TEMPLATES中的’DIRS’加入這一段：</p>
+  <font color="red">os.path.join(BASE_DIR, ‘templates’)</font>
 
-<pre><code>TEMPLATES = [
-    {
-        &apos;BACKEND&apos;: &apos;django.template.backends.django.DjangoTemplates&apos;,
-        &apos;DIRS&apos;: [os.path.join(BASE_DIR, &apos;templates&apos;)],
-        &apos;APP_DIRS&apos;: True,
-        &apos;OPTIONS&apos;: {
-            &apos;context_processors&apos;: [
-                &apos;django.template.context_processors.debug&apos;,
-                &apos;django.template.context_processors.request&apos;,
-                &apos;django.contrib.auth.context_processors.auth&apos;,
-                &apos;django.contrib.messages.context_processors.messages&apos;,
-            ],
-        },
+<p>  TEMPLATES = [</p>
+<pre><code>{
+    &apos;BACKEND&apos;: &apos;django.template.backends.django.DjangoTemplates&apos;,
+    &apos;DIRS&apos;: [os.path.join(BASE_DIR, &apos;templates&apos;)],
+    &apos;APP_DIRS&apos;: True,
+    &apos;OPTIONS&apos;: {
+        &apos;context_processors&apos;: [
+            &apos;django.template.context_processors.debug&apos;,
+            &apos;django.template.context_processors.request&apos;,
+            &apos;django.contrib.auth.context_processors.auth&apos;,
+            &apos;django.contrib.messages.context_processors.messages&apos;,
+        ],
     },
-]
-</code></pre><ul>
+},
+</code></pre><p>  ]</p>
+</li>
+</ul>
+<ul>
 <li><p>語系、時區:修改為繁體中文、台灣時區</p>
 <p>  LANGUAGE_CODE = ‘zh-Hant’</p>
 <p>  TIME_ZONE = ‘Asia/Taipei’</p>
 </li>
 </ul>
 <ul>
-<li>靜態文件路徑</li>
+<li><p>靜態文件路徑</p>
+<p>  請在專案目錄下建立static資料夾:</p>
+<p>  md static  # build folder for static files(e.g. css, images…)</p>
+<p>  接著在settings.py中設定路徑，請於<font color="red">‘STATIC_URL</font>後面加上這一段:</p>
+<p>  STATICFILES_DIRS = [</p>
+<pre><code>os.path.join(BASE_DIR, &apos;static&apos;),
+</code></pre><p>  ]</p>
+</li>
 </ul>
-<p>請在專案目錄下建立static資料夾:</p>
-<pre><code>md static  # build folder for static files(e.g. css, images...)
-</code></pre><p>接著在settings.py中設定路徑，請於<font color="red">‘STATIC_URL</font>後面加上這一段:</p>
-<p>STATICFILES_DIRS = [<br>    os.path.join(BASE_DIR, ‘static’),<br>]</p>
 <h2 id="Django-App"><a href="#Django-App" class="headerlink" title="Django App"></a>Django App</h2><p>建立應用程式，專案底下可建立多個App，而每個App都可以視為Package。</p>
 <pre><code># start virtual environment first
 cd {project_name}
@@ -595,6 +600,10 @@ python manage.py migrate {app_name(optional)}  # data synchronization
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/django-software-architecture/" rel="prev" title="Django2.0筆記(3):軟體架構">
+                Django2.0筆記(3):軟體架構 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -680,7 +689,7 @@ python manage.py migrate {app_name(optional)}  # data synchronization
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-count">21</span>
                     <span class="site-state-item-name">文章</span>
                   </a>
                 </div>
@@ -877,7 +886,7 @@ python manage.py migrate {app_name(optional)}  # data synchronization
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Django-Project-Settings-amp-App"><span class="nav-number">1.</span> <span class="nav-text">Django:Project Settings &amp; App</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Settings-py"><span class="nav-number">1.1.</span> <span class="nav-text">Settings.py</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SECURITY-WARNING-don’t-run-with-debug-turned-on-in-production"><span class="nav-number">2.</span> <span class="nav-text">SECURITY WARNING: don’t run with debug turned on in production!</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Application-definition"><span class="nav-number">3.</span> <span class="nav-text">Application definition</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Django-App"><span class="nav-number">3.1.</span> <span class="nav-text">Django App</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Django-Project-Settings-amp-App"><span class="nav-number">1.</span> <span class="nav-text">Django:Project Settings &amp; App</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Settings-py"><span class="nav-number">1.1.</span> <span class="nav-text">Settings.py</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Django-App"><span class="nav-number">1.2.</span> <span class="nav-text">Django App</span></a></li></ol></li></ol></div>
             
 
           </div>
