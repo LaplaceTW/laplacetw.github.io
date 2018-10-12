@@ -119,13 +119,13 @@
   <meta name="description" content="learning-by-doing">
 <meta name="keywords" content="hexo, python, django, web crawler, data science, planted tank">
 <meta property="og:type" content="website">
-<meta property="og:title" content="LaplaceTW&#39;s Blog">
+<meta property="og:title" content="LaplaceTW">
 <meta property="og:url" content="https://laplacetw.github.io/index.html">
-<meta property="og:site_name" content="LaplaceTW&#39;s Blog">
+<meta property="og:site_name" content="LaplaceTW">
 <meta property="og:description" content="learning-by-doing">
 <meta property="og:locale" content="zh-TW">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LaplaceTW&#39;s Blog">
+<meta name="twitter:title" content="LaplaceTW">
 <meta name="twitter:description" content="learning-by-doing">
 
 
@@ -143,7 +143,7 @@
   };
 </script>
 
-  <title>LaplaceTW's Blog – learning-by-doing</title>
+  <title>LaplaceTW – learning-by-doing</title>
   
 
 
@@ -202,7 +202,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">LaplaceTW's Blog</span>
+        <span class="site-title">LaplaceTW</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -340,6 +340,275 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://laplacetw.github.io/excel-func-chart-pivot-table/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LaplaceTW">
+      <meta itemprop="description" content="learning-by-doing">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LaplaceTW">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/excel-func-chart-pivot-table/" itemprop="url">
+                  Excel:公式、圖表與樞紐分析
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+
+              
+                
+              
+
+              <time title="創建時間：2018-10-12 09:22:04" itemprop="dateCreated datePublished" datetime="2018-10-12T09:22:04+08:00">2018-10-12</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Excel/" itemprop="url" rel="index"><span itemprop="name">Excel</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/excel-func-chart-pivot-table/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="excel-func-chart-pivot-table/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <a id="more"></a>
+<p>#常用公式</p>
+<p>##IF</p>
+<ul>
+<li>用法:IF(條件,符合條件,不符合條件)</li>
+<li>範例:判斷訂單金額是否大於70(億)<br><img src="https://i.imgur.com/wQeP7th.png" alt="wQeP7th.png"></li>
+</ul>
+<p>##多重條件判斷</p>
+<ul>
+<li>用法:IF(條件,IF(…),不符合條件)</li>
+<li>範例:呈上例，進一步做訂單金額分級<br><img src="https://i.imgur.com/27kZEy2.png" alt="27kZEy2.png"></li>
+</ul>
+<p>##SUM</p>
+<ul>
+<li>用法:SUM(範圍1,範圍2…)</li>
+<li>範例:計算化學品與塑膠/橡膠年度訂單金額加總<br><img src="https://i.imgur.com/krLlYE2.png" alt="krLlYE2.png"></li>
+</ul>
+<p>##MAX</p>
+<ul>
+<li>用法:MAX(範圍1,範圍2…)</li>
+<li>範例:找出各類別每月訂單金額中最高者<br><img src="https://i.imgur.com/uDmIaxx.png" alt="uDmIaxx.png"></li>
+</ul>
+<p>##INT/ROUND</p>
+<ul>
+<li>用法:INT(儲存格)/ROUND(儲存格,小數位數)</li>
+<li>範例:INT無條件捨去/ROUND四捨五入<br><img src="https://i.imgur.com/sZLMI11.png" alt="sZLMI11.png"></li>
+</ul>
+<p>##AVERAGE</p>
+<ul>
+<li>用法:AVERAGE(範圍1,範圍2…)</li>
+<li>範例:計算年度平均值之無條件捨去與四捨五入<br><img src="https://i.imgur.com/F8FyAzn.png" alt="F8FyAzn.png"></li>
+</ul>
+<p>##SUMIF</p>
+<ul>
+<li>用法:SUMIF(條件範圍,條件,合計範圍)</li>
+<li>範例:計算各種商品之銷售總額<br><img src="https://i.imgur.com/xz1FZ5Z.png" alt="xz1FZ5Z.png"></li>
+</ul>
+<p>##COUNTIF</p>
+<ul>
+<li>用法:COUNTIF(條件範圍,條件)</li>
+<li>範例:統計年度化學品訂單金額分級<br><img src="https://i.imgur.com/V7LXB0g.png" alt="V7LXB0g.png"></li>
+</ul>
+<p>##VLOOKUP</p>
+<ul>
+<li>用法:VLOOKUP(搜尋條件,範圍,目標欄位,精確度)</li>
+<li>範例:搜尋指定月份訂單金額<br><img src="https://i.imgur.com/sa39mn2.png" alt="sa39mn2.png"></li>
+</ul>
+<p>##多條件搜尋</p>
+<ul>
+<li>用法:LOOKUP(1,0/((條件1)<em>(條件2)</em>…),目標範圍)</li>
+<li>範例:尋找訂單金額分級為Ａ級且大於100(億)之月份<br><img src="https://i.imgur.com/kJxlPKI.png" alt="kJxlPKI.png"></li>
+</ul>
+<p>##重點整理</p>
+<ul>
+<li>IF      :條件式</li>
+<li>SUM     :加總</li>
+<li>MAX     :最大值</li>
+<li>INT     :無條件捨去</li>
+<li>ROUND   :四捨五入</li>
+<li>AVERAGE :平均值</li>
+<li>SUMIF   :有條件加總</li>
+<li>COUNTIF :有條件統計</li>
+<li>VLOOKUP :尋找</li>
+</ul>
+<p>#常用圖表</p>
+<p>##錯誤範例<br>說明:折線圖所表達的為<font color="red">趨勢、變化</font>，但下圖中各類別為獨立項目，何來變化性？這樣的圖表是<strong>不具任何意義</strong>的，應使用直條圖比較各項目之大小，或使用圓形圖呈現各項目佔整體之比重。<br><img src="https://i.imgur.com/UswDs8J.png" alt="UswDs8J.png"></p>
+<p>##基本設定</p>
+<ul>
+<li>圖表設計與格式設定在圖表工具的頁籤中</li>
+<li>圖表項目細部設定在圖表右側的”＋”號中<br><img src="https://i.imgur.com/67Z3T4H.png" alt="67Z3T4H.png"></li>
+</ul>
+<p>##直條圖</p>
+<ul>
+<li>使用時機:做<font color="red">比較</font>，呈現數據的「相對大小」</li>
+<li>範例:100年度化學品外銷月訂單金額比較<br><img src="https://i.imgur.com/sHPqEjn.png" alt="sHPqEjn.png"></li>
+</ul>
+<p>##堆疊直條圖</p>
+<ul>
+<li>範例說明:呈現整體營業額與個別業務人員表現，可明顯看出業務A(藍色區塊)與業務C(灰色區塊)的成長與衰退，以及對整體的影響。<br><img src="https://i.imgur.com/UcZuOEu.png" alt="UcZuOEu.png"></li>
+</ul>
+<p>##折線圖</p>
+<ul>
+<li>使用時機:讀趨勢，呈現數據的「變化、走勢」</li>
+<li>範例:100年度化學品外銷月訂單金額走勢<br><img src="https://i.imgur.com/FATm3bE.png" alt="FATm3bE.png"></li>
+</ul>
+<p>##圓形圖</p>
+<ul>
+<li>使用時機:看比例，呈現數據的「相對比例」</li>
+<li>範例:100年度外銷訂單項目比重<br><img src="https://i.imgur.com/TBfdio3.png" alt="TBfdio3.png"></li>
+</ul>
+<p>##重點整理<br>數據視覺化須依據所欲呈現之數據統計摘要，進而選擇適當的圖表形式，避免<font color="red">誤用圖表、為分析而分析</font>。</p>
+<p>#樞紐分析<br>以經濟部101-106年外銷美國訂單統計資料為例。</p>
+<p>##Step 1:選取數據範圍<br>＊數據範圍中不能有空白欄位<br><img src="https://i.imgur.com/joDfNB9.png" alt="joDfNB9.png"></p>
+<p>##欄位說明</p>
+<ul>
+<li>篩選:報表之篩選條件</li>
+<li>欄  :樞紐分析表<font color="red">行</font>數據</li>
+<li>列  :樞紐分析表<font color="red">列</font>數據</li>
+<li>值  :欲統計之數據，例如加總、平均值<br><img src="https://i.imgur.com/UH01LrN.png" alt="UH01LrN.png"></li>
+</ul>
+<p>##Step 2:拖曳調整欄位與排列順序<br><img src="https://i.imgur.com/E8Alrt1.png" alt="E8Alrt1.png"><br>↓點選值欄位設定可選擇其他計算類型<br><img src="https://i.imgur.com/tEI1LCA.png" alt="tEI1LCA.png"></p>
+<p>##Step 3:插入樞紐分析圖<br>樞紐分析工具(頁籤) –&gt; 分析 –&gt; 樞紐分析圖<br><img src="https://i.imgur.com/2bgZqAX.png" alt="2bgZqAX.png"></p>
+<p>##樞紐分析-堆疊直條圖<br><img src="https://i.imgur.com/UGRPdUl.png" alt="UGRPdUl.png"></p>
+<p>##樞紐分析-圓形圖<br>＊注意圖表的行列數據呈現是否合適<br><img src="https://i.imgur.com/B5bdN0S.png" alt="B5bdN0S.png"><br>↓調整行列數據<br><img src="https://i.imgur.com/0WAn7Aa.png" alt="0WAn7Aa.png"><br>↓調整後<br><img src="https://i.imgur.com/itrWKwo.png" alt="itrWKwo.png"></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://laplacetw.github.io/django-software-architecture/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -349,7 +618,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LaplaceTW's Blog">
+      <meta itemprop="name" content="LaplaceTW">
     </span>
 
     
@@ -519,7 +788,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LaplaceTW's Blog">
+      <meta itemprop="name" content="LaplaceTW">
     </span>
 
     
@@ -689,7 +958,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LaplaceTW's Blog">
+      <meta itemprop="name" content="LaplaceTW">
     </span>
 
     
@@ -859,7 +1128,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LaplaceTW's Blog">
+      <meta itemprop="name" content="LaplaceTW">
     </span>
 
     
@@ -1008,176 +1277,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://laplacetw.github.io/data-sci-re/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LaplaceTW">
-      <meta itemprop="description" content="learning-by-doing">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LaplaceTW's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/data-sci-re/" itemprop="url">
-                  資料科學筆記(4)：正則式與re模組
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-
-              
-                
-              
-
-              <time title="創建時間：2018-09-16 14:58:17" itemprop="dateCreated datePublished" datetime="2018-09-16T14:58:17+08:00">2018-09-16</time>
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分類於</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Data-Science/" itemprop="url" rel="index"><span itemprop="name">Data Science</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/data-sci-re/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="data-sci-re/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="Python-re-Module-Regular-Expression"><a href="#Python-re-Module-Regular-Expression" class="headerlink" title="Python re Module:Regular Expression"></a>Python re Module:Regular Expression</h1>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/data-sci-re/#more" rel="contents">
-              閱讀全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1231,7 +1330,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">文章</span>
                   </a>
                 </div>
@@ -1258,7 +1357,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">7</span>
+                      
+                    
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">分類</span>
                   </a>
                 </div>
@@ -1367,7 +1468,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">48</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">50</span>
                     <span class="site-state-item-name">標籤</span>
                   </a>
                 </div>

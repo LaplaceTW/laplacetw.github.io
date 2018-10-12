@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Excel:公式、圖表與樞紐分析]]></title>
+    <url>%2Fexcel-func-chart-pivot-table%2F</url>
+    <content type="text"><![CDATA[#常用公式 ##IF 用法:IF(條件,符合條件,不符合條件) 範例:判斷訂單金額是否大於70(億) ##多重條件判斷 用法:IF(條件,IF(…),不符合條件) 範例:呈上例，進一步做訂單金額分級 ##SUM 用法:SUM(範圍1,範圍2…) 範例:計算化學品與塑膠/橡膠年度訂單金額加總 ##MAX 用法:MAX(範圍1,範圍2…) 範例:找出各類別每月訂單金額中最高者 ##INT/ROUND 用法:INT(儲存格)/ROUND(儲存格,小數位數) 範例:INT無條件捨去/ROUND四捨五入 ##AVERAGE 用法:AVERAGE(範圍1,範圍2…) 範例:計算年度平均值之無條件捨去與四捨五入 ##SUMIF 用法:SUMIF(條件範圍,條件,合計範圍) 範例:計算各種商品之銷售總額 ##COUNTIF 用法:COUNTIF(條件範圍,條件) 範例:統計年度化學品訂單金額分級 ##VLOOKUP 用法:VLOOKUP(搜尋條件,範圍,目標欄位,精確度) 範例:搜尋指定月份訂單金額 ##多條件搜尋 用法:LOOKUP(1,0/((條件1)(條件2)…),目標範圍) 範例:尋找訂單金額分級為Ａ級且大於100(億)之月份 ##重點整理 IF :條件式 SUM :加總 MAX :最大值 INT :無條件捨去 ROUND :四捨五入 AVERAGE :平均值 SUMIF :有條件加總 COUNTIF :有條件統計 VLOOKUP :尋找 #常用圖表 ##錯誤範例說明:折線圖所表達的為趨勢、變化，但下圖中各類別為獨立項目，何來變化性？這樣的圖表是不具任何意義的，應使用直條圖比較各項目之大小，或使用圓形圖呈現各項目佔整體之比重。 ##基本設定 圖表設計與格式設定在圖表工具的頁籤中 圖表項目細部設定在圖表右側的”＋”號中 ##直條圖 使用時機:做比較，呈現數據的「相對大小」 範例:100年度化學品外銷月訂單金額比較 ##堆疊直條圖 範例說明:呈現整體營業額與個別業務人員表現，可明顯看出業務A(藍色區塊)與業務C(灰色區塊)的成長與衰退，以及對整體的影響。 ##折線圖 使用時機:讀趨勢，呈現數據的「變化、走勢」 範例:100年度化學品外銷月訂單金額走勢 ##圓形圖 使用時機:看比例，呈現數據的「相對比例」 範例:100年度外銷訂單項目比重 ##重點整理數據視覺化須依據所欲呈現之數據統計摘要，進而選擇適當的圖表形式，避免誤用圖表、為分析而分析。 #樞紐分析以經濟部101-106年外銷美國訂單統計資料為例。 ##Step 1:選取數據範圍＊數據範圍中不能有空白欄位 ##欄位說明 篩選:報表之篩選條件 欄 :樞紐分析表行數據 列 :樞紐分析表列數據 值 :欲統計之數據，例如加總、平均值 ##Step 2:拖曳調整欄位與排列順序↓點選值欄位設定可選擇其他計算類型 ##Step 3:插入樞紐分析圖樞紐分析工具(頁籤) –&gt; 分析 –&gt; 樞紐分析圖 ##樞紐分析-堆疊直條圖 ##樞紐分析-圓形圖＊注意圖表的行列數據呈現是否合適↓調整行列數據↓調整後]]></content>
+      <categories>
+        <category>Excel</category>
+      </categories>
+      <tags>
+        <tag>excel</tag>
+        <tag>pivot table</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Django2.0筆記(3):軟體架構]]></title>
     <url>%2Fdjango-software-architecture%2F</url>
     <content type="text"><![CDATA[The Architecture of Django:MTV模型、視圖與模板。 Model–View–Controller Model: 資料庫存取 View: 使用者介面 Controller: 控制整合 說到網頁開發，就不得不提一下MVC架構，維基百科如是說：MVC為軟體工程中的一種軟體架構，將軟體系統分為三個部分：模型(Model)、視圖(View)和控制器(Controller)，目的是為了實現一種動態的程式設計，使後續對程式的修改及擴充簡化，並且使程式某一部分的重複利用成為可能。 MVC是一種設計理念而非技術，旨在提高開發項目的可擴展性及可維護性，而這樣一個從實際開發所歸納出來的抽象概念，事實上其定義是相當模糊的，尤其是在經過了多年發展後…但Django的學習筆記就不多做探討了。 Model-Template-View Model: 資料庫存取 Template: 使用者介面 View: 控制整合 Django雖然看似獨樹一格自定義了MTV架構，但MTV和MVC的理念是相同的，我嘗試畫了架構對照圖：如果以較為白話的方式描述MTV呢，就是我們定義Model在資料庫中生成Table，然後透過View的邏輯去整合控制數據，再交由Template去呈現給使用者，而使用者亦是透過Template去和數據做互動。 雖然我認為Django初學者只是抽象討論MTV是無法很好地理解其互動關係的，我就是這樣的一個初學者呢，因此後續會用實例來仔細說明的。]]></content>
@@ -16,7 +28,7 @@
   <entry>
     <title><![CDATA[Django2.0筆記(2):專案設定與應用程式]]></title>
     <url>%2Fdjango-app-and-settings%2F</url>
-    <content type="text"><![CDATA[Django:Project Settings &amp; App關於專案下的環境設定、如何建立Django App。 Settings.py專案環境設定。 ↓在Windows terminal透過tree指令可查看專案結構Mac環境下要使用tree指令則需另外安裝package: brew install tree 從專案結構可以發現，根目錄下有個和專案名稱相同的資料夾，其中主要有3個檔案: settings.py : 專案設定檔 url.py : 網頁路徑設定 wsgi.py : 伺服器閘道介面設定 ＊ manage.py為負責專案管理的Python指令檔＊ 什麼是WSGI(Web Server Gateway Interface)? 簡而言之，Server與Web App之間的溝通必須透過它 開啟settings.py，可以看到官方註解寫得蠻詳細的，我就提一下重點設定： 除錯模式設定為True表示網頁拋出Error會直接顯示錯誤訊息，正式發佈你的網站前千萬記得設為False，以免暴露網站漏洞 # SECURITY WARNING: don’t run with debug turned on in production! DEBUG = True 新建立的App必須在這裡被定義 # Application definition INSTALLED_APPS = [ &apos;django.contrib.admin&apos;, &apos;django.contrib.auth&apos;, &apos;django.contrib.contenttypes&apos;, &apos;django.contrib.sessions&apos;, &apos;django.contrib.messages&apos;, &apos;django.contrib.staticfiles&apos;, ‘{app_name}’, ] 網頁模版路徑 請在專案目錄下建立templates資料夾: md templates # build folder for web templates ＊ Mac terminal建立資料夾指令和Linux同為mkdir 接著在settings.py中設定路徑，請於TEMPLATES中的’DIRS’加入這一段： os.path.join(BASE_DIR, ‘templates’) TEMPLATES = [ { &apos;BACKEND&apos;: &apos;django.template.backends.django.DjangoTemplates&apos;, &apos;DIRS&apos;: [os.path.join(BASE_DIR, &apos;templates&apos;)], &apos;APP_DIRS&apos;: True, &apos;OPTIONS&apos;: { &apos;context_processors&apos;: [ &apos;django.template.context_processors.debug&apos;, &apos;django.template.context_processors.request&apos;, &apos;django.contrib.auth.context_processors.auth&apos;, &apos;django.contrib.messages.context_processors.messages&apos;, ], }, }, ] 語系、時區:修改為繁體中文、台灣時區 LANGUAGE_CODE = ‘zh-Hant’ TIME_ZONE = ‘Asia/Taipei’ 靜態文件路徑 請在專案目錄下建立static資料夾: md static # build folder for static files(e.g. css, images…) 接著在settings.py中設定路徑，請於‘STATIC_URL後面加上這一段: STATICFILES_DIRS = [ os.path.join(BASE_DIR, &apos;static&apos;), ] Django App建立應用程式，專案底下可建立多個App，而每個App都可以視為Package。 # start virtual environment first cd {project_name} python manage.py startapp {app_name} # build application python manage.py makemigrations {app_name(optional)} # build data migration for database python manage.py migrate {app_name(optional)} # data synchronization ＊ makemigrations與migrate為資料庫同步設定，預設為對所有應用程式同步，因此應用程式名稱為選填，後續提到Models時會詳細說明]]></content>
+    <content type="text"><![CDATA[Django:Project Settings &amp; App關於專案下的環境設定、如何建立Django App。 Settings.py專案環境設定。 ↓在Windows terminal透過tree指令可查看專案結構Mac環境下要使用tree指令則需另外安裝package: brew install tree 從專案結構可以發現，根目錄下有個和專案名稱相同的資料夾，其中主要有3個檔案: settings.py : 專案設定檔 url.py : 網頁路徑設定 wsgi.py : 伺服器閘道介面設定 ＊ manage.py為負責專案管理的Python指令檔＊ 什麼是WSGI(Web Server Gateway Interface)? 簡而言之，Server與Web App之間的溝通必須透過它 開啟settings.py，可以看到官方註解寫得蠻詳細的，我就提一下重點設定： 除錯模式設定為True表示網頁拋出Error會直接顯示錯誤訊息，正式發佈你的網站前千萬記得設為False，以免暴露網站漏洞 # SECURITY WARNING: don’t run with debug turned on in production! DEBUG = True 新建立的App必須在這裡被定義 # Application definition INSTALLED_APPS = [ &apos;django.contrib.admin&apos;, &apos;django.contrib.auth&apos;, &apos;django.contrib.contenttypes&apos;, &apos;django.contrib.sessions&apos;, &apos;django.contrib.messages&apos;, &apos;django.contrib.staticfiles&apos;, ‘{app_name}’, ] 網頁模版路徑 請在專案目錄下建立templates資料夾: md templates # build folder for web templates ＊ Mac terminal建立資料夾指令和Linux同為mkdir 接著在settings.py中設定路徑，請於TEMPLATES中的’DIRS’加入這一段： os.path.join(BASE_DIR, ‘templates’) TEMPLATES = [ { &apos;BACKEND&apos;: &apos;django.template.backends.django.DjangoTemplates&apos;, &apos;DIRS&apos;: [os.path.join(BASE_DIR, &apos;templates&apos;)], &apos;APP_DIRS&apos;: True, &apos;OPTIONS&apos;: { &apos;context_processors&apos;: [ &apos;django.template.context_processors.debug&apos;, &apos;django.template.context_processors.request&apos;, &apos;django.contrib.auth.context_processors.auth&apos;, &apos;django.contrib.messages.context_processors.messages&apos;, ], }, }, ] 語系、時區:修改為繁體中文、台灣時區 LANGUAGE_CODE = ‘zh-Hant’ TIME_ZONE = ‘Asia/Taipei’ 靜態文件路徑 請在專案目錄下建立static資料夾: md static # build folder for static files(e.g. css, images…) 接著在settings.py中設定路徑，請於STATIC_URL後面加上這一段: STATICFILES_DIRS = [ os.path.join(BASE_DIR, &apos;static&apos;), ] Django App建立應用程式，專案底下可建立多個App，而每個App都可以視為Package。 # start virtual environment first cd {project_name} python manage.py startapp {app_name} # build application python manage.py makemigrations {app_name(optional)} # build data migration for database python manage.py migrate {app_name(optional)} # data synchronization ＊ makemigrations與migrate為資料庫同步設定，預設為對所有應用程式同步，因此應用程式名稱為選填，後續提到Models時會詳細說明]]></content>
       <categories>
         <category>Django</category>
       </categories>
@@ -76,8 +88,8 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>web crawler</tag>
         <tag>data science</tag>
+        <tag>web crawler</tag>
         <tag>google search</tag>
       </tags>
   </entry>
@@ -90,9 +102,9 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>data science</tag>
         <tag>bs4 module</tag>
         <tag>web crawler</tag>
-        <tag>data science</tag>
       </tags>
   </entry>
   <entry>
@@ -104,8 +116,8 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>web crawler</tag>
         <tag>data science</tag>
+        <tag>web crawler</tag>
         <tag>requests</tag>
       </tags>
   </entry>
@@ -201,9 +213,9 @@
         <tag>planted tank</tag>
         <tag>水族</tag>
         <tag>algae control</tag>
+        <tag>草缸</tag>
         <tag>cyanobacteria</tag>
         <tag>Erythrocin</tag>
-        <tag>草缸</tag>
         <tag>除藻</tag>
         <tag>藍綠藻</tag>
         <tag>紅黴素</tag>
@@ -235,8 +247,8 @@
         <tag>planted tank</tag>
         <tag>水族</tag>
         <tag>algae control</tag>
-        <tag>草缸</tag>
         <tag>algae eaters</tag>
+        <tag>草缸</tag>
         <tag>除藻生物</tag>
       </tags>
   </entry>
