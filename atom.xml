@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://laplacetw.github.io/"/>
-  <updated>2019-04-09T16:50:02.090Z</updated>
+  <updated>2019-04-14T18:07:36.642Z</updated>
   <id>https://laplacetw.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo on GitHub Pages:Theme Icarus</title>
+    <link href="https://laplacetw.github.io/hexo-theme-icarus/"/>
+    <id>https://laplacetw.github.io/hexo-theme-icarus/</id>
+    <published>2019-04-11T16:42:21.000Z</published>
+    <updated>2019-04-14T18:07:36.642Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://theme-next.iissnan.com" target="_blank" rel="noopener">NexT</a>主題實在是太多人用了，看得有點膩，最近看到Icarus主題覺得很Blog(?)，決定來換個主題。<br><a id="more"></a></p><h2 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h2><pre><code>cd bloggit clone https://github.com/ppoffice/hexo-theme-icarus.git themes/icarushexo s  # run on local host</code></pre><p><img src="https://i.imgur.com/KaGH5Gm.png" alt=""></p><h2 id="Config"><a href="#Config" class="headerlink" title="Config"></a>Config</h2><p>可參考<a href="https://blog.zhangruipeng.me/hexo-theme-icarus/categories/" target="_blank" rel="noopener">官方教學</a>，以下為主要配置：</p><h3 id="Favicon-amp-Logo"><a href="#Favicon-amp-Logo" class="headerlink" title="Favicon &amp; Logo"></a>Favicon &amp; Logo</h3><pre><code># Version of the Icarus theme that is currently usedversion: 2.3.0# Path or URL to the website&apos;s iconfavicon: /images/favicon.svg# Path or URL to RSS atom.xmlrss: # Path or URL to the website&apos;s logo to be shown on the left of the navigation bar or footerlogo: /images/logo.svg</code></pre><p>＊ 推薦兩個SVG線上製作工具：<a href="https://www.vectorizer.io" target="_blank" rel="noopener">Image Vectorizer</a>、<a href="http://vectorpaint.yaks.co.nz" target="_blank" rel="noopener">SVG Editor</a></p><h3 id="Navbar-amp-Footer"><a href="#Navbar-amp-Footer" class="headerlink" title="Navbar &amp; Footer"></a>Navbar &amp; Footer</h3><pre><code># Navigation bar link settingsnavbar:    # Navigation bar menu links    menu:        Home: /        Archives: /archives        Categories: /categories        Tags: /tags        # About: /about    # Navigation bar links to be shown on the right    links:        GitHub_LaplaceTW:            icon: fab fa-github            url: &apos;https://github.com/laplacetw&apos;# Footer section link settingsfooter:    # Links to be shown on the right of the footer section    links:        CC BY 4.0:            icon: fab fa-creative-commons            url: &apos;https://creativecommons.org/licenses/by/4.0/&apos;</code></pre><h3 id="Comment"><a href="#Comment" class="headerlink" title="Comment"></a>Comment</h3><p>Blog評論系統是使用DISQUS的服務。</p><pre><code>comment:    # Name of the comment plugin    type: disqus    enable: true    shortname: {disqus shortname}    count: true    lazyload: false</code></pre><h3 id="Wiget"><a href="#Wiget" class="headerlink" title="Wiget"></a>Wiget</h3><pre><code>widgets:    -        # Widget name        type: profile        # Where should the widget be placed, left or right        position: left        # Author name to be shown in the profile widget        author: LaplaceTW        # Title of the author to be shown in the profile widget        author_title: learning by doing        # Author&apos;s current location to be shown in the profile widget        location: Taiwan, Earth        # Path or URL to the avatar to be shown in the profile widget        avatar:         # Email address for the Gravatar to be shown in the profile widget        gravatar:         # Whether to show avatar image rounded or square        avatar_rounded: false        # Path or URL for the follow button        follow_link: &apos;https://github.com/laplacetw&apos;        # Links to be shown on the bottom of the profile widget        social_links:            Email:                icon: far fa-envelope                url: &apos;&apos;            Github:                icon: fab fa-github                url: &apos;&apos;            Linkedin:                icon: fab fa-linkedin                url: &apos;&apos;            RSS:                icon: fas fa-rss                url: /atom.xml    -        # Widget name (文章內容目錄)        type: toc        # Where should the widget be placed, left or right        position: right    -        # Widget name (友情連結)        type: links        # Where should the widget be placed, left or right        position: left        # Links to be shown in the links widget        links:            Hexo: &apos;https://hexo.io&apos;    -        # Widget name (全站分類)        type: category        # Where should the widget be placed, left or right        position: left    -        # Widget name (最新文章)        type: recent_posts        # Where should the widget be placed, left or right        position: right    -        # Widget name (時間軸)        type: archive        # Where should the widget be placed, left or right        position: right    -        # Widget name (標籤雲)        type: tagcloud        # Where should the widget be placed, left or right        position: right</code></pre><p>＊ hyphen 為每個 Wiget 的開頭，多一個少一個都會導致Error</p><h3 id="Plugins"><a href="#Plugins" class="headerlink" title="Plugins"></a>Plugins</h3><p>個人僅變更不蒜子網站流量統計設定(預設為關閉)。</p><pre><code>plugins:    # BuSuanZi site/page view counter    # https://busuanzi.ibruce.info    busuanzi: true</code></pre><p>更進一步個人化ICARUS主題的部分，例如調整文章版面配置、文末版權宣告等，網路教學的版本似乎都有點舊了，自己也是搞了很久，後續再補上。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://theme-next.iissnan.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;NexT&lt;/a&gt;主題實在是太多人用了，看得有點膩，最近看到Icarus主題覺得很Blog(?)，決定來換個主題。&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Hexo" scheme="https://laplacetw.github.io/categories/Hexo/"/>
+    
+    
+      <category term="hexo" scheme="https://laplacetw.github.io/tags/hexo/"/>
+    
+      <category term="github pages" scheme="https://laplacetw.github.io/tags/github-pages/"/>
+    
+  </entry>
   
   <entry>
     <title>Hexo on GitHub Pages:不蒜子統計失效</title>
@@ -484,28 +508,6 @@
       <category term="planted tank" scheme="https://laplacetw.github.io/tags/planted-tank/"/>
     
       <category term="algae control" scheme="https://laplacetw.github.io/tags/algae-control/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>只要6塊錢~第一次自拍證件照就上手</title>
-    <link href="https://laplacetw.github.io/take-a-headshot-yourself/"/>
-    <id>https://laplacetw.github.io/take-a-headshot-yourself/</id>
-    <published>2018-07-08T15:23:05.000Z</published>
-    <updated>2019-04-08T17:07:59.202Z</updated>
-    
-    <content type="html"><![CDATA[<p>說到 <strong>大頭照</strong> 這個東西，其實使用到的機會不多，但要用的時候總是被要求繳交 <strong>6個月內</strong>的證件照…照相館動輒兩三百塊，拍出來的大頭照多麼不堪我就不說了，大家應該都很有經驗(菸)。雖說市面上已有證件快照的機器，但也不是說很普及，收費大約是$150，於是我想起有看過在家自拍大頭照的教學，就決定來試試了，也讓我的700D在平淡無奇的日常生活中能有登場的機會。<br><a id="more"></a></p><p>首先呢，找面明亮、乾淨的牆當背景，然後想辦法架好相機，手邊有腳架的話當然是最方便啦…如果相機螢幕能翻轉那就更好囉 : )<br><img src="https://i.imgur.com/IYuC7Q9.jpg" alt=""></p><p>接下來就是設定倒數連拍，我覺得10秒比較夠用XD 證件照的規定可以參考<a href="https://www.boca.gov.tw/cp-16-4123-c2932-1.html" target="_blank" rel="noopener">外交部領事局</a>的說明，我就不贅述，總之，拍出理想的照片後就是去背、裁剪。若是不會使用專業的修圖軟體，可以參考<a href="http://gigikaren1104.pixnet.net/blog/post/383578103" target="_blank" rel="noopener">這篇</a>用PPT處理大頭照的教學，還能調膚色呢XD</p><p>說到裁剪照片呢，這個<strong>2吋</strong>到底是多大呢?拜了Google大神後得到很多答案…眾說紛紜!我個人認為看起來最順眼、最2吋的是像素寬高比為433x581 pixel、實際寬高比為3.5x5.08的大小，提供參考。</p><p>裁剪完成後，在修圖軟體上開一張4x6的畫布…小畫家也是可以，那麼4x6是多大呢?(尺寸什麼的好煩)像素寬高比為1795x1205 pixel，然後把大頭照貼滿整個畫布吧!(說貼滿其實也不過8張啦XD)<br><img src="https://i.imgur.com/7WE4wAb.jpg" alt=""></p><p>上述準備就緒，<a href="http://www.likoda.com.tw/info/store/" target="_blank" rel="noopener">尋找</a>你附近的 <strong>立可得</strong> 吧~ 許多便利商店及大賣場都有設置喔，可以透過APP將照片傳輸至機器來列印照片，非常方便。<br><img src="https://i.imgur.com/3Dg9R1U.jpg" alt=""><br><img src="https://i.imgur.com/gZpfIw5.jpg" alt=""></p><p>我是在便利商店的立可得列印的，傳輸照片、設定列印選項後，機器會列印繳費單，4x6一張6元，拿著它去櫃檯繳費後就可以回到機器前面取照片囉。<br><img src="https://i.imgur.com/a246LAA.jpg" alt=""><br><img src="https://i.imgur.com/kHUHVTO.jpg" alt=""></p><p>第一次自拍證件照就上手，成功~</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;說到 &lt;strong&gt;大頭照&lt;/strong&gt; 這個東西，其實使用到的機會不多，但要用的時候總是被要求繳交 &lt;strong&gt;6個月內&lt;/strong&gt;的證件照…照相館動輒兩三百塊，拍出來的大頭照多麼不堪我就不說了，大家應該都很有經驗(菸)。雖說市面上已有證件快照的機器，但也不是說很普及，收費大約是$150，於是我想起有看過在家自拍大頭照的教學，就決定來試試了，也讓我的700D在平淡無奇的日常生活中能有登場的機會。&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Daily" scheme="https://laplacetw.github.io/categories/Daily/"/>
-    
-    
-      <category term="headshot" scheme="https://laplacetw.github.io/tags/headshot/"/>
     
   </entry>
   
