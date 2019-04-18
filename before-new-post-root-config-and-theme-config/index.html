@@ -16,7 +16,7 @@
 <meta property="og:description" content="部署完我們的Blog呢，別急著發文，看一眼別人的，再看看自己的頁面，應該有明白些什麼吧(笑)，先進行初步的個人化設定、讓它看起來更像一個Personal Blog吧~那麼，就先從選擇一個喜歡的佈景主題開始。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://i.imgur.com/3YLGWXs.jpg">
-<meta property="og:updated_time" content="2019-04-08T17:00:19.693Z">
+<meta property="og:updated_time" content="2019-04-18T15:44:35.645Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="先別管如何發文了，你聽過NexT嗎?">
 <meta name="twitter:description" content="部署完我們的Blog呢，別急著發文，看一眼別人的，再看看自己的頁面，應該有明白些什麼吧(笑)，先進行初步的個人化設定、讓它看起來更像一個Personal Blog吧~那麼，就先從選擇一個喜歡的佈景主題開始。">
@@ -34,7 +34,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/dark.css">
 
 
     
@@ -131,6 +131,10 @@
                     </a>
                     
                 
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
                 
                 
                 <a class="navbar-item search" title="Search" href="javascript:;">
@@ -377,6 +381,65 @@ license_url: https://creativecommons.org/licenses/by/4.0/
 <div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
     
         
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Catalogue
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#安裝NexT主題">
+        <span class="has-mr-6">1</span>
+        <span>安裝NexT主題</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#設定主題">
+        <span class="has-mr-6">1.1</span>
+        <span>設定主題</span>
+        </a></li><li>
+        <a class="is-flex" href="#Local-Host測試">
+        <span class="has-mr-6">1.2</span>
+        <span>Local Host測試</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#配置檔-config-yml">
+        <span class="has-mr-6">2</span>
+        <span>配置檔(_config.yml)</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#Root-Config">
+        <span class="has-mr-6">2.1</span>
+        <span>Root Config</span>
+        </a></li><li>
+        <a class="is-flex" href="#Theme-Config">
+        <span class="has-mr-6">2.2</span>
+        <span>Theme Config</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#favicon">
+        <span class="has-mr-6">2.2.1</span>
+        <span>favicon</span>
+        </a></li><li>
+        <a class="is-flex" href="#subtitle">
+        <span class="has-mr-6">2.2.2</span>
+        <span>subtitle</span>
+        </a></li><li>
+        <a class="is-flex" href="#scheme">
+        <span class="has-mr-6">2.2.3</span>
+        <span>scheme</span>
+        </a></li><li>
+        <a class="is-flex" href="#sidebar">
+        <span class="has-mr-6">2.2.4</span>
+        <span>sidebar</span>
+        </a></li><li>
+        <a class="is-flex" href="#creative-commons">
+        <span class="has-mr-6">2.2.5</span>
+        <span>creative commons</span>
+        </a></li><li>
+        <a class="is-flex" href="#third-party-services">
+        <span class="has-mr-6">2.2.6</span>
+        <span>third party services</span>
+        </a></li></ul></li></ul></li></ul>
+        </div>
+    </div>
+</div>
+
     
         
 <div class="card widget">
@@ -558,7 +621,7 @@ license_url: https://creativecommons.org/licenses/by/4.0/
         <h3 class="menu-label">
             Tag Cloud
         </h3>
-        <a href="/tags/Error/" style="font-size: 10px;">Error</a> <a href="/tags/GitHub-Pages/" style="font-size: 10px;">GitHub Pages</a> <a href="/tags/Github-Pages/" style="font-size: 10px;">Github Pages</a> <a href="/tags/Hexo/" style="font-size: 16.67px;">Hexo</a> <a href="/tags/NexT/" style="font-size: 10px;">NexT</a> <a href="/tags/algae-control/" style="font-size: 10px;">algae control</a> <a href="/tags/aquarium/" style="font-size: 16.67px;">aquarium</a> <a href="/tags/cyanobacteria/" style="font-size: 10px;">cyanobacteria</a> <a href="/tags/django/" style="font-size: 16.67px;">django</a> <a href="/tags/excel/" style="font-size: 10px;">excel</a> <a href="/tags/github-pages/" style="font-size: 16.67px;">github pages</a> <a href="/tags/headshot/" style="font-size: 10px;">headshot</a> <a href="/tags/heroku/" style="font-size: 10px;">heroku</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/matplotlib/" style="font-size: 10px;">matplotlib</a> <a href="/tags/pivot-table/" style="font-size: 10px;">pivot table</a> <a href="/tags/planted-tank/" style="font-size: 16.67px;">planted tank</a> <a href="/tags/powershell/" style="font-size: 10px;">powershell</a> <a href="/tags/pyhton/" style="font-size: 10px;">pyhton</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/regex/" style="font-size: 10px;">regex</a> <a href="/tags/vs-code/" style="font-size: 10px;">vs code</a> <a href="/tags/web-crawler/" style="font-size: 13.33px;">web crawler</a> <a href="/tags/windows/" style="font-size: 10px;">windows</a>
+        <a href="/tags/Error/" style="font-size: 10px;">Error</a> <a href="/tags/GitHub-Pages/" style="font-size: 10px;">GitHub Pages</a> <a href="/tags/Github-Pages/" style="font-size: 10px;">Github Pages</a> <a href="/tags/Hexo/" style="font-size: 16.67px;">Hexo</a> <a href="/tags/NexT/" style="font-size: 10px;">NexT</a> <a href="/tags/algae-control/" style="font-size: 10px;">algae control</a> <a href="/tags/aquarium/" style="font-size: 16.67px;">aquarium</a> <a href="/tags/cyanobacteria/" style="font-size: 10px;">cyanobacteria</a> <a href="/tags/django/" style="font-size: 16.67px;">django</a> <a href="/tags/excel/" style="font-size: 10px;">excel</a> <a href="/tags/github-pages/" style="font-size: 16.67px;">github pages</a> <a href="/tags/headshot/" style="font-size: 10px;">headshot</a> <a href="/tags/heroku/" style="font-size: 10px;">heroku</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/matplotlib/" style="font-size: 10px;">matplotlib</a> <a href="/tags/pivot-table/" style="font-size: 10px;">pivot table</a> <a href="/tags/planted-tank/" style="font-size: 16.67px;">planted tank</a> <a href="/tags/powershell/" style="font-size: 10px;">powershell</a> <a href="/tags/pyhton/" style="font-size: 10px;">pyhton</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/regex/" style="font-size: 10px;">regex</a> <a href="/tags/vs-code/" style="font-size: 10px;">vs code</a> <a href="/tags/web-crawler/" style="font-size: 13.33px;">web crawler</a>
     </div>
 </div>
 

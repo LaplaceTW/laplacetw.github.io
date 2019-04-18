@@ -16,7 +16,7 @@
 <meta property="og:description" content="個人從自學Python到現在，一直都是使用工具書所推薦的IDE:PyCharm，它確實是相當優秀的整合開發環境，但過胖這一點偶爾還是會令人感到困擾…每次打開程式就是要等它大爺暖身一下(白眼)。而開始學習在GitHub Pages寫Blog以來，我都是用VS Code發文，它的輕量化和豐富的擴充套件真是令人感到愉悅呢ヽ(●´∀`●)ﾉ 所以說，乾脆就在VS Code寫Python就好啦。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://i.imgur.com/HD4254a.jpg">
-<meta property="og:updated_time" content="2019-04-08T17:04:34.242Z">
+<meta property="og:updated_time" content="2019-04-18T15:44:43.518Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VS Code快速建立Python開發環境">
 <meta name="twitter:description" content="個人從自學Python到現在，一直都是使用工具書所推薦的IDE:PyCharm，它確實是相當優秀的整合開發環境，但過胖這一點偶爾還是會令人感到困擾…每次打開程式就是要等它大爺暖身一下(白眼)。而開始學習在GitHub Pages寫Blog以來，我都是用VS Code發文，它的輕量化和豐富的擴充套件真是令人感到愉悅呢ヽ(●´∀`●)ﾉ 所以說，乾脆就在VS Code寫Python就好啦。">
@@ -34,7 +34,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/dark.css">
 
 
     
@@ -131,6 +131,10 @@
                     </a>
                     
                 
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
                 
                 
                 <a class="navbar-item search" title="Search" href="javascript:;">
@@ -315,6 +319,33 @@
 <div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
     
         
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Catalogue
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#Download-VS-Code">
+        <span class="has-mr-6">1</span>
+        <span>Download VS Code</span>
+        </a></li><li>
+        <a class="is-flex" href="#Install-Python-Extension-for-VS-Code">
+        <span class="has-mr-6">2</span>
+        <span>Install Python Extension for VS Code</span>
+        </a></li><li>
+        <a class="is-flex" href="#Build-Working-Directory">
+        <span class="has-mr-6">3</span>
+        <span>Build Working Directory</span>
+        </a></li><li>
+        <a class="is-flex" href="#Run-Python-File">
+        <span class="has-mr-6">4</span>
+        <span>Run Python File</span>
+        </a></li></ul>
+        </div>
+    </div>
+</div>
+
     
         
 <div class="card widget">
@@ -496,7 +527,7 @@
         <h3 class="menu-label">
             Tag Cloud
         </h3>
-        <a href="/tags/Error/" style="font-size: 10px;">Error</a> <a href="/tags/GitHub-Pages/" style="font-size: 10px;">GitHub Pages</a> <a href="/tags/Github-Pages/" style="font-size: 10px;">Github Pages</a> <a href="/tags/Hexo/" style="font-size: 16.67px;">Hexo</a> <a href="/tags/NexT/" style="font-size: 10px;">NexT</a> <a href="/tags/algae-control/" style="font-size: 10px;">algae control</a> <a href="/tags/aquarium/" style="font-size: 16.67px;">aquarium</a> <a href="/tags/cyanobacteria/" style="font-size: 10px;">cyanobacteria</a> <a href="/tags/django/" style="font-size: 16.67px;">django</a> <a href="/tags/excel/" style="font-size: 10px;">excel</a> <a href="/tags/github-pages/" style="font-size: 16.67px;">github pages</a> <a href="/tags/headshot/" style="font-size: 10px;">headshot</a> <a href="/tags/heroku/" style="font-size: 10px;">heroku</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/matplotlib/" style="font-size: 10px;">matplotlib</a> <a href="/tags/pivot-table/" style="font-size: 10px;">pivot table</a> <a href="/tags/planted-tank/" style="font-size: 16.67px;">planted tank</a> <a href="/tags/powershell/" style="font-size: 10px;">powershell</a> <a href="/tags/pyhton/" style="font-size: 10px;">pyhton</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/regex/" style="font-size: 10px;">regex</a> <a href="/tags/vs-code/" style="font-size: 10px;">vs code</a> <a href="/tags/web-crawler/" style="font-size: 13.33px;">web crawler</a> <a href="/tags/windows/" style="font-size: 10px;">windows</a>
+        <a href="/tags/Error/" style="font-size: 10px;">Error</a> <a href="/tags/GitHub-Pages/" style="font-size: 10px;">GitHub Pages</a> <a href="/tags/Github-Pages/" style="font-size: 10px;">Github Pages</a> <a href="/tags/Hexo/" style="font-size: 16.67px;">Hexo</a> <a href="/tags/NexT/" style="font-size: 10px;">NexT</a> <a href="/tags/algae-control/" style="font-size: 10px;">algae control</a> <a href="/tags/aquarium/" style="font-size: 16.67px;">aquarium</a> <a href="/tags/cyanobacteria/" style="font-size: 10px;">cyanobacteria</a> <a href="/tags/django/" style="font-size: 16.67px;">django</a> <a href="/tags/excel/" style="font-size: 10px;">excel</a> <a href="/tags/github-pages/" style="font-size: 16.67px;">github pages</a> <a href="/tags/headshot/" style="font-size: 10px;">headshot</a> <a href="/tags/heroku/" style="font-size: 10px;">heroku</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/matplotlib/" style="font-size: 10px;">matplotlib</a> <a href="/tags/pivot-table/" style="font-size: 10px;">pivot table</a> <a href="/tags/planted-tank/" style="font-size: 16.67px;">planted tank</a> <a href="/tags/powershell/" style="font-size: 10px;">powershell</a> <a href="/tags/pyhton/" style="font-size: 10px;">pyhton</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/regex/" style="font-size: 10px;">regex</a> <a href="/tags/vs-code/" style="font-size: 10px;">vs code</a> <a href="/tags/web-crawler/" style="font-size: 13.33px;">web crawler</a>
     </div>
 </div>
 

@@ -16,7 +16,7 @@
 <meta property="og:description" content="程式寫了幾年，遇到Bug總是靠著拜Google大神，就這麼一路走來，看過無數高手們手把手的教學文，心裡想著自己哪天也來寫寫學習筆記，紀錄自己的學習歷程以及遇到的問題(以及至今仍在摸索中的水草缸…)，也許在某個夜深人靜的時刻，能幫助到和我一樣經常廢寢忘食、苦苦追尋解決方案的某個誰。於是這個Blog就這麼建起來了，學習筆記就從自己搭建Personal Blog的過程開始紀錄吧。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://i.imgur.com/hoQ0WZP.jpg">
-<meta property="og:updated_time" content="2019-04-08T16:55:32.193Z">
+<meta property="og:updated_time" content="2019-04-18T15:43:45.669Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo on GitHub Pages:從零開始">
 <meta name="twitter:description" content="程式寫了幾年，遇到Bug總是靠著拜Google大神，就這麼一路走來，看過無數高手們手把手的教學文，心裡想著自己哪天也來寫寫學習筆記，紀錄自己的學習歷程以及遇到的問題(以及至今仍在摸索中的水草缸…)，也許在某個夜深人靜的時刻，能幫助到和我一樣經常廢寢忘食、苦苦追尋解決方案的某個誰。於是這個Blog就這麼建起來了，學習筆記就從自己搭建Personal Blog的過程開始紀錄吧。">
@@ -34,7 +34,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/dark.css">
 
 
     
@@ -131,6 +131,10 @@
                     </a>
                     
                 
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
                 
                 
                 <a class="navbar-item search" title="Search" href="javascript:;">
@@ -310,6 +314,53 @@ npm install       # 安裝blog相關套件
 <div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
     
         
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Catalogue
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#前置作業">
+        <span class="has-mr-6">1</span>
+        <span>前置作業</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#安裝Node-js">
+        <span class="has-mr-6">1.1</span>
+        <span>安裝Node.js</span>
+        </a></li><li>
+        <a class="is-flex" href="#安裝Hexo">
+        <span class="has-mr-6">1.2</span>
+        <span>安裝Hexo</span>
+        </a></li><li>
+        <a class="is-flex" href="#安裝Hexo-Git">
+        <span class="has-mr-6">1.3</span>
+        <span>安裝Hexo Git</span>
+        </a></li><li>
+        <a class="is-flex" href="#註冊GitHub帳號">
+        <span class="has-mr-6">1.4</span>
+        <span>註冊GitHub帳號</span>
+        </a></li><li>
+        <a class="is-flex" href="#新增GitHub專案">
+        <span class="has-mr-6">1.5</span>
+        <span>新增GitHub專案</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#開始建置">
+        <span class="has-mr-6">2</span>
+        <span>開始建置</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#初始化">
+        <span class="has-mr-6">2.1</span>
+        <span>初始化</span>
+        </a></li><li>
+        <a class="is-flex" href="#部署">
+        <span class="has-mr-6">2.2</span>
+        <span>部署</span>
+        </a></li></ul></li></ul>
+        </div>
+    </div>
+</div>
+
     
         
 <div class="card widget">
@@ -491,7 +542,7 @@ npm install       # 安裝blog相關套件
         <h3 class="menu-label">
             Tag Cloud
         </h3>
-        <a href="/tags/Error/" style="font-size: 10px;">Error</a> <a href="/tags/GitHub-Pages/" style="font-size: 10px;">GitHub Pages</a> <a href="/tags/Github-Pages/" style="font-size: 10px;">Github Pages</a> <a href="/tags/Hexo/" style="font-size: 16.67px;">Hexo</a> <a href="/tags/NexT/" style="font-size: 10px;">NexT</a> <a href="/tags/algae-control/" style="font-size: 10px;">algae control</a> <a href="/tags/aquarium/" style="font-size: 16.67px;">aquarium</a> <a href="/tags/cyanobacteria/" style="font-size: 10px;">cyanobacteria</a> <a href="/tags/django/" style="font-size: 16.67px;">django</a> <a href="/tags/excel/" style="font-size: 10px;">excel</a> <a href="/tags/github-pages/" style="font-size: 16.67px;">github pages</a> <a href="/tags/headshot/" style="font-size: 10px;">headshot</a> <a href="/tags/heroku/" style="font-size: 10px;">heroku</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/matplotlib/" style="font-size: 10px;">matplotlib</a> <a href="/tags/pivot-table/" style="font-size: 10px;">pivot table</a> <a href="/tags/planted-tank/" style="font-size: 16.67px;">planted tank</a> <a href="/tags/powershell/" style="font-size: 10px;">powershell</a> <a href="/tags/pyhton/" style="font-size: 10px;">pyhton</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/regex/" style="font-size: 10px;">regex</a> <a href="/tags/vs-code/" style="font-size: 10px;">vs code</a> <a href="/tags/web-crawler/" style="font-size: 13.33px;">web crawler</a> <a href="/tags/windows/" style="font-size: 10px;">windows</a>
+        <a href="/tags/Error/" style="font-size: 10px;">Error</a> <a href="/tags/GitHub-Pages/" style="font-size: 10px;">GitHub Pages</a> <a href="/tags/Github-Pages/" style="font-size: 10px;">Github Pages</a> <a href="/tags/Hexo/" style="font-size: 16.67px;">Hexo</a> <a href="/tags/NexT/" style="font-size: 10px;">NexT</a> <a href="/tags/algae-control/" style="font-size: 10px;">algae control</a> <a href="/tags/aquarium/" style="font-size: 16.67px;">aquarium</a> <a href="/tags/cyanobacteria/" style="font-size: 10px;">cyanobacteria</a> <a href="/tags/django/" style="font-size: 16.67px;">django</a> <a href="/tags/excel/" style="font-size: 10px;">excel</a> <a href="/tags/github-pages/" style="font-size: 16.67px;">github pages</a> <a href="/tags/headshot/" style="font-size: 10px;">headshot</a> <a href="/tags/heroku/" style="font-size: 10px;">heroku</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/matplotlib/" style="font-size: 10px;">matplotlib</a> <a href="/tags/pivot-table/" style="font-size: 10px;">pivot table</a> <a href="/tags/planted-tank/" style="font-size: 16.67px;">planted tank</a> <a href="/tags/powershell/" style="font-size: 10px;">powershell</a> <a href="/tags/pyhton/" style="font-size: 10px;">pyhton</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/regex/" style="font-size: 10px;">regex</a> <a href="/tags/vs-code/" style="font-size: 10px;">vs code</a> <a href="/tags/web-crawler/" style="font-size: 13.33px;">web crawler</a>
     </div>
 </div>
 
