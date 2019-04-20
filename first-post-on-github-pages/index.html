@@ -197,7 +197,7 @@
 <p>決定好工具後，首先來看看blog根目錄底下有個叫’scaffolds’的資料夾，這裡面放的是blog頁面模板。打開’post.md’會見到預先寫入的title、date等等，此為發文的模板，每次發文都是以這個檔案當為範本，當然我們也可以編輯它。例如，模板預設是沒有寫入’categories’的，那我會把它加上去，否則每次發文還得重打(懶~)<br><img src="https://i.imgur.com/TaK8Wzc.jpg" alt=""></p>
 <p>在Hexo框架下撰文是使用Markdown，不熟悉語法可以參考<a href="https://markdown.tw/" target="_blank" rel="noopener">官方文件</a>，很簡單的~ 然後就可以開始撰寫文章囉，相關指令如下:</p>
 <h2 id="Start-New-Post"><a href="#Start-New-Post" class="headerlink" title="Start New Post"></a>Start New Post</h2><pre><code>cd blog
-hexo new post post-title  # &apos;post-title&apos;請置換為自己的文章標題
+hexo new post post-title  # &#39;post-title&#39;請置換為自己的文章標題
 </code></pre><h2 id="Publish-New-Post"><a href="#Publish-New-Post" class="headerlink" title="Publish New Post"></a>Publish New Post</h2><pre><code>hexo d -g  # generate --&gt; deploy
 </code></pre><p>關於發文有兩件小事 :</p>
 <p>1.categories是唯一、有序的，tags則沒有區分(關鍵字的概念)，意思是如果你的文章設定了A、B兩個類別，那麼這篇文章的分類就會變成’類別A底下的類別B’。<br>2.在new post指令輸入文章標題時，因為標題也是.md的檔名，所以一開始我用underline做區隔(a_b_c)，但我發現Hexo會自動把underline轉成hyphen(a-b-c，順帶一提這條短線叫hyphen…dash是破折號! )，所以就配合它啦，反正title可以建立文章後再修改為中文，檔名還是英文命名比較不會有什麼光怪陸離的事情發生(怕.jpg)</p>
@@ -329,6 +329,25 @@ hexo new post post-title  # &apos;post-title&apos;請置換為自己的文章標
         
         <article class="media">
             
+            <a href="/auto-fill-out-google-form-with-python/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://i.imgur.com/zodJ6IR.png" alt="Python自動填寫Google表單">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T04:18:41.000Z">2019-04-20</time></div>
+                    <a href="/auto-fill-out-google-form-with-python/" class="has-link-black-ter is-size-6">Python自動填寫Google表單</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Python/">Python</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/hexo-theme-icarus/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="https://i.imgur.com/KaGH5Gm.png" alt="Hexo on GitHub Pages:Icarus主題">
@@ -403,25 +422,6 @@ hexo new post post-title  # &apos;post-title&apos;請置換為自己的文章標
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/django-app-and-settings/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://i.imgur.com/19G7Lvu.jpg" alt="Django2.0筆記(2):專案設定與應用程式">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-09-21T16:55:08.000Z">2018-09-22</time></div>
-                    <a href="/django-app-and-settings/" class="has-link-black-ter is-size-6">Django2.0筆記(2):專案設定與應用程式</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Django/">Django</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -440,7 +440,7 @@ hexo new post post-title  # &apos;post-title&apos;請置換為自己的文章標
                     <span class="level-item">April 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
@@ -500,7 +500,7 @@ hexo new post post-title  # &apos;post-title&apos;請置換為自己的文章標
         <h3 class="menu-label">
             Tag Cloud
         </h3>
-        <a href="/tags/Error/" style="font-size: 10px;">Error</a> <a href="/tags/GitHub-Pages/" style="font-size: 10px;">GitHub Pages</a> <a href="/tags/Github-Pages/" style="font-size: 10px;">Github Pages</a> <a href="/tags/Hexo/" style="font-size: 16.67px;">Hexo</a> <a href="/tags/NexT/" style="font-size: 10px;">NexT</a> <a href="/tags/algae-control/" style="font-size: 10px;">algae control</a> <a href="/tags/aquarium/" style="font-size: 16.67px;">aquarium</a> <a href="/tags/cyanobacteria/" style="font-size: 10px;">cyanobacteria</a> <a href="/tags/django/" style="font-size: 16.67px;">django</a> <a href="/tags/excel/" style="font-size: 10px;">excel</a> <a href="/tags/github-pages/" style="font-size: 16.67px;">github pages</a> <a href="/tags/headshot/" style="font-size: 10px;">headshot</a> <a href="/tags/heroku/" style="font-size: 10px;">heroku</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/matplotlib/" style="font-size: 10px;">matplotlib</a> <a href="/tags/pivot-table/" style="font-size: 10px;">pivot table</a> <a href="/tags/planted-tank/" style="font-size: 16.67px;">planted tank</a> <a href="/tags/powershell/" style="font-size: 10px;">powershell</a> <a href="/tags/pyhton/" style="font-size: 10px;">pyhton</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/regex/" style="font-size: 10px;">regex</a> <a href="/tags/vs-code/" style="font-size: 10px;">vs code</a> <a href="/tags/web-crawler/" style="font-size: 13.33px;">web crawler</a>
+        <a href="/tags/Error/" style="font-size: 10px;">Error</a> <a href="/tags/GitHub-Pages/" style="font-size: 10px;">GitHub Pages</a> <a href="/tags/Github-Pages/" style="font-size: 10px;">Github Pages</a> <a href="/tags/Hexo/" style="font-size: 16.67px;">Hexo</a> <a href="/tags/NexT/" style="font-size: 10px;">NexT</a> <a href="/tags/algae-control/" style="font-size: 10px;">algae control</a> <a href="/tags/aquarium/" style="font-size: 16.67px;">aquarium</a> <a href="/tags/cyanobacteria/" style="font-size: 10px;">cyanobacteria</a> <a href="/tags/django/" style="font-size: 16.67px;">django</a> <a href="/tags/excel/" style="font-size: 10px;">excel</a> <a href="/tags/github-pages/" style="font-size: 16.67px;">github pages</a> <a href="/tags/google-form/" style="font-size: 10px;">google form</a> <a href="/tags/headshot/" style="font-size: 10px;">headshot</a> <a href="/tags/heroku/" style="font-size: 10px;">heroku</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/matplotlib/" style="font-size: 10px;">matplotlib</a> <a href="/tags/pivot-table/" style="font-size: 10px;">pivot table</a> <a href="/tags/planted-tank/" style="font-size: 16.67px;">planted tank</a> <a href="/tags/powershell/" style="font-size: 10px;">powershell</a> <a href="/tags/pyhton/" style="font-size: 10px;">pyhton</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/regex/" style="font-size: 10px;">regex</a> <a href="/tags/vs-code/" style="font-size: 10px;">vs code</a> <a href="/tags/web-crawler/" style="font-size: 13.33px;">web crawler</a>
     </div>
 </div>
 

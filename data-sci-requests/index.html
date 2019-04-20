@@ -192,16 +192,16 @@
 <h2 id="Get"><a href="#Get" class="headerlink" title="Get"></a>Get</h2><p>此例為對網頁做基本的請求＆接收回應，raise_for_status()為連線檢查，若返回異常則會拋出Error。</p>
 <pre><code>import requests as rq
 
-url = &apos;http://www.google.com.tw/search?&apos;  # target url
+url = &#39;http://www.google.com.tw/search?&#39;  # target url
 try:
     res = rq.get(url)
     res.raise_for_status()
 except rq.HTTPError:
-    print(&apos;HTTP Error!&apos;)
+    print(&#39;HTTP Error!&#39;)
 
 print(res.text)  # html
 </code></pre><h2 id="Payload"><a href="#Payload" class="headerlink" title="Payload"></a>Payload</h2><p>必要時可以加上參數，例如Google Search:</p>
-<pre><code>payload = {&apos;q&apos;:&apos;data science&apos;}
+<pre><code>payload = {&#39;q&#39;:&#39;data science&#39;}
 res = rq.get(url, params=payload)  # http://www.google.com.tw/search?q=data+science
 </code></pre><p>參數的部分為字典結構，key則要視url結構而定。</p>
 <h2 id="Post"><a href="#Post" class="headerlink" title="Post"></a>Post</h2><p>針對網頁中的表單，可以使用Post來傳送Payload</p>
@@ -347,6 +347,25 @@ res = rq.get(url, params=payload)  # http://www.google.com.tw/search?q=data+scie
         
         <article class="media">
             
+            <a href="/auto-fill-out-google-form-with-python/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://i.imgur.com/zodJ6IR.png" alt="Python自動填寫Google表單">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T04:18:41.000Z">2019-04-20</time></div>
+                    <a href="/auto-fill-out-google-form-with-python/" class="has-link-black-ter is-size-6">Python自動填寫Google表單</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Python/">Python</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/hexo-theme-icarus/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="https://i.imgur.com/KaGH5Gm.png" alt="Hexo on GitHub Pages:Icarus主題">
@@ -421,25 +440,6 @@ res = rq.get(url, params=payload)  # http://www.google.com.tw/search?q=data+scie
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/django-app-and-settings/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://i.imgur.com/19G7Lvu.jpg" alt="Django2.0筆記(2):專案設定與應用程式">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-09-21T16:55:08.000Z">2018-09-22</time></div>
-                    <a href="/django-app-and-settings/" class="has-link-black-ter is-size-6">Django2.0筆記(2):專案設定與應用程式</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Django/">Django</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -458,7 +458,7 @@ res = rq.get(url, params=payload)  # http://www.google.com.tw/search?q=data+scie
                     <span class="level-item">April 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
@@ -518,7 +518,7 @@ res = rq.get(url, params=payload)  # http://www.google.com.tw/search?q=data+scie
         <h3 class="menu-label">
             Tag Cloud
         </h3>
-        <a href="/tags/Error/" style="font-size: 10px;">Error</a> <a href="/tags/GitHub-Pages/" style="font-size: 10px;">GitHub Pages</a> <a href="/tags/Github-Pages/" style="font-size: 10px;">Github Pages</a> <a href="/tags/Hexo/" style="font-size: 16.67px;">Hexo</a> <a href="/tags/NexT/" style="font-size: 10px;">NexT</a> <a href="/tags/algae-control/" style="font-size: 10px;">algae control</a> <a href="/tags/aquarium/" style="font-size: 16.67px;">aquarium</a> <a href="/tags/cyanobacteria/" style="font-size: 10px;">cyanobacteria</a> <a href="/tags/django/" style="font-size: 16.67px;">django</a> <a href="/tags/excel/" style="font-size: 10px;">excel</a> <a href="/tags/github-pages/" style="font-size: 16.67px;">github pages</a> <a href="/tags/headshot/" style="font-size: 10px;">headshot</a> <a href="/tags/heroku/" style="font-size: 10px;">heroku</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/matplotlib/" style="font-size: 10px;">matplotlib</a> <a href="/tags/pivot-table/" style="font-size: 10px;">pivot table</a> <a href="/tags/planted-tank/" style="font-size: 16.67px;">planted tank</a> <a href="/tags/powershell/" style="font-size: 10px;">powershell</a> <a href="/tags/pyhton/" style="font-size: 10px;">pyhton</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/regex/" style="font-size: 10px;">regex</a> <a href="/tags/vs-code/" style="font-size: 10px;">vs code</a> <a href="/tags/web-crawler/" style="font-size: 13.33px;">web crawler</a>
+        <a href="/tags/Error/" style="font-size: 10px;">Error</a> <a href="/tags/GitHub-Pages/" style="font-size: 10px;">GitHub Pages</a> <a href="/tags/Github-Pages/" style="font-size: 10px;">Github Pages</a> <a href="/tags/Hexo/" style="font-size: 16.67px;">Hexo</a> <a href="/tags/NexT/" style="font-size: 10px;">NexT</a> <a href="/tags/algae-control/" style="font-size: 10px;">algae control</a> <a href="/tags/aquarium/" style="font-size: 16.67px;">aquarium</a> <a href="/tags/cyanobacteria/" style="font-size: 10px;">cyanobacteria</a> <a href="/tags/django/" style="font-size: 16.67px;">django</a> <a href="/tags/excel/" style="font-size: 10px;">excel</a> <a href="/tags/github-pages/" style="font-size: 16.67px;">github pages</a> <a href="/tags/google-form/" style="font-size: 10px;">google form</a> <a href="/tags/headshot/" style="font-size: 10px;">headshot</a> <a href="/tags/heroku/" style="font-size: 10px;">heroku</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/matplotlib/" style="font-size: 10px;">matplotlib</a> <a href="/tags/pivot-table/" style="font-size: 10px;">pivot table</a> <a href="/tags/planted-tank/" style="font-size: 16.67px;">planted tank</a> <a href="/tags/powershell/" style="font-size: 10px;">powershell</a> <a href="/tags/pyhton/" style="font-size: 10px;">pyhton</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/regex/" style="font-size: 10px;">regex</a> <a href="/tags/vs-code/" style="font-size: 10px;">vs code</a> <a href="/tags/web-crawler/" style="font-size: 13.33px;">web crawler</a>
     </div>
 </div>
 

@@ -206,13 +206,13 @@
 <p>不過我個人覺得最常用的應該是findall()，比對所有符合規則的字串並返回串列：</p>
 <pre><code>import re
 
-str_ =  &apos;_.Aa123Bb456Cc789Dd3.14&apos;
+str_ =  &#39;_.Aa123Bb456Cc789Dd3.14&#39;
 
-find_alphabet = re.findall(r&apos;[A-Za-z]+&apos;, str_)
-print(find_alphabet)  ＃ [&apos;Aa&apos;, &apos;Bb&apos;, &apos;Cc&apos;, &apos;Dd&apos;]
+find_alphabet = re.findall(r&#39;[A-Za-z]+&#39;, str_)
+print(find_alphabet)  ＃ [&#39;Aa&#39;, &#39;Bb&#39;, &#39;Cc&#39;, &#39;Dd&#39;]
 
-find_rational = re.findall(r&apos;[0-9]+\.?[0-9]*&apos;, str_)
-print(find_rational)  ＃ [&apos;123&apos;, &apos;456&apos;, &apos;789&apos;, &apos;3.14&apos;]
+find_rational = re.findall(r&#39;[0-9]+\.?[0-9]*&#39;, str_)
+print(find_rational)  ＃ [&#39;123&#39;, &#39;456&#39;, &#39;789&#39;, &#39;3.14&#39;]
 </code></pre><h2 id="Code"><a href="#Code" class="headerlink" title="Code:"></a>Code:</h2><p>在Google首頁中尋找.jpg/.png，雖然只有一張圖片～但就是測試嘛XD 另外，常用的表達式可以透過re.compile()轉成regex object，直接呼叫search()、match()、findall()，也可以在使用bs4解析網頁時使用(如下):</p>
 <pre><code>#!usr/bin/env python3
 # coding:utf-8
@@ -221,18 +221,18 @@ import re
 import requests as rq
 from bs4 import BeautifulSoup as bs
 
-pattern = re.compile(r&apos;.+\.jpg|.+\.png&apos;)
-url = &apos;https://www.google.com&apos;
+pattern = re.compile(r&#39;.+\.jpg|.+\.png&#39;)
+url = &#39;https://www.google.com&#39;
 try:
     res = rq.get(url)
     res.raise_for_status()
 except rq.HTTPError:
-    print(&apos;HTTP Error!&apos;)
+    print(&#39;HTTP Error!&#39;)
 
-soup = bs(res.text, &apos;html.parser&apos;)
-imgs = soup.find_all(&quot;meta&quot;, {&quot;content&quot;:pattern})  # find all images in attr &apos;content&apos; of tag &apos;meta&apos;
+soup = bs(res.text, &#39;html.parser&#39;)
+imgs = soup.find_all(&quot;meta&quot;, {&quot;content&quot;:pattern})  # find all images in attr &#39;content&#39; of tag &#39;meta&#39;
 for img in imgs:
-    print(img[&apos;content&apos;])  # /images/branding/googleg/1x/googleg_standard_color_128dp.png
+    print(img[&#39;content&#39;])  # /images/branding/googleg/1x/googleg_standard_color_128dp.png
 </code></pre>
         </div>
         
@@ -364,6 +364,25 @@ for img in imgs:
         
         <article class="media">
             
+            <a href="/auto-fill-out-google-form-with-python/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://i.imgur.com/zodJ6IR.png" alt="Python自動填寫Google表單">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T04:18:41.000Z">2019-04-20</time></div>
+                    <a href="/auto-fill-out-google-form-with-python/" class="has-link-black-ter is-size-6">Python自動填寫Google表單</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Python/">Python</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/hexo-theme-icarus/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="https://i.imgur.com/KaGH5Gm.png" alt="Hexo on GitHub Pages:Icarus主題">
@@ -438,25 +457,6 @@ for img in imgs:
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/django-app-and-settings/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://i.imgur.com/19G7Lvu.jpg" alt="Django2.0筆記(2):專案設定與應用程式">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-09-21T16:55:08.000Z">2018-09-22</time></div>
-                    <a href="/django-app-and-settings/" class="has-link-black-ter is-size-6">Django2.0筆記(2):專案設定與應用程式</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Django/">Django</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -475,7 +475,7 @@ for img in imgs:
                     <span class="level-item">April 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
@@ -535,7 +535,7 @@ for img in imgs:
         <h3 class="menu-label">
             Tag Cloud
         </h3>
-        <a href="/tags/Error/" style="font-size: 10px;">Error</a> <a href="/tags/GitHub-Pages/" style="font-size: 10px;">GitHub Pages</a> <a href="/tags/Github-Pages/" style="font-size: 10px;">Github Pages</a> <a href="/tags/Hexo/" style="font-size: 16.67px;">Hexo</a> <a href="/tags/NexT/" style="font-size: 10px;">NexT</a> <a href="/tags/algae-control/" style="font-size: 10px;">algae control</a> <a href="/tags/aquarium/" style="font-size: 16.67px;">aquarium</a> <a href="/tags/cyanobacteria/" style="font-size: 10px;">cyanobacteria</a> <a href="/tags/django/" style="font-size: 16.67px;">django</a> <a href="/tags/excel/" style="font-size: 10px;">excel</a> <a href="/tags/github-pages/" style="font-size: 16.67px;">github pages</a> <a href="/tags/headshot/" style="font-size: 10px;">headshot</a> <a href="/tags/heroku/" style="font-size: 10px;">heroku</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/matplotlib/" style="font-size: 10px;">matplotlib</a> <a href="/tags/pivot-table/" style="font-size: 10px;">pivot table</a> <a href="/tags/planted-tank/" style="font-size: 16.67px;">planted tank</a> <a href="/tags/powershell/" style="font-size: 10px;">powershell</a> <a href="/tags/pyhton/" style="font-size: 10px;">pyhton</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/regex/" style="font-size: 10px;">regex</a> <a href="/tags/vs-code/" style="font-size: 10px;">vs code</a> <a href="/tags/web-crawler/" style="font-size: 13.33px;">web crawler</a>
+        <a href="/tags/Error/" style="font-size: 10px;">Error</a> <a href="/tags/GitHub-Pages/" style="font-size: 10px;">GitHub Pages</a> <a href="/tags/Github-Pages/" style="font-size: 10px;">Github Pages</a> <a href="/tags/Hexo/" style="font-size: 16.67px;">Hexo</a> <a href="/tags/NexT/" style="font-size: 10px;">NexT</a> <a href="/tags/algae-control/" style="font-size: 10px;">algae control</a> <a href="/tags/aquarium/" style="font-size: 16.67px;">aquarium</a> <a href="/tags/cyanobacteria/" style="font-size: 10px;">cyanobacteria</a> <a href="/tags/django/" style="font-size: 16.67px;">django</a> <a href="/tags/excel/" style="font-size: 10px;">excel</a> <a href="/tags/github-pages/" style="font-size: 16.67px;">github pages</a> <a href="/tags/google-form/" style="font-size: 10px;">google form</a> <a href="/tags/headshot/" style="font-size: 10px;">headshot</a> <a href="/tags/heroku/" style="font-size: 10px;">heroku</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/matplotlib/" style="font-size: 10px;">matplotlib</a> <a href="/tags/pivot-table/" style="font-size: 10px;">pivot table</a> <a href="/tags/planted-tank/" style="font-size: 16.67px;">planted tank</a> <a href="/tags/powershell/" style="font-size: 10px;">powershell</a> <a href="/tags/pyhton/" style="font-size: 10px;">pyhton</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/regex/" style="font-size: 10px;">regex</a> <a href="/tags/vs-code/" style="font-size: 10px;">vs code</a> <a href="/tags/web-crawler/" style="font-size: 13.33px;">web crawler</a>
     </div>
 </div>
 

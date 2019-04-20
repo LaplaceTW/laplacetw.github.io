@@ -2,25 +2,25 @@
 <html  lang="en">
 <head>
     <meta charset="utf-8">
-<title>資料科學筆記(3)：Web Crawler - Démon de Laplace</title>
+<title>Python自動填寫Google表單 - Démon de Laplace</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
 
 
-    <meta name="description" content="說到網路爬蟲，最厲害的應該就是Google了．．．呵！雖然寫不出這麼會爬的東西，但沒關係，我們只要能寫個像樣的爬蟲去使喚Google的爬蟲就行 : p">
-<meta name="keywords" content="python,web crawler">
+    <meta name="description" content="">
+<meta name="keywords" content="python,google form">
 <meta property="og:type" content="article">
-<meta property="og:title" content="資料科學筆記(3)：Web Crawler">
-<meta property="og:url" content="https://laplacetw.github.io/data-sci-google-search/index.html">
+<meta property="og:title" content="Python自動填寫Google表單">
+<meta property="og:url" content="https://laplacetw.github.io/auto-fill-out-google-form-with-python/index.html">
 <meta property="og:site_name" content="Démon de Laplace">
-<meta property="og:description" content="說到網路爬蟲，最厲害的應該就是Google了．．．呵！雖然寫不出這麼會爬的東西，但沒關係，我們只要能寫個像樣的爬蟲去使喚Google的爬蟲就行 : p">
+<meta property="og:description" content="">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://i.imgur.com/EcaezM5.png">
-<meta property="og:updated_time" content="2019-04-18T15:46:10.227Z">
+<meta property="og:image" content="https://i.imgur.com/zodJ6IR.png">
+<meta property="og:updated_time" content="2019-04-20T08:06:38.555Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="資料科學筆記(3)：Web Crawler">
-<meta name="twitter:description" content="說到網路爬蟲，最厲害的應該就是Google了．．．呵！雖然寫不出這麼會爬的東西，但沒關係，我們只要能寫個像樣的爬蟲去使喚Google的爬蟲就行 : p">
-<meta name="twitter:image" content="https://i.imgur.com/EcaezM5.png">
+<meta name="twitter:title" content="Python自動填寫Google表單">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://i.imgur.com/zodJ6IR.png">
 
 
 
@@ -98,7 +98,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="資料科學筆記(3)：Web Crawler" height="28">
+                <img src="/images/logo.svg" alt="Python自動填寫Google表單" height="28">
             
             </a>
         </div>
@@ -153,7 +153,7 @@
     
     <div class="card-image">
         <span  class="image is-7by1">
-            <img class="thumbnail" src="https://i.imgur.com/EcaezM5.png" alt="資料科學筆記(3)：Web Crawler">
+            <img class="thumbnail" src="https://i.imgur.com/zodJ6IR.png" alt="Python自動填寫Google表單">
         </span>
     </div>
     
@@ -161,13 +161,13 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <!--time class="level-item has-text-grey" datetime="2018-09-02T17:17:14.000Z">2018-09-03</time-->
+                <!--time class="level-item has-text-grey" datetime="2019-04-20T04:18:41.000Z">2019-04-20</time-->
                 <i class="far fa-calendar-alt"></i>&nbsp;
-                <sapn class="level-item has-text-grey" datetime="2018-09-02T17:17:14.000Z">2018-09-03</span>
+                <sapn class="level-item has-text-grey" datetime="2019-04-20T04:18:41.000Z">2019-04-20</span>
                 &nbsp;|&nbsp;<i class="far fa-folder"></i>&nbsp;
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Data-Science/">Data Science</a>
+                <a class="has-link-grey -link" href="/categories/Python/">Python</a>
                 </div>
                 
                 |&nbsp;<i class="far fa-clock"></i>&nbsp;
@@ -175,7 +175,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    3 minutes read (About 441 words)
+                    2 minutes read (About 344 words)
                 </span>
                 
                 
@@ -189,44 +189,56 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                資料科學筆記(3)：Web Crawler
+                Python自動填寫Google表單
             
         </h1>
         <div class="content">
-            <p>說到網路爬蟲，最厲害的應該就是Google了．．．呵！雖然寫不出這麼會爬的東西，但沒關係，我們只要能寫個像樣的爬蟲去使喚Google的爬蟲就行 : p</p>
-<a id="more"></a>
-<h2 id="Web-Analytics"><a href="#Web-Analytics" class="headerlink" title="Web Analytics"></a>Web Analytics</h2><p>首先來瞧瞧Google Search的網址，嘗試輸入任意關鍵字執行搜尋後可以發現，搜尋的網址是長這樣的：</p>
-<pre><code>http://www.google.com.tw/search?q=
-</code></pre><p>“=”後面便是搜尋的關鍵字了，再來檢查一下網頁原始碼，搜尋結果就在class=”g”的div區塊中。</p>
-<p>既然爬蟲能這樣到處玩耍，想必也會有不歡迎爬蟲的網站XD 畢竟要是放任大量爬蟲在網站拚命搜刮，可是會給伺服器帶來困擾的呢，所以Web Crawler會有許多的技巧來偽裝，讓自己在伺服器的眼中看起來更像是人為的操作：例如，在request加上user agent偽裝成瀏覽器，或在多個request之間設置延遲，除了模擬人為操作，亦避免造成他人伺服器的負擔．．．這是道德問題XD</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><pre><code>#!/usr/bin/env python3
-# *** coding : utf-8 ***
-
+            <p><a id="more"></a><br>首先建個Google表單來測試：現任美國總統究竟是州普？卅普？還是川普？<br>!()[<a href="https://i.imgur.com/th41Uch.png]" target="_blank" rel="noopener">https://i.imgur.com/th41Uch.png]</a></p>
+<p>打開瀏覽器的開發人員模式，切換到Network Panel並試著送出一次表單，可見formResponse有相當明顯的數據傳輸。<br>!()[<a href="https://i.imgur.com/7EDofS9.png]" target="_blank" rel="noopener">https://i.imgur.com/7EDofS9.png]</a></p>
+<p>展開查看詳情，在Header的部分可以找到剛才送出表單的資料結構，確定“entry.1216123536”就是所填寫的表單欄位，那麼可以開始寫程式了。<br>!()[<a href="https://i.imgur.com/O02YylJ.png]" target="_blank" rel="noopener">https://i.imgur.com/O02YylJ.png]</a></p>
+<h3 id="url"><a href="#url" class="headerlink" title="url"></a>url</h3><p>在Header摘要可見到url的格式為表單網址加上”/</p>
+<h3 id="data"><a href="#data" class="headerlink" title="data"></a>data</h3><pre><code>payload = {
+    &#39;entry.1216123536&#39; : &#39;&#39;,
+    &#39;fvv&#39; : &#39;0&#39;,
+    &#39;draftResponse&#39; : &#39;[]&#39;,
+    &#39;pageHistory&#39; : &#39;0&#39;,
+    &#39;fbzx&#39; : &#39;9150375950543103543&#39;
+}
+</code></pre><h3 id="code"><a href="#code" class="headerlink" title="code"></a>code</h3><p>為了讓程式的行為看起來不那麼程式(?)，設置隨機填寫欄位值與隨機延遲時間。</p>
+<pre><code>import re
+import time
 import random
+import numpy as np
 import requests as rq
-from bs4 import BeautifulSoup as bs
 
-user_agent = [&quot;Mozilla/5.0 (Windows NT 6.1; rv:2.0.1) Gecko/20100101 Firefox/4.0.1&quot;,
-            &quot;Mozilla/5.0 (Windows NT 10.0; WOW64; rv:38.0) Gecko/20100101 Firefox/38.0&quot;,
-            &quot;Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0&quot;,
-            &quot;Mozilla/5.0 (Macintosh; Intel Mac OS X x.y; rv:42.0) Gecko/20100101 Firefox/42.0&quot;,
-            &quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0.1) Gecko/20100101 Firefox/4.0.1&quot;]
+url = &#39;https://docs.google.com/forms/d/e/1FAIpQLScMGMdUBbPL3lF5yTqa-kXJVAwsBAhlCYRQ3abxf3Gjx6EFGA/formResponse&#39;
+params = [&#39;州普&#39;, &#39;卅普&#39;, &#39;川普&#39;]
+payload = {
+    &#39;entry.1216123536&#39; : &#39;&#39;,
+    &#39;fvv&#39; : &#39;0&#39;,
+    &#39;draftResponse&#39; : &#39;[]&#39;,
+    &#39;pageHistory&#39; : &#39;0&#39;,
+    &#39;fbzx&#39; : &#39;9150375950543103543&#39;
+}
 
-target = input(&#39;search:&#39;)
-url = &#39;http://www.google.com.tw/search?q=&#39; + target
-try:
-    res = rq.get(url=url, headers={&#39;User-Agent&#39;: random.choice(user_agent)})
-    res.raise_for_status()
-except rq.exceptions.HTTPError:
-    print(&#39;[HTTP_Error]&#39;)
+num = 10  # number of executions
+period = np.arange(0.5, 5.0, 0.1)
+delay = 0  # delay of execution
+while num &gt; 0:
+    try:
+        payload[&#39;entry.1216123536&#39;] = random.choice(params)  # random choice
+        res = rq.post(url, data=payload)
+        res.raise_for_status()
+        if res.status_code == 200 :
+            delay = round(random.choice(period), 2)  # round off to the 2nd decimal place
+            print(&#39;Fill Out : &#39; + payload[&#39;entry.1216123536&#39;] + &#39; delay : &#39; + str(delay) + &#39; sec&#39;)
+            time.sleep(delay)
+    except rq.HTTPError:
+        print(&#39;HTTP Error!&#39;)
 
-soup = bs(res.text, &#39;html.parser&#39;)
-link = soup.select(&#39;.g .r a&#39;)
-
-for index in range(2):
-    print(link[index].string)   # title
-    print(link[index][&#39;href&#39;])  # link
-</code></pre><p>輸出結果：<br><img src="https://i.imgur.com/EcaezM5.png" alt=""></p>
+    num -= 1
+</code></pre><p>!()[<a href="https://i.imgur.com/jKfaOP4.png]" target="_blank" rel="noopener">https://i.imgur.com/jKfaOP4.png]</a></p>
+<p>↓ 嗯，只有兩個人答對呢(?)<br>!()[<a href="https://i.imgur.com/zodJ6IR.png]" target="_blank" rel="noopener">https://i.imgur.com/zodJ6IR.png]</a></p>
 
         </div>
         
@@ -234,7 +246,7 @@ for index in range(2):
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7"><i class="fas fa-tag"></i></span>
-                    <a class="has-link-grey -link" href="/tags/python/">python</a>, <a class="has-link-grey -link" href="/tags/web-crawler/">web crawler</a>
+                    <a class="has-link-grey -link" href="/tags/google-form/">google form</a>, <a class="has-link-grey -link" href="/tags/python/">python</a>
                 </div>
                 <div class="level-item">
                     <ul class="post-copyright">
@@ -243,11 +255,11 @@ for index in range(2):
                         </li>
                         <li class="post-copyright-link">
                         <strong>Link：</strong>
-                        <a href="" title="{{ page.title }}">資料科學筆記(3)：Web Crawler</a>
+                        <a href="" title="{{ page.title }}">Python自動填寫Google表單</a>
                         </li>
                         <li class="post-copyright-link">
                         <strong>Post：</strong>
-                        <a href="" title="{{ page.title }}">2018-09-03</a>
+                        <a href="" title="{{ page.title }}">2019-04-20</a>
                         </li>
                         <li class="post-copyright-license">
                         <strong>Notice: </strong>
@@ -271,17 +283,10 @@ for index in range(2):
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/data-sci-re/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">資料科學筆記(4)：正則式與re模組</span>
-            </a>
-        </div>
-        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/data-sci-bs4/">
-                <span class="level-item">資料科學筆記(2)：BeautifulSoup模組</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/hexo-theme-icarus/">
+                <span class="level-item">Hexo on GitHub Pages:Icarus主題</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -297,8 +302,8 @@ for index in range(2):
         
 <script>
     var disqus_config = function () {
-        this.page.url = 'https://laplacetw.github.io/data-sci-google-search/';
-        this.page.identifier = 'data-sci-google-search/';
+        this.page.url = 'https://laplacetw.github.io/auto-fill-out-google-form-with-python/';
+        this.page.identifier = 'auto-fill-out-google-form-with-python/';
     };
     (function() {
         var d = document, s = d.createElement('script');  
@@ -332,13 +337,17 @@ for index in range(2):
                 Catalogue
             </h3>
             <ul class="menu-list"><li>
-        <a class="is-flex" href="#Web-Analytics">
+        <a class="is-flex" href="#url">
         <span class="has-mr-6">1</span>
-        <span>Web Analytics</span>
+        <span>url</span>
         </a></li><li>
-        <a class="is-flex" href="#Code">
+        <a class="is-flex" href="#data">
         <span class="has-mr-6">2</span>
-        <span>Code</span>
+        <span>data</span>
+        </a></li><li>
+        <a class="is-flex" href="#code">
+        <span class="has-mr-6">3</span>
+        <span>code</span>
         </a></li></ul>
         </div>
     </div>
@@ -543,7 +552,7 @@ for index in range(2):
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="資料科學筆記(3)：Web Crawler" height="28">
+                    <img src="/images/logo.svg" alt="Python自動填寫Google表單" height="28">
                 
                 </a>
                 <p class="is-size-7">

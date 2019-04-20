@@ -210,7 +210,7 @@ hexo s --debug    # 以debug模式啟動local host server
 <p>*官方文件(中文):<br>  1.<a href="https://hexo.io/zh-tw/docs/" target="_blank" rel="noopener">Hexo docs</a><br>  2.<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="noopener">NexT docs</a></p>
 <h2 id="Root-Config"><a href="#Root-Config" class="headerlink" title="Root Config"></a>Root Config</h2><p>檔案位址:~/_config.yml</p>
 <pre><code># Site
-title: LaplaceTW&apos;s Blog         # 網站標題
+title: LaplaceTW&#39;s Blog         # 網站標題
 subtitle: learning-by-doing     # 網站副標題
 description: learning-by-doing  # 網站描述
 keywords:
@@ -219,18 +219,18 @@ language: zh-tw                 # 頁面語言
 timezone:
 
 # URL
-## If your site is put in a subdirectory, set url as &apos;http://yoursite.com/child&apos; and root as &apos;/child/&apos;
+## If your site is put in a subdirectory, set url as &#39;http://yoursite.com/child&#39; and root as &#39;/child/&#39;
 url: https://username.github.io/  # 網站首頁網址
 root: /
 permalink: :title/                # 文章永久連結，基於優化考量不建議使用預設值(:year/:month/:day/:title/)
 permalink_defaults:
 
 # Home page setting
-# path: Root path for your blogs index page. (default = &apos;&apos;)
+# path: Root path for your blogs index page. (default = &#39;&#39;)
 # per_page: Posts displayed per page. (0 = disable pagination)
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
-path: &apos;&apos;
+path: &#39;&#39;
 per_page: 5      # 每頁顯示文章數(預設值為10)
 order_by: -date
 </code></pre><p>↓Root Config沒什麼複雜的屬性設定，不過在#site設定部分，我以為設定為subtitle的文字會顯示在author下方(紅框處)…結果顯示的文字是description，所以我說內個subtitle呢???<br><img src="https://i.imgur.com/3YLGWXs.jpg" alt=""></p>
@@ -450,6 +450,25 @@ license_url: https://creativecommons.org/licenses/by/4.0/
         
         <article class="media">
             
+            <a href="/auto-fill-out-google-form-with-python/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://i.imgur.com/zodJ6IR.png" alt="Python自動填寫Google表單">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T04:18:41.000Z">2019-04-20</time></div>
+                    <a href="/auto-fill-out-google-form-with-python/" class="has-link-black-ter is-size-6">Python自動填寫Google表單</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Python/">Python</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/hexo-theme-icarus/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="https://i.imgur.com/KaGH5Gm.png" alt="Hexo on GitHub Pages:Icarus主題">
@@ -524,25 +543,6 @@ license_url: https://creativecommons.org/licenses/by/4.0/
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/django-app-and-settings/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://i.imgur.com/19G7Lvu.jpg" alt="Django2.0筆記(2):專案設定與應用程式">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-09-21T16:55:08.000Z">2018-09-22</time></div>
-                    <a href="/django-app-and-settings/" class="has-link-black-ter is-size-6">Django2.0筆記(2):專案設定與應用程式</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Django/">Django</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -561,7 +561,7 @@ license_url: https://creativecommons.org/licenses/by/4.0/
                     <span class="level-item">April 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
@@ -621,7 +621,7 @@ license_url: https://creativecommons.org/licenses/by/4.0/
         <h3 class="menu-label">
             Tag Cloud
         </h3>
-        <a href="/tags/Error/" style="font-size: 10px;">Error</a> <a href="/tags/GitHub-Pages/" style="font-size: 10px;">GitHub Pages</a> <a href="/tags/Github-Pages/" style="font-size: 10px;">Github Pages</a> <a href="/tags/Hexo/" style="font-size: 16.67px;">Hexo</a> <a href="/tags/NexT/" style="font-size: 10px;">NexT</a> <a href="/tags/algae-control/" style="font-size: 10px;">algae control</a> <a href="/tags/aquarium/" style="font-size: 16.67px;">aquarium</a> <a href="/tags/cyanobacteria/" style="font-size: 10px;">cyanobacteria</a> <a href="/tags/django/" style="font-size: 16.67px;">django</a> <a href="/tags/excel/" style="font-size: 10px;">excel</a> <a href="/tags/github-pages/" style="font-size: 16.67px;">github pages</a> <a href="/tags/headshot/" style="font-size: 10px;">headshot</a> <a href="/tags/heroku/" style="font-size: 10px;">heroku</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/matplotlib/" style="font-size: 10px;">matplotlib</a> <a href="/tags/pivot-table/" style="font-size: 10px;">pivot table</a> <a href="/tags/planted-tank/" style="font-size: 16.67px;">planted tank</a> <a href="/tags/powershell/" style="font-size: 10px;">powershell</a> <a href="/tags/pyhton/" style="font-size: 10px;">pyhton</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/regex/" style="font-size: 10px;">regex</a> <a href="/tags/vs-code/" style="font-size: 10px;">vs code</a> <a href="/tags/web-crawler/" style="font-size: 13.33px;">web crawler</a>
+        <a href="/tags/Error/" style="font-size: 10px;">Error</a> <a href="/tags/GitHub-Pages/" style="font-size: 10px;">GitHub Pages</a> <a href="/tags/Github-Pages/" style="font-size: 10px;">Github Pages</a> <a href="/tags/Hexo/" style="font-size: 16.67px;">Hexo</a> <a href="/tags/NexT/" style="font-size: 10px;">NexT</a> <a href="/tags/algae-control/" style="font-size: 10px;">algae control</a> <a href="/tags/aquarium/" style="font-size: 16.67px;">aquarium</a> <a href="/tags/cyanobacteria/" style="font-size: 10px;">cyanobacteria</a> <a href="/tags/django/" style="font-size: 16.67px;">django</a> <a href="/tags/excel/" style="font-size: 10px;">excel</a> <a href="/tags/github-pages/" style="font-size: 16.67px;">github pages</a> <a href="/tags/google-form/" style="font-size: 10px;">google form</a> <a href="/tags/headshot/" style="font-size: 10px;">headshot</a> <a href="/tags/heroku/" style="font-size: 10px;">heroku</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/matplotlib/" style="font-size: 10px;">matplotlib</a> <a href="/tags/pivot-table/" style="font-size: 10px;">pivot table</a> <a href="/tags/planted-tank/" style="font-size: 16.67px;">planted tank</a> <a href="/tags/powershell/" style="font-size: 10px;">powershell</a> <a href="/tags/pyhton/" style="font-size: 10px;">pyhton</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/regex/" style="font-size: 10px;">regex</a> <a href="/tags/vs-code/" style="font-size: 10px;">vs code</a> <a href="/tags/web-crawler/" style="font-size: 13.33px;">web crawler</a>
     </div>
 </div>
 

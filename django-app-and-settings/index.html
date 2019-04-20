@@ -214,13 +214,13 @@
 <li><p>新建立的App必須在這裡被定義</p>
 <p>  # Application definition</p>
 <p>  INSTALLED_APPS = [</p>
-<pre><code>&apos;django.contrib.admin&apos;,
-&apos;django.contrib.auth&apos;,
-&apos;django.contrib.contenttypes&apos;,
-&apos;django.contrib.sessions&apos;,
-&apos;django.contrib.messages&apos;,
-&apos;django.contrib.staticfiles&apos;,
-‘{app_name}’,
+<pre><code>  &#39;django.contrib.admin&#39;,
+  &#39;django.contrib.auth&#39;,
+  &#39;django.contrib.contenttypes&#39;,
+  &#39;django.contrib.sessions&#39;,
+  &#39;django.contrib.messages&#39;,
+  &#39;django.contrib.staticfiles&#39;,
+  ‘{app_name}’,
 </code></pre><p>  ]</p>
 </li>
 </ul>
@@ -233,19 +233,19 @@
   <font color="red">os.path.join(BASE_DIR, ‘templates’)</font>
 
 <p>  TEMPLATES = [</p>
-<pre><code>{
-    &apos;BACKEND&apos;: &apos;django.template.backends.django.DjangoTemplates&apos;,
-    &apos;DIRS&apos;: [os.path.join(BASE_DIR, &apos;templates&apos;)],
-    &apos;APP_DIRS&apos;: True,
-    &apos;OPTIONS&apos;: {
-        &apos;context_processors&apos;: [
-            &apos;django.template.context_processors.debug&apos;,
-            &apos;django.template.context_processors.request&apos;,
-            &apos;django.contrib.auth.context_processors.auth&apos;,
-            &apos;django.contrib.messages.context_processors.messages&apos;,
-        ],
-    },
-},
+<pre><code>  {
+      &#39;BACKEND&#39;: &#39;django.template.backends.django.DjangoTemplates&#39;,
+      &#39;DIRS&#39;: [os.path.join(BASE_DIR, &#39;templates&#39;)],
+      &#39;APP_DIRS&#39;: True,
+      &#39;OPTIONS&#39;: {
+          &#39;context_processors&#39;: [
+              &#39;django.template.context_processors.debug&#39;,
+              &#39;django.template.context_processors.request&#39;,
+              &#39;django.contrib.auth.context_processors.auth&#39;,
+              &#39;django.contrib.messages.context_processors.messages&#39;,
+          ],
+      },
+  },
 </code></pre><p>  ]</p>
 </li>
 </ul>
@@ -261,7 +261,7 @@
 <p>  md static  # build folder for static files(e.g. css, images…)</p>
 <p>  接著在settings.py中設定路徑，請於<font color="red">STATIC_URL</font>後面加上這一段:</p>
 <p>  STATICFILES_DIRS = [</p>
-<pre><code>os.path.join(BASE_DIR, &apos;static&apos;),
+<pre><code>  os.path.join(BASE_DIR, &#39;static&#39;),
 </code></pre><p>  ]</p>
 </li>
 </ul>
@@ -400,6 +400,25 @@ python manage.py migrate {app_name(optional)}  # data synchronization
         
         <article class="media">
             
+            <a href="/auto-fill-out-google-form-with-python/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://i.imgur.com/zodJ6IR.png" alt="Python自動填寫Google表單">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T04:18:41.000Z">2019-04-20</time></div>
+                    <a href="/auto-fill-out-google-form-with-python/" class="has-link-black-ter is-size-6">Python自動填寫Google表單</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Python/">Python</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/hexo-theme-icarus/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="https://i.imgur.com/KaGH5Gm.png" alt="Hexo on GitHub Pages:Icarus主題">
@@ -474,25 +493,6 @@ python manage.py migrate {app_name(optional)}  # data synchronization
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/django-app-and-settings/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://i.imgur.com/19G7Lvu.jpg" alt="Django2.0筆記(2):專案設定與應用程式">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-09-21T16:55:08.000Z">2018-09-22</time></div>
-                    <a href="/django-app-and-settings/" class="has-link-black-ter is-size-6">Django2.0筆記(2):專案設定與應用程式</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Django/">Django</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -511,7 +511,7 @@ python manage.py migrate {app_name(optional)}  # data synchronization
                     <span class="level-item">April 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
@@ -571,7 +571,7 @@ python manage.py migrate {app_name(optional)}  # data synchronization
         <h3 class="menu-label">
             Tag Cloud
         </h3>
-        <a href="/tags/Error/" style="font-size: 10px;">Error</a> <a href="/tags/GitHub-Pages/" style="font-size: 10px;">GitHub Pages</a> <a href="/tags/Github-Pages/" style="font-size: 10px;">Github Pages</a> <a href="/tags/Hexo/" style="font-size: 16.67px;">Hexo</a> <a href="/tags/NexT/" style="font-size: 10px;">NexT</a> <a href="/tags/algae-control/" style="font-size: 10px;">algae control</a> <a href="/tags/aquarium/" style="font-size: 16.67px;">aquarium</a> <a href="/tags/cyanobacteria/" style="font-size: 10px;">cyanobacteria</a> <a href="/tags/django/" style="font-size: 16.67px;">django</a> <a href="/tags/excel/" style="font-size: 10px;">excel</a> <a href="/tags/github-pages/" style="font-size: 16.67px;">github pages</a> <a href="/tags/headshot/" style="font-size: 10px;">headshot</a> <a href="/tags/heroku/" style="font-size: 10px;">heroku</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/matplotlib/" style="font-size: 10px;">matplotlib</a> <a href="/tags/pivot-table/" style="font-size: 10px;">pivot table</a> <a href="/tags/planted-tank/" style="font-size: 16.67px;">planted tank</a> <a href="/tags/powershell/" style="font-size: 10px;">powershell</a> <a href="/tags/pyhton/" style="font-size: 10px;">pyhton</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/regex/" style="font-size: 10px;">regex</a> <a href="/tags/vs-code/" style="font-size: 10px;">vs code</a> <a href="/tags/web-crawler/" style="font-size: 13.33px;">web crawler</a>
+        <a href="/tags/Error/" style="font-size: 10px;">Error</a> <a href="/tags/GitHub-Pages/" style="font-size: 10px;">GitHub Pages</a> <a href="/tags/Github-Pages/" style="font-size: 10px;">Github Pages</a> <a href="/tags/Hexo/" style="font-size: 16.67px;">Hexo</a> <a href="/tags/NexT/" style="font-size: 10px;">NexT</a> <a href="/tags/algae-control/" style="font-size: 10px;">algae control</a> <a href="/tags/aquarium/" style="font-size: 16.67px;">aquarium</a> <a href="/tags/cyanobacteria/" style="font-size: 10px;">cyanobacteria</a> <a href="/tags/django/" style="font-size: 16.67px;">django</a> <a href="/tags/excel/" style="font-size: 10px;">excel</a> <a href="/tags/github-pages/" style="font-size: 16.67px;">github pages</a> <a href="/tags/google-form/" style="font-size: 10px;">google form</a> <a href="/tags/headshot/" style="font-size: 10px;">headshot</a> <a href="/tags/heroku/" style="font-size: 10px;">heroku</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/matplotlib/" style="font-size: 10px;">matplotlib</a> <a href="/tags/pivot-table/" style="font-size: 10px;">pivot table</a> <a href="/tags/planted-tank/" style="font-size: 16.67px;">planted tank</a> <a href="/tags/powershell/" style="font-size: 10px;">powershell</a> <a href="/tags/pyhton/" style="font-size: 10px;">pyhton</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/regex/" style="font-size: 10px;">regex</a> <a href="/tags/vs-code/" style="font-size: 10px;">vs code</a> <a href="/tags/web-crawler/" style="font-size: 13.33px;">web crawler</a>
     </div>
 </div>
 
