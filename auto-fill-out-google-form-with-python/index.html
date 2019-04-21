@@ -16,7 +16,7 @@
 <meta property="og:description" content="">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://i.imgur.com/zodJ6IR.png">
-<meta property="og:updated_time" content="2019-04-21T16:41:23.097Z">
+<meta property="og:updated_time" content="2019-04-21T16:49:50.266Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python自動填寫Google表單">
 <meta name="twitter:description" content="">
@@ -34,7 +34,8 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/default.min.css">
+<!--%- _css(cdn('highlight.js', '9.12.0', 'styles/' + get_config('article.highlight') + '.css')) %-->
 
 
     
@@ -175,7 +176,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    2 minutes read (About 360 words)
+                    2 minutes read (About 359 words)
                 </span>
                 
                 
@@ -205,8 +206,7 @@
     &apos;fbzx&apos; : &apos;9150375950543103543&apos;
 }
 </code></pre><h3 id="code"><a href="#code" class="headerlink" title="code"></a>code</h3><p>為了讓程式的行為看起來不那麼程式(?)，設置隨機填寫欄位值與隨機延遲時間。</p>
-<pre><code>...Python
-import re
+<pre><code>import re
 import time
 import random
 import numpy as np
@@ -238,7 +238,6 @@ while num &gt; 0:
         print(&apos;HTTP Error!&apos;)
 
     num -= 1
-...
 </code></pre><p><img src="https://i.imgur.com/jKfaOP4.png" alt=""></p>
 <p>↓ 嗯，只有兩個人答對呢(?)<br><img src="https://i.imgur.com/zodJ6IR.png" alt=""></p>
 
