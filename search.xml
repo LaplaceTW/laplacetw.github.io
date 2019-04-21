@@ -1,588 +1,306 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-    
-    <entry>
-      <title>Python自動填寫Google表單</title>
-      <link href="/auto-fill-out-google-form-with-python/"/>
-      <url>/auto-fill-out-google-form-with-python/</url>
-      <content type="html"><![CDATA[<p><a id="more"></a><br>首先建個Google表單來測試：現任美國總統究竟是州普？卅普？還是川普？<br><img src="https://i.imgur.com/th41Uch.png" alt=""></p><p>打開瀏覽器的開發人員模式，切換到Network Panel並試著送出一次表單，可見formResponse有相當明顯的數據傳輸。<br><img src="https://i.imgur.com/7EDofS9.png" alt=""></p><p>展開查看詳情，在Header的部分可以找到剛才送出表單的資料結構，確定“entry.1216123536”就是所填寫的表單欄位，那麼可以開始寫程式了。<br><img src="https://i.imgur.com/O02YylJ.png" alt=""></p><h3 id="url"><a href="#url" class="headerlink" title="url"></a>url</h3><p>在Header摘要可見到url的格式為表單網址加上”/formResponse”，使用縮網址會無法重導向至正確的表單位址。</p><h3 id="data"><a href="#data" class="headerlink" title="data"></a>data</h3><pre><code>payload = {    &apos;entry.1216123536&apos; : &apos;&apos;,    &apos;fvv&apos; : &apos;0&apos;,    &apos;draftResponse&apos; : &apos;[]&apos;,    &apos;pageHistory&apos; : &apos;0&apos;,    &apos;fbzx&apos; : &apos;9150375950543103543&apos;}</code></pre><h3 id="code"><a href="#code" class="headerlink" title="code"></a>code</h3><p>為了讓程式的行為看起來不那麼程式(?)，設置隨機填寫欄位值與隨機延遲時間。<br>… Python<br>    import re<br>    import time<br>    import random<br>    import numpy as np<br>    import requests as rq</p><pre><code>url = &apos;https://docs.google.com/forms/d/e/********************/formResponse&apos;params = [&apos;州普&apos;, &apos;卅普&apos;, &apos;川普&apos;]payload = {    &apos;entry.1216123536&apos; : &apos;&apos;,    &apos;fvv&apos; : &apos;0&apos;,    &apos;draftResponse&apos; : &apos;[]&apos;,    &apos;pageHistory&apos; : &apos;0&apos;,    &apos;fbzx&apos; : &apos;9150375950543103543&apos;}num = 10  # number of executionsperiod = np.arange(0.5, 5.0, 0.1)delay = 0  # delay of executionwhile num &gt; 0:    try:        payload[&apos;entry.1216123536&apos;] = random.choice(params)  # random choice        res = rq.post(url, data=payload)        res.raise_for_status()        if res.status_code == 200 :            delay = round(random.choice(period), 2)  # round off to the 2nd decimal place            print(&apos;Fill Out : &apos; + payload[&apos;entry.1216123536&apos;] + &apos; delay : &apos; + str(delay) + &apos; sec&apos;)            time.sleep(delay)    except rq.HTTPError:        print(&apos;HTTP Error!&apos;)    num -= 1</code></pre><p>…</p><p><img src="https://i.imgur.com/jKfaOP4.png" alt=""></p><p>↓ 嗯，只有兩個人答對呢(?)<br><img src="https://i.imgur.com/zodJ6IR.png" alt=""></p>]]></content>
-      
+<search>
+  <entry>
+    <title><![CDATA[Python自動填寫Google表單]]></title>
+    <url>%2Fauto-fill-out-google-form-with-python%2F</url>
+    <content type="text"><![CDATA[首先建個Google表單來測試：現任美國總統究竟是州普？卅普？還是川普？ 打開瀏覽器的開發人員模式，切換到Network Panel並試著送出一次表單，可見formResponse有相當明顯的數據傳輸。 展開查看詳情，在Header的部分可以找到剛才送出表單的資料結構，確定“entry.1216123536”就是所填寫的表單欄位，那麼可以開始寫程式了。 url在Header摘要可見到url的格式為表單網址加上”/formResponse”，使用縮網址會無法重導向至正確的表單位址。 datapayload = { &apos;entry.1216123536&apos; : &apos;&apos;, &apos;fvv&apos; : &apos;0&apos;, &apos;draftResponse&apos; : &apos;[]&apos;, &apos;pageHistory&apos; : &apos;0&apos;, &apos;fbzx&apos; : &apos;9150375950543103543&apos; } code為了讓程式的行為看起來不那麼程式(?)，設置隨機填寫欄位值與隨機延遲時間。 Python import re import time import random import numpy as np import requests as rq url = &apos;https://docs.google.com/forms/d/e/********************/formResponse&apos; params = [&apos;州普&apos;, &apos;卅普&apos;, &apos;川普&apos;] payload = { &apos;entry.1216123536&apos; : &apos;&apos;, &apos;fvv&apos; : &apos;0&apos;, &apos;draftResponse&apos; : &apos;[]&apos;, &apos;pageHistory&apos; : &apos;0&apos;, &apos;fbzx&apos; : &apos;9150375950543103543&apos; } num = 10 # number of executions period = np.arange(0.5, 5.0, 0.1) delay = 0 # delay of execution while num &gt; 0: try: payload[&apos;entry.1216123536&apos;] = random.choice(params) # random choice res = rq.post(url, data=payload) res.raise_for_status() if res.status_code == 200 : delay = round(random.choice(period), 2) # round off to the 2nd decimal place print(&apos;Fill Out : &apos; + payload[&apos;entry.1216123536&apos;] + &apos; delay : &apos; + str(delay) + &apos; sec&apos;) time.sleep(delay) except rq.HTTPError: print(&apos;HTTP Error!&apos;) num -= 1 ↓ 嗯，只有兩個人答對呢(?)]]></content>
       <categories>
-          
-          <category> Python </category>
-          
+        <category>Python</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> python </tag>
-            
-            <tag> google form </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>Hexo on GitHub Pages:Icarus主題</title>
-      <link href="/hexo-theme-icarus/"/>
-      <url>/hexo-theme-icarus/</url>
-      <content type="html"><![CDATA[<p><a href="https://theme-next.iissnan.com" target="_blank" rel="noopener">NexT</a>主題實在是太多人用了，看得有點膩，最近看到Icarus主題覺得很Blog(?)，決定來換個主題。<br><a id="more"></a></p><h2 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h2><pre><code>cd bloggit clone https://github.com/ppoffice/hexo-theme-icarus.git themes/icarushexo s  # run on local host</code></pre><p><img src="https://i.imgur.com/KaGH5Gm.png" alt=""></p><h2 id="Config"><a href="#Config" class="headerlink" title="Config"></a>Config</h2><p>可參考<a href="https://blog.zhangruipeng.me/hexo-theme-icarus/categories/" target="_blank" rel="noopener">官方教學</a>，以下為主要配置：</p><h3 id="Favicon-amp-Logo"><a href="#Favicon-amp-Logo" class="headerlink" title="Favicon &amp; Logo"></a>Favicon &amp; Logo</h3><pre><code># Version of the Icarus theme that is currently usedversion: 2.3.0# Path or URL to the website&#39;s iconfavicon: /images/favicon.svg# Path or URL to RSS atom.xmlrss: # Path or URL to the website&#39;s logo to be shown on the left of the navigation bar or footerlogo: /images/logo.svg</code></pre><p>＊ 推薦兩個SVG線上製作工具：<a href="https://www.vectorizer.io" target="_blank" rel="noopener">Image Vectorizer</a>、<a href="http://vectorpaint.yaks.co.nz" target="_blank" rel="noopener">SVG Editor</a></p><h3 id="Navbar-amp-Footer"><a href="#Navbar-amp-Footer" class="headerlink" title="Navbar &amp; Footer"></a>Navbar &amp; Footer</h3><pre><code># Navigation bar link settingsnavbar:    # Navigation bar menu links    menu:        Home: /        Archives: /archives        Categories: /categories        Tags: /tags        # About: /about    # Navigation bar links to be shown on the right    links:        GitHub_LaplaceTW:            icon: fab fa-github            url: &#39;https://github.com/laplacetw&#39;# Footer section link settingsfooter:    # Links to be shown on the right of the footer section    links:        CC BY 4.0:            icon: fab fa-creative-commons            url: &#39;https://creativecommons.org/licenses/by/4.0/&#39;</code></pre><h3 id="Comment"><a href="#Comment" class="headerlink" title="Comment"></a>Comment</h3><p>Blog評論系統是使用DISQUS的服務。</p><pre><code>comment:    # Name of the comment plugin    type: disqus    enable: true    shortname: {disqus shortname}    count: true    lazyload: false</code></pre><h3 id="Wiget"><a href="#Wiget" class="headerlink" title="Wiget"></a>Wiget</h3><pre><code>widgets:    -        # Widget name        type: profile        # Where should the widget be placed, left or right        position: left        # Author name to be shown in the profile widget        author: LaplaceTW        # Title of the author to be shown in the profile widget        author_title: learning by doing        # Author&#39;s current location to be shown in the profile widget        location: Taiwan, Earth        # Path or URL to the avatar to be shown in the profile widget        avatar:         # Email address for the Gravatar to be shown in the profile widget        gravatar:         # Whether to show avatar image rounded or square        avatar_rounded: false        # Path or URL for the follow button        follow_link: &#39;https://github.com/laplacetw&#39;        # Links to be shown on the bottom of the profile widget        social_links:            Email:                icon: far fa-envelope                url: &#39;&#39;            Github:                icon: fab fa-github                url: &#39;&#39;            Linkedin:                icon: fab fa-linkedin                url: &#39;&#39;            RSS:                icon: fas fa-rss                url: /atom.xml    -        # Widget name (文章內容目錄)        type: toc        # Where should the widget be placed, left or right        position: right    -        # Widget name (友情連結)        type: links        # Where should the widget be placed, left or right        position: left        # Links to be shown in the links widget        links:            Hexo: &#39;https://hexo.io&#39;    -        # Widget name (全站分類)        type: category        # Where should the widget be placed, left or right        position: left    -        # Widget name (最新文章)        type: recent_posts        # Where should the widget be placed, left or right        position: right    -        # Widget name (時間軸)        type: archive        # Where should the widget be placed, left or right        position: right    -        # Widget name (標籤雲)        type: tagcloud        # Where should the widget be placed, left or right        position: right</code></pre><p>＊ hyphen 為每個 Wiget 的開頭，多一個少一個都會導致Error</p><h3 id="Plugins"><a href="#Plugins" class="headerlink" title="Plugins"></a>Plugins</h3><p>個人僅變更不蒜子網站流量統計設定(預設為關閉)。</p><pre><code>plugins:    # BuSuanZi site/page view counter    # https://busuanzi.ibruce.info    busuanzi: true</code></pre><p>更進一步個人化ICARUS主題的部分，例如調整文章版面配置、文末版權宣告等，網路教學的版本似乎都有點舊了，自己也是搞了很久，後續再補上。</p>]]></content>
-      
+      <tags>
+        <tag>python</tag>
+        <tag>google form</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo on GitHub Pages:Icarus主題]]></title>
+    <url>%2Fhexo-theme-icarus%2F</url>
+    <content type="text"><![CDATA[NexT主題實在是太多人用了，看得有點膩，最近看到Icarus主題覺得很Blog(?)，決定來換個主題。 Downloadcd blog git clone https://github.com/ppoffice/hexo-theme-icarus.git themes/icarus hexo s # run on local host Config可參考官方教學，以下為主要配置： Favicon &amp; Logo# Version of the Icarus theme that is currently used version: 2.3.0 # Path or URL to the website&#39;s icon favicon: /images/favicon.svg # Path or URL to RSS atom.xml rss: # Path or URL to the website&#39;s logo to be shown on the left of the navigation bar or footer logo: /images/logo.svg ＊ 推薦兩個SVG線上製作工具：Image Vectorizer、SVG Editor Navbar &amp; Footer# Navigation bar link settings navbar: # Navigation bar menu links menu: Home: / Archives: /archives Categories: /categories Tags: /tags # About: /about # Navigation bar links to be shown on the right links: GitHub_LaplaceTW: icon: fab fa-github url: &#39;https://github.com/laplacetw&#39; # Footer section link settings footer: # Links to be shown on the right of the footer section links: CC BY 4.0: icon: fab fa-creative-commons url: &#39;https://creativecommons.org/licenses/by/4.0/&#39; CommentBlog評論系統是使用DISQUS的服務。 comment: # Name of the comment plugin type: disqus enable: true shortname: {disqus shortname} count: true lazyload: false Wigetwidgets: - # Widget name type: profile # Where should the widget be placed, left or right position: left # Author name to be shown in the profile widget author: LaplaceTW # Title of the author to be shown in the profile widget author_title: learning by doing # Author&#39;s current location to be shown in the profile widget location: Taiwan, Earth # Path or URL to the avatar to be shown in the profile widget avatar: # Email address for the Gravatar to be shown in the profile widget gravatar: # Whether to show avatar image rounded or square avatar_rounded: false # Path or URL for the follow button follow_link: &#39;https://github.com/laplacetw&#39; # Links to be shown on the bottom of the profile widget social_links: Email: icon: far fa-envelope url: &#39;&#39; Github: icon: fab fa-github url: &#39;&#39; Linkedin: icon: fab fa-linkedin url: &#39;&#39; RSS: icon: fas fa-rss url: /atom.xml - # Widget name (文章內容目錄) type: toc # Where should the widget be placed, left or right position: right - # Widget name (友情連結) type: links # Where should the widget be placed, left or right position: left # Links to be shown in the links widget links: Hexo: &#39;https://hexo.io&#39; - # Widget name (全站分類) type: category # Where should the widget be placed, left or right position: left - # Widget name (最新文章) type: recent_posts # Where should the widget be placed, left or right position: right - # Widget name (時間軸) type: archive # Where should the widget be placed, left or right position: right - # Widget name (標籤雲) type: tagcloud # Where should the widget be placed, left or right position: right ＊ hyphen 為每個 Wiget 的開頭，多一個少一個都會導致Error Plugins個人僅變更不蒜子網站流量統計設定(預設為關閉)。 plugins: # BuSuanZi site/page view counter # https://busuanzi.ibruce.info busuanzi: true 更進一步個人化ICARUS主題的部分，例如調整文章版面配置、文末版權宣告等，網路教學的版本似乎都有點舊了，自己也是搞了很久，後續再補上。]]></content>
       <categories>
-          
-          <category> Hexo </category>
-          
+        <category>Hexo</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> github pages </tag>
-            
-            <tag> hexo </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>Hexo on GitHub Pages:不蒜子統計失效</title>
-      <link href="/hexo-error-busuanzi/"/>
-      <url>/hexo-error-busuanzi/</url>
-      <content type="html"><![CDATA[<p>今天PO文後發現…所以我說那個文章閱讀次數呢?頁面底部的流量統計也消失了。<br><a id="more"></a><br>推測是.js檔出了什麼問題，於是先到<a href="https://busuanzi.ibruce.info" target="_blank" rel="noopener">不蒜子</a>的頁面瞧瞧，發現一行小小的紅字，寫著「因七牛強制過期『dn-lbstatics.qbox.me』域名，與客服溝通無果，只能更換域名到『busuanzi.ibruce.info』!」，雖然不知道七牛到底是什麼牛，但可以確定問題是來自域名更換。</p><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>在NexT資料夾中找到不蒜子的設定檔，路徑為layout/_third-party/analytics/busuanzi-counter.swig<br><img src="https://i.imgur.com/rpVQnFj.png" alt=""></p><p>修改.js路徑為:</p><pre><code>&lt;script async src=&quot;https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;&lt;/script&gt;</code></pre><p>接著重新deploy後便會發現統計數字又回來啦。</p>]]></content>
-      
+      <tags>
+        <tag>github pages</tag>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo on GitHub Pages:不蒜子統計失效]]></title>
+    <url>%2Fhexo-error-busuanzi%2F</url>
+    <content type="text"><![CDATA[今天PO文後發現…所以我說那個文章閱讀次數呢?頁面底部的流量統計也消失了。推測是.js檔出了什麼問題，於是先到不蒜子的頁面瞧瞧，發現一行小小的紅字，寫著「因七牛強制過期『dn-lbstatics.qbox.me』域名，與客服溝通無果，只能更換域名到『busuanzi.ibruce.info』!」，雖然不知道七牛到底是什麼牛，但可以確定問題是來自域名更換。 Solution在NexT資料夾中找到不蒜子的設定檔，路徑為layout/_third-party/analytics/busuanzi-counter.swig 修改.js路徑為: &lt;script async src=&quot;https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;&lt;/script&gt; 接著重新deploy後便會發現統計數字又回來啦。]]></content>
       <categories>
-          
-          <category> Hexo </category>
-          
+        <category>Hexo</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> github pages </tag>
-            
-            <tag> hexo </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>Excel:公式、圖表與樞紐分析</title>
-      <link href="/excel-func-chart-pivot-table/"/>
-      <url>/excel-func-chart-pivot-table/</url>
-      <content type="html"><![CDATA[<p>常用公式、圖表與樞紐分析之基本操作。<br><a id="more"></a></p><h1 id="常用公式"><a href="#常用公式" class="headerlink" title="常用公式"></a>常用公式</h1><h2 id="IF"><a href="#IF" class="headerlink" title="IF"></a>IF</h2><ul><li>用法:IF(條件,符合條件,不符合條件)</li><li>範例:判斷訂單金額是否大於70(億)<br><img src="https://i.imgur.com/wQeP7th.png" alt=""></li></ul><h2 id="多重條件判斷"><a href="#多重條件判斷" class="headerlink" title="多重條件判斷"></a>多重條件判斷</h2><ul><li>用法:IF(條件,IF(…),不符合條件)</li><li>範例:呈上例，進一步做訂單金額分級<br><img src="https://i.imgur.com/27kZEy2.png" alt=""></li></ul><h2 id="SUM"><a href="#SUM" class="headerlink" title="SUM"></a>SUM</h2><ul><li>用法:SUM(範圍1,範圍2…)</li><li>範例:計算化學品與塑膠/橡膠年度訂單金額加總<br><img src="https://i.imgur.com/krLlYE2.png" alt=""></li></ul><h2 id="MAX"><a href="#MAX" class="headerlink" title="MAX"></a>MAX</h2><ul><li>用法:MAX(範圍1,範圍2…)</li><li>範例:找出各類別每月訂單金額中最高者<br><img src="https://i.imgur.com/uDmIaxx.png" alt=""></li></ul><h2 id="INT-ROUND"><a href="#INT-ROUND" class="headerlink" title="INT/ROUND"></a>INT/ROUND</h2><ul><li>用法:INT(儲存格)/ROUND(儲存格,小數位數)</li><li>範例:INT無條件捨去/ROUND四捨五入<br><img src="https://i.imgur.com/sZLMI11.png" alt=""></li></ul><h2 id="AVERAGE"><a href="#AVERAGE" class="headerlink" title="AVERAGE"></a>AVERAGE</h2><ul><li>用法:AVERAGE(範圍1,範圍2…)</li><li>範例:計算年度平均值之無條件捨去與四捨五入<br><img src="https://i.imgur.com/F8FyAzn.png" alt=""></li></ul><h2 id="SUMIF"><a href="#SUMIF" class="headerlink" title="SUMIF"></a>SUMIF</h2><ul><li>用法:SUMIF(條件範圍,條件,合計範圍)</li><li>範例:計算各種商品之銷售總額<br><img src="https://i.imgur.com/xz1FZ5Z.png" alt=""></li></ul><h2 id="COUNTIF"><a href="#COUNTIF" class="headerlink" title="COUNTIF"></a>COUNTIF</h2><ul><li>用法:COUNTIF(條件範圍,條件)</li><li>範例:統計年度化學品訂單金額分級<br><img src="https://i.imgur.com/V7LXB0g.png" alt=""></li></ul><h2 id="VLOOKUP"><a href="#VLOOKUP" class="headerlink" title="VLOOKUP"></a>VLOOKUP</h2><ul><li>用法:VLOOKUP(搜尋條件,範圍,目標欄位,精確度)</li><li>範例:搜尋指定月份訂單金額<br><img src="https://i.imgur.com/sa39mn2.png" alt=""></li></ul><h2 id="多條件搜尋"><a href="#多條件搜尋" class="headerlink" title="多條件搜尋"></a>多條件搜尋</h2><ul><li>用法:LOOKUP(1,0/((條件1)<em>(條件2)</em>…),目標範圍)</li><li>範例:尋找訂單金額分級為Ａ級且大於100(億)之月份<br><img src="https://i.imgur.com/kJxlPKI.png" alt=""></li></ul><h2 id="重點整理"><a href="#重點整理" class="headerlink" title="重點整理"></a>重點整理</h2><table><thead><tr><th style="text-align:center">公式</th><th style="text-align:center">說明  </th></tr></thead><tbody><tr><td style="text-align:center">IF</td><td style="text-align:center">條件式</td></tr><tr><td style="text-align:center">SUM</td><td style="text-align:center">加總</td></tr><tr><td style="text-align:center">MAX</td><td style="text-align:center">最大值</td></tr><tr><td style="text-align:center">INT</td><td style="text-align:center">無條件捨去</td></tr><tr><td style="text-align:center">ROUND</td><td style="text-align:center">四捨五入</td></tr><tr><td style="text-align:center">AVERAGE</td><td style="text-align:center">平均值</td></tr><tr><td style="text-align:center">SUMIF</td><td style="text-align:center">有條件加總</td></tr><tr><td style="text-align:center">COUNTIF</td><td style="text-align:center">有條件統計</td></tr><tr><td style="text-align:center">VLOOKUP</td><td style="text-align:center">尋找      </td></tr></tbody></table><h1 id="常用圖表"><a href="#常用圖表" class="headerlink" title="常用圖表"></a>常用圖表</h1><h2 id="錯誤範例"><a href="#錯誤範例" class="headerlink" title="錯誤範例"></a>錯誤範例</h2><p>說明:折線圖所表達的為<font color="red">趨勢、變化</font>，而下圖中水平軸項目為類別，離散型數據不具連續性，這樣的圖表<strong>不具任何意義</strong>，應使用直條圖比較各項目之大小，或使用圓形圖呈現各項目佔整體之比重。<br><img src="https://i.imgur.com/UswDs8J.png" alt=""></p><h2 id="基本設定"><a href="#基本設定" class="headerlink" title="基本設定"></a>基本設定</h2><ul><li>圖表設計與格式設定在圖表工具的頁籤中</li><li>圖表項目細部設定在圖表右側的”＋”號中<br><img src="https://i.imgur.com/67Z3T4H.png" alt=""></li></ul><h2 id="直條圖"><a href="#直條圖" class="headerlink" title="直條圖"></a>直條圖</h2><ul><li>使用時機:做<font color="red">比較</font>，呈現數據的「相對大小」</li><li>範例:100年度化學品外銷月訂單金額比較<br><img src="https://i.imgur.com/sHPqEjn.png" alt=""></li></ul><h2 id="堆疊直條圖"><a href="#堆疊直條圖" class="headerlink" title="堆疊直條圖"></a>堆疊直條圖</h2><ul><li>範例說明:呈現整體營業額與個別業務人員表現，可明顯看出業務A(藍色區塊)與業務C(灰色區塊)的成長與衰退，以及對整體的影響。<br><img src="https://i.imgur.com/UcZuOEu.png" alt=""></li></ul><h2 id="折線圖"><a href="#折線圖" class="headerlink" title="折線圖"></a>折線圖</h2><ul><li>使用時機:讀<font color="red">趨勢</font>，呈現數據的「變化、走勢」</li><li>範例:100年度化學品外銷月訂單金額走勢<br><img src="https://i.imgur.com/FATm3bE.png" alt=""></li></ul><h2 id="圓形圖"><a href="#圓形圖" class="headerlink" title="圓形圖"></a>圓形圖</h2><ul><li>使用時機:看<font color="red">比例</font>，呈現數據的「相對比例」</li><li>範例:100年度外銷訂單項目比重<br><img src="https://i.imgur.com/TBfdio3.png" alt=""></li></ul><h2 id="重點整理-1"><a href="#重點整理-1" class="headerlink" title="重點整理"></a>重點整理</h2><p>數據視覺化須依據所欲呈現之數據統計摘要，進而選擇適當的圖表形式，避免<font color="red">誤用圖表、為分析而分析</font>。</p><ul><li>直條圖:做<font color="red">比較</font></li><li>折線圖:讀<font color="red">趨勢</font></li><li>圓形圖:看<font color="red">比例</font></li></ul><h1 id="樞紐分析"><a href="#樞紐分析" class="headerlink" title="樞紐分析"></a>樞紐分析</h1><p>以經濟部101-106年外銷美國訂單統計資料為例。</p><h2 id="Step-1-選取數據範圍"><a href="#Step-1-選取數據範圍" class="headerlink" title="Step 1:選取數據範圍"></a>Step 1:選取數據範圍</h2><p>＊數據範圍中不能有空白欄位<br><img src="https://i.imgur.com/joDfNB9.png" alt=""></p><h2 id="欄位說明"><a href="#欄位說明" class="headerlink" title="欄位說明"></a>欄位說明</h2><ul><li>篩選:報表之篩選條件</li><li>欄  :樞紐分析表<font color="red">行</font>數據</li><li>列  :樞紐分析表<font color="red">列</font>數據</li><li>值  :欲統計之數據，例如加總、平均值<br><img src="https://i.imgur.com/UH01LrN.png" alt=""></li></ul><h2 id="Step-2-拖曳調整欄位與排列順序"><a href="#Step-2-拖曳調整欄位與排列順序" class="headerlink" title="Step 2:拖曳調整欄位與排列順序"></a>Step 2:拖曳調整欄位與排列順序</h2><p><img src="https://i.imgur.com/E8Alrt1.png" alt=""><br>↓點選值欄位設定可選擇其他計算類型<br><img src="https://i.imgur.com/tEI1LCA.png" alt=""></p><h2 id="Step-3-插入樞紐分析圖"><a href="#Step-3-插入樞紐分析圖" class="headerlink" title="Step 3:插入樞紐分析圖"></a>Step 3:插入樞紐分析圖</h2><p>樞紐分析工具(頁籤) –&gt; 分析 –&gt; 樞紐分析圖<br><img src="https://i.imgur.com/2bgZqAX.png" alt=""></p><h2 id="樞紐分析-堆疊直條圖"><a href="#樞紐分析-堆疊直條圖" class="headerlink" title="樞紐分析-堆疊直條圖"></a>樞紐分析-堆疊直條圖</h2><p><img src="https://i.imgur.com/UGRPdUl.png" alt=""></p><h2 id="樞紐分析-圓形圖"><a href="#樞紐分析-圓形圖" class="headerlink" title="樞紐分析-圓形圖"></a>樞紐分析-圓形圖</h2><p>＊注意圖表的行列數據呈現是否合適<br><img src="https://i.imgur.com/B5bdN0S.png" alt=""><br>↓調整行列數據<br><img src="https://i.imgur.com/0WAn7Aa.png" alt=""><br>↓調整後<br><img src="https://i.imgur.com/itrWKwo.png" alt=""></p>]]></content>
-      
+      <tags>
+        <tag>github pages</tag>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Excel:公式、圖表與樞紐分析]]></title>
+    <url>%2Fexcel-func-chart-pivot-table%2F</url>
+    <content type="text"><![CDATA[常用公式、圖表與樞紐分析之基本操作。 常用公式IF 用法:IF(條件,符合條件,不符合條件) 範例:判斷訂單金額是否大於70(億) 多重條件判斷 用法:IF(條件,IF(…),不符合條件) 範例:呈上例，進一步做訂單金額分級 SUM 用法:SUM(範圍1,範圍2…) 範例:計算化學品與塑膠/橡膠年度訂單金額加總 MAX 用法:MAX(範圍1,範圍2…) 範例:找出各類別每月訂單金額中最高者 INT/ROUND 用法:INT(儲存格)/ROUND(儲存格,小數位數) 範例:INT無條件捨去/ROUND四捨五入 AVERAGE 用法:AVERAGE(範圍1,範圍2…) 範例:計算年度平均值之無條件捨去與四捨五入 SUMIF 用法:SUMIF(條件範圍,條件,合計範圍) 範例:計算各種商品之銷售總額 COUNTIF 用法:COUNTIF(條件範圍,條件) 範例:統計年度化學品訂單金額分級 VLOOKUP 用法:VLOOKUP(搜尋條件,範圍,目標欄位,精確度) 範例:搜尋指定月份訂單金額 多條件搜尋 用法:LOOKUP(1,0/((條件1)(條件2)…),目標範圍) 範例:尋找訂單金額分級為Ａ級且大於100(億)之月份 重點整理 公式 說明 IF 條件式 SUM 加總 MAX 最大值 INT 無條件捨去 ROUND 四捨五入 AVERAGE 平均值 SUMIF 有條件加總 COUNTIF 有條件統計 VLOOKUP 尋找 常用圖表錯誤範例說明:折線圖所表達的為趨勢、變化，而下圖中水平軸項目為類別，離散型數據不具連續性，這樣的圖表不具任何意義，應使用直條圖比較各項目之大小，或使用圓形圖呈現各項目佔整體之比重。 基本設定 圖表設計與格式設定在圖表工具的頁籤中 圖表項目細部設定在圖表右側的”＋”號中 直條圖 使用時機:做比較，呈現數據的「相對大小」 範例:100年度化學品外銷月訂單金額比較 堆疊直條圖 範例說明:呈現整體營業額與個別業務人員表現，可明顯看出業務A(藍色區塊)與業務C(灰色區塊)的成長與衰退，以及對整體的影響。 折線圖 使用時機:讀趨勢，呈現數據的「變化、走勢」 範例:100年度化學品外銷月訂單金額走勢 圓形圖 使用時機:看比例，呈現數據的「相對比例」 範例:100年度外銷訂單項目比重 重點整理數據視覺化須依據所欲呈現之數據統計摘要，進而選擇適當的圖表形式，避免誤用圖表、為分析而分析。 直條圖:做比較 折線圖:讀趨勢 圓形圖:看比例 樞紐分析以經濟部101-106年外銷美國訂單統計資料為例。 Step 1:選取數據範圍＊數據範圍中不能有空白欄位 欄位說明 篩選:報表之篩選條件 欄 :樞紐分析表行數據 列 :樞紐分析表列數據 值 :欲統計之數據，例如加總、平均值 Step 2:拖曳調整欄位與排列順序↓點選值欄位設定可選擇其他計算類型 Step 3:插入樞紐分析圖樞紐分析工具(頁籤) –&gt; 分析 –&gt; 樞紐分析圖 樞紐分析-堆疊直條圖 樞紐分析-圓形圖＊注意圖表的行列數據呈現是否合適↓調整行列數據↓調整後]]></content>
       <categories>
-          
-          <category> Excel </category>
-          
+        <category>Excel</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> excel </tag>
-            
-            <tag> pivot table </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>Django2.0筆記(3):軟體架構</title>
-      <link href="/django-software-architecture/"/>
-      <url>/django-software-architecture/</url>
-      <content type="html"><![CDATA[<p>模型、視圖與模板。<br><a id="more"></a></p><h2 id="Model–View–Controller"><a href="#Model–View–Controller" class="headerlink" title="Model–View–Controller"></a>Model–View–Controller</h2><ul><li>Model: 資料庫存取</li><li>View:  使用者介面</li><li>Controller: 控制整合</li></ul><p>說到網頁開發，就不得不提一下MVC架構，維基百科如是說：MVC為軟體工程中的一種軟體架構，將軟體系統分為三個部分：模型(Model)、視圖(View)和控制器(Controller)，目的是為了實現一種動態的程式設計，使後續對程式的修改及擴充簡化，並且使程式某一部分的重複利用成為可能。</p><p>MVC是一種設計理念而非技術，旨在提高開發項目的可擴展性及可維護性，而這樣一個從實際開發所歸納出來的抽象概念，事實上其定義是相當模糊的，尤其是在經過了多年發展後…在此就不多做探討了。</p><h2 id="Model-Template-View"><a href="#Model-Template-View" class="headerlink" title="Model-Template-View"></a>Model-Template-View</h2><ul><li>Model: 資料庫存取</li><li>Template: 使用者介面</li><li>View:  控制整合</li></ul><p>Django雖然看似獨樹一格自定義了MTV架構，但MTV和MVC的概念是相同的，我嘗試畫了架構對照圖：<br><img src="https://i.imgur.com/vAeWv7K.png" alt=""><br>如果以較為白話的方式描述MTV呢，就是我們定義Model在資料庫中生成Table，然後透過View的邏輯去整合控制數據，再交由Template去呈現給使用者，而使用者亦是透過Template去和數據做互動。</p><p>雖然我認為Django初學者只是抽象討論MTV是無法很好地理解其互動關係的，我就是這樣的一個初學者呢，因此後續會用實例來仔細說明的。</p>]]></content>
-      
+      <tags>
+        <tag>excel</tag>
+        <tag>pivot table</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Django2.0筆記(3):軟體架構]]></title>
+    <url>%2Fdjango-software-architecture%2F</url>
+    <content type="text"><![CDATA[模型、視圖與模板。 Model–View–Controller Model: 資料庫存取 View: 使用者介面 Controller: 控制整合 說到網頁開發，就不得不提一下MVC架構，維基百科如是說：MVC為軟體工程中的一種軟體架構，將軟體系統分為三個部分：模型(Model)、視圖(View)和控制器(Controller)，目的是為了實現一種動態的程式設計，使後續對程式的修改及擴充簡化，並且使程式某一部分的重複利用成為可能。 MVC是一種設計理念而非技術，旨在提高開發項目的可擴展性及可維護性，而這樣一個從實際開發所歸納出來的抽象概念，事實上其定義是相當模糊的，尤其是在經過了多年發展後…在此就不多做探討了。 Model-Template-View Model: 資料庫存取 Template: 使用者介面 View: 控制整合 Django雖然看似獨樹一格自定義了MTV架構，但MTV和MVC的概念是相同的，我嘗試畫了架構對照圖：如果以較為白話的方式描述MTV呢，就是我們定義Model在資料庫中生成Table，然後透過View的邏輯去整合控制數據，再交由Template去呈現給使用者，而使用者亦是透過Template去和數據做互動。 雖然我認為Django初學者只是抽象討論MTV是無法很好地理解其互動關係的，我就是這樣的一個初學者呢，因此後續會用實例來仔細說明的。]]></content>
       <categories>
-          
-          <category> Django </category>
-          
+        <category>Django</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> python </tag>
-            
-            <tag> django </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>Django2.0筆記(2):專案設定與應用程式</title>
-      <link href="/django-app-and-settings/"/>
-      <url>/django-app-and-settings/</url>
-      <content type="html"><![CDATA[<p>專案下的環境設定、如何建立Django App。<br><a id="more"></a></p><h2 id="Settings-py"><a href="#Settings-py" class="headerlink" title="Settings.py"></a>Settings.py</h2><p>專案環境設定。</p><p>↓在Windows terminal透過tree指令可查看專案結構<br><img src="https://i.imgur.com/19G7Lvu.jpg" alt=""><br>Mac環境下要使用tree指令則需另外安裝package:</p><pre><code>brew install tree</code></pre><p>從專案結構可以發現，根目錄下有個和專案名稱相同的資料夾，其中主要有3個檔案:</p><ul><li>settings.py : 專案設定檔</li><li>url.py      : 網頁路徑設定</li><li>wsgi.py     : 伺服器閘道介面設定</li></ul><p>＊ manage.py為負責專案管理的Python指令檔<br>＊ 什麼是WSGI(Web Server Gateway Interface)? 簡而言之，Server與Web App之間的溝通必須透過它</p><p>開啟settings.py，可以看到官方註解寫得蠻詳細的，我就提一下重點設定：</p><ul><li><p>除錯模式設定為True表示網頁拋出Error會直接顯示錯誤訊息，正式發佈你的網站前千萬記得設為False，以免暴露網站漏洞</p><p>  # SECURITY WARNING: don’t run with debug turned on in production!<br>  DEBUG = True</p></li></ul><ul><li><p>新建立的App必須在這裡被定義</p><p>  # Application definition</p><p>  INSTALLED_APPS = [</p><pre><code>  &#39;django.contrib.admin&#39;,  &#39;django.contrib.auth&#39;,  &#39;django.contrib.contenttypes&#39;,  &#39;django.contrib.sessions&#39;,  &#39;django.contrib.messages&#39;,  &#39;django.contrib.staticfiles&#39;,  ‘{app_name}’,</code></pre><p>  ]</p></li></ul><ul><li><p>網頁模版路徑</p><p>  請在專案目錄下建立templates資料夾:</p><p>  md templates  # build folder for web templates</p><p>  ＊ Mac terminal建立資料夾指令和Linux同為mkdir</p><p>  接著在settings.py中設定路徑，請於TEMPLATES中的’DIRS’加入這一段：</p>  <font color="red">os.path.join(BASE_DIR, ‘templates’)</font><p>  TEMPLATES = [</p><pre><code>  {      &#39;BACKEND&#39;: &#39;django.template.backends.django.DjangoTemplates&#39;,      &#39;DIRS&#39;: [os.path.join(BASE_DIR, &#39;templates&#39;)],      &#39;APP_DIRS&#39;: True,      &#39;OPTIONS&#39;: {          &#39;context_processors&#39;: [              &#39;django.template.context_processors.debug&#39;,              &#39;django.template.context_processors.request&#39;,              &#39;django.contrib.auth.context_processors.auth&#39;,              &#39;django.contrib.messages.context_processors.messages&#39;,          ],      },  },</code></pre><p>  ]</p></li></ul><ul><li><p>語系、時區:修改為繁體中文、台灣時區</p><p>  LANGUAGE_CODE = ‘zh-Hant’</p><p>  TIME_ZONE = ‘Asia/Taipei’</p></li></ul><ul><li><p>靜態文件路徑</p><p>  請在專案目錄下建立static資料夾:</p><p>  md static  # build folder for static files(e.g. css, images…)</p><p>  接著在settings.py中設定路徑，請於<font color="red">STATIC_URL</font>後面加上這一段:</p><p>  STATICFILES_DIRS = [</p><pre><code>  os.path.join(BASE_DIR, &#39;static&#39;),</code></pre><p>  ]</p></li></ul><h2 id="Django-App"><a href="#Django-App" class="headerlink" title="Django App"></a>Django App</h2><p>建立應用程式，專案底下可建立多個App，而每個App都可以視為Package。</p><pre><code># start virtual environment firstcd {project_name}python manage.py startapp {app_name}  # build applicationpython manage.py makemigrations {app_name(optional)}  # build data migration for databasepython manage.py migrate {app_name(optional)}  # data synchronization</code></pre><p>＊ makemigrations與migrate為資料庫同步設定，預設為對所有應用程式同步，因此應用程式名稱為選填，後續提到Models時會詳細說明</p>]]></content>
-      
+      <tags>
+        <tag>python</tag>
+        <tag>django</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Django2.0筆記(2):專案設定與應用程式]]></title>
+    <url>%2Fdjango-app-and-settings%2F</url>
+    <content type="text"><![CDATA[專案下的環境設定、如何建立Django App。 Settings.py專案環境設定。 ↓在Windows terminal透過tree指令可查看專案結構Mac環境下要使用tree指令則需另外安裝package: brew install tree 從專案結構可以發現，根目錄下有個和專案名稱相同的資料夾，其中主要有3個檔案: settings.py : 專案設定檔 url.py : 網頁路徑設定 wsgi.py : 伺服器閘道介面設定 ＊ manage.py為負責專案管理的Python指令檔＊ 什麼是WSGI(Web Server Gateway Interface)? 簡而言之，Server與Web App之間的溝通必須透過它 開啟settings.py，可以看到官方註解寫得蠻詳細的，我就提一下重點設定： 除錯模式設定為True表示網頁拋出Error會直接顯示錯誤訊息，正式發佈你的網站前千萬記得設為False，以免暴露網站漏洞 # SECURITY WARNING: don’t run with debug turned on in production! DEBUG = True 新建立的App必須在這裡被定義 # Application definition INSTALLED_APPS = [ &#39;django.contrib.admin&#39;, &#39;django.contrib.auth&#39;, &#39;django.contrib.contenttypes&#39;, &#39;django.contrib.sessions&#39;, &#39;django.contrib.messages&#39;, &#39;django.contrib.staticfiles&#39;, ‘{app_name}’, ] 網頁模版路徑 請在專案目錄下建立templates資料夾: md templates # build folder for web templates ＊ Mac terminal建立資料夾指令和Linux同為mkdir 接著在settings.py中設定路徑，請於TEMPLATES中的’DIRS’加入這一段： os.path.join(BASE_DIR, ‘templates’) TEMPLATES = [ { &#39;BACKEND&#39;: &#39;django.template.backends.django.DjangoTemplates&#39;, &#39;DIRS&#39;: [os.path.join(BASE_DIR, &#39;templates&#39;)], &#39;APP_DIRS&#39;: True, &#39;OPTIONS&#39;: { &#39;context_processors&#39;: [ &#39;django.template.context_processors.debug&#39;, &#39;django.template.context_processors.request&#39;, &#39;django.contrib.auth.context_processors.auth&#39;, &#39;django.contrib.messages.context_processors.messages&#39;, ], }, }, ] 語系、時區:修改為繁體中文、台灣時區 LANGUAGE_CODE = ‘zh-Hant’ TIME_ZONE = ‘Asia/Taipei’ 靜態文件路徑 請在專案目錄下建立static資料夾: md static # build folder for static files(e.g. css, images…) 接著在settings.py中設定路徑，請於STATIC_URL後面加上這一段: STATICFILES_DIRS = [ os.path.join(BASE_DIR, &#39;static&#39;), ] Django App建立應用程式，專案底下可建立多個App，而每個App都可以視為Package。 # start virtual environment first cd {project_name} python manage.py startapp {app_name} # build application python manage.py makemigrations {app_name(optional)} # build data migration for database python manage.py migrate {app_name(optional)} # data synchronization ＊ makemigrations與migrate為資料庫同步設定，預設為對所有應用程式同步，因此應用程式名稱為選填，後續提到Models時會詳細說明]]></content>
       <categories>
-          
-          <category> Django </category>
-          
+        <category>Django</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> python </tag>
-            
-            <tag> django </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>Django2.0筆記(1):從零開始</title>
-      <link href="/django-start/"/>
-      <url>/django-start/</url>
-      <content type="html"><![CDATA[<p>最近耗費了大量心力在Django上，因為Google搜尋到的教學文多數版本停留在Django 1.x，且有許多細節都沒提到。<a id="more"></a>以個人作為WEB初學者而言，Django有許多概念並不是很直觀，必須實際測試來幫助自己理解。目前我所使用的版本為Django 2.1，於是我踩了相當、相當多的坑，加上WEB開發對個只看得懂點JS的人而言是相當生疏的，總之就連HTML、CSS、JS一起學習吧…感謝無數撰寫教學文的高手讓自己學習了很多。所以今天在各種線索的拼湊之下、終於讓Django Project在Apache Server順利運作了(汗)，我想盡可能詳細地撰寫Django的筆記，取之網路、用之網路，也許哪天剛好有個誰也在學習Django，而我的筆記剛好能幫上忙。</p><h1 id="Django-Virtual-Environment-amp-New-Project"><a href="#Django-Virtual-Environment-amp-New-Project" class="headerlink" title="Django:Virtual Environment &amp; New Project"></a>Django:Virtual Environment &amp; New Project</h1><p>關於Django虛擬環境建置和建立新專案。<br>＊ 雖然網路上有許多教學文，但最詳細也最可靠的還是官方文件囉：<a href="https://docs.djangoproject.com/en/2.1/" target="_blank" rel="noopener">Django2.1 Doc</a>。</p><h2 id="Virtual-Environment-for-Django"><a href="#Virtual-Environment-for-Django" class="headerlink" title="Virtual Environment for Django"></a>Virtual Environment for Django</h2><p>開發Django Project建議另建一個乾淨的虛擬環境，只安裝專案所需套件，Python環境建置就不贅述，從安裝及建立虛擬環境開始:</p><pre><code>pip install virtualenv  # install virtual environment packagecd c:\virtualenv {virtualenv_name}  # build virtual environment for Djangocd {virtualenv_name}Scripts\activate  # start virtual environmentpip install django  # install Django packagedeactivate  # stop virtual environment</code></pre><p>＊ 在Mac環境下啟動虛擬環境的指令為source bin/activate<br>＊ 提示字元前面的(virtualenv_name)表示目前已啟動虛擬環境</p><h2 id="Start-New-Django-Project"><a href="#Start-New-Django-Project" class="headerlink" title="Start New Django Project"></a>Start New Django Project</h2><p>建立專案。</p><pre><code># start virtual environment firstdjango-admin startproject {project_name}  # build new project</code></pre><h2 id="Run-Django-Server"><a href="#Run-Django-Server" class="headerlink" title="Run Django Server"></a>Run Django Server</h2><p>啟動測試Server。</p><pre><code># start virtual environment firstcd {project_name}python manage.py runserver</code></pre><p>＊ 在專案目錄下啟動測試Server後，在瀏覽器輸入127.0.0.1:8000，你應該可以看見以下畫面：<br><img src="https://i.imgur.com/9pdBamW.jpg" alt=""></p>]]></content>
-      
+      <tags>
+        <tag>python</tag>
+        <tag>django</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Django2.0筆記(1):從零開始]]></title>
+    <url>%2Fdjango-start%2F</url>
+    <content type="text"><![CDATA[最近耗費了大量心力在Django上，因為Google搜尋到的教學文多數版本停留在Django 1.x，且有許多細節都沒提到。以個人作為WEB初學者而言，Django有許多概念並不是很直觀，必須實際測試來幫助自己理解。目前我所使用的版本為Django 2.1，於是我踩了相當、相當多的坑，加上WEB開發對個只看得懂點JS的人而言是相當生疏的，總之就連HTML、CSS、JS一起學習吧…感謝無數撰寫教學文的高手讓自己學習了很多。所以今天在各種線索的拼湊之下、終於讓Django Project在Apache Server順利運作了(汗)，我想盡可能詳細地撰寫Django的筆記，取之網路、用之網路，也許哪天剛好有個誰也在學習Django，而我的筆記剛好能幫上忙。 Django:Virtual Environment &amp; New Project關於Django虛擬環境建置和建立新專案。＊ 雖然網路上有許多教學文，但最詳細也最可靠的還是官方文件囉：Django2.1 Doc。 Virtual Environment for Django開發Django Project建議另建一個乾淨的虛擬環境，只安裝專案所需套件，Python環境建置就不贅述，從安裝及建立虛擬環境開始: pip install virtualenv # install virtual environment package cd c:\ virtualenv {virtualenv_name} # build virtual environment for Django cd {virtualenv_name} Scripts\activate # start virtual environment pip install django # install Django package deactivate # stop virtual environment ＊ 在Mac環境下啟動虛擬環境的指令為source bin/activate＊ 提示字元前面的(virtualenv_name)表示目前已啟動虛擬環境 Start New Django Project建立專案。 # start virtual environment first django-admin startproject {project_name} # build new project Run Django Server啟動測試Server。 # start virtual environment first cd {project_name} python manage.py runserver ＊ 在專案目錄下啟動測試Server後，在瀏覽器輸入127.0.0.1:8000，你應該可以看見以下畫面：]]></content>
       <categories>
-          
-          <category> Django </category>
-          
+        <category>Django</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> python </tag>
-            
-            <tag> django </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>兩個月後的魚缸</title>
-      <link href="/restart-planted-tank-2month/"/>
-      <url>/restart-planted-tank-2month/</url>
-      <content type="html"><![CDATA[<p>近況更新。</p><ul><li>前景的牛毛氈因為長得過高更換為很趴又很會爬的新大珍珠草</li><li>綠宮廷一直縮頂…只好汰除…我還得多努力<a id="more"></a></li><li>後景增加了紅雨傘…但好景不常，其實是我不會照顧呵，變成綠雨傘了ＱＱ</li><li>藍綠藻解決後換黑毛藻…石頭全拿掉…開始投藥(TBS)，目前蝦子全掛ＱＱ</li><li>珊瑚莫斯沈木因黑毛藻而被檸檬酸處理後看起來了無生機，目前有恢復的跡象</li></ul><p>↓紅雨傘剛種植＋紅宮廷重新種植後的樣子(汗)<br><img src="https://i.imgur.com/po1wwVW.jpg" alt=""></p><p><img src="https://i.imgur.com/UL8a4xC.jpg" alt=""></p><p>我想，之後重新整理，可能會換成一呎的魚缸，然後底土一樣矽沙，但會嘗試鋪設基肥，大概會用洗衣袋裝著吧，免得造成日後矽沙要重複使用的麻煩。</p><p>再努力。</p>]]></content>
-      
+      <tags>
+        <tag>python</tag>
+        <tag>django</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[兩個月後的魚缸]]></title>
+    <url>%2Frestart-planted-tank-2month%2F</url>
+    <content type="text"><![CDATA[近況更新。 前景的牛毛氈因為長得過高更換為很趴又很會爬的新大珍珠草 綠宮廷一直縮頂…只好汰除…我還得多努力 後景增加了紅雨傘…但好景不常，其實是我不會照顧呵，變成綠雨傘了ＱＱ 藍綠藻解決後換黑毛藻…石頭全拿掉…開始投藥(TBS)，目前蝦子全掛ＱＱ 珊瑚莫斯沈木因黑毛藻而被檸檬酸處理後看起來了無生機，目前有恢復的跡象 ↓紅雨傘剛種植＋紅宮廷重新種植後的樣子(汗) 我想，之後重新整理，可能會換成一呎的魚缸，然後底土一樣矽沙，但會嘗試鋪設基肥，大概會用洗衣袋裝著吧，免得造成日後矽沙要重複使用的麻煩。 再努力。]]></content>
       <categories>
-          
-          <category> Aquarium </category>
-          
+        <category>Aquarium</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> aquarium </tag>
-            
-            <tag> planted tank </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>資料科學筆記(4)：正則式與re模組</title>
-      <link href="/data-sci-re/"/>
-      <url>/data-sci-re/</url>
-      <content type="html"><![CDATA[<p>什麼是正則式(Regex)？常見的說法有正規表示式、正則表達式…等等，維基百科是如此描述的：使用單個字串來描述、符合某個句法規則的字串。在很多文字編輯器裡，正則運算式通常被用來檢索、替換那些符合某個模式的文字，總之就是「描述某種規則的表達式」。<br><a id="more"></a></p><p>↓舉例來說，email address其格式具有一定的規則，假設我要在一堆密密麻麻的html中尋找Gmail郵件地址，就必須使用正則式來表達規則，讓電腦能準確判斷出任何符合Gmail郵件地址格式的字串。<br><img src="https://i.imgur.com/lZufQJS.png" alt=""></p><h2 id="Pythex"><a href="#Pythex" class="headerlink" title="Pythex"></a>Pythex</h2><p>上述示範如何用正則式表達Gmail郵件地址規則的網站為<a href="https://pythex.org" target="_blank" rel="noopener">pythex.org</a>，可以用來驗證表達式正確與否，因為表達式的符號有點複雜，該頁面也相當貼心地放了表達式的速查表呢～只要按下regular expression cheatsheet按鈕即可查看。那麼懶人如我就不多解釋表達式符號了XD<br><img src="https://i.imgur.com/DIorI8v.png" alt=""></p><h2 id="re-module"><a href="#re-module" class="headerlink" title="re module"></a>re module</h2><p>在Python中使用正則式需要import re模組，常用的方法有search()、match()、findall()等，請參考<a href="https://docs.python.org/2/library/re.html" target="_blank" rel="noopener">官方文件</a>以取得更詳盡的介紹。</p><p>那麼，search跟match有什麼不同呢？當然不會只有字面上的意思不同而已XD 這是我一開始對這兩個方法的疑問，當然我們可以<a href="https://docs.python.org/2/library/re.html#search-vs-match" target="_blank" rel="noopener">看看官方文件怎麼說</a>，但實際編寫程式碼會幫助自己更加理解兩者間的差異。</p><p>根據官方文件對兩者差異的解釋：re.match() checks for a match only at the <font color="red">beginning</font> of the string, while re.search() checks for a match <font color="red">anywhere</font> in the string.</p><ul><li>match的搜尋方式為「從字串起始開始搜索，遇到不符合的字元便停止」</li><li>search的搜尋方式為「整個字串」</li></ul><p>不過我個人覺得最常用的應該是findall()，比對所有符合規則的字串並返回串列：</p><pre><code>import restr_ =  &#39;_.Aa123Bb456Cc789Dd3.14&#39;find_alphabet = re.findall(r&#39;[A-Za-z]+&#39;, str_)print(find_alphabet)  ＃ [&#39;Aa&#39;, &#39;Bb&#39;, &#39;Cc&#39;, &#39;Dd&#39;]find_rational = re.findall(r&#39;[0-9]+\.?[0-9]*&#39;, str_)print(find_rational)  ＃ [&#39;123&#39;, &#39;456&#39;, &#39;789&#39;, &#39;3.14&#39;]</code></pre><h2 id="Code"><a href="#Code" class="headerlink" title="Code:"></a>Code:</h2><p>在Google首頁中尋找.jpg/.png，雖然只有一張圖片～但就是測試嘛XD 另外，常用的表達式可以透過re.compile()轉成regex object，直接呼叫search()、match()、findall()，也可以在使用bs4解析網頁時使用(如下):</p><pre><code>#!usr/bin/env python3# coding:utf-8import reimport requests as rqfrom bs4 import BeautifulSoup as bspattern = re.compile(r&#39;.+\.jpg|.+\.png&#39;)url = &#39;https://www.google.com&#39;try:    res = rq.get(url)    res.raise_for_status()except rq.HTTPError:    print(&#39;HTTP Error!&#39;)soup = bs(res.text, &#39;html.parser&#39;)imgs = soup.find_all(&quot;meta&quot;, {&quot;content&quot;:pattern})  # find all images in attr &#39;content&#39; of tag &#39;meta&#39;for img in imgs:    print(img[&#39;content&#39;])  # /images/branding/googleg/1x/googleg_standard_color_128dp.png</code></pre>]]></content>
-      
+      <tags>
+        <tag>aquarium</tag>
+        <tag>planted tank</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[資料科學筆記(4)：正則式與re模組]]></title>
+    <url>%2Fdata-sci-re%2F</url>
+    <content type="text"><![CDATA[什麼是正則式(Regex)？常見的說法有正規表示式、正則表達式…等等，維基百科是如此描述的：使用單個字串來描述、符合某個句法規則的字串。在很多文字編輯器裡，正則運算式通常被用來檢索、替換那些符合某個模式的文字，總之就是「描述某種規則的表達式」。 ↓舉例來說，email address其格式具有一定的規則，假設我要在一堆密密麻麻的html中尋找Gmail郵件地址，就必須使用正則式來表達規則，讓電腦能準確判斷出任何符合Gmail郵件地址格式的字串。 Pythex上述示範如何用正則式表達Gmail郵件地址規則的網站為pythex.org，可以用來驗證表達式正確與否，因為表達式的符號有點複雜，該頁面也相當貼心地放了表達式的速查表呢～只要按下regular expression cheatsheet按鈕即可查看。那麼懶人如我就不多解釋表達式符號了XD re module在Python中使用正則式需要import re模組，常用的方法有search()、match()、findall()等，請參考官方文件以取得更詳盡的介紹。 那麼，search跟match有什麼不同呢？當然不會只有字面上的意思不同而已XD 這是我一開始對這兩個方法的疑問，當然我們可以看看官方文件怎麼說，但實際編寫程式碼會幫助自己更加理解兩者間的差異。 根據官方文件對兩者差異的解釋：re.match() checks for a match only at the beginning of the string, while re.search() checks for a match anywhere in the string. match的搜尋方式為「從字串起始開始搜索，遇到不符合的字元便停止」 search的搜尋方式為「整個字串」 不過我個人覺得最常用的應該是findall()，比對所有符合規則的字串並返回串列： import re str_ = &#39;_.Aa123Bb456Cc789Dd3.14&#39; find_alphabet = re.findall(r&#39;[A-Za-z]+&#39;, str_) print(find_alphabet) ＃ [&#39;Aa&#39;, &#39;Bb&#39;, &#39;Cc&#39;, &#39;Dd&#39;] find_rational = re.findall(r&#39;[0-9]+\.?[0-9]*&#39;, str_) print(find_rational) ＃ [&#39;123&#39;, &#39;456&#39;, &#39;789&#39;, &#39;3.14&#39;] Code:在Google首頁中尋找.jpg/.png，雖然只有一張圖片～但就是測試嘛XD 另外，常用的表達式可以透過re.compile()轉成regex object，直接呼叫search()、match()、findall()，也可以在使用bs4解析網頁時使用(如下): #!usr/bin/env python3 # coding:utf-8 import re import requests as rq from bs4 import BeautifulSoup as bs pattern = re.compile(r&#39;.+\.jpg|.+\.png&#39;) url = &#39;https://www.google.com&#39; try: res = rq.get(url) res.raise_for_status() except rq.HTTPError: print(&#39;HTTP Error!&#39;) soup = bs(res.text, &#39;html.parser&#39;) imgs = soup.find_all(&quot;meta&quot;, {&quot;content&quot;:pattern}) # find all images in attr &#39;content&#39; of tag &#39;meta&#39; for img in imgs: print(img[&#39;content&#39;]) # /images/branding/googleg/1x/googleg_standard_color_128dp.png]]></content>
       <categories>
-          
-          <category> Data Science </category>
-          
+        <category>Data Science</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> python </tag>
-            
-            <tag> regex </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>資料科學筆記(3)：Web Crawler</title>
-      <link href="/data-sci-google-search/"/>
-      <url>/data-sci-google-search/</url>
-      <content type="html"><![CDATA[<p>說到網路爬蟲，最厲害的應該就是Google了．．．呵！雖然寫不出這麼會爬的東西，但沒關係，我們只要能寫個像樣的爬蟲去使喚Google的爬蟲就行 : p</p><a id="more"></a><h2 id="Web-Analytics"><a href="#Web-Analytics" class="headerlink" title="Web Analytics"></a>Web Analytics</h2><p>首先來瞧瞧Google Search的網址，嘗試輸入任意關鍵字執行搜尋後可以發現，搜尋的網址是長這樣的：</p><pre><code>http://www.google.com.tw/search?q=</code></pre><p>“=”後面便是搜尋的關鍵字了，再來檢查一下網頁原始碼，搜尋結果就在class=”g”的div區塊中。</p><p>既然爬蟲能這樣到處玩耍，想必也會有不歡迎爬蟲的網站XD 畢竟要是放任大量爬蟲在網站拚命搜刮，可是會給伺服器帶來困擾的呢，所以Web Crawler會有許多的技巧來偽裝，讓自己在伺服器的眼中看起來更像是人為的操作：例如，在request加上user agent偽裝成瀏覽器，或在多個request之間設置延遲，除了模擬人為操作，亦避免造成他人伺服器的負擔．．．這是道德問題XD</p><h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><pre><code>#!/usr/bin/env python3# *** coding : utf-8 ***import randomimport requests as rqfrom bs4 import BeautifulSoup as bsuser_agent = [&quot;Mozilla/5.0 (Windows NT 6.1; rv:2.0.1) Gecko/20100101 Firefox/4.0.1&quot;,            &quot;Mozilla/5.0 (Windows NT 10.0; WOW64; rv:38.0) Gecko/20100101 Firefox/38.0&quot;,            &quot;Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0&quot;,            &quot;Mozilla/5.0 (Macintosh; Intel Mac OS X x.y; rv:42.0) Gecko/20100101 Firefox/42.0&quot;,            &quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0.1) Gecko/20100101 Firefox/4.0.1&quot;]target = input(&#39;search:&#39;)url = &#39;http://www.google.com.tw/search?q=&#39; + targettry:    res = rq.get(url=url, headers={&#39;User-Agent&#39;: random.choice(user_agent)})    res.raise_for_status()except rq.exceptions.HTTPError:    print(&#39;[HTTP_Error]&#39;)soup = bs(res.text, &#39;html.parser&#39;)link = soup.select(&#39;.g .r a&#39;)for index in range(2):    print(link[index].string)   # title    print(link[index][&#39;href&#39;])  # link</code></pre><p>輸出結果：<br><img src="https://i.imgur.com/EcaezM5.png" alt=""></p>]]></content>
-      
+      <tags>
+        <tag>python</tag>
+        <tag>regex</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[資料科學筆記(3)：Web Crawler]]></title>
+    <url>%2Fdata-sci-google-search%2F</url>
+    <content type="text"><![CDATA[說到網路爬蟲，最厲害的應該就是Google了．．．呵！雖然寫不出這麼會爬的東西，但沒關係，我們只要能寫個像樣的爬蟲去使喚Google的爬蟲就行 : p Web Analytics首先來瞧瞧Google Search的網址，嘗試輸入任意關鍵字執行搜尋後可以發現，搜尋的網址是長這樣的： http://www.google.com.tw/search?q= “=”後面便是搜尋的關鍵字了，再來檢查一下網頁原始碼，搜尋結果就在class=”g”的div區塊中。 既然爬蟲能這樣到處玩耍，想必也會有不歡迎爬蟲的網站XD 畢竟要是放任大量爬蟲在網站拚命搜刮，可是會給伺服器帶來困擾的呢，所以Web Crawler會有許多的技巧來偽裝，讓自己在伺服器的眼中看起來更像是人為的操作：例如，在request加上user agent偽裝成瀏覽器，或在多個request之間設置延遲，除了模擬人為操作，亦避免造成他人伺服器的負擔．．．這是道德問題XD Code#!/usr/bin/env python3 # *** coding : utf-8 *** import random import requests as rq from bs4 import BeautifulSoup as bs user_agent = [&quot;Mozilla/5.0 (Windows NT 6.1; rv:2.0.1) Gecko/20100101 Firefox/4.0.1&quot;, &quot;Mozilla/5.0 (Windows NT 10.0; WOW64; rv:38.0) Gecko/20100101 Firefox/38.0&quot;, &quot;Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0&quot;, &quot;Mozilla/5.0 (Macintosh; Intel Mac OS X x.y; rv:42.0) Gecko/20100101 Firefox/42.0&quot;, &quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0.1) Gecko/20100101 Firefox/4.0.1&quot;] target = input(&#39;search:&#39;) url = &#39;http://www.google.com.tw/search?q=&#39; + target try: res = rq.get(url=url, headers={&#39;User-Agent&#39;: random.choice(user_agent)}) res.raise_for_status() except rq.exceptions.HTTPError: print(&#39;[HTTP_Error]&#39;) soup = bs(res.text, &#39;html.parser&#39;) link = soup.select(&#39;.g .r a&#39;) for index in range(2): print(link[index].string) # title print(link[index][&#39;href&#39;]) # link 輸出結果：]]></content>
       <categories>
-          
-          <category> Data Science </category>
-          
+        <category>Data Science</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> python </tag>
-            
-            <tag> web crawler </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>資料科學筆記(2)：BeautifulSoup模組</title>
-      <link href="/data-sci-bs4/"/>
-      <url>/data-sci-bs4/</url>
-      <content type="html"><![CDATA[<p>使用Requests取得網頁內容後，會得到一堆密密麻麻的html，這時候便可以讓BeautifulSoup來協助解析網頁內容。<br><a id="more"></a></p><h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><pre><code>$pip3 install bs4</code></pre><h2 id="Web-Analytics"><a href="#Web-Analytics" class="headerlink" title="Web Analytics"></a>Web Analytics</h2><p>來試著寫一個簡單的web crawler去PTT西斯版逛逛吧，但因為西斯版有年齡驗證，所以必須利用Requests.Session()物件去做post，按下各位在美好童年就已經按過的「我已滿18歲按鈕」，web crawler取得伺服器驗證後就可以在西斯版橫行無阻啦。</p><p>從截圖可以看到，url為 <a href="https://www.ptt.cc/ask/over18.." target="_blank" rel="noopener">https://www.ptt.cc/ask/over18..</a>. 這就是取得驗證的網址，注意url後頭的from=%2Fbbs%2Fsex…在post驗證的payload要寫入from這個key，表示這個post來自西斯版首頁。<br><img src="https://i.imgur.com/PAuJRHa.png" alt=""></p><p>關於BeautifulSoup更多細節請參考<a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.html" target="_blank" rel="noopener">官方文件</a>，這邊簡單說明，基本上就是把request取得的html丟給Soup去解析，接著可以使用find(), find_all(), select()等方法來篩選尋找目標數據所在的tag。</p><p>舉例來說，我要讓web crawler去爬取西斯版首頁的文章標題＆連結，檢視網頁原始碼後可以發現我要的數據就在class＝r-ent的tag裡面。<br><img src="https://i.imgur.com/56hpBfq.png" alt=""></p><h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><pre><code>import requests as rqfrom bs4 import BeautifulSoup as bsurl = &#39;https://www.ptt.cc/bbs/sex/index.html&#39;payload = {    &#39;from&#39;:url,    &#39;yes&#39;:&#39;yes&#39;}session = rq.Session()session.post(&#39;https://www.ptt.cc/ask/over18&#39;, data=payload)res = session.get(url)soup = bs(res.text, &#39;html.parser&#39;)result = soup.select(&#39;.r-ent .title a&#39;)for title in result:    print(title.text, title[&#39;href&#39;])</code></pre><p>輸出結果：<br><img src="https://i.imgur.com/NmCiRB0.png" alt=""></p>]]></content>
-      
+      <tags>
+        <tag>python</tag>
+        <tag>web crawler</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[資料科學筆記(2)：BeautifulSoup模組]]></title>
+    <url>%2Fdata-sci-bs4%2F</url>
+    <content type="text"><![CDATA[使用Requests取得網頁內容後，會得到一堆密密麻麻的html，這時候便可以讓BeautifulSoup來協助解析網頁內容。 Install$pip3 install bs4 Web Analytics來試著寫一個簡單的web crawler去PTT西斯版逛逛吧，但因為西斯版有年齡驗證，所以必須利用Requests.Session()物件去做post，按下各位在美好童年就已經按過的「我已滿18歲按鈕」，web crawler取得伺服器驗證後就可以在西斯版橫行無阻啦。 從截圖可以看到，url為 https://www.ptt.cc/ask/over18... 這就是取得驗證的網址，注意url後頭的from=%2Fbbs%2Fsex…在post驗證的payload要寫入from這個key，表示這個post來自西斯版首頁。 關於BeautifulSoup更多細節請參考官方文件，這邊簡單說明，基本上就是把request取得的html丟給Soup去解析，接著可以使用find(), find_all(), select()等方法來篩選尋找目標數據所在的tag。 舉例來說，我要讓web crawler去爬取西斯版首頁的文章標題＆連結，檢視網頁原始碼後可以發現我要的數據就在class＝r-ent的tag裡面。 Codeimport requests as rq from bs4 import BeautifulSoup as bs url = &#39;https://www.ptt.cc/bbs/sex/index.html&#39; payload = { &#39;from&#39;:url, &#39;yes&#39;:&#39;yes&#39; } session = rq.Session() session.post(&#39;https://www.ptt.cc/ask/over18&#39;, data=payload) res = session.get(url) soup = bs(res.text, &#39;html.parser&#39;) result = soup.select(&#39;.r-ent .title a&#39;) for title in result: print(title.text, title[&#39;href&#39;]) 輸出結果：]]></content>
       <categories>
-          
-          <category> Data Science </category>
-          
+        <category>Data Science</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> python </tag>
-            
-            <tag> web crawler </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>資料科學筆記(1)：Requests模組</title>
-      <link href="/data-sci-requests/"/>
-      <url>/data-sci-requests/</url>
-      <content type="html"><![CDATA[<h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><pre><code>$pip3 install requests</code></pre><a id="more"></a><h2 id="Get"><a href="#Get" class="headerlink" title="Get"></a>Get</h2><p>此例為對網頁做基本的請求＆接收回應，raise_for_status()為連線檢查，若返回異常則會拋出Error。</p><pre><code>import requests as rqurl = &#39;http://www.google.com.tw/search?&#39;  # target urltry:    res = rq.get(url)    res.raise_for_status()except rq.HTTPError:    print(&#39;HTTP Error!&#39;)print(res.text)  # html</code></pre><h2 id="Payload"><a href="#Payload" class="headerlink" title="Payload"></a>Payload</h2><p>必要時可以加上參數，例如Google Search:</p><pre><code>payload = {&#39;q&#39;:&#39;data science&#39;}res = rq.get(url, params=payload)  # http://www.google.com.tw/search?q=data+science</code></pre><p>參數的部分為字典結構，key則要視url結構而定。</p><h2 id="Post"><a href="#Post" class="headerlink" title="Post"></a>Post</h2><p>針對網頁中的表單，可以使用Post來傳送Payload</p><pre><code>res = rq.post(url, params=payload)</code></pre><p>不過．．．對Google Search頁面做Post會得到這樣的回應：</p><pre><code>&lt;a href=//www.google.com/&gt;&lt;span id=logo aria-label=Google&gt;&lt;/span&gt;&lt;/a&gt;&lt;p&gt;&lt;b&gt;405.&lt;/b&gt; &lt;ins&gt;That’s an error.&lt;/ins&gt;&lt;p&gt;The request method &lt;code&gt;POST&lt;/code&gt; is inappropriate for the URL &lt;code&gt;/search?q=data+science&lt;/code&gt;.  &lt;ins&gt;That’s all we know.&lt;/ins&gt;</code></pre><p>Google說這樣是不當的行為呢，我只是做個示範，好孩子不要學呀＾.&lt;</p>]]></content>
-      
+      <tags>
+        <tag>python</tag>
+        <tag>web crawler</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[資料科學筆記(1)：Requests模組]]></title>
+    <url>%2Fdata-sci-requests%2F</url>
+    <content type="text"><![CDATA[Install$pip3 install requests Get此例為對網頁做基本的請求＆接收回應，raise_for_status()為連線檢查，若返回異常則會拋出Error。 import requests as rq url = &#39;http://www.google.com.tw/search?&#39; # target url try: res = rq.get(url) res.raise_for_status() except rq.HTTPError: print(&#39;HTTP Error!&#39;) print(res.text) # html Payload必要時可以加上參數，例如Google Search: payload = {&#39;q&#39;:&#39;data science&#39;} res = rq.get(url, params=payload) # http://www.google.com.tw/search?q=data+science 參數的部分為字典結構，key則要視url結構而定。 Post針對網頁中的表單，可以使用Post來傳送Payload res = rq.post(url, params=payload) 不過．．．對Google Search頁面做Post會得到這樣的回應： &lt;a href=//www.google.com/&gt;&lt;span id=logo aria-label=Google&gt;&lt;/span&gt;&lt;/a&gt; &lt;p&gt;&lt;b&gt;405.&lt;/b&gt; &lt;ins&gt;That’s an error.&lt;/ins&gt; &lt;p&gt;The request method &lt;code&gt;POST&lt;/code&gt; is inappropriate for the URL &lt;code&gt;/search?q=data+science&lt;/code&gt;. &lt;ins&gt;That’s all we know.&lt;/ins&gt; Google說這樣是不當的行為呢，我只是做個示範，好孩子不要學呀＾.&lt;]]></content>
       <categories>
-          
-          <category> Data Science </category>
-          
+        <category>Data Science</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> python </tag>
-            
-            <tag> web crawler </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>Hexo on GitHub Pages:從Win轉移到Mac</title>
-      <link href="/hexo-switching-from-win-to-mac/"/>
-      <url>/hexo-switching-from-win-to-mac/</url>
-      <content type="html"><![CDATA[<p>一直以來都有想換筆電的想法，但總是能撐則撐，畢竟是要噴個幾萬塊的事情呢．．．不過前陣子需要帶著筆電趴趴造，而跟著我8年的老Win筆電過於笨重，這實在令人感到非常困擾，所以就決定換掉囉。經考量後換了Mac Air．．．<br><a id="more"></a><br>既然換了電腦換了系統，除了熟悉系統操作，再來就是開發環境的建置囉，趕緊先把Hexo的環境先建置起來才能更新Blog。</p><h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><p>官方下載：<a href="https://git-scm.com" target="_blank" rel="noopener">點我</a>，若是已安裝過自帶Git環境的XCode可以跳過。</p><h2 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h2><p>官方下載：<a href="https://nodejs.org/en/" target="_blank" rel="noopener">點我</a></p><h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><pre><code>sudo npm install -g hexo-clisudo npm install hexo-deployer-git --savecd {blog_name}        # build folder of bloghexo init {blog_name}hexonpm installhexo s --debug  # run local server(127.0.0.1:4000)</code></pre><p><img src="https://i.imgur.com/iftnF8e.jpg" alt=""></p><h2 id="Data"><a href="#Data" class="headerlink" title="Data"></a>Data</h2><p>確定在本機可以正常運作後，接下來只要把根目錄下的_config.yml、scaffolds資料夾及source資料夾覆寫到Mac的Blog根目錄下就完成！</p><h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>後記：<br>1.在發佈這篇文章後，我發現Blog分類及標籤頁面消失了．．．原來是我只把source底下的“_posts”複製到新的根目錄下，只要重新建立“categories”及”tags”兩個new page就行啦。<br>2.原本使用的NexT主題為舊版，這次乾脆就更新到v6.4.0啦，配置檔只有微幅的調整，需注意的是languages的部分，檔名中hyphen後的字改為大寫字母了，如果根目錄配置檔沒有修改，Blog預設語言就會因爲找不到對應檔案而變成英文。<br>3.所以我發現關於Hexo的筆記沒有寫到如何建立new page</p><p>以上，就是我在Mac系統下所更新的第一篇筆記了。</p>]]></content>
-      
+      <tags>
+        <tag>python</tag>
+        <tag>web crawler</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo on GitHub Pages:從Win轉移到Mac]]></title>
+    <url>%2Fhexo-switching-from-win-to-mac%2F</url>
+    <content type="text"><![CDATA[一直以來都有想換筆電的想法，但總是能撐則撐，畢竟是要噴個幾萬塊的事情呢．．．不過前陣子需要帶著筆電趴趴造，而跟著我8年的老Win筆電過於笨重，這實在令人感到非常困擾，所以就決定換掉囉。經考量後換了Mac Air．．．既然換了電腦換了系統，除了熟悉系統操作，再來就是開發環境的建置囉，趕緊先把Hexo的環境先建置起來才能更新Blog。 Git官方下載：點我，若是已安裝過自帶Git環境的XCode可以跳過。 Node.js官方下載：點我 Hexosudo npm install -g hexo-cli sudo npm install hexo-deployer-git --save cd {blog_name} # build folder of blog hexo init {blog_name} hexo npm install hexo s --debug # run local server(127.0.0.1:4000) Data確定在本機可以正常運作後，接下來只要把根目錄下的_config.yml、scaffolds資料夾及source資料夾覆寫到Mac的Blog根目錄下就完成！ Note後記：1.在發佈這篇文章後，我發現Blog分類及標籤頁面消失了．．．原來是我只把source底下的“_posts”複製到新的根目錄下，只要重新建立“categories”及”tags”兩個new page就行啦。2.原本使用的NexT主題為舊版，這次乾脆就更新到v6.4.0啦，配置檔只有微幅的調整，需注意的是languages的部分，檔名中hyphen後的字改為大寫字母了，如果根目錄配置檔沒有修改，Blog預設語言就會因爲找不到對應檔案而變成英文。3.所以我發現關於Hexo的筆記沒有寫到如何建立new page 以上，就是我在Mac系統下所更新的第一篇筆記了。]]></content>
       <categories>
-          
-          <category> Hexo </category>
-          
+        <category>Hexo</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> github pages </tag>
-            
-            <tag> hexo </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>Error:檔案無法載入，因為這個系統已停用指令碼執行</title>
-      <link href="/error-execution-of-scripts-is-disabled-on-this-system/"/>
-      <url>/error-execution-of-scripts-is-disabled-on-this-system/</url>
-      <content type="html"><![CDATA[<p>問題來源 : 今日在Win10作業系統下建立Python virtual environment for Django，接著要用Scripts/activate指令啟動虛擬環境時，CLI顯示了這個令人錯愕的訊息:</p><p>「檔案無法載入，因為這個系統已停用指令碼執行」</p><a id="more"></a><p>代表目前作業系統的Execution Policy設定為Restricted(不允許執行)這是我在Win7作業系統下使用虛擬環境從沒遇過的狀況，而Google搜尋結果顯示有許多人在PowerShell執行Script遇到相同問題。</p><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>以系統管理員權限執行PowerShell，執行以下指令:</p><pre><code>Set-ExecutionPolicy RemoteSigned</code></pre><p>使作業系統接受所有自訂或信任來源的Script，如此問題便解決啦。</p>]]></content>
-      
+      <tags>
+        <tag>github pages</tag>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Error:檔案無法載入，因為這個系統已停用指令碼執行]]></title>
+    <url>%2Ferror-execution-of-scripts-is-disabled-on-this-system%2F</url>
+    <content type="text"><![CDATA[問題來源 : 今日在Win10作業系統下建立Python virtual environment for Django，接著要用Scripts/activate指令啟動虛擬環境時，CLI顯示了這個令人錯愕的訊息: 「檔案無法載入，因為這個系統已停用指令碼執行」 代表目前作業系統的Execution Policy設定為Restricted(不允許執行)這是我在Win7作業系統下使用虛擬環境從沒遇過的狀況，而Google搜尋結果顯示有許多人在PowerShell執行Script遇到相同問題。 Solution以系統管理員權限執行PowerShell，執行以下指令: Set-ExecutionPolicy RemoteSigned 使作業系統接受所有自訂或信任來源的Script，如此問題便解決啦。]]></content>
       <categories>
-          
-          <category> Django </category>
-          
+        <category>Django</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> django </tag>
-            
-            <tag> pyhton </tag>
-            
-            <tag> powershell </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>VS Code快速建立Python開發環境</title>
-      <link href="/set-up-python-in-vscode/"/>
-      <url>/set-up-python-in-vscode/</url>
-      <content type="html"><![CDATA[<p>個人從自學Python到現在，一直都是使用工具書所推薦的IDE:PyCharm，它確實是相當優秀的整合開發環境，但過胖這一點偶爾還是會令人感到困擾…每次打開程式就是要等它大爺暖身一下(白眼)。而開始學習在GitHub Pages寫Blog以來，我都是用VS Code發文，它的輕量化和豐富的擴充套件真是令人感到愉悅呢ヽ(●´∀`●)ﾉ 所以說，乾脆就在VS Code寫Python就好啦。<br><a id="more"></a></p><h2 id="Download-VS-Code"><a href="#Download-VS-Code" class="headerlink" title="Download VS Code"></a>Download VS Code</h2><p><a href="https://code.visualstudio.com/download" target="_blank" rel="noopener">點我前往官方下載</a></p><h2 id="Install-Python-Extension-for-VS-Code"><a href="#Install-Python-Extension-for-VS-Code" class="headerlink" title="Install Python Extension for VS Code"></a>Install Python Extension for VS Code</h2><p>↓點側邊工具列的’擴充功能’，然後搜尋’Python’，就會看到MS官方為Python開發的擴充套件，直接安裝即可。<br><img src="https://i.imgur.com/HD4254a.jpg" alt=""></p><h2 id="Build-Working-Directory"><a href="#Build-Working-Directory" class="headerlink" title="Build Working Directory"></a>Build Working Directory</h2><p>建立一個工作目錄，理由後面會解釋。</p><h2 id="Run-Python-File"><a href="#Run-Python-File" class="headerlink" title="Run Python File"></a>Run Python File</h2><p>要在VS Code環境執行Python程式，你可以直接右鍵–&gt;在終端機(CLI)執行Python檔案，或者按下ctrl + `叫出CLI用’Python {file_path}’去執行也可以…但每次都這樣搞就太麻煩了嘛，所以我們來建個任務組態檔吧。<br><img src="https://i.imgur.com/hT5hAXa.jpg" alt=""></p><p>重點來了，首先點選上方工作列’檔案’–&gt;’開啟資料夾’，選擇我們剛剛建立的工作目錄，若是沒有先選擇工作目錄，那麼接下來的步驟就會發生錯誤，VS Code會告訴你一句莫名其妙的話 :’這些工作只會出現在工作區資料夾中’。選擇好工作目錄後，按下ctrl + shift + P接著搜尋’task’，點選’工作:設定工作(Tasks:Configure Task)‘，然後VS Code會在工作目錄下產生一個’tasks.json’，將下方內容直接覆蓋並存檔 :</p><pre><code>&quot;version&quot;: &quot;2.0.0&quot;,    &quot;tasks&quot;: [            {                &quot;label&quot;: &quot;Run Python Code&quot;,                &quot;type&quot;: &quot;shell&quot;,                &quot;command&quot;: &quot;python&quot;,                &quot;args&quot;: [                    &quot;${file}&quot;                ],                &quot;group&quot;: {                    &quot;kind&quot;: &quot;build&quot;,                    &quot;isDefault&quot;: true                },                &quot;presentation&quot;: {                    &quot;echo&quot;: true,                    &quot;reveal&quot;: &quot;always&quot;,                    &quot;focus&quot;: true,                    &quot;panel&quot;: &quot;shared&quot;                }            }        ]</code></pre><p>↓然後就可以透過快捷鍵’ctrl + shift + B’執行Python程式囉，順帶一提，這是我寫給LineBot的Google爬蟲XD<br><img src="https://i.imgur.com/PZreIqo.jpg" alt=""></p>]]></content>
-      
+      <tags>
+        <tag>django</tag>
+        <tag>pyhton</tag>
+        <tag>powershell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[VS Code快速建立Python開發環境]]></title>
+    <url>%2Fset-up-python-in-vscode%2F</url>
+    <content type="text"><![CDATA[個人從自學Python到現在，一直都是使用工具書所推薦的IDE:PyCharm，它確實是相當優秀的整合開發環境，但過胖這一點偶爾還是會令人感到困擾…每次打開程式就是要等它大爺暖身一下(白眼)。而開始學習在GitHub Pages寫Blog以來，我都是用VS Code發文，它的輕量化和豐富的擴充套件真是令人感到愉悅呢ヽ(●´∀`●)ﾉ 所以說，乾脆就在VS Code寫Python就好啦。 Download VS Code點我前往官方下載 Install Python Extension for VS Code↓點側邊工具列的’擴充功能’，然後搜尋’Python’，就會看到MS官方為Python開發的擴充套件，直接安裝即可。 Build Working Directory建立一個工作目錄，理由後面會解釋。 Run Python File要在VS Code環境執行Python程式，你可以直接右鍵–&gt;在終端機(CLI)執行Python檔案，或者按下ctrl + `叫出CLI用’Python {file_path}’去執行也可以…但每次都這樣搞就太麻煩了嘛，所以我們來建個任務組態檔吧。 重點來了，首先點選上方工作列’檔案’–&gt;’開啟資料夾’，選擇我們剛剛建立的工作目錄，若是沒有先選擇工作目錄，那麼接下來的步驟就會發生錯誤，VS Code會告訴你一句莫名其妙的話 :’這些工作只會出現在工作區資料夾中’。選擇好工作目錄後，按下ctrl + shift + P接著搜尋’task’，點選’工作:設定工作(Tasks:Configure Task)‘，然後VS Code會在工作目錄下產生一個’tasks.json’，將下方內容直接覆蓋並存檔 : &quot;version&quot;: &quot;2.0.0&quot;, &quot;tasks&quot;: [ { &quot;label&quot;: &quot;Run Python Code&quot;, &quot;type&quot;: &quot;shell&quot;, &quot;command&quot;: &quot;python&quot;, &quot;args&quot;: [ &quot;${file}&quot; ], &quot;group&quot;: { &quot;kind&quot;: &quot;build&quot;, &quot;isDefault&quot;: true }, &quot;presentation&quot;: { &quot;echo&quot;: true, &quot;reveal&quot;: &quot;always&quot;, &quot;focus&quot;: true, &quot;panel&quot;: &quot;shared&quot; } } ] ↓然後就可以透過快捷鍵’ctrl + shift + B’執行Python程式囉，順帶一提，這是我寫給LineBot的Google爬蟲XD]]></content>
       <categories>
-          
-          <category> Python </category>
-          
+        <category>Python</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> python </tag>
-            
-            <tag> vs code </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>Hexo on GitHub Pages:發文</title>
-      <link href="/first-post-on-github-pages/"/>
-      <url>/first-post-on-github-pages/</url>
-      <content type="html"><![CDATA[<p>好久沒記錄Hexo的進度了(Ora)<br><a id="more"></a><br>關於發文這件事，正所謂工欲善其事，必先利其器，就從選擇一個自己偏好的文字編輯器或IDE開始，個人私心推薦VSCode。</p><p>決定好工具後，首先來看看blog根目錄底下有個叫’scaffolds’的資料夾，這裡面放的是blog頁面模板。打開’post.md’會見到預先寫入的title、date等等，此為發文的模板，每次發文都是以這個檔案當為範本，當然我們也可以編輯它。例如，模板預設是沒有寫入’categories’的，那我會把它加上去，否則每次發文還得重打(懶~)<br><img src="https://i.imgur.com/TaK8Wzc.jpg" alt=""></p><p>在Hexo框架下撰文是使用Markdown，不熟悉語法可以參考<a href="https://markdown.tw/" target="_blank" rel="noopener">官方文件</a>，很簡單的~ 然後就可以開始撰寫文章囉，相關指令如下:</p><h2 id="Start-New-Post"><a href="#Start-New-Post" class="headerlink" title="Start New Post"></a>Start New Post</h2><pre><code>cd bloghexo new post post-title  # &#39;post-title&#39;請置換為自己的文章標題</code></pre><h2 id="Publish-New-Post"><a href="#Publish-New-Post" class="headerlink" title="Publish New Post"></a>Publish New Post</h2><pre><code>hexo d -g  # generate --&gt; deploy</code></pre><p>關於發文有兩件小事 :</p><p>1.categories是唯一、有序的，tags則沒有區分(關鍵字的概念)，意思是如果你的文章設定了A、B兩個類別，那麼這篇文章的分類就會變成’類別A底下的類別B’。<br>2.在new post指令輸入文章標題時，因為標題也是.md的檔名，所以一開始我用underline做區隔(a_b_c)，但我發現Hexo會自動把underline轉成hyphen(a-b-c，順帶一提這條短線叫hyphen…dash是破折號! )，所以就配合它啦，反正title可以建立文章後再修改為中文，檔名還是英文命名比較不會有什麼光怪陸離的事情發生(怕.jpg)</p><p>以上，優化的部分會努力推進的。</p>]]></content>
-      
+      <tags>
+        <tag>python</tag>
+        <tag>vs code</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo on GitHub Pages:發文]]></title>
+    <url>%2Ffirst-post-on-github-pages%2F</url>
+    <content type="text"><![CDATA[好久沒記錄Hexo的進度了(Ora)關於發文這件事，正所謂工欲善其事，必先利其器，就從選擇一個自己偏好的文字編輯器或IDE開始，個人私心推薦VSCode。 決定好工具後，首先來看看blog根目錄底下有個叫’scaffolds’的資料夾，這裡面放的是blog頁面模板。打開’post.md’會見到預先寫入的title、date等等，此為發文的模板，每次發文都是以這個檔案當為範本，當然我們也可以編輯它。例如，模板預設是沒有寫入’categories’的，那我會把它加上去，否則每次發文還得重打(懶~) 在Hexo框架下撰文是使用Markdown，不熟悉語法可以參考官方文件，很簡單的~ 然後就可以開始撰寫文章囉，相關指令如下: Start New Postcd blog hexo new post post-title # &#39;post-title&#39;請置換為自己的文章標題 Publish New Posthexo d -g # generate --&gt; deploy 關於發文有兩件小事 : 1.categories是唯一、有序的，tags則沒有區分(關鍵字的概念)，意思是如果你的文章設定了A、B兩個類別，那麼這篇文章的分類就會變成’類別A底下的類別B’。2.在new post指令輸入文章標題時，因為標題也是.md的檔名，所以一開始我用underline做區隔(a_b_c)，但我發現Hexo會自動把underline轉成hyphen(a-b-c，順帶一提這條短線叫hyphen…dash是破折號! )，所以就配合它啦，反正title可以建立文章後再修改為中文，檔名還是英文命名比較不會有什麼光怪陸離的事情發生(怕.jpg) 以上，優化的部分會努力推進的。]]></content>
       <categories>
-          
-          <category> Hexo </category>
-          
+        <category>Hexo</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> Hexo </tag>
-            
-            <tag> github pages </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>關於Python的變數範圍</title>
-      <link href="/scope-of-python-variables/"/>
-      <url>/scope-of-python-variables/</url>
-      <content type="html"><![CDATA[<p>在Python的世界裡，變數是不需要先宣告就能直接賦値並使用的，而 <strong>變數的作用範圍會在賦値的時候建立</strong> ，除非你指定了global或nonlocal關鍵字。<br><a id="more"></a><br>先看看<a href="https://docs.python.org/3/faq/programming.html#id9" target="_blank" rel="noopener">官方文件</a>怎麼說:</p><blockquote><p>In Python, variables that are only referenced inside a function are implicitly global. If a variable is <strong>assigned a value</strong> anywhere within the function’s body, it’s assumed to be a local unless explicitly declared as global.</p></blockquote><blockquote><p>Though a bit surprising at first, a moment’s consideration explains this. On one hand, requiring global for assigned variables provides a bar against unintended side-effects. On the other hand, if global was required for all global references, you’d be using global all the time. You’d have to declare as global every reference to a built-in function or to a component of an imported module. This clutter would defeat the usefulness of the global declaration for identifying side-effects.</p></blockquote><p>簡而言之，在函式區塊內部賦値的變數即為區域變數(除非指定global或nonlocal)，於函式區塊之外賦値的便是全域變數。</p><p>直接敲幾段code來看會更清楚 :</p><pre><code>#!/usr/bin/evn python3# *** coding : utf-8 ***a, b = 1, 2  # Global Variabledef func_a():    global a  # Global Variable    print(a, &quot;# Global Variable a&quot;)    a = 2def func_b():    b = 3  # Local Variable in func_a()    def func_c():        nonlocal b  # Local Variable in func_a()        b = 4        print(b, &quot;# Local Variable b&quot;)    print(b, &quot;# Local Variable b&quot;)    func_c()func_a()func_b()print(b, &quot;# Global Variable b&quot;)</code></pre><p><strong>輸出結果:</strong></p><pre><code>1 # Global Variable a3 # Local Variable b4 # Local Variable b2 # Global Variable b</code></pre>]]></content>
-      
+      <tags>
+        <tag>Hexo</tag>
+        <tag>github pages</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[關於Python的變數範圍]]></title>
+    <url>%2Fscope-of-python-variables%2F</url>
+    <content type="text"><![CDATA[在Python的世界裡，變數是不需要先宣告就能直接賦値並使用的，而 變數的作用範圍會在賦値的時候建立 ，除非你指定了global或nonlocal關鍵字。先看看官方文件怎麼說: In Python, variables that are only referenced inside a function are implicitly global. If a variable is assigned a value anywhere within the function’s body, it’s assumed to be a local unless explicitly declared as global. Though a bit surprising at first, a moment’s consideration explains this. On one hand, requiring global for assigned variables provides a bar against unintended side-effects. On the other hand, if global was required for all global references, you’d be using global all the time. You’d have to declare as global every reference to a built-in function or to a component of an imported module. This clutter would defeat the usefulness of the global declaration for identifying side-effects. 簡而言之，在函式區塊內部賦値的變數即為區域變數(除非指定global或nonlocal)，於函式區塊之外賦値的便是全域變數。 直接敲幾段code來看會更清楚 : #!/usr/bin/evn python3 # *** coding : utf-8 *** a, b = 1, 2 # Global Variable def func_a(): global a # Global Variable print(a, &quot;# Global Variable a&quot;) a = 2 def func_b(): b = 3 # Local Variable in func_a() def func_c(): nonlocal b # Local Variable in func_a() b = 4 print(b, &quot;# Local Variable b&quot;) print(b, &quot;# Local Variable b&quot;) func_c() func_a() func_b() print(b, &quot;# Global Variable b&quot;) 輸出結果: 1 # Global Variable a 3 # Local Variable b 4 # Local Variable b 2 # Global Variable b]]></content>
       <categories>
-          
-          <category> Python </category>
-          
+        <category>Python</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> python </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>在Heroku環境下使用自訂字型</title>
-      <link href="/use-custom-fonts-in-heroku-apps/"/>
-      <url>/use-custom-fonts-in-heroku-apps/</url>
-      <content type="html"><![CDATA[<h2 id="How-to-Use-Custom-Fonts-in-Heroku-Apps"><a href="#How-to-Use-Custom-Fonts-in-Heroku-Apps" class="headerlink" title="How to Use Custom Fonts in Heroku Apps?"></a>How to Use Custom Fonts in Heroku Apps?</h2><p>事情是這樣子的，持續努力讓Bot能查教師課表的某一天，在經歷了數據蒐集、數據處理、介接imgur api…等等，終於讓Bot傳來了一張圖片啦~但仔細一看似乎不太對勁(!)<br><a id="more"></a></p><p>我X，踩雷了，竟然出現中文亂碼的狀況，這課表鬼才看得懂(鬼:口口口口口這鬼也看不懂好嘛)於是又開始try&amp;error loop…甚至讓Bot去下CLI指令刪除搬移檔案…繞了好一大圈，終於讓我找到答案了!!!令人難過的是，這方法非常簡單…雖然這是常有的事，可就是白耗了好多時間。但沒關係，讓碰見相同問題的人能快速找到解決方案，這就是學習筆記的意義所在。</p><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>1.準備好你要的字型，要<font color="red">特別注意<font color="black">的是，該字型必須是Linux/Ubuntu所支援的字型。<font><font><br>2.在專案根目錄下新增一個名稱為「.fonts」的資料夾(tips:在命名時輸入.fonts.)<br>3.把字型檔案(.ttf)放到上述資料夾中<br>4.重新push專案</font></font></font></font></p><p><img src="https://i.imgur.com/uxdEvJZ.png" alt=""></p><p>關於中文亂碼，似乎是matplotlib無法在Heroku環境下找到可套用的中文字型，但我在本機測試是沒問題的…所以要自己提供字型就是了，真是踩了個莫名其妙的雷，總之中文亂碼問題就這麼解決了。</p>]]></content>
-      
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[在Heroku環境下使用自訂字型]]></title>
+    <url>%2Fuse-custom-fonts-in-heroku-apps%2F</url>
+    <content type="text"><![CDATA[How to Use Custom Fonts in Heroku Apps?事情是這樣子的，持續努力讓Bot能查教師課表的某一天，在經歷了數據蒐集、數據處理、介接imgur api…等等，終於讓Bot傳來了一張圖片啦~但仔細一看似乎不太對勁(!) 我X，踩雷了，竟然出現中文亂碼的狀況，這課表鬼才看得懂(鬼:口口口口口這鬼也看不懂好嘛)於是又開始try&amp;error loop…甚至讓Bot去下CLI指令刪除搬移檔案…繞了好一大圈，終於讓我找到答案了!!!令人難過的是，這方法非常簡單…雖然這是常有的事，可就是白耗了好多時間。但沒關係，讓碰見相同問題的人能快速找到解決方案，這就是學習筆記的意義所在。 Solution1.準備好你要的字型，要特別注意的是，該字型必須是Linux/Ubuntu所支援的字型。2.在專案根目錄下新增一個名稱為「.fonts」的資料夾(tips:在命名時輸入.fonts.)3.把字型檔案(.ttf)放到上述資料夾中4.重新push專案 關於中文亂碼，似乎是matplotlib無法在Heroku環境下找到可套用的中文字型，但我在本機測試是沒問題的…所以要自己提供字型就是了，真是踩了個莫名其妙的雷，總之中文亂碼問題就這麼解決了。]]></content>
       <categories>
-          
-          <category> LineBot </category>
-          
+        <category>LineBot</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> python </tag>
-            
-            <tag> heroku </tag>
-            
-            <tag> matplotlib </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>翻缸Day21:藍綠藻來襲</title>
-      <link href="/restart-planted-tank-day21/"/>
-      <url>/restart-planted-tank-day21/</url>
-      <content type="html"><![CDATA[<p>開始新工作，下了班想發文卻提不起勁…呵。但還是利用假日來紀錄一下魚缸的近況吧。<br><a id="more"></a><br>↓上週三出門辦事發現水族店在隔壁，就進去逛了<br><img src="https://i.imgur.com/8QSsMfb.jpg" alt=""><br>↓於是加入新成員<br><img src="https://i.imgur.com/himpyCZ.jpg" alt=""><br>↓綠宮廷轉水中葉，全數拔起整理再植草<br><img src="https://i.imgur.com/k5Jxf0j.jpg" alt=""><br>↓角螺開心地啃藻…這缸子該刷了<br><img src="https://i.imgur.com/lSF2Z0A.jpg" alt=""><br>↓僱來一批除藻小幫手<br><img src="https://i.imgur.com/pkNizEv.jpg" alt=""></p><p>然後呢，最近幾天發現藍綠藻持續蔓延，底砂、牛毛氈甚至入水口生化棉也染上了噁心的藍綠色…即使拔起來用檸檬酸浸泡清洗試圖阻止，依然無效。經過爬文吸收資訊，也確定不會對魚蝦造成傷害，決定直接使用紅黴素來處理。雖然不會對魚蝦造成影響，但對於硝化菌們來說可就不妙了，所以投藥前必須將濾材另行安置才行。</p><p>↓到處生長的藍綠藻<br><img src="https://i.imgur.com/cEm4u6i.jpg" alt=""><br>↓移出圓桶中的濾材並加強打氣維持好氧的硝化菌<br><img src="https://i.imgur.com/umj5hh7.jpg" alt=""><br>↓然後紅黴素便可以登場了!(決鬥吧藍綠藻!抽牌!)<br><img src="https://i.imgur.com/X3OmePn.jpg" alt=""></p><h2 id="※關於投藥劑量"><a href="#※關於投藥劑量" class="headerlink" title="※關於投藥劑量"></a>※關於投藥劑量</h2><p>根據<a href="https://www.paludarium.net/aquarium/48" target="_blank" rel="noopener">P大</a>所說的2.5ppm來計算，我的魚缸水量約23L:23000000 * 0.00025% = 57.5(mg)，一顆紅黴素膠囊為250mg，所以我只需要1/5顆左右的劑量、持續投藥四日。</p><h2 id="2018-7-23-連續投藥Day3"><a href="#2018-7-23-連續投藥Day3" class="headerlink" title="2018/7/23 連續投藥Day3"></a>2018/7/23 連續投藥Day3</h2><p>除了每日換水1/2，光源也調整為上午與傍晚開啟、不連續合計8小時(有一說如此中斷能干擾藻類生長)，目前觀察到藍綠藻已停止蔓延，清洗後的入水口綿也沒有藍綠藻生長。</p><h2 id="2018-7-25-連續投藥Day5"><a href="#2018-7-25-連續投藥Day5" class="headerlink" title="2018/7/25 連續投藥Day5"></a>2018/7/25 連續投藥Day5</h2><p>↓藍綠藻明顯消失，但我決定今日不換水，讓藥物的效用多殘留一天，確保能控制住…別再來啦，真的是挺麻煩的。<br><img src="https://i.imgur.com/wtmQzkE.jpg" alt=""></p>]]></content>
-      
+      <tags>
+        <tag>python</tag>
+        <tag>heroku</tag>
+        <tag>matplotlib</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[翻缸Day21:藍綠藻來襲]]></title>
+    <url>%2Frestart-planted-tank-day21%2F</url>
+    <content type="text"><![CDATA[開始新工作，下了班想發文卻提不起勁…呵。但還是利用假日來紀錄一下魚缸的近況吧。↓上週三出門辦事發現水族店在隔壁，就進去逛了↓於是加入新成員↓綠宮廷轉水中葉，全數拔起整理再植草↓角螺開心地啃藻…這缸子該刷了↓僱來一批除藻小幫手 然後呢，最近幾天發現藍綠藻持續蔓延，底砂、牛毛氈甚至入水口生化棉也染上了噁心的藍綠色…即使拔起來用檸檬酸浸泡清洗試圖阻止，依然無效。經過爬文吸收資訊，也確定不會對魚蝦造成傷害，決定直接使用紅黴素來處理。雖然不會對魚蝦造成影響，但對於硝化菌們來說可就不妙了，所以投藥前必須將濾材另行安置才行。 ↓到處生長的藍綠藻↓移出圓桶中的濾材並加強打氣維持好氧的硝化菌↓然後紅黴素便可以登場了!(決鬥吧藍綠藻!抽牌!) ※關於投藥劑量根據P大所說的2.5ppm來計算，我的魚缸水量約23L:23000000 * 0.00025% = 57.5(mg)，一顆紅黴素膠囊為250mg，所以我只需要1/5顆左右的劑量、持續投藥四日。 2018/7/23 連續投藥Day3除了每日換水1/2，光源也調整為上午與傍晚開啟、不連續合計8小時(有一說如此中斷能干擾藻類生長)，目前觀察到藍綠藻已停止蔓延，清洗後的入水口綿也沒有藍綠藻生長。 2018/7/25 連續投藥Day5↓藍綠藻明顯消失，但我決定今日不換水，讓藥物的效用多殘留一天，確保能控制住…別再來啦，真的是挺麻煩的。]]></content>
       <categories>
-          
-          <category> Aquarium </category>
-          
+        <category>Aquarium</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> aquarium </tag>
-            
-            <tag> planted tank </tag>
-            
-            <tag> cyanobacteria </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>先別管如何發文了，你聽過NexT嗎?</title>
-      <link href="/before-new-post-root-config-and-theme-config/"/>
-      <url>/before-new-post-root-config-and-theme-config/</url>
-      <content type="html"><![CDATA[<p>部署完我們的Blog呢，別急著發文，看一眼別人的，再看看自己的頁面，應該有明白些什麼吧(笑)，先進行初步的個人化設定、讓它看起來更像一個Personal Blog吧~那麼，就先從選擇一個喜歡的佈景主題開始。<br><a id="more"></a><br>Hexo如此熱門的框架，有許多的<a href="https://hexo.io/themes/" target="_blank" rel="noopener">第三方主題</a>能套用，或者想<a href="https://hexo.io/zh-tw/docs/themes.html" target="_blank" rel="noopener">打造一個自己的主題</a>也行，而我選擇了相當受歡迎的經典主題──NexT。</p><h1 id="安裝NexT主題"><a href="#安裝NexT主題" class="headerlink" title="安裝NexT主題"></a>安裝NexT主題</h1><pre><code>cd blog    # 移動至Blog根目錄下 git clone https://github.com/theme-next/hexo-theme-next themes/next</code></pre><h2 id="設定主題"><a href="#設定主題" class="headerlink" title="設定主題"></a>設定主題</h2><p>打開blog根目錄下的Hexo root配置檔(_config.yml)，找到#Extensions區塊，將theme屬性設定為next</p><pre><code># Extensions## Plugins: https://hexo.io/plugins/## Themes: https://hexo.io/themes/theme: next</code></pre><h2 id="Local-Host測試"><a href="#Local-Host測試" class="headerlink" title="Local Host測試"></a>Local Host測試</h2><pre><code>hexo clean        # 清除hexo cachehexo s --debug    # 以debug模式啟動local host server</code></pre><p>如果CLI沒有輸出錯誤訊息，那麼你應該會在CLI見到以下這段文字:</p><pre><code>INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.</code></pre><p>接著打開瀏覽器輸入localhost:4000便能在本機查看、測試自己的Blog囉。</p><h1 id="配置檔-config-yml"><a href="#配置檔-config-yml" class="headerlink" title="配置檔(_config.yml)"></a>配置檔(_config.yml)</h1><p><strong>更多詳細的Config設定請參考官方文件，在此僅就個人所設定的部分作介紹。</strong></p><p>*官方文件(中文):<br>  1.<a href="https://hexo.io/zh-tw/docs/" target="_blank" rel="noopener">Hexo docs</a><br>  2.<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="noopener">NexT docs</a></p><h2 id="Root-Config"><a href="#Root-Config" class="headerlink" title="Root Config"></a>Root Config</h2><p>檔案位址:~/_config.yml</p><pre><code># Sitetitle: LaplaceTW&#39;s Blog         # 網站標題subtitle: learning-by-doing     # 網站副標題description: learning-by-doing  # 網站描述keywords:author: LaplaceTW               # 個人暱稱language: zh-tw                 # 頁面語言timezone:# URL## If your site is put in a subdirectory, set url as &#39;http://yoursite.com/child&#39; and root as &#39;/child/&#39;url: https://username.github.io/  # 網站首頁網址root: /permalink: :title/                # 文章永久連結，基於優化考量不建議使用預設值(:year/:month/:day/:title/)permalink_defaults:# Home page setting# path: Root path for your blogs index page. (default = &#39;&#39;)# per_page: Posts displayed per page. (0 = disable pagination)# order_by: Posts order. (Order by date descending by default)index_generator:path: &#39;&#39;per_page: 5      # 每頁顯示文章數(預設值為10)order_by: -date</code></pre><p>↓Root Config沒什麼複雜的屬性設定，不過在#site設定部分，我以為設定為subtitle的文字會顯示在author下方(紅框處)…結果顯示的文字是description，所以我說內個subtitle呢???<br><img src="https://i.imgur.com/3YLGWXs.jpg" alt=""></p><h2 id="Theme-Config"><a href="#Theme-Config" class="headerlink" title="Theme Config"></a>Theme Config</h2><p>檔案位址:~/themes/next/_config.yml</p><h3 id="favicon"><a href="#favicon" class="headerlink" title="favicon"></a>favicon</h3><p>首先就來改網站的分頁icon吧，我覺得這對Blog個人化而言挺重要的呢XD 個人只有更改前三個icon，尺寸調整好後，修改為同樣的檔名直接取代掉就行(懶)，然後就可以在瀏覽器的分頁頁籤看到自己的icon囉~<br>圖片位址:~/themes/next/source/images</p><pre><code>favicon:small: /images/favicon-16x16-next.pngmedium: /images/favicon-32x32-next.pngapple_touch_icon: /images/apple-touch-icon-next.pngsafari_pinned_tab: /images/logo.svg#android_manifest: /images/manifest.json#ms_browserconfig: /images/browserconfig.xml</code></pre><h3 id="subtitle"><a href="#subtitle" class="headerlink" title="subtitle"></a>subtitle</h3><p>index_with_subtitle改為true依然不見subtitle顯示於何處。</p><pre><code># If true, will add site-subtitle to index page, added in main hexo config.#subtitle: Subtitleindex_with_subtitle: false</code></pre><h3 id="scheme"><a href="#scheme" class="headerlink" title="scheme"></a>scheme</h3><p>NexT主題目前有四種<a href="https://github.com/theme-next/hexo-theme-next" target="_blank" rel="noopener">外觀模式</a>可以選擇~將喜歡的模式取消註解即可。</p><pre><code># ---------------------------------------------------------------# Scheme Settings# ---------------------------------------------------------------# Schemes#scheme: Musescheme: Mist#scheme: Pisces#scheme: Gemini</code></pre><h3 id="sidebar"><a href="#sidebar" class="headerlink" title="sidebar"></a>sidebar</h3><p>側邊欄依設定的Scheme不同，有許多屬性可以設定。</p><pre><code># ---------------------------------------------------------------# Sidebar Settings# ---------------------------------------------------------------social:                                              # 顯示社交訊息(||後為social icon設定)GitHub: https://github.com/laplacetw || github       # icon參考網址 https://fontawesome.com/cheatsheet?from=ioE-Mail: mailto:nicholas611469@gmail.com || envelope# Sidebar Avatar                                     # 顯示作者頭像# in theme directory(source/images): /images/avatar.gif# in site  directory(source/uploads): /uploads/avatar.gifavatar: /images/avatar.png# Creative Commons 4.0 International License.        # 顯示創用CC授權模式# http://creativecommons.org/# Available: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zerocreative_commons: by#creative_commons:</code></pre><h3 id="creative-commons"><a href="#creative-commons" class="headerlink" title="creative commons"></a>creative commons</h3><p>文章內標註<a href="https://zh.wikipedia.org/wiki/創作共用授權條款" target="_blank" rel="noopener">創用CC授權條款</a></p><pre><code># Declare license on postspost_copyright:enable: truelicense: CC BY 4.0license_url: https://creativecommons.org/licenses/by/4.0/</code></pre><h3 id="third-party-services"><a href="#third-party-services" class="headerlink" title="third party services"></a>third party services</h3><p>關於NexT所支援之第三方服務請參考<a href="http://theme-next.iissnan.com/third-party-services.html" target="_blank" rel="noopener">官方文件說明</a></p>]]></content>
-      
+      <tags>
+        <tag>aquarium</tag>
+        <tag>planted tank</tag>
+        <tag>cyanobacteria</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[先別管如何發文了，你聽過NexT嗎?]]></title>
+    <url>%2Fbefore-new-post-root-config-and-theme-config%2F</url>
+    <content type="text"><![CDATA[部署完我們的Blog呢，別急著發文，看一眼別人的，再看看自己的頁面，應該有明白些什麼吧(笑)，先進行初步的個人化設定、讓它看起來更像一個Personal Blog吧~那麼，就先從選擇一個喜歡的佈景主題開始。Hexo如此熱門的框架，有許多的第三方主題能套用，或者想打造一個自己的主題也行，而我選擇了相當受歡迎的經典主題──NexT。 安裝NexT主題cd blog # 移動至Blog根目錄下 git clone https://github.com/theme-next/hexo-theme-next themes/next 設定主題打開blog根目錄下的Hexo root配置檔(_config.yml)，找到#Extensions區塊，將theme屬性設定為next # Extensions ## Plugins: https://hexo.io/plugins/ ## Themes: https://hexo.io/themes/ theme: next Local Host測試hexo clean # 清除hexo cache hexo s --debug # 以debug模式啟動local host server 如果CLI沒有輸出錯誤訊息，那麼你應該會在CLI見到以下這段文字: INFO Hexo is running at http://localhost:4000/. Press Ctrl+C to stop. 接著打開瀏覽器輸入localhost:4000便能在本機查看、測試自己的Blog囉。 配置檔(_config.yml)更多詳細的Config設定請參考官方文件，在此僅就個人所設定的部分作介紹。 *官方文件(中文): 1.Hexo docs 2.NexT docs Root Config檔案位址:~/_config.yml # Site title: LaplaceTW&#39;s Blog # 網站標題 subtitle: learning-by-doing # 網站副標題 description: learning-by-doing # 網站描述 keywords: author: LaplaceTW # 個人暱稱 language: zh-tw # 頁面語言 timezone: # URL ## If your site is put in a subdirectory, set url as &#39;http://yoursite.com/child&#39; and root as &#39;/child/&#39; url: https://username.github.io/ # 網站首頁網址 root: / permalink: :title/ # 文章永久連結，基於優化考量不建議使用預設值(:year/:month/:day/:title/) permalink_defaults: # Home page setting # path: Root path for your blogs index page. (default = &#39;&#39;) # per_page: Posts displayed per page. (0 = disable pagination) # order_by: Posts order. (Order by date descending by default) index_generator: path: &#39;&#39; per_page: 5 # 每頁顯示文章數(預設值為10) order_by: -date ↓Root Config沒什麼複雜的屬性設定，不過在#site設定部分，我以為設定為subtitle的文字會顯示在author下方(紅框處)…結果顯示的文字是description，所以我說內個subtitle呢??? Theme Config檔案位址:~/themes/next/_config.yml favicon首先就來改網站的分頁icon吧，我覺得這對Blog個人化而言挺重要的呢XD 個人只有更改前三個icon，尺寸調整好後，修改為同樣的檔名直接取代掉就行(懶)，然後就可以在瀏覽器的分頁頁籤看到自己的icon囉~圖片位址:~/themes/next/source/images favicon: small: /images/favicon-16x16-next.png medium: /images/favicon-32x32-next.png apple_touch_icon: /images/apple-touch-icon-next.png safari_pinned_tab: /images/logo.svg #android_manifest: /images/manifest.json #ms_browserconfig: /images/browserconfig.xml subtitleindex_with_subtitle改為true依然不見subtitle顯示於何處。 # If true, will add site-subtitle to index page, added in main hexo config. #subtitle: Subtitle index_with_subtitle: false schemeNexT主題目前有四種外觀模式可以選擇~將喜歡的模式取消註解即可。 # --------------------------------------------------------------- # Scheme Settings # --------------------------------------------------------------- # Schemes #scheme: Muse scheme: Mist #scheme: Pisces #scheme: Gemini sidebar側邊欄依設定的Scheme不同，有許多屬性可以設定。 # --------------------------------------------------------------- # Sidebar Settings # --------------------------------------------------------------- social: # 顯示社交訊息(||後為social icon設定) GitHub: https://github.com/laplacetw || github # icon參考網址 https://fontawesome.com/cheatsheet?from=io E-Mail: mailto:nicholas611469@gmail.com || envelope # Sidebar Avatar # 顯示作者頭像 # in theme directory(source/images): /images/avatar.gif # in site directory(source/uploads): /uploads/avatar.gif avatar: /images/avatar.png # Creative Commons 4.0 International License. # 顯示創用CC授權模式 # http://creativecommons.org/ # Available: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero creative_commons: by #creative_commons: creative commons文章內標註創用CC授權條款 # Declare license on posts post_copyright: enable: true license: CC BY 4.0 license_url: https://creativecommons.org/licenses/by/4.0/ third party services關於NexT所支援之第三方服務請參考官方文件說明]]></content>
       <categories>
-          
-          <category> Hexo </category>
-          
+        <category>Hexo</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> Hexo </tag>
-            
-            <tag> NexT </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>翻缸Day8:除藻生物</title>
-      <link href="/restart-planted-tank-day8/"/>
-      <url>/restart-planted-tank-day8/</url>
-      <content type="html"><![CDATA[<p>目前光照時間已拉長至8小時，光源為Johnlen LED 1.5呎19W水草自然混光燈、色溫4000k&amp;7000k的燈珠各3顆，CO2則是24小時不間斷，唯夜間會降低出氣量。重新翻缸後，底床僅有舊矽砂無鋪設基肥，依植草位置適量埋入ISTA水草根肥，因此在每週換水1/2後會酌量添加TBS綠色&amp;紅色水草液肥。雖然目前並無藻類大量滋生的跡象，但除藻生物可是水草缸不可或缺的小幫手呢。<br><a id="more"></a></p><p>因為前景的牛毛氈仍是以相當緩慢的生長速度在蔓延中，大概還要兩三週我才敢放入黑殼蝦…以免維護中的草皮被連根拔起!而說到除藻生物，我偏好可愛的小精靈~但水族店老闆表示折損率太高沒有再引進T.T 看來小精靈真的不好飼養，個人經驗…撐不過半年就上天堂了，我也是搞不懂問題出在哪。唉，只好退而求其次以小猴飛狐代替，以及好飼養又很勤奮工作的角螺~</p><p>↓換了新環境的小猴飛狐目前看來有點膽小<br><img src="https://i.imgur.com/rmBmzwM.jpg" alt="restart_day8_01"></p><p>↓小而圓的綠宮廷水上葉逐漸轉化為細長的水中葉了<br><img src="https://i.imgur.com/9C9KqUd.jpg" alt="restart_day8_02"></p><p>今早一看，小猴飛狐已經跟黑燈們開始混熟了…再觀察觀察吧，因為北辰大有提過<a href="http://northernstar-aquarium.blogspot.com/2011/09/blog-post.html" target="_blank" rel="noopener">小猴飛狐的危險性</a>，希望這傢伙安份點。</p>]]></content>
-      
+      <tags>
+        <tag>Hexo</tag>
+        <tag>NexT</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[翻缸Day8:除藻生物]]></title>
+    <url>%2Frestart-planted-tank-day8%2F</url>
+    <content type="text"><![CDATA[目前光照時間已拉長至8小時，光源為Johnlen LED 1.5呎19W水草自然混光燈、色溫4000k&amp;7000k的燈珠各3顆，CO2則是24小時不間斷，唯夜間會降低出氣量。重新翻缸後，底床僅有舊矽砂無鋪設基肥，依植草位置適量埋入ISTA水草根肥，因此在每週換水1/2後會酌量添加TBS綠色&amp;紅色水草液肥。雖然目前並無藻類大量滋生的跡象，但除藻生物可是水草缸不可或缺的小幫手呢。 因為前景的牛毛氈仍是以相當緩慢的生長速度在蔓延中，大概還要兩三週我才敢放入黑殼蝦…以免維護中的草皮被連根拔起!而說到除藻生物，我偏好可愛的小精靈~但水族店老闆表示折損率太高沒有再引進T.T 看來小精靈真的不好飼養，個人經驗…撐不過半年就上天堂了，我也是搞不懂問題出在哪。唉，只好退而求其次以小猴飛狐代替，以及好飼養又很勤奮工作的角螺~ ↓換了新環境的小猴飛狐目前看來有點膽小 ↓小而圓的綠宮廷水上葉逐漸轉化為細長的水中葉了 今早一看，小猴飛狐已經跟黑燈們開始混熟了…再觀察觀察吧，因為北辰大有提過小猴飛狐的危險性，希望這傢伙安份點。]]></content>
       <categories>
-          
-          <category> Aquarium </category>
-          
+        <category>Aquarium</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> aquarium </tag>
-            
-            <tag> planted tank </tag>
-            
-            <tag> algae control </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>只要6塊錢~第一次自拍證件照就上手</title>
-      <link href="/take-a-headshot-yourself/"/>
-      <url>/take-a-headshot-yourself/</url>
-      <content type="html"><![CDATA[<p>說到 <strong>大頭照</strong> 這個東西，其實使用到的機會不多，但要用的時候總是被要求繳交 <strong>6個月內</strong>的證件照…照相館動輒兩三百塊，拍出來的大頭照多麼不堪我就不說了，大家應該都很有經驗(菸)。雖說市面上已有證件快照的機器，但也不是說很普及，收費大約是$150，於是我想起有看過在家自拍大頭照的教學，就決定來試試了，也讓我的700D在平淡無奇的日常生活中能有登場的機會。<br><a id="more"></a></p><p>首先呢，找面明亮、乾淨的牆當背景，然後想辦法架好相機，手邊有腳架的話當然是最方便啦…如果相機螢幕能翻轉那就更好囉 : )<br><img src="https://i.imgur.com/IYuC7Q9.jpg" alt=""></p><p>接下來就是設定倒數連拍，我覺得10秒比較夠用XD 證件照的規定可以參考<a href="https://www.boca.gov.tw/cp-16-4123-c2932-1.html" target="_blank" rel="noopener">外交部領事局</a>的說明，我就不贅述，總之，拍出理想的照片後就是去背、裁剪。若是不會使用專業的修圖軟體，可以參考<a href="http://gigikaren1104.pixnet.net/blog/post/383578103" target="_blank" rel="noopener">這篇</a>用PPT處理大頭照的教學，還能調膚色呢XD</p><p>說到裁剪照片呢，這個<strong>2吋</strong>到底是多大呢?拜了Google大神後得到很多答案…眾說紛紜!我個人認為看起來最順眼、最2吋的是像素寬高比為433x581 pixel、實際寬高比為3.5x5.08的大小，提供參考。</p><p>裁剪完成後，在修圖軟體上開一張4x6的畫布…小畫家也是可以，那麼4x6是多大呢?(尺寸什麼的好煩)像素寬高比為1795x1205 pixel，然後把大頭照貼滿整個畫布吧!(說貼滿其實也不過8張啦XD)<br><img src="https://i.imgur.com/7WE4wAb.jpg" alt=""></p><p>上述準備就緒，<a href="http://www.likoda.com.tw/info/store/" target="_blank" rel="noopener">尋找</a>你附近的 <strong>立可得</strong> 吧~ 許多便利商店及大賣場都有設置喔，可以透過APP將照片傳輸至機器來列印照片，非常方便。<br><img src="https://i.imgur.com/3Dg9R1U.jpg" alt=""><br><img src="https://i.imgur.com/gZpfIw5.jpg" alt=""></p><p>我是在便利商店的立可得列印的，傳輸照片、設定列印選項後，機器會列印繳費單，4x6一張6元，拿著它去櫃檯繳費後就可以回到機器前面取照片囉。<br><img src="https://i.imgur.com/a246LAA.jpg" alt=""><br><img src="https://i.imgur.com/kHUHVTO.jpg" alt=""></p><p>第一次自拍證件照就上手，成功~</p>]]></content>
-      
+      <tags>
+        <tag>aquarium</tag>
+        <tag>planted tank</tag>
+        <tag>algae control</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[只要6塊錢~第一次自拍證件照就上手]]></title>
+    <url>%2Ftake-a-headshot-yourself%2F</url>
+    <content type="text"><![CDATA[說到 大頭照 這個東西，其實使用到的機會不多，但要用的時候總是被要求繳交 6個月內的證件照…照相館動輒兩三百塊，拍出來的大頭照多麼不堪我就不說了，大家應該都很有經驗(菸)。雖說市面上已有證件快照的機器，但也不是說很普及，收費大約是$150，於是我想起有看過在家自拍大頭照的教學，就決定來試試了，也讓我的700D在平淡無奇的日常生活中能有登場的機會。 首先呢，找面明亮、乾淨的牆當背景，然後想辦法架好相機，手邊有腳架的話當然是最方便啦…如果相機螢幕能翻轉那就更好囉 : ) 接下來就是設定倒數連拍，我覺得10秒比較夠用XD 證件照的規定可以參考外交部領事局的說明，我就不贅述，總之，拍出理想的照片後就是去背、裁剪。若是不會使用專業的修圖軟體，可以參考這篇用PPT處理大頭照的教學，還能調膚色呢XD 說到裁剪照片呢，這個2吋到底是多大呢?拜了Google大神後得到很多答案…眾說紛紜!我個人認為看起來最順眼、最2吋的是像素寬高比為433x581 pixel、實際寬高比為3.5x5.08的大小，提供參考。 裁剪完成後，在修圖軟體上開一張4x6的畫布…小畫家也是可以，那麼4x6是多大呢?(尺寸什麼的好煩)像素寬高比為1795x1205 pixel，然後把大頭照貼滿整個畫布吧!(說貼滿其實也不過8張啦XD) 上述準備就緒，尋找你附近的 立可得 吧~ 許多便利商店及大賣場都有設置喔，可以透過APP將照片傳輸至機器來列印照片，非常方便。 我是在便利商店的立可得列印的，傳輸照片、設定列印選項後，機器會列印繳費單，4x6一張6元，拿著它去櫃檯繳費後就可以回到機器前面取照片囉。 第一次自拍證件照就上手，成功~]]></content>
       <categories>
-          
-          <category> Daily </category>
-          
+        <category>Daily</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> headshot </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>部署失敗:Failed to Execute Prompt Script</title>
-      <link href="/error-failed-to-execute-prompt-script/"/>
-      <url>/error-failed-to-execute-prompt-script/</url>
-      <content type="html"><![CDATA[<p>事實上呢，在我建好了Blog、龜毛地設定了root配置檔，抱持著既期待又怕受傷害的心情在CLI敲下部署指令後，CLI顯示error: failed to execute prompt script (exit code 1)…嗯，居然部署失敗!!! 我X，都還沒發文呢。趕緊雙手合十虔誠地向Google大神拜呀拜，經過幾次Try&amp;Error，順利地解決了~<br><a id="more"></a></p><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>找到blog資料夾中的root配置檔_config.yml，修改文件中的部署設定。</p><p>原始設定:</p><pre><code>deploy:  type: git  repository: https://github.com/username/username.github.io.git  branch: master</code></pre><p>修改為:</p><pre><code>deploy:  type: git  repository: https://username:userpassword@github.com/username/username.github.io.git  branch: master</code></pre><p>部署成功 : )</p><p>*<a href="https://www.zhihu.com/question/38219432" target="_blank" rel="noopener">參考來源</a></p>]]></content>
-      
+      <tags>
+        <tag>headshot</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[部署失敗:Failed to Execute Prompt Script]]></title>
+    <url>%2Ferror-failed-to-execute-prompt-script%2F</url>
+    <content type="text"><![CDATA[事實上呢，在我建好了Blog、龜毛地設定了root配置檔，抱持著既期待又怕受傷害的心情在CLI敲下部署指令後，CLI顯示error: failed to execute prompt script (exit code 1)…嗯，居然部署失敗!!! 我X，都還沒發文呢。趕緊雙手合十虔誠地向Google大神拜呀拜，經過幾次Try&amp;Error，順利地解決了~ Solution找到blog資料夾中的root配置檔_config.yml，修改文件中的部署設定。 原始設定: deploy: type: git repository: https://github.com/username/username.github.io.git branch: master 修改為: deploy: type: git repository: https://username:userpassword@github.com/username/username.github.io.git branch: master 部署成功 : ) *參考來源]]></content>
       <categories>
-          
-          <category> Hexo </category>
-          
+        <category>Hexo</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> Hexo </tag>
-            
-            <tag> Github Pages </tag>
-            
-            <tag> Error </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>Hexo on GitHub Pages:從零開始</title>
-      <link href="/build-blog-with-hexo-on-github-pages/"/>
-      <url>/build-blog-with-hexo-on-github-pages/</url>
-      <content type="html"><![CDATA[<p>程式寫了幾年，遇到Bug總是靠著拜Google大神，就這麼一路走來，看過無數高手們手把手的教學文，心裡想著自己哪天也來寫寫學習筆記，紀錄自己的學習歷程以及遇到的問題(以及至今仍在摸索中的水草缸…)，也許在某個夜深人靜的時刻，能幫助到和我一樣經常廢寢忘食、苦苦追尋解決方案的某個誰。於是這個Blog就這麼建起來了，學習筆記就從自己搭建Personal Blog的過程開始紀錄吧。<br><a id="more"></a></p><h2 id="前置作業"><a href="#前置作業" class="headerlink" title="前置作業"></a>前置作業</h2><h3 id="安裝Node-js"><a href="#安裝Node-js" class="headerlink" title="安裝Node.js"></a>安裝Node.js</h3><p><a href="https://nodejs.org/en/" target="_blank" rel="noopener">官網載點</a></p><p>接著執行作業系統的CLI(command-line interface)輸入以下安裝指令</p><h3 id="安裝Hexo"><a href="#安裝Hexo" class="headerlink" title="安裝Hexo"></a>安裝Hexo</h3><pre><code>npm install hexo-cli -ghexo version            # 若安裝成功可查看Hexo版本</code></pre><h3 id="安裝Hexo-Git"><a href="#安裝Hexo-Git" class="headerlink" title="安裝Hexo Git"></a>安裝Hexo Git</h3><pre><code>npm install hexo-deployer-git --save</code></pre><h3 id="註冊GitHub帳號"><a href="#註冊GitHub帳號" class="headerlink" title="註冊GitHub帳號"></a>註冊GitHub帳號</h3><p><a href="https://github.com" target="_blank" rel="noopener">官網</a></p><p><font color="red">特別注意 :<font color="black">為避免某些文件配置錯誤的發生，使用者名稱(username)請務必設定為小寫，使用者名稱也將成為Personal Blog網址的主要部分<font><font></font></font></font></font></p><h3 id="新增GitHub專案"><a href="#新增GitHub專案" class="headerlink" title="新增GitHub專案"></a>新增GitHub專案</h3><p>↓按下New repository<br><img src="https://i.imgur.com/hoQ0WZP.jpg" alt=""><br>↓輸入專案名稱username.github.io，username請改寫為自己的使用者名稱，接著按下Create repository，前置作業到此告一段落!<br><img src="https://i.imgur.com/wHAh9q5.jpg" alt=""></p><h2 id="開始建置"><a href="#開始建置" class="headerlink" title="開始建置"></a>開始建置</h2><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>回到CLI輸入以下指令開始建立Blog</p><pre><code>hexo init blog    # 初始化cd blog           # 移動至上一步所建立的blog資料夾npm install       # 安裝blog相關套件</code></pre><h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><p>至blog資料夾底下找到Hexo root配置檔，文件名稱為_config.yml，打開文件找到部署設定區塊填入相關資訊</p><p><font color="red">特別注意 :<font color="black">每個項目的冒號後面一定要空格，username一樣改寫為自己的使用者名稱<font><font></font></font></font></font></p><pre><code>deploy:  type: git  repository: https://github.com/username/username.github.io.git  branch: master</code></pre><p>接著就可以將Blog部署到GitHub : )</p><pre><code>hexo d -g    # generate --&gt; deploy</code></pre><p>部署成功後在瀏覽器輸入網址 <a href="https://username.github.io/" target="_blank" rel="noopener">https://username.github.io/</a> 就可以看到自己的Blog囉。</p><p><a href="https://hexo.io/zh-tw/" target="_blank" rel="noopener">*Hexo官網</a></p>]]></content>
-      
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Github Pages</tag>
+        <tag>Error</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo on GitHub Pages:從零開始]]></title>
+    <url>%2Fbuild-blog-with-hexo-on-github-pages%2F</url>
+    <content type="text"><![CDATA[程式寫了幾年，遇到Bug總是靠著拜Google大神，就這麼一路走來，看過無數高手們手把手的教學文，心裡想著自己哪天也來寫寫學習筆記，紀錄自己的學習歷程以及遇到的問題(以及至今仍在摸索中的水草缸…)，也許在某個夜深人靜的時刻，能幫助到和我一樣經常廢寢忘食、苦苦追尋解決方案的某個誰。於是這個Blog就這麼建起來了，學習筆記就從自己搭建Personal Blog的過程開始紀錄吧。 前置作業安裝Node.js官網載點 接著執行作業系統的CLI(command-line interface)輸入以下安裝指令 安裝Hexonpm install hexo-cli -g hexo version # 若安裝成功可查看Hexo版本 安裝Hexo Gitnpm install hexo-deployer-git --save 註冊GitHub帳號官網 特別注意 :為避免某些文件配置錯誤的發生，使用者名稱(username)請務必設定為小寫，使用者名稱也將成為Personal Blog網址的主要部分 新增GitHub專案↓按下New repository↓輸入專案名稱username.github.io，username請改寫為自己的使用者名稱，接著按下Create repository，前置作業到此告一段落! 開始建置初始化回到CLI輸入以下指令開始建立Blog hexo init blog # 初始化 cd blog # 移動至上一步所建立的blog資料夾 npm install # 安裝blog相關套件 部署至blog資料夾底下找到Hexo root配置檔，文件名稱為_config.yml，打開文件找到部署設定區塊填入相關資訊 特別注意 :每個項目的冒號後面一定要空格，username一樣改寫為自己的使用者名稱 deploy: type: git repository: https://github.com/username/username.github.io.git branch: master 接著就可以將Blog部署到GitHub : ) hexo d -g # generate --&gt; deploy 部署成功後在瀏覽器輸入網址 https://username.github.io/ 就可以看到自己的Blog囉。 *Hexo官網]]></content>
       <categories>
-          
-          <category> Hexo </category>
-          
+        <category>Hexo</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> Hexo </tag>
-            
-            <tag> GitHub Pages </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>1.5呎翻缸重整</title>
-      <link href="/restart-my-1.5ft-planted-tank/"/>
-      <url>/restart-my-1.5ft-planted-tank/</url>
-      <content type="html"><![CDATA[<h2 id="放置play很久很久的魚缸"><a href="#放置play很久很久的魚缸" class="headerlink" title="放置play很久很久的魚缸"></a>放置play很久很久的魚缸</h2><p>本來是想撤掉了，因為需要定期維護清洗設備…但又覺得可惜。後來又想改設置好整理的一呎缸，不過又考慮到水體小、水質相對難維持穩定的問題。經過一番掙扎，還是決定翻缸重新設景(天啊，水草缸都成了 <strong>水藻缸</strong>，這工程之浩大用想的就覺得累了…)。<br>因為，我還是想要一個很療癒的水草缸啊。<br><a id="more"></a><br>↓魚缸刷洗完成<br><img src="https://i.imgur.com/riEPpd9.jpg" alt="刷洗後的魚缸"><br>↓重新設景、植草<br><img src="https://i.imgur.com/le3gi6j.jpg" alt="植草設景完成"></p><h2 id="設備更換"><a href="#設備更換" class="headerlink" title="設備更換"></a>設備更換</h2><p>  1.不鏽鋼出入水口(玻璃美觀但…易髒難洗)<br>  2.外置CO2霧化器(放在缸內各種藻類實在困擾)<br>  3.致冷晶片冷水機(嗯，為了讓水草度過夏天，但經費有限…)</p><p>↓外置CO2霧化器<br><img src="https://i.imgur.com/Dd3j2RI.jpg" alt="外置CO2霧化器"><br>↓本次升級的重磅武器(?)─致冷晶片冷水機<br><img src="https://i.imgur.com/F4EQYpT.jpg" alt="致冷晶片冷水機"></p><p>↓重新設缸Day3，僅保留一株的溫蒂椒草已經開始冒出新葉了…生長速度如此之快，我用了個養樂多瓶底當草盆再植入底床，希望能限制它的植株大小，當個稱職的中景草。<br><img src="https://i.imgur.com/lmTVpf9.jpg" alt="溫蒂椒草"></p><p>期盼能順利成景，尤其是前景的草皮。<br>※GitHub Pages首PO!! (灑花)</p>]]></content>
-      
+      <tags>
+        <tag>Hexo</tag>
+        <tag>GitHub Pages</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[1.5呎翻缸重整]]></title>
+    <url>%2Frestart-my-1.5ft-planted-tank%2F</url>
+    <content type="text"><![CDATA[放置play很久很久的魚缸本來是想撤掉了，因為需要定期維護清洗設備…但又覺得可惜。後來又想改設置好整理的一呎缸，不過又考慮到水體小、水質相對難維持穩定的問題。經過一番掙扎，還是決定翻缸重新設景(天啊，水草缸都成了 水藻缸，這工程之浩大用想的就覺得累了…)。因為，我還是想要一個很療癒的水草缸啊。↓魚缸刷洗完成↓重新設景、植草 設備更換 1.不鏽鋼出入水口(玻璃美觀但…易髒難洗) 2.外置CO2霧化器(放在缸內各種藻類實在困擾) 3.致冷晶片冷水機(嗯，為了讓水草度過夏天，但經費有限…) ↓外置CO2霧化器↓本次升級的重磅武器(?)─致冷晶片冷水機 ↓重新設缸Day3，僅保留一株的溫蒂椒草已經開始冒出新葉了…生長速度如此之快，我用了個養樂多瓶底當草盆再植入底床，希望能限制它的植株大小，當個稱職的中景草。 期盼能順利成景，尤其是前景的草皮。※GitHub Pages首PO!! (灑花)]]></content>
       <categories>
-          
-          <category> Aquarium </category>
-          
+        <category>Aquarium</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> aquarium </tag>
-            
-            <tag> planted tank </tag>
-            
-        </tags>
-      
-    </entry>
-    
-  
-  
+      <tags>
+        <tag>aquarium</tag>
+        <tag>planted tank</tag>
+      </tags>
+  </entry>
 </search>

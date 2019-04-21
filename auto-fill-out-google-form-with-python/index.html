@@ -16,7 +16,7 @@
 <meta property="og:description" content="">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://i.imgur.com/zodJ6IR.png">
-<meta property="og:updated_time" content="2019-04-21T16:00:28.502Z">
+<meta property="og:updated_time" content="2019-04-21T16:02:38.321Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python自動填寫Google表單">
 <meta name="twitter:description" content="">
@@ -204,8 +204,15 @@
     &apos;pageHistory&apos; : &apos;0&apos;,
     &apos;fbzx&apos; : &apos;9150375950543103543&apos;
 }
-</code></pre><h3 id="code"><a href="#code" class="headerlink" title="code"></a>code</h3><p>為了讓程式的行為看起來不那麼程式(?)，設置隨機填寫欄位值與隨機延遲時間。<br>… Python<br>    import re<br>    import time<br>    import random<br>    import numpy as np<br>    import requests as rq</p>
-<pre><code>url = &apos;https://docs.google.com/forms/d/e/********************/formResponse&apos;
+</code></pre><h3 id="code"><a href="#code" class="headerlink" title="code"></a>code</h3><p>為了讓程式的行為看起來不那麼程式(?)，設置隨機填寫欄位值與隨機延遲時間。</p>
+<pre><code>Python
+import re
+import time
+import random
+import numpy as np
+import requests as rq
+
+url = &apos;https://docs.google.com/forms/d/e/********************/formResponse&apos;
 params = [&apos;州普&apos;, &apos;卅普&apos;, &apos;川普&apos;]
 payload = {
     &apos;entry.1216123536&apos; : &apos;&apos;,
@@ -231,8 +238,7 @@ while num &gt; 0:
         print(&apos;HTTP Error!&apos;)
 
     num -= 1
-</code></pre><p>…</p>
-<p><img src="https://i.imgur.com/jKfaOP4.png" alt=""></p>
+</code></pre><p><img src="https://i.imgur.com/jKfaOP4.png" alt=""></p>
 <p>↓ 嗯，只有兩個人答對呢(?)<br><img src="https://i.imgur.com/zodJ6IR.png" alt=""></p>
 
         </div>
