@@ -16,7 +16,7 @@
 <meta property="og:description" content="">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://i.imgur.com/zodJ6IR.png">
-<meta property="og:updated_time" content="2019-04-21T16:49:50.266Z">
+<meta property="og:updated_time" content="2019-04-24T16:31:23.690Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python自動填寫Google表單">
 <meta name="twitter:description" content="">
@@ -175,7 +175,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    2 minutes read (About 359 words)
+                    2 minutes read (About 360 words)
                 </span>
                 
                 
@@ -197,14 +197,8 @@
 <p>打開瀏覽器的開發人員模式，切換到Network Panel並試著送出一次表單，可見formResponse有相當明顯的數據傳輸。<br><img src="https://i.imgur.com/7EDofS9.png" alt=""></p>
 <p>展開查看詳情，在Header的部分可以找到剛才送出表單的資料結構，確定“entry.1216123536”就是所填寫的表單欄位，那麼可以開始寫程式了。<br><img src="https://i.imgur.com/O02YylJ.png" alt=""></p>
 <h3 id="url"><a href="#url" class="headerlink" title="url"></a>url</h3><p>在Header摘要可見到url的格式為表單網址加上”/formResponse”，使用縮網址會無法重導向至正確的表單位址。</p>
-<h3 id="data"><a href="#data" class="headerlink" title="data"></a>data</h3><pre><code>payload = {
-    &apos;entry.1216123536&apos; : &apos;&apos;,
-    &apos;fvv&apos; : &apos;0&apos;,
-    &apos;draftResponse&apos; : &apos;[]&apos;,
-    &apos;pageHistory&apos; : &apos;0&apos;,
-    &apos;fbzx&apos; : &apos;9150375950543103543&apos;
-}
-</code></pre><h3 id="code"><a href="#code" class="headerlink" title="code"></a>code</h3><p>為了讓程式的行為看起來不那麼程式(?)，設置隨機填寫欄位值與隨機延遲時間。</p>
+<h3 id="data"><a href="#data" class="headerlink" title="data"></a>data</h3><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">payload = &#123;</span><br><span class="line">    <span class="hljs-string">'entry.1216123536'</span> : <span class="hljs-string">''</span>,</span><br><span class="line">    <span class="hljs-string">'fvv'</span> : <span class="hljs-string">'0'</span>,</span><br><span class="line">    <span class="hljs-string">'draftResponse'</span> : <span class="hljs-string">'[]'</span>,</span><br><span class="line">    <span class="hljs-string">'pageHistory'</span> : <span class="hljs-string">'0'</span>,</span><br><span class="line">    <span class="hljs-string">'fbzx'</span> : <span class="hljs-string">'9150375950543103543'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="code"><a href="#code" class="headerlink" title="code"></a>code</h3><p>為了讓程式的行為看起來不那麼程式(?)，設置隨機填寫欄位值與隨機延遲時間。</p>
 <pre><code>import re
 import time
 import random
