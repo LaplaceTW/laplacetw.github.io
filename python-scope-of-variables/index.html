@@ -119,7 +119,7 @@
 <meta property="og:site_name" content="Démon de Laplace">
 <meta property="og:description" content="在Python的世界裡，變數是不需要事先宣告就能直接賦値並使用的，而變數的作用範圍會在賦値的時候建立，除非你指定了global或nonlocal關鍵字。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-04-28T13:58:53.692Z">
+<meta property="og:updated_time" content="2019-05-01T08:33:21.851Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="關於Python的變數範圍">
 <meta name="twitter:description" content="在Python的世界裡，變數是不需要事先宣告就能直接賦値並使用的，而變數的作用範圍會在賦値的時候建立，除非你指定了global或nonlocal關鍵字。">
@@ -205,6 +205,10 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">“ Meet success like a gentleman and disaster like a man.”</h1>
+      
     
     
   </div>
@@ -356,7 +360,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LaplaceTW">
-      <meta itemprop="description" content="Meet success like a gentleman and disaster like a man.">
+      <meta itemprop="description" content="Developer">
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
@@ -463,17 +467,13 @@
       
 
       
-        <p>在Python的世界裡，變數是不需要事先宣告就能直接賦値並使用的，而<strong>變數的作用範圍會在賦値的時候建立</strong>，除非你指定了global或nonlocal關鍵字。<br><a id="more"></a><br>先看看<a href="https://docs.python.org/3/faq/programming.html#id9" target="_blank" rel="noopener">官方文件</a>怎麼說:</p>
-<blockquote>
-<p>In Python, variables that are only referenced inside a function are implicitly global. If a variable is <strong>assigned a value</strong> anywhere within the function’s body, it’s assumed to be a local unless explicitly declared as global.</p>
-</blockquote>
-<blockquote>
+        <p>在Python的世界裡，變數是不需要事先宣告就能直接賦値並使用的，而<strong>變數的作用範圍會在賦値的時候建立</strong>，除非你指定了global或nonlocal關鍵字。<br><a id="more"></a><br>先看看<a href="https://docs.python.org/3/faq/programming.html#id9" target="_blank" rel="noopener">官方文件</a>怎麼說:<br><blockquote><p>In Python, variables that are only referenced inside a function are implicitly global. If a variable is <strong>assigned a value</strong> anywhere within the function’s body, it’s assumed to be a local unless explicitly declared as global.</p>
 <p>Though a bit surprising at first, a moment’s consideration explains this. On one hand, requiring global for assigned variables provides a bar against unintended side-effects. On the other hand, if global was required for all global references, you’d be using global all the time. You’d have to declare as global every reference to a built-in function or to a component of an imported module. This clutter would defeat the usefulness of the global declaration for identifying side-effects.</p>
-</blockquote>
+</blockquote></p>
 <p>簡而言之，在函式區塊內部賦値的變數即為區域變數(除非指定global或nonlocal)，於函式區塊之外賦値的便是全域變數。</p>
 <p>直接敲幾段code來看會更清楚 :</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/evn python3</span></span><br><span class="line"><span class="comment"># *** coding : utf-8 ***</span></span><br><span class="line"></span><br><span class="line">a, b = <span class="number">1</span>, <span class="number">2</span>  <span class="comment"># Global Variable</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func_a</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> a  <span class="comment"># Global Variable</span></span><br><span class="line">    print(a, <span class="string">"# Global Variable a"</span>)</span><br><span class="line">    a = <span class="number">2</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func_b</span><span class="params">()</span>:</span></span><br><span class="line">    b = <span class="number">3</span>  <span class="comment"># Local Variable in func_a()</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">func_c</span><span class="params">()</span>:</span></span><br><span class="line">        <span class="keyword">nonlocal</span> b  <span class="comment"># Local Variable in func_a()</span></span><br><span class="line">        b = <span class="number">4</span></span><br><span class="line">        print(b, <span class="string">"# Local Variable b"</span>)</span><br><span class="line"></span><br><span class="line">    print(b, <span class="string">"# Local Variable b"</span>)</span><br><span class="line">    func_c()</span><br><span class="line"></span><br><span class="line">func_a()</span><br><span class="line">func_b()</span><br><span class="line">print(b, <span class="string">"# Global Variable b"</span>)</span><br></pre></td></tr></table></figure>
-<p><strong>輸出結果:</strong><br><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">1 </span># Global Variable a</span><br><span class="line"><span class="symbol">3 </span># Local Variable b</span><br><span class="line"><span class="symbol">4 </span># Local Variable b</span><br><span class="line"><span class="symbol">2 </span># Global Variable b</span><br></pre></td></tr></table></figure></p>
+<p><strong>輸出結果:</strong><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1 # Global Variable a</span><br><span class="line">3 # Local Variable b</span><br><span class="line">4 # Local Variable b</span><br><span class="line">2 # Global Variable b</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -606,7 +606,7 @@
               <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="LaplaceTW">
             
               <p class="site-author-name" itemprop="name">LaplaceTW</p>
-              <div class="site-description motion-element" itemprop="description">Meet success like a gentleman and disaster like a man.</div>
+              <div class="site-description motion-element" itemprop="description">Developer</div>
           </div>
 
           

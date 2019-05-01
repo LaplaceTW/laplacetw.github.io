@@ -119,7 +119,7 @@
 <meta property="og:site_name" content="Démon de Laplace">
 <meta property="og:description" content="在搭建好部落格、龜毛地設定了root配置檔，然後抱持著既期待又怕受傷害的心情，在CLI敲下部署指令後，得到了error: failed to execute prompt script (exit code 1)這這般無情的回應…嗯，部署失敗！ 我X，都還沒發文呢。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-04-29T15:50:19.373Z">
+<meta property="og:updated_time" content="2019-05-01T08:38:02.070Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="部署失敗:Failed to Execute Prompt Script">
 <meta name="twitter:description" content="在搭建好部落格、龜毛地設定了root配置檔，然後抱持著既期待又怕受傷害的心情，在CLI敲下部署指令後，得到了error: failed to execute prompt script (exit code 1)這這般無情的回應…嗯，部署失敗！ 我X，都還沒發文呢。">
@@ -205,6 +205,10 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">“ Meet success like a gentleman and disaster like a man.”</h1>
+      
     
     
   </div>
@@ -356,7 +360,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LaplaceTW">
-      <meta itemprop="description" content="Meet success like a gentleman and disaster like a man.">
+      <meta itemprop="description" content="Developer">
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
@@ -465,8 +469,8 @@
       
         <p>在搭建好部落格、龜毛地設定了root配置檔，然後抱持著既期待又怕受傷害的心情，在CLI敲下部署指令後，得到了error: failed to execute prompt script (exit code 1)這這般無情的回應…嗯，部署失敗！ 我X，都還沒發文呢。<br><a id="more"></a></p>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p></p><p><br>找到Blog根目錄下的root配置檔_config.yml，修正部署設定。</p>
-<p>原始設定:<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">deploy</span>:</span><br><span class="line">  <span class="attribute">type</span>: git</span><br><span class="line">  <span class="attribute">repository</span>: <span class="attribute">https</span>:<span class="comment">//github.com/username/username.github.io.git</span></span><br><span class="line">  <span class="attribute">branch</span>: master</span><br></pre></td></tr></table></figure></p>
-<p>修改為:<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">deploy</span>:</span><br><span class="line">  <span class="attribute">type</span>: git</span><br><span class="line">  <span class="attribute">repository</span>: <span class="attribute">https</span>:<span class="comment">//username:userpassword@github.com/username/username.github.io.git</span></span><br><span class="line">  <span class="attribute">branch</span>: master</span><br></pre></td></tr></table></figure></p>
+<p>原始設定:<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repository:</span> <span class="attr">https://github.com/username/username.github.io.git</span></span><br><span class="line"><span class="attr">  branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure></p>
+<p>修改為:<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repository:</span> <span class="attr">https://username:userpassword@github.com/username/username.github.io.git</span></span><br><span class="line"><span class="attr">  branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure></p>
 <p>部署成功 : )</p>
 <p>*<a href="https://www.zhihu.com/question/38219432" target="_blank" rel="noopener">參考資料</a></p>
 
@@ -614,7 +618,7 @@
               <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="LaplaceTW">
             
               <p class="site-author-name" itemprop="name">LaplaceTW</p>
-              <div class="site-description motion-element" itemprop="description">Meet success like a gentleman and disaster like a man.</div>
+              <div class="site-description motion-element" itemprop="description">Developer</div>
           </div>
 
           

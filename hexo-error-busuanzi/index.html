@@ -120,7 +120,7 @@
 <meta property="og:description" content="今天PO文後發現…所以我說那個文章閱讀次數呢?頁面底部的流量統計也消失了。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://i.imgur.com/rpVQnFj.png">
-<meta property="og:updated_time" content="2019-04-28T16:00:17.373Z">
+<meta property="og:updated_time" content="2019-05-01T08:39:14.847Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo on GitHub Pages:不蒜子統計失效">
 <meta name="twitter:description" content="今天PO文後發現…所以我說那個文章閱讀次數呢?頁面底部的流量統計也消失了。">
@@ -207,6 +207,10 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">“ Meet success like a gentleman and disaster like a man.”</h1>
+      
     
     
   </div>
@@ -358,7 +362,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LaplaceTW">
-      <meta itemprop="description" content="Meet success like a gentleman and disaster like a man.">
+      <meta itemprop="description" content="Developer">
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
@@ -467,7 +471,7 @@
       
         <p>今天PO文後發現…所以我說那個文章閱讀次數呢?頁面底部的流量統計也消失了。<br><a id="more"></a><br>推測是.js檔出了什麼問題，先到<a href="https://busuanzi.ibruce.info" target="_blank" rel="noopener">不蒜子</a>的頁面瞧瞧，發現一行小小的紅字，寫著「因七牛強制過期『dn-lbstatics.qbox.me』域名，與客服溝通無果，只能更換域名到『busuanzi.ibruce.info』!」，雖然不知道七牛到底是什麼牛，但可以確定問題來源是域名更換。</p>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p></p><p><br>在NexT資料夾中找到不蒜子的設定檔，路徑為layout/_third-party/analytics/busuanzi-counter.swig<br><img src="https://i.imgur.com/rpVQnFj.png" alt></p>
-<p>修改.js路徑為:<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">async</span> <span class="attr">src</span>=<span class="string">"https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>修改.js路徑為:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">async</span> <span class="attr">src</span>=<span class="string">"https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>重新deploy後便會發現統計數字又回來啦。</p>
 
       
@@ -612,7 +616,7 @@
               <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="LaplaceTW">
             
               <p class="site-author-name" itemprop="name">LaplaceTW</p>
-              <div class="site-description motion-element" itemprop="description">Meet success like a gentleman and disaster like a man.</div>
+              <div class="site-description motion-element" itemprop="description">Developer</div>
           </div>
 
           

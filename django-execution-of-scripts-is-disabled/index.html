@@ -119,7 +119,7 @@
 <meta property="og:site_name" content="Démon de Laplace">
 <meta property="og:description" content="問題來源 : 今日在Win10作業系統下建立Python virtual environment for Django，接著要用Scripts/activate指令啟動虛擬環境時，CLI顯示了這個令人錯愕的訊息: 「檔案無法載入，因為這個系統已停用指令碼執行」">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-04-29T15:53:13.139Z">
+<meta property="og:updated_time" content="2019-05-01T08:41:14.594Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Error:檔案無法載入，因為這個系統已停用指令碼執行">
 <meta name="twitter:description" content="問題來源 : 今日在Win10作業系統下建立Python virtual environment for Django，接著要用Scripts/activate指令啟動虛擬環境時，CLI顯示了這個令人錯愕的訊息: 「檔案無法載入，因為這個系統已停用指令碼執行」">
@@ -205,6 +205,10 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">“ Meet success like a gentleman and disaster like a man.”</h1>
+      
     
     
   </div>
@@ -356,7 +360,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LaplaceTW">
-      <meta itemprop="description" content="Meet success like a gentleman and disaster like a man.">
+      <meta itemprop="description" content="Developer">
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
@@ -467,7 +471,7 @@
 <p>「檔案無法載入，因為這個系統已停用指令碼執行」</p>
 <a id="more"></a>
 <p>代表目前作業系統的Execution Policy設定為Restricted(不允許執行)這是我在Win7作業系統下使用虛擬環境從沒遇過的狀況，而Google搜尋結果顯示有許多人在PowerShell執行Script遇到相同問題。</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>以系統管理員權限執行PowerShell，執行以下指令:<br><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Set</span>-ExecutionPolicy <span class="comment">RemoteSigned</span></span><br></pre></td></tr></table></figure><br>使作業系統接受所有自訂或信任來源的Script，如此問題便解決啦。</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>以系統管理員權限執行PowerShell，執行以下指令:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-ExecutionPolicy RemoteSigned</span><br></pre></td></tr></table></figure><br>使作業系統接受所有自訂或信任來源的Script，如此問題便解決啦。</p>
 
       
     </div>
@@ -613,7 +617,7 @@
               <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="LaplaceTW">
             
               <p class="site-author-name" itemprop="name">LaplaceTW</p>
-              <div class="site-description motion-element" itemprop="description">Meet success like a gentleman and disaster like a man.</div>
+              <div class="site-description motion-element" itemprop="description">Developer</div>
           </div>
 
           

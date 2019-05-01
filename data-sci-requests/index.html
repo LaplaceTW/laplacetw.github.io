@@ -119,7 +119,7 @@
 <meta property="og:site_name" content="Démon de Laplace">
 <meta property="og:description" content="Install1$pip3 install requests">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-04-29T16:42:17.640Z">
+<meta property="og:updated_time" content="2019-05-01T08:59:33.085Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="資料科學筆記(1)：Requests模組">
 <meta name="twitter:description" content="Install1$pip3 install requests">
@@ -205,6 +205,10 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">“ Meet success like a gentleman and disaster like a man.”</h1>
+      
     
     
   </div>
@@ -356,7 +360,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LaplaceTW">
-      <meta itemprop="description" content="Meet success like a gentleman and disaster like a man.">
+      <meta itemprop="description" content="Developer">
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
@@ -463,12 +467,12 @@
       
 
       
-        <h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"><span class="meta-keyword">$pip3</span> install requests</span></span><br></pre></td></tr></table></figure>
+        <h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash">pip3 install requests</span></span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h2 id="Get"><a href="#Get" class="headerlink" title="Get"></a>Get</h2><p>範例程式為對網頁做基本請求＆接收回應，raise_for_status()為return檢查，若返回異常則拋出error<br><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests as rq</span><br><span class="line"></span><br><span class="line">url = <span class="string">'http://www.google.com.tw/search?'</span>  <span class="meta"># target url</span></span><br><span class="line"><span class="built_in">try</span>:</span><br><span class="line">    res = rq.<span class="built_in">get</span>(url)</span><br><span class="line">    res.raise_for_status()</span><br><span class="line">except rq.HTTPError:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'HTTP Error!'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(res.<span class="built_in">text</span>)  <span class="meta"># html</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="Payload"><a href="#Payload" class="headerlink" title="Payload"></a>Payload</h2><p>必要時可以加上參數，例如Google Search:<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">payload</span> = &#123;<span class="string">'q'</span>:<span class="string">'data science'</span>&#125;</span><br><span class="line"><span class="attr">res</span> = rq.get(url, params=payload)  # http://www.google.com.tw/search?q=data+science</span><br></pre></td></tr></table></figure><br>＊參數的部分為字典結構，key則視url結構而定</p>
-<h2 id="Post"><a href="#Post" class="headerlink" title="Post"></a>Post</h2><p>針對網頁中的表單，可以使用Post來傳送Payload<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">res</span> = rq.post(url, params=payload)</span><br></pre></td></tr></table></figure></p>
-<p>但…對Google Search頁面做Post會得到這樣的回應：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">//www.google.com/</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">logo</span> <span class="attr">aria-label</span>=<span class="string">Google</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">b</span>&gt;</span>405.<span class="tag">&lt;/<span class="name">b</span>&gt;</span> <span class="tag">&lt;<span class="name">ins</span>&gt;</span>That’s an error.<span class="tag">&lt;/<span class="name">ins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>The request method <span class="tag">&lt;<span class="name">code</span>&gt;</span>POST<span class="tag">&lt;/<span class="name">code</span>&gt;</span> is inappropriate for the URL <span class="tag">&lt;<span class="name">code</span>&gt;</span>/search?q=data+science<span class="tag">&lt;/<span class="name">code</span>&gt;</span>.  </span><br><span class="line"><span class="tag">&lt;<span class="name">ins</span>&gt;</span>That’s all we know.<span class="tag">&lt;/<span class="name">ins</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="Get"><a href="#Get" class="headerlink" title="Get"></a>Get</h2><p>範例程式為對網頁做基本請求＆接收回應，raise_for_status()為return檢查，若返回異常則拋出error<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests <span class="keyword">as</span> rq</span><br><span class="line"></span><br><span class="line">url = <span class="string">'http://www.google.com.tw/search?'</span>  <span class="comment"># target url</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    res = rq.get(url)</span><br><span class="line">    res.raise_for_status()</span><br><span class="line"><span class="keyword">except</span> rq.HTTPError:</span><br><span class="line">    print(<span class="string">'HTTP Error!'</span>)</span><br><span class="line"></span><br><span class="line">print(res.text)  <span class="comment"># html</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="Payload"><a href="#Payload" class="headerlink" title="Payload"></a>Payload</h2><p>必要時可以加上參數，例如Google Search:<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">payload = &#123;<span class="string">'q'</span>:<span class="string">'data science'</span>&#125;</span><br><span class="line">res = rq.get(url, params=payload)  <span class="comment"># http://www.google.com.tw/search?q=data+science</span></span><br></pre></td></tr></table></figure><br>＊參數的部分為字典結構，key則視url結構而定</p>
+<h2 id="Post"><a href="#Post" class="headerlink" title="Post"></a>Post</h2><p>針對網頁中的表單，可以使用Post來傳送Payload<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">res = rq.post(url, params=payload)</span><br></pre></td></tr></table></figure></p>
+<p>但…對Google Search頁面做Post會得到這樣的回應：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">//www.google.com/</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">logo</span> <span class="attr">aria-label</span>=<span class="string">Google</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">b</span>&gt;</span>405.<span class="tag">&lt;/<span class="name">b</span>&gt;</span> <span class="tag">&lt;<span class="name">ins</span>&gt;</span>That’s an error.<span class="tag">&lt;/<span class="name">ins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>The request method <span class="tag">&lt;<span class="name">code</span>&gt;</span>POST<span class="tag">&lt;/<span class="name">code</span>&gt;</span> is inappropriate for the URL <span class="tag">&lt;<span class="name">code</span>&gt;</span>/search?q=data+science<span class="tag">&lt;/<span class="name">code</span>&gt;</span>.  </span><br><span class="line"><span class="tag">&lt;<span class="name">ins</span>&gt;</span>That’s all we know.<span class="tag">&lt;/<span class="name">ins</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>Google說這樣是不當的行為呢，我只是做個示範，好孩子不要學呀＾.&lt;</p>
 
       
@@ -613,7 +617,7 @@
               <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="LaplaceTW">
             
               <p class="site-author-name" itemprop="name">LaplaceTW</p>
-              <div class="site-description motion-element" itemprop="description">Meet success like a gentleman and disaster like a man.</div>
+              <div class="site-description motion-element" itemprop="description">Developer</div>
           </div>
 
           

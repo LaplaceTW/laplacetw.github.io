@@ -120,7 +120,7 @@
 <meta property="og:description" content="近期耗費大量心力在學習Django，因為Google搜尋到的教學文多數版本停留在Django 1.x，對初學者來說略過太多細節。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://i.imgur.com/9pdBamW.jpg">
-<meta property="og:updated_time" content="2019-04-29T15:35:12.670Z">
+<meta property="og:updated_time" content="2019-05-01T08:40:53.963Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Django2.0筆記(1):從零開始">
 <meta name="twitter:description" content="近期耗費大量心力在學習Django，因為Google搜尋到的教學文多數版本停留在Django 1.x，對初學者來說略過太多細節。">
@@ -207,6 +207,10 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">“ Meet success like a gentleman and disaster like a man.”</h1>
+      
     
     
   </div>
@@ -358,7 +362,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LaplaceTW">
-      <meta itemprop="description" content="Meet success like a gentleman and disaster like a man.">
+      <meta itemprop="description" content="Developer">
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
@@ -467,9 +471,9 @@
       
         <p>近期耗費大量心力在學習Django，因為Google搜尋到的教學文多數版本停留在Django 1.x，對初學者來說略過太多細節。<a id="more"></a>作為WEB初學者，Django有許多概念並不是很直觀，必須實際測試來幫助自己理解。目前所使用的版本為Django 2.1，於是我踩了相當、相當多的坑，感謝無數撰寫教學文的高手前輩讓自己學習了很多。在各種線索的拼湊之下、終於讓Django Project在Apache Server順利運作了(汗)。</p>
 <h1 id="Django-Virtual-Environment-amp-New-Project"><a href="#Django-Virtual-Environment-amp-New-Project" class="headerlink" title="Django:Virtual Environment &amp; New Project"></a>Django:Virtual Environment &amp; New Project</h1><p>雖然網路上有許多教學文，但最詳細也最可靠的還是官方文件：<a href="https://docs.djangoproject.com/en/2.1/" target="_blank" rel="noopener">Django2.1 Doc</a>。</p>
-<h2 id="Virtual-Environment-for-Django"><a href="#Virtual-Environment-for-Django" class="headerlink" title="Virtual Environment for Django"></a>Virtual Environment for Django</h2><p>開發Django Project建議另建一個乾淨的虛擬環境，只安裝專案所需套件，Python環境建置就不贅述，從安裝及建立虛擬環境開始:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">pip <span class="keyword">install</span> virtualenv  # <span class="keyword">install</span> <span class="keyword">virtual</span> environment <span class="keyword">package</span></span><br><span class="line">cd c:\</span><br><span class="line">virtualenv &#123;virtualenv_name&#125;  # <span class="keyword">build</span> <span class="keyword">virtual</span> environment <span class="keyword">for</span> Django</span><br><span class="line"></span><br><span class="line">cd &#123;virtualenv_name&#125;</span><br><span class="line">Scripts\<span class="keyword">activate</span>  # <span class="keyword">start</span> <span class="keyword">virtual</span> environment</span><br><span class="line">pip <span class="keyword">install</span> django  # <span class="keyword">install</span> Django <span class="keyword">package</span></span><br><span class="line">deactivate  # <span class="keyword">stop</span> <span class="keyword">virtual</span> environment</span><br></pre></td></tr></table></figure><br>＊ 在Mac環境下啟動虛擬環境的指令為source bin/activate<br>＊ 提示字元前面的(virtualenv_name)表示目前已啟動虛擬環境</p>
-<h2 id="Start-New-Django-Project"><a href="#Start-New-Django-Project" class="headerlink" title="Start New Django Project"></a>Start New Django Project</h2><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># start virtual environment first</span></span><br><span class="line">django-admin <span class="class">startproject </span>&#123;project_name&#125;  <span class="meta"># build new project</span></span><br></pre></td></tr></table></figure>
-<h2 id="Run-Django-Server"><a href="#Run-Django-Server" class="headerlink" title="Run Django Server"></a>Run Django Server</h2><figure class="highlight puppet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># start virtual environment first</span></span><br><span class="line"><span class="keyword">cd</span> &#123;project_name&#125;</span><br><span class="line"><span class="keyword">python</span> <span class="keyword">manage</span>.py runserver</span><br></pre></td></tr></table></figure>
+<h2 id="Virtual-Environment-for-Django"><a href="#Virtual-Environment-for-Django" class="headerlink" title="Virtual Environment for Django"></a>Virtual Environment for Django</h2><p>開發Django Project建議另建一個乾淨的虛擬環境，只安裝專案所需套件，Python環境建置就不贅述，從安裝及建立虛擬環境開始:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">pip install virtualenv  # install virtual environment package</span><br><span class="line">cd c:\</span><br><span class="line">virtualenv &#123;virtualenv_name&#125;  # build virtual environment for Django</span><br><span class="line"></span><br><span class="line">cd &#123;virtualenv_name&#125;</span><br><span class="line">Scripts\activate  # start virtual environment</span><br><span class="line">pip install django  # install Django package</span><br><span class="line">deactivate  # stop virtual environment</span><br></pre></td></tr></table></figure><br>＊ 在Mac環境下啟動虛擬環境的指令為source bin/activate<br>＊ 提示字元前面的(virtualenv_name)表示目前已啟動虛擬環境</p>
+<h2 id="Start-New-Django-Project"><a href="#Start-New-Django-Project" class="headerlink" title="Start New Django Project"></a>Start New Django Project</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> start virtual environment first</span></span><br><span class="line">django-admin startproject &#123;project_name&#125;  # build new project</span><br></pre></td></tr></table></figure>
+<h2 id="Run-Django-Server"><a href="#Run-Django-Server" class="headerlink" title="Run Django Server"></a>Run Django Server</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> start virtual environment first</span></span><br><span class="line">cd &#123;project_name&#125;</span><br><span class="line">python manage.py runserver</span><br></pre></td></tr></table></figure>
 <p>＊ 在專案目錄下成功啟動測試Server後，在瀏覽器輸入127.0.0.1:8000，應該要看見以下畫面：<br><img src="https://i.imgur.com/9pdBamW.jpg" alt></p>
 
       
@@ -614,7 +618,7 @@
               <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="LaplaceTW">
             
               <p class="site-author-name" itemprop="name">LaplaceTW</p>
-              <div class="site-description motion-element" itemprop="description">Meet success like a gentleman and disaster like a man.</div>
+              <div class="site-description motion-element" itemprop="description">Developer</div>
           </div>
 
           

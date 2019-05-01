@@ -122,7 +122,7 @@
 <meta property="og:image" content="https://i.imgur.com/HD4254a.jpg">
 <meta property="og:image" content="https://i.imgur.com/hT5hAXa.jpg">
 <meta property="og:image" content="https://i.imgur.com/PZreIqo.jpg">
-<meta property="og:updated_time" content="2019-04-28T13:58:19.828Z">
+<meta property="og:updated_time" content="2019-05-01T08:30:37.398Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VS Code快速建立Python開發環境">
 <meta name="twitter:description" content="個人從自學Python到現在，一直都是使用工具書所推薦的IDE:PyCharm，它確實是相當優秀的整合開發環境，但過胖這一點偶爾還是會令人感到困擾…每次打開程式就是要等它大爺暖身一下(白眼)。而開始學習在GitHub Pages寫Blog以來，我都是用VS Code發文，它的輕量化和豐富的擴充套件真是令人感到愉悅呢ヽ(●´∀`●)ﾉ 所以說，乾脆就在VS Code寫Python就好啦。">
@@ -209,6 +209,10 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">“ Meet success like a gentleman and disaster like a man.”</h1>
+      
     
     
   </div>
@@ -360,7 +364,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LaplaceTW">
-      <meta itemprop="description" content="Meet success like a gentleman and disaster like a man.">
+      <meta itemprop="description" content="Developer">
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
@@ -472,29 +476,8 @@
 <h2 id="Install-Python-Extension-for-VS-Code"><a href="#Install-Python-Extension-for-VS-Code" class="headerlink" title="Install Python Extension for VS Code"></a>Install Python Extension for VS Code</h2><p></p><p><br>↓點側邊工具列的’擴充功能’，然後搜尋’Python’，就會看到MS官方為Python開發的擴充套件，直接安裝即可。<br><img src="https://i.imgur.com/HD4254a.jpg" alt></p>
 <h2 id="Build-Working-Directory"><a href="#Build-Working-Directory" class="headerlink" title="Build Working Directory"></a>Build Working Directory</h2><p></p><p><br>建立一個工作目錄，理由後面會說明。</p>
 <h2 id="Run-Python-File"><a href="#Run-Python-File" class="headerlink" title="Run Python File"></a>Run Python File</h2><p></p><p><br>要在VS Code環境執行Python程式，可以直接右鍵–&gt;在終端機(CLI)執行Python檔案，或者按下ctrl + `叫出CLI用’Python {file_path}’去執行也可以…但每次都這樣搞就太麻煩了，所以來建個任務組態檔吧。<br><img src="https://i.imgur.com/hT5hAXa.jpg" alt></p>
-<p>重點，首先點選上方工作列’檔案’–&gt;’開啟資料夾’，選擇剛剛建立的工作目錄，若是沒有先選擇工作目錄，那麼接下來的步驟就會發生錯誤，VS Code會告訴你一句莫名其妙的話 :’這些工作只會出現在工作區資料夾中’。選擇好工作目錄後，按下ctrl + shift + P接著搜尋’task’，點選’工作:設定工作(Tasks:Configure Task)‘，然後VS Code會在工作目錄下產生一個’tasks.json’，將下方內容直接覆蓋並存檔 :</p>
-<pre><code>&quot;version&quot;: &quot;2.0.0&quot;,
-    &quot;tasks&quot;: [
-            {
-                &quot;label&quot;: &quot;Run Python Code&quot;,
-                &quot;type&quot;: &quot;shell&quot;,
-                &quot;command&quot;: &quot;python&quot;,
-                &quot;args&quot;: [
-                    &quot;${file}&quot;
-                ],
-                &quot;group&quot;: {
-                    &quot;kind&quot;: &quot;build&quot;,
-                    &quot;isDefault&quot;: true
-                },
-                &quot;presentation&quot;: {
-                    &quot;echo&quot;: true,
-                    &quot;reveal&quot;: &quot;always&quot;,
-                    &quot;focus&quot;: true,
-                    &quot;panel&quot;: &quot;shared&quot;
-                }
-            }
-        ]
-</code></pre><p>↓然後就可以透過快捷鍵’ctrl + shift + B’執行Python程式囉，順帶一提，這是LineBot Web Crawler XD<br><img src="https://i.imgur.com/PZreIqo.jpg" alt></p>
+<p>重點，首先點選上方工作列’檔案’–&gt;’開啟資料夾’，選擇剛剛建立的工作目錄，若是沒有先選擇工作目錄，那麼接下來的步驟就會發生錯誤，VS Code會告訴你一句莫名其妙的話 :’這些工作只會出現在工作區資料夾中’。選擇好工作目錄後，按下ctrl + shift + P接著搜尋’task’，點選’工作:設定工作(Tasks:Configure Task)‘，然後VS Code會在工作目錄下產生一個’tasks.json’，將下方內容直接覆蓋並存檔 :<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">"version": "2.0.0",</span><br><span class="line">    "tasks": [</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="attr">"label"</span>: <span class="string">"Run Python Code"</span>,</span><br><span class="line">                <span class="attr">"type"</span>: <span class="string">"shell"</span>,</span><br><span class="line">                <span class="attr">"command"</span>: <span class="string">"python"</span>,</span><br><span class="line">                <span class="attr">"args"</span>: [</span><br><span class="line">                    <span class="string">"$&#123;file&#125;"</span></span><br><span class="line">                ],</span><br><span class="line">                <span class="attr">"group"</span>: &#123;</span><br><span class="line">                    <span class="attr">"kind"</span>: <span class="string">"build"</span>,</span><br><span class="line">                    <span class="attr">"isDefault"</span>: <span class="literal">true</span></span><br><span class="line">                &#125;,</span><br><span class="line">                <span class="attr">"presentation"</span>: &#123;</span><br><span class="line">                    <span class="attr">"echo"</span>: <span class="literal">true</span>,</span><br><span class="line">                    <span class="attr">"reveal"</span>: <span class="string">"always"</span>,</span><br><span class="line">                    <span class="attr">"focus"</span>: <span class="literal">true</span>,</span><br><span class="line">                    <span class="attr">"panel"</span>: <span class="string">"shared"</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br></pre></td></tr></table></figure></p>
+<p>然後就可以透過快捷鍵’ctrl + shift + B’執行程式了，順帶一提，這是LineBot Web Crawler XD<br><img src="https://i.imgur.com/PZreIqo.jpg" alt></p>
 
       
     </div>
@@ -638,7 +621,7 @@
               <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="LaplaceTW">
             
               <p class="site-author-name" itemprop="name">LaplaceTW</p>
-              <div class="site-description motion-element" itemprop="description">Meet success like a gentleman and disaster like a man.</div>
+              <div class="site-description motion-element" itemprop="description">Developer</div>
           </div>
 
           

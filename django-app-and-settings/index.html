@@ -120,7 +120,7 @@
 <meta property="og:description" content="專案下的環境設定、如何建立Django App。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://i.imgur.com/19G7Lvu.jpg">
-<meta property="og:updated_time" content="2019-04-29T16:35:42.656Z">
+<meta property="og:updated_time" content="2019-05-01T08:50:32.779Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Django2.0筆記(2):專案設定與應用程式">
 <meta name="twitter:description" content="專案下的環境設定、如何建立Django App。">
@@ -207,6 +207,10 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">“ Meet success like a gentleman and disaster like a man.”</h1>
+      
     
     
   </div>
@@ -358,7 +362,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LaplaceTW">
-      <meta itemprop="description" content="Meet success like a gentleman and disaster like a man.">
+      <meta itemprop="description" content="Developer">
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
@@ -466,7 +470,7 @@
 
       
         <p>專案下的環境設定、如何建立Django App。<br><a id="more"></a></p>
-<h2 id="Settings-py"><a href="#Settings-py" class="headerlink" title="Settings.py"></a>Settings.py</h2><p>在Windows terminal透過tree指令可查看專案結構<br><img src="https://i.imgur.com/19G7Lvu.jpg" alt><br>Mac環境下要使用tree指令則需另外安裝package :<br><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">brew </span><span class="keyword">install </span>tree</span><br></pre></td></tr></table></figure><br>從專案結構可以發現，根目錄下有個和專案名稱相同的資料夾，其中主要有3個檔案:</p>
+<h2 id="Settings-py"><a href="#Settings-py" class="headerlink" title="Settings.py"></a>Settings.py</h2><p>在Windows terminal透過tree指令可查看專案結構<br><img src="https://i.imgur.com/19G7Lvu.jpg" alt><br>Mac環境下要使用tree指令則需另外安裝package :<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install tree</span><br></pre></td></tr></table></figure><br>從專案結構可以發現，根目錄下有個和專案名稱相同的資料夾，其中主要有3個檔案:</p>
 <ul>
 <li>settings.py : 專案設定檔</li>
 <li>url.py      : 網頁路徑設定</li>
@@ -476,26 +480,26 @@
 <p>開啟settings.py，可以看到官方註解寫得挺詳細的，主要設定：</p>
 <ul>
 <li><p>除錯模式設定為True表示網頁拋出Error會直接顯示錯誤訊息，正式發佈網站前務必記得關閉，以免網站弱點就這麼公開了(汗)</p>
-<figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># SECURITY <span class="literal">WARNING</span>: don<span class="symbol">'t</span> run <span class="keyword">with</span> debug turned <span class="keyword">on</span> <span class="keyword">in</span> production!</span><br><span class="line">DEBUG = <span class="literal">True</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> SECURITY WARNING: don<span class="string">'t run with debug turned on in production!</span></span></span><br><span class="line">DEBUG = True</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>新建立的App必須在這裡被定義</p>
-<figure class="highlight sml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># <span class="type">Application</span> definition</span><br><span class="line"><span class="type">INSTALLED_APPS</span> = [</span><br><span class="line">    <span class="symbol">'django</span>.contrib.admin',</span><br><span class="line">    <span class="symbol">'django</span>.contrib.auth',</span><br><span class="line">    <span class="symbol">'django</span>.contrib.contenttypes',</span><br><span class="line">    <span class="symbol">'django</span>.contrib.sessions',</span><br><span class="line">    <span class="symbol">'django</span>.contrib.messages',</span><br><span class="line">    <span class="symbol">'django</span>.contrib.staticfiles',</span><br><span class="line">    ‘&#123;app_name&#125;’,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Application definition</span></span><br><span class="line">INSTALLED_APPS = [</span><br><span class="line">    <span class="string">'django.contrib.admin'</span>,</span><br><span class="line">    <span class="string">'django.contrib.auth'</span>,</span><br><span class="line">    <span class="string">'django.contrib.contenttypes'</span>,</span><br><span class="line">    <span class="string">'django.contrib.sessions'</span>,</span><br><span class="line">    <span class="string">'django.contrib.messages'</span>,</span><br><span class="line">    <span class="string">'django.contrib.staticfiles'</span>,</span><br><span class="line">    ‘&#123;app_name&#125;’,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>網頁模版路徑</p>
 </li>
 </ul>
-<p>在專案目錄下建立templates資料夾:<br><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">md</span> templates  # build folder <span class="keyword">for</span> web templates</span><br></pre></td></tr></table></figure><br>＊ Mac terminal建立資料夾指令和Linux同為mkdir</p>
-<p>接著在settings.py中設定路徑，於TEMPLATES中的’DIRS’加入：<br><span cstyle="color:red;">os.path.join(BASE_DIR, ‘templates’)</span><br><figure class="highlight sml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">TEMPLATES</span> = [</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="symbol">'BACKEND'</span>: <span class="symbol">'django</span>.template.backends.django.<span class="type">DjangoTemplates'</span>,</span><br><span class="line">        <span class="symbol">'DIRS'</span>: [os.path.join(<span class="type">BASE_DIR</span>, <span class="symbol">'templates'</span>)],</span><br><span class="line">        <span class="symbol">'APP_DIRS'</span>: <span class="type">True</span>,</span><br><span class="line">        <span class="symbol">'OPTIONS'</span>: &#123;</span><br><span class="line">            <span class="symbol">'context_processors'</span>: [</span><br><span class="line">                <span class="symbol">'django</span>.template.context_processors.debug',</span><br><span class="line">                <span class="symbol">'django</span>.template.context_processors.request',</span><br><span class="line">                <span class="symbol">'django</span>.contrib.auth.context_processors.auth',</span><br><span class="line">                <span class="symbol">'django</span>.contrib.messages.context_processors.messages',</span><br><span class="line">            ],</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
+<p>在專案目錄下建立templates資料夾:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">md templates  # build folder for web templates</span><br></pre></td></tr></table></figure><br>＊ Mac terminal建立資料夾指令和Linux同為mkdir</p>
+<p>接著在settings.py中設定路徑，於TEMPLATES中的’DIRS’加入：<br><span cstyle="color:red;">os.path.join(BASE_DIR, ‘templates’)</span><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">TEMPLATES = [</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">'BACKEND'</span>: <span class="string">'django.template.backends.django.DjangoTemplates'</span>,</span><br><span class="line">        <span class="string">'DIRS'</span>: [os.path.join(BASE_DIR, <span class="string">'templates'</span>)],</span><br><span class="line">        <span class="string">'APP_DIRS'</span>: <span class="keyword">True</span>,</span><br><span class="line">        <span class="string">'OPTIONS'</span>: &#123;</span><br><span class="line">            <span class="string">'context_processors'</span>: [</span><br><span class="line">                <span class="string">'django.template.context_processors.debug'</span>,</span><br><span class="line">                <span class="string">'django.template.context_processors.request'</span>,</span><br><span class="line">                <span class="string">'django.contrib.auth.context_processors.auth'</span>,</span><br><span class="line">                <span class="string">'django.contrib.messages.context_processors.messages'</span>,</span><br><span class="line">            ],</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
 <ul>
 <li><p>語系、時區:修改為繁體中文、台灣時區</p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">LANGUAGE_CODE</span> = <span class="string">'zh-Hant'</span></span><br><span class="line"></span><br><span class="line"><span class="attr">TIME_ZONE</span> = <span class="string">'Asia/Taipei'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LANGUAGE_CODE = <span class="string">'zh-Hant'</span></span><br><span class="line"></span><br><span class="line">TIME_ZONE = <span class="string">'Asia/Taipei'</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>靜態文件路徑</p>
 </li>
 </ul>
-<p>在專案目錄下建立static資料夾:<br><figure class="highlight d"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">md <span class="keyword">static</span>  # build folder <span class="keyword">for</span> <span class="keyword">static</span> files(e.g. css, images...)</span><br></pre></td></tr></table></figure><br>接著在settings.py中設定路徑，於”STATIC_URL”後面加上:<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">STATICFILES_DIRS = [</span><br><span class="line">    os<span class="selector-class">.path</span><span class="selector-class">.join</span>(BASE_DIR, <span class="string">'static'</span>),</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
+<p>在專案目錄下建立static資料夾:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">md static  # build folder for static files(e.g. css, images...)</span><br></pre></td></tr></table></figure><br>接著在settings.py中設定路徑，於”STATIC_URL”後面加上:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">STATICFILES_DIRS = [</span><br><span class="line">    os.path.join(BASE_DIR, <span class="string">'static'</span>),</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
 <hr>
-<h2 id="Django-App"><a href="#Django-App" class="headerlink" title="Django App"></a>Django App</h2><p>建立應用程式，專案底下可建立多個App，而每個App都可以視為Package<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># start virtual environment <span class="keyword">first</span></span><br><span class="line"><span class="keyword">cd</span> &#123;project_name&#125;</span><br><span class="line"><span class="keyword">python</span> manage.<span class="keyword">py</span> startapp &#123;app_name&#125;  # build application</span><br><span class="line"></span><br><span class="line"><span class="keyword">python</span> manage.<span class="keyword">py</span> makemigrations &#123;app_name(optional)&#125;  # build data migration <span class="keyword">for</span> database</span><br><span class="line"><span class="keyword">python</span> manage.<span class="keyword">py</span> migrate &#123;app_name(optional)&#125;  # data synchronization</span><br></pre></td></tr></table></figure></p>
+<h2 id="Django-App"><a href="#Django-App" class="headerlink" title="Django App"></a>Django App</h2><p>建立應用程式，專案底下可建立多個App，而每個App都可以視為Package<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> start virtual environment first</span></span><br><span class="line">cd &#123;project_name&#125;</span><br><span class="line">python manage.py startapp &#123;app_name&#125;  # build application</span><br><span class="line"></span><br><span class="line">python manage.py makemigrations &#123;app_name(optional)&#125;  # build data migration for database</span><br><span class="line">python manage.py migrate &#123;app_name(optional)&#125;  # data synchronization</span><br></pre></td></tr></table></figure></p>
 <p>＊ makemigrations與migrate為資料庫同步設定，預設為對所有應用程式同步，因此應用程式名稱為選填</p>
 
       
@@ -640,7 +644,7 @@
               <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="LaplaceTW">
             
               <p class="site-author-name" itemprop="name">LaplaceTW</p>
-              <div class="site-description motion-element" itemprop="description">Meet success like a gentleman and disaster like a man.</div>
+              <div class="site-description motion-element" itemprop="description">Developer</div>
           </div>
 
           

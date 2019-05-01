@@ -121,7 +121,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://i.imgur.com/lZufQJS.png">
 <meta property="og:image" content="https://i.imgur.com/DIorI8v.png">
-<meta property="og:updated_time" content="2019-04-29T16:51:51.336Z">
+<meta property="og:updated_time" content="2019-05-01T09:00:09.985Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="資料科學筆記(4)：正則式與re模組">
 <meta name="twitter:description" content="什麼是正則式(Regex)？常見的說法有正規表示式、正則表達式…等等，維基百科是如此描述的：使用單個字串來描述、符合某個句法規則的字串。在很多文字編輯器裡，正則運算式通常被用來檢索、替換那些符合某個模式的文字，總之就是「描述某種規則的表達式」。">
@@ -208,6 +208,10 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">“ Meet success like a gentleman and disaster like a man.”</h1>
+      
     
     
   </div>
@@ -359,7 +363,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LaplaceTW">
-      <meta itemprop="description" content="Meet success like a gentleman and disaster like a man.">
+      <meta itemprop="description" content="Developer">
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
@@ -475,8 +479,8 @@
 <li>match的搜尋方式為「從字串起始開始搜索，遇到不符合的字元便停止」</li>
 <li>search的搜尋方式為「整個字串」</li>
 </ul>
-<p>個人覺得最常用到的應該是findall()，比對所有符合規則的字串並返回串列：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">str_ =  <span class="string">'_.Aa123Bb456Cc789Dd3.14'</span></span><br><span class="line"></span><br><span class="line">find_alphabet = re.findall(<span class="string">r'[A-Za-z]+'</span>, str_)</span><br><span class="line">print(find_alphabet)  ＃ [<span class="string">'Aa'</span>, <span class="string">'Bb'</span>, <span class="string">'Cc'</span>, <span class="string">'Dd'</span>]</span><br><span class="line"></span><br><span class="line">find_rational = re.findall(<span class="string">r'[0-9]+\.?[0-9]*'</span>, str_)</span><br><span class="line">print(find_rational)  ＃ [<span class="string">'123'</span>, <span class="string">'456'</span>, <span class="string">'789'</span>, <span class="string">'3.14'</span>]</span><br></pre></td></tr></table></figure></p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><p>在Google首頁中尋找.jpg/.png，雖然只有一張圖片(笑)，另外，常用的Regex可以透過re.compile()轉換為Regex Object，以便於直接呼叫search()、match()、findall()，也可以在使用bs4模組解析網頁時使用:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!usr/bin/env python3</span></span><br><span class="line"><span class="comment"># coding:utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> requests <span class="keyword">as</span> rq</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup <span class="keyword">as</span> bs</span><br><span class="line"></span><br><span class="line">pattern = re.compile(<span class="string">r'.+\.jpg|.+\.png'</span>)</span><br><span class="line">url = <span class="string">'https://www.google.com'</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    res = rq.get(url)</span><br><span class="line">    res.raise_for_status()</span><br><span class="line"><span class="keyword">except</span> rq.HTTPError:</span><br><span class="line">    print(<span class="string">'HTTP Error!'</span>)</span><br><span class="line"></span><br><span class="line">soup = bs(res.text, <span class="string">'html.parser'</span>)</span><br><span class="line">imgs = soup.find_all(<span class="string">"meta"</span>, &#123;<span class="string">"content"</span>:pattern&#125;)  <span class="comment"># find all images in attr 'content' of tag 'meta'</span></span><br><span class="line"><span class="keyword">for</span> img <span class="keyword">in</span> imgs:</span><br><span class="line">    print(img[<span class="string">'content'</span>])  <span class="comment"># /images/branding/googleg/1x/googleg_standard_color_128dp.png</span></span><br></pre></td></tr></table></figure></p>
+<p>個人覺得最常用到的應該是findall()，比對所有符合規則的字串並返回串列：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">str_ =  <span class="string">'_.Aa123Bb456Cc789Dd3.14'</span></span><br><span class="line"></span><br><span class="line">find_alphabet = re.findall(<span class="string">r'[A-Za-z]+'</span>, str_)</span><br><span class="line">print(find_alphabet)  ＃ [<span class="string">'Aa'</span>, <span class="string">'Bb'</span>, <span class="string">'Cc'</span>, <span class="string">'Dd'</span>]</span><br><span class="line"></span><br><span class="line">find_rational = re.findall(<span class="string">r'[0-9]+\.?[0-9]*'</span>, str_)</span><br><span class="line">print(find_rational)  ＃ [<span class="string">'123'</span>, <span class="string">'456'</span>, <span class="string">'789'</span>, <span class="string">'3.14'</span>]</span><br></pre></td></tr></table></figure></p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><p>在Google首頁中尋找.jpg/.png，雖然只有一張圖片(笑)，另外，常用的Regex可以透過re.compile()轉換為Regex Object，以便於直接呼叫search()、match()、findall()，也可以在使用bs4模組解析網頁時使用:<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!usr/bin/env python3</span></span><br><span class="line"><span class="comment"># coding:utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> requests <span class="keyword">as</span> rq</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup <span class="keyword">as</span> bs</span><br><span class="line"></span><br><span class="line">pattern = re.compile(<span class="string">r'.+\.jpg|.+\.png'</span>)</span><br><span class="line">url = <span class="string">'https://www.google.com'</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    res = rq.get(url)</span><br><span class="line">    res.raise_for_status()</span><br><span class="line"><span class="keyword">except</span> rq.HTTPError:</span><br><span class="line">    print(<span class="string">'HTTP Error!'</span>)</span><br><span class="line"></span><br><span class="line">soup = bs(res.text, <span class="string">'html.parser'</span>)</span><br><span class="line">imgs = soup.find_all(<span class="string">"meta"</span>, &#123;<span class="string">"content"</span>:pattern&#125;)  <span class="comment"># find all images in attr 'content' of tag 'meta'</span></span><br><span class="line"><span class="keyword">for</span> img <span class="keyword">in</span> imgs:</span><br><span class="line">    print(img[<span class="string">'content'</span>])  <span class="comment"># /images/branding/googleg/1x/googleg_standard_color_128dp.png</span></span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -620,7 +624,7 @@
               <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="LaplaceTW">
             
               <p class="site-author-name" itemprop="name">LaplaceTW</p>
-              <div class="site-description motion-element" itemprop="description">Meet success like a gentleman and disaster like a man.</div>
+              <div class="site-description motion-element" itemprop="description">Developer</div>
           </div>
 
           

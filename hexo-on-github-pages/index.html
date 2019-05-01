@@ -121,7 +121,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://i.imgur.com/hoQ0WZP.jpg">
 <meta property="og:image" content="https://i.imgur.com/wHAh9q5.jpg">
-<meta property="og:updated_time" content="2019-04-29T15:49:32.704Z">
+<meta property="og:updated_time" content="2019-05-01T08:37:12.204Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo on GitHub Pages:從零開始">
 <meta name="twitter:description" content="程式寫了幾年，遇到Bug總是靠著拜Google大神，就這麼一路走來，看過無數高手們手把手的教學文，心裡想著自己哪天也來寫寫學習筆記，紀錄學習歷程以及遇到的問題(以及至今仍在摸索中的水草缸…)，也許在某個夜深人靜的時刻，能幫助到和我一樣經常廢寢忘食、苦苦追尋解決方案的某個誰。於是部落格就這麼建起來了，學習筆記就從部落格的搭建過程開始紀錄吧。">
@@ -208,6 +208,10 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">“ Meet success like a gentleman and disaster like a man.”</h1>
+      
     
     
   </div>
@@ -359,7 +363,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LaplaceTW">
-      <meta itemprop="description" content="Meet success like a gentleman and disaster like a man.">
+      <meta itemprop="description" content="Developer">
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
@@ -470,8 +474,8 @@
 <h2 id="前置作業"><a href="#前置作業" class="headerlink" title="前置作業"></a>前置作業</h2><p><br></p>
 <h3 id="安裝Node-js"><a href="#安裝Node-js" class="headerlink" title="安裝Node.js"></a>安裝Node.js</h3><p></p><p><br><a href="https://nodejs.org/en/" target="_blank" rel="noopener">官網載點</a></p>
 <p>接著執行作業系統CLI(command-line interface)輸入以下安裝指令</p>
-<h3 id="安裝Hexo"><a href="#安裝Hexo" class="headerlink" title="安裝Hexo"></a>安裝Hexo</h3><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br><span class="line">hexo <span class="built_in">version</span>            <span class="comment"># 若安裝成功可查看Hexo版本</span></span><br></pre></td></tr></table></figure>
-<h3 id="安裝Hexo-Git"><a href="#安裝Hexo-Git" class="headerlink" title="安裝Hexo Git"></a>安裝Hexo Git</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> hexo-deployer-git <span class="comment">--save</span></span><br></pre></td></tr></table></figure>
+<h3 id="安裝Hexo"><a href="#安裝Hexo" class="headerlink" title="安裝Hexo"></a>安裝Hexo</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br><span class="line">hexo version            # 若安裝成功可查看Hexo版本</span><br></pre></td></tr></table></figure>
+<h3 id="安裝Hexo-Git"><a href="#安裝Hexo-Git" class="headerlink" title="安裝Hexo Git"></a>安裝Hexo Git</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 <h3 id="註冊GitHub帳號"><a href="#註冊GitHub帳號" class="headerlink" title="註冊GitHub帳號"></a>註冊GitHub帳號</h3><p></p><p><br><a href="https://github.com" target="_blank" rel="noopener">GitHub官網</a><br><span style="color:red;">特別注意 : </span>為避免某些文件配置錯誤的發生，使用者名稱(username)務必設定為小寫，使用者名稱也將成為部落格網址的主要部分</p>
 <h3 id="新增GitHub專案"><a href="#新增GitHub專案" class="headerlink" title="新增GitHub專案"></a>新增GitHub專案</h3><ul>
 <li>按下New repository<br><img src="https://i.imgur.com/hoQ0WZP.jpg" alt></li>
@@ -480,11 +484,11 @@
 <hr>
 <h2 id="開始建置"><a href="#開始建置" class="headerlink" title="開始建置"></a>開始建置</h2><p><br></p>
 <h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>回到CLI輸入以下指令開始建立部落格</p>
-<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init <span class="keyword">blog </span>   <span class="comment"># 初始化</span></span><br><span class="line">cd <span class="keyword">blog </span>          <span class="comment"># 移動至上一步所建立的blog資料夾</span></span><br><span class="line">npm <span class="keyword">install </span>      <span class="comment"># 安裝blog相關套件</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init blog    # 初始化</span><br><span class="line">cd blog           # 移動至上一步所建立的blog資料夾</span><br><span class="line">npm install       # 安裝blog相關套件</span><br></pre></td></tr></table></figure>
 <h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><p>至blog資料夾底下找到Hexo root配置檔，文件名稱為_config.yml，打開文件找到部署設定區塊填入相關資訊<br><span style="color:red;">特別注意 </span>: 每個項目的冒號後面一定要空格，username一樣改寫為自己的使用者名稱</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">deploy</span>:</span><br><span class="line">    <span class="attribute">type</span>: git</span><br><span class="line">    <span class="attribute">repository</span>: <span class="attribute">https</span>:<span class="comment">//github.com/username/username.github.io.git</span></span><br><span class="line">    <span class="attribute">branch</span>: master</span><br></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">    type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">    repository:</span> <span class="attr">https://github.com/username/username.github.io.git</span></span><br><span class="line"><span class="attr">    branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
 <p>接著就可以部署到GitHub : )</p>
-<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d -g    # <span class="keyword">generate</span> --&gt; deploy</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d -g    # generate --&gt; deploy</span><br></pre></td></tr></table></figure>
 <p>部署成功後在瀏覽器輸入網址 https://{username}.github.io/ 就可以看到自己的部落格囉~</p>
 <p><a href="https://hexo.io/zh-tw/" target="_blank" rel="noopener">Hexo官網</a></p>
 
@@ -630,7 +634,7 @@
               <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="LaplaceTW">
             
               <p class="site-author-name" itemprop="name">LaplaceTW</p>
-              <div class="site-description motion-element" itemprop="description">Meet success like a gentleman and disaster like a man.</div>
+              <div class="site-description motion-element" itemprop="description">Developer</div>
           </div>
 
           
