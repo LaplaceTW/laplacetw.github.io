@@ -121,7 +121,8 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://i.imgur.com/hoQ0WZP.jpg">
 <meta property="og:image" content="https://i.imgur.com/wHAh9q5.jpg">
-<meta property="og:updated_time" content="2019-05-01T08:37:12.204Z">
+<meta property="og:image" content="https://i.imgur.com/B6Z6Hee.png">
+<meta property="og:updated_time" content="2019-05-01T17:26:58.458Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo on GitHub Pages:從零開始">
 <meta name="twitter:description" content="程式寫了幾年，遇到Bug總是靠著拜Google大神，就這麼一路走來，看過無數高手們手把手的教學文，心裡想著自己哪天也來寫寫學習筆記，紀錄學習歷程以及遇到的問題(以及至今仍在摸索中的水草缸…)，也許在某個夜深人靜的時刻，能幫助到和我一樣經常廢寢忘食、苦苦追尋解決方案的某個誰。於是部落格就這麼建起來了，學習筆記就從部落格的搭建過程開始紀錄吧。">
@@ -482,15 +483,23 @@
 <li>輸入專案名稱username.github.io，username請填寫自己的使用者名稱，接著按下create repository，前置作業到此告一段落<br><img src="https://i.imgur.com/wHAh9q5.jpg" alt></li>
 </ul>
 <hr>
-<h2 id="開始建置"><a href="#開始建置" class="headerlink" title="開始建置"></a>開始建置</h2><p><br></p>
-<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>回到CLI輸入以下指令開始建立部落格</p>
+<h3 id="開始建置"><a href="#開始建置" class="headerlink" title="開始建置"></a>開始建置</h3><p><br></p>
+<h4 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h4><p>回到CLI輸入以下指令開始建立部落格</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init blog    # 初始化</span><br><span class="line">cd blog           # 移動至上一步所建立的blog資料夾</span><br><span class="line">npm install       # 安裝blog相關套件</span><br></pre></td></tr></table></figure>
-<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><p>至blog資料夾底下找到Hexo root配置檔，文件名稱為_config.yml，打開文件找到部署設定區塊填入相關資訊<br><span style="color:red;">特別注意 </span>: 每個項目的冒號後面一定要空格，username一樣改寫為自己的使用者名稱</p>
+<h4 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h4><p>至blog資料夾底下找到Hexo root配置檔，文件名稱為_config.yml，打開文件找到部署設定區塊填入相關資訊<br><span style="color:red;">特別注意 </span>: 每個項目的冒號後面一定要空格，username一樣改寫為自己的使用者名稱</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">    type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">    repository:</span> <span class="attr">https://github.com/username/username.github.io.git</span></span><br><span class="line"><span class="attr">    branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
 <p>接著就可以部署到GitHub : )</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d -g    # generate --&gt; deploy</span><br></pre></td></tr></table></figure>
 <p>部署成功後在瀏覽器輸入網址 https://{username}.github.io/ 就可以看到自己的部落格囉~</p>
-<p><a href="https://hexo.io/zh-tw/" target="_blank" rel="noopener">Hexo官網</a></p>
+<hr>
+<h3 id="更新版本"><a href="#更新版本" class="headerlink" title="更新版本"></a>更新版本</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd hexo root  # CLI移至hexo根目錄</span><br><span class="line">npm outdated  # 檢查版本</span><br></pre></td></tr></table></figure>
+<p>將package.json相關的package版本號修改為最新然後安裝即可<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://i.imgur.com/B6Z6Hee.png" alt></p>
+<p>＊CLI如有顯示類似的錯誤訊息<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm WARN babel-eslint@10.0.1 requires a peer of eslint@&gt;= 4.12.1 but none is installed. You must install peer dependencies yourself.</span><br></pre></td></tr></table></figure></p>
+<p>peer dependencies是已發佈套件的相依關係，表示使用者需自行安裝額外的相依套件<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install eslint@4.12.1 --save-dev</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><a href="https://hexo.io/zh-tw/" target="_blank" rel="noopener">Hexo官網</a></li>
+</ul>
 
       
     </div>
@@ -819,7 +828,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前置作業"><span class="nav-number">1.</span> <span class="nav-text">前置作業</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安裝Node-js"><span class="nav-number">1.1.</span> <span class="nav-text">安裝Node.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安裝Hexo"><span class="nav-number">1.2.</span> <span class="nav-text">安裝Hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安裝Hexo-Git"><span class="nav-number">1.3.</span> <span class="nav-text">安裝Hexo Git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#註冊GitHub帳號"><span class="nav-number">1.4.</span> <span class="nav-text">註冊GitHub帳號</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新增GitHub專案"><span class="nav-number">1.5.</span> <span class="nav-text">新增GitHub專案</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#開始建置"><span class="nav-number">2.</span> <span class="nav-text">開始建置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化"><span class="nav-number">2.1.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署"><span class="nav-number">2.2.</span> <span class="nav-text">部署</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前置作業"><span class="nav-number">1.</span> <span class="nav-text">前置作業</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安裝Node-js"><span class="nav-number">1.1.</span> <span class="nav-text">安裝Node.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安裝Hexo"><span class="nav-number">1.2.</span> <span class="nav-text">安裝Hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安裝Hexo-Git"><span class="nav-number">1.3.</span> <span class="nav-text">安裝Hexo Git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#註冊GitHub帳號"><span class="nav-number">1.4.</span> <span class="nav-text">註冊GitHub帳號</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新增GitHub專案"><span class="nav-number">1.5.</span> <span class="nav-text">新增GitHub專案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#開始建置"><span class="nav-number">1.6.</span> <span class="nav-text">開始建置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#初始化"><span class="nav-number">1.6.1.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#部署"><span class="nav-number">1.6.2.</span> <span class="nav-text">部署</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新版本"><span class="nav-number">1.7.</span> <span class="nav-text">更新版本</span></a></li></ol></li></ol></div>
             
 
           </div>
