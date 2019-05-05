@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Google App Script串接Google Sheet]]></title>
+    <url>%2Fgoogle-app-script-and-spreadsheet%2F</url>
+    <content type="text"><![CDATA[若想以Google表單來做一個簡易的daily time tracking，提交一次表單就是一筆數據，但每天的時間總是會適當地分配，如此就得重複填寫並送出表單…這真是一個不聰明的方法，所以我想何不自己寫網頁表單，但request又被瀏覽器的同源政策擋了下來…雖然是有方法能繞過，但就試著用App Script來解決這件事吧，我也沒寫過呢。 Spread Sheet首先建立Google雲端試算表和App Script，複製試算表網址“docs.google.com/spreadsheets/d/{Sheet ID}/edit#gid=0”當中的{Sheet ID}，寫App Script的時候會需要這部分的資訊 若找不到App Script，點選連結更多應用程式，過濾Google的應用程式就能看到了，然後就將它連結至個人的雲端硬碟。！ 建好表格欄位後就可以來寫App Script了！ App Script123456789101112131415161718192021222324function doGet(e) &#123; // parameter var params = e.parameter, date = params.Date, name = params.Name, proj = params.Proj, hours = params.Hours, des = params.Des; // google sheet var spreadSheet = SpreadsheetApp.openById(&#123;Sheet ID&#125;), # 需要Sheet ID sheet = spreadSheet.getSheets()[0], // focus on sheet 1 lastRow = sheet.getLastRow(); // set value &lt;= getRange(row, col) sheet.getRange(lastRow + 1, 1).setValue(date); sheet.getRange(lastRow + 1, 2).setValue(name); sheet.getRange(lastRow + 1, 3).setValue(proj); sheet.getRange(lastRow + 1, 4).setValue(hours); sheet.getRange(lastRow + 1, 5).setValue(des); // complete =&gt; return true return ContentService.createTextOutput(true);&#125; app script寫好之後，可以另外寫個debug.gs來執行看看123456789101112function debug() &#123; var status = doGet(&#123; "parameter": &#123; "Date" : "2019-05-06", "Name" : "LaplaceTW", "Proj" : "Proj-19-05-06", "Hours" : "4", 'Des' :"Daily Time Tracking", &#125; &#125;); Logger.log("Status : %s" , status);&#125; 沒問題的話，就部署為網路應用程式，部署成功後可取得API網址 Test用瀏覽器的開發人員模式console發送request測試]]></content>
+      <categories>
+        <category>Google</category>
+      </categories>
+      <tags>
+        <tag>google</tag>
+        <tag>spread sheet</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Python自動填寫Google表單]]></title>
     <url>%2Fpython-auto-fill-out-google-form%2F</url>
     <content type="text"><![CDATA[首先建個Google表單來測試：現任美國總統究竟是州普？卅普？還是川普？ 打開瀏覽器的開發人員模式，切換到Network Panel並試著送出一次表單，可見formResponse有相當明顯的數據傳輸。 展開查看詳情，在Header的部分可以找到剛才送出表單的資料結構，確定“entry.1216123536”就是所填寫的表單欄位，那麼可以開始寫程式了。 url在Header摘要可見到url的格式為表單網址加上”/formResponse”，使用縮網址會無法重導向至正確的表單位址。 data1234567payload = &#123; 'entry.1216123536' : '', 'fvv' : '0', 'draftResponse' : '[]', 'pageHistory' : '0', 'fbzx' : '9150375950543103543'&#125; code為了讓程式的行為看起來不那麼程式(?)，設置隨機填寫欄位值與隨機延遲時間。1234567891011121314151617181920212223242526272829303132import reimport timeimport randomimport numpy as npimport requests as rqurl = 'https://docs.google.com/forms/d/e/********************/formResponse'params = ['州普', '卅普', '川普']payload = &#123; 'entry.1216123536' : '', 'fvv' : '0', 'draftResponse' : '[]', 'pageHistory' : '0', 'fbzx' : '9150375950543103543'&#125;num = 10 # number of executionsperiod = np.arange(0.5, 5.0, 0.1)delay = 0 # delay of executionwhile num &gt; 0: try: payload['entry.1216123536'] = random.choice(params) # random choice res = rq.post(url, data=payload) res.raise_for_status() if res.status_code == 200 : delay = round(random.choice(period), 2) # round off to the 2nd decimal place print('Fill Out : ' + payload['entry.1216123536'] + ' delay : ' + str(delay) + ' sec') time.sleep(delay) except rq.HTTPError: print('HTTP Error!') num -= 1 ↓ 嗯，只有兩個人答對呢(?)]]></content>
