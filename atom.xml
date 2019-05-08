@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://laplacetw.github.io/"/>
-  <updated>2019-05-05T18:42:23.959Z</updated>
+  <updated>2019-05-08T15:53:44.009Z</updated>
   <id>https://laplacetw.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mac Safari網頁檢閱器顯示位置</title>
+    <link href="https://laplacetw.github.io/mac-safari-show-web-inspector/"/>
+    <id>https://laplacetw.github.io/mac-safari-show-web-inspector/</id>
+    <published>2019-05-08T15:09:04.000Z</published>
+    <updated>2019-05-08T15:53:44.009Z</updated>
+    
+    <content type="html"><![CDATA[<p>這東西竟然困擾我兩天，我只記得在Safari檢視網頁原始碼的時候，意外點了某個按鈕，然後它就變成獨立視窗了、然後它就變成獨立視窗了、然後它就變成獨立視窗了…<a id="more"></a>於是我開始把Safari的選單找了一遍又一遍，然後中文關鍵字搜尋只能告訴你該如何在Safari上面叫出這個網頁檢閱器🙄🙄🙄</p><p>最後終於讓我發現，有個國外的老兄在網路上問了<a href="https://macmost.com/forum/how-do-i-make-the-web-inspector-appear-in-the-bottom-half-of-my-browser-window.html" target="_blank" rel="noopener">How Do I Make the Web Inspector Appear In the Bottom Half Of My Browser Window?</a>這樣的問題，我的老天鵝呀，感恩網路！讚嘆網路！</p><p>原來我誤觸的按鈕，會讓網頁檢閱器顯示為獨立視窗<br><img src="https://i.imgur.com/EfnEXsd.png" alt></p><p>按下置於視窗底部的按鈕就回到Safari的底部啦！<br><img src="https://i.imgur.com/lrdRwJV.png" alt></p><p>因為這按鈕在<span style="color:red;">全螢幕模式下不可見</span>，所以我才一直沒注意到這按鈕(傻眼)</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;這東西竟然困擾我兩天，我只記得在Safari檢視網頁原始碼的時候，意外點了某個按鈕，然後它就變成獨立視窗了、然後它就變成獨立視窗了、然後它就變成獨立視窗了…
+    
+    </summary>
+    
+      <category term="Mac" scheme="https://laplacetw.github.io/categories/Mac/"/>
+    
+    
+      <category term="mac" scheme="https://laplacetw.github.io/tags/mac/"/>
+    
+      <category term="safari" scheme="https://laplacetw.github.io/tags/safari/"/>
+    
+  </entry>
   
   <entry>
     <title>Google App Script串接Google Sheet</title>
@@ -37,6 +61,30 @@
       <category term="google" scheme="https://laplacetw.github.io/tags/google/"/>
     
       <category term="spread sheet" scheme="https://laplacetw.github.io/tags/spread-sheet/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>個人化NexT主題(不斷更新)</title>
+    <link href="https://laplacetw.github.io/hexo-next-optimize/"/>
+    <id>https://laplacetw.github.io/hexo-next-optimize/</id>
+    <published>2019-05-02T16:35:50.000Z</published>
+    <updated>2019-05-08T17:44:48.490Z</updated>
+    
+    <content type="html"><![CDATA[<p>持續優化。<br><a id="more"></a></p><h2 id="SEO-Search-Engine-Optimization"><a href="#SEO-Search-Engine-Optimization" class="headerlink" title="SEO(Search Engine Optimization)"></a>SEO(Search Engine Optimization)</h2><p></p><p><br><a href="https://www.google.com/webmasters" target="_blank" rel="noopener">Google Webmaster tools verification</a><br>輸入網址前置字元(部落格網址)，Google提供許多驗證方法，而我選擇的是Html標記方法，在Hexo根目錄找到/themes/next/layout/_partials/head/head.swig，貼上Google所提供的<meta>標記，部署後按下驗證即可。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=<span class="string">"google-site-verification"</span> content=<span class="string">"&#123;verification code&#125;"</span> /&gt;</span><br></pre></td></tr></table></figure><br><img src="https://i.imgur.com/Z9Kj7x3.png" alt><br><img src="https://i.imgur.com/ZQIQDI3.png" alt></p><h2 id="Font-Awsome-Icon"><a href="#Font-Awsome-Icon" class="headerlink" title="Font Awsome Icon"></a>Font Awsome Icon</h2><p>NexT自帶的版本為v4.7.0，到<a href="https://fontawesome.com/start" target="_blank" rel="noopener">官網</a>找新版本CDN連結，貼在/themes/next/layout/_partials/head/head.swig就能套用更多icon呢。<br><img src="https://i.imgur.com/bC6ng9U.png" alt></p><p>＊引入新版本後部分icon可能會因為class name改變而無法顯示<br><img src="https://i.imgur.com/X0Umdjr.png" alt></p><h3 id="Change-Side-Bar-Icon"><a href="#Change-Side-Bar-Icon" class="headerlink" title="Change Side Bar Icon"></a>Change Side Bar Icon</h3><p>檔案路徑:/themes/next/layout/_macro/sidebar.swig<br>修改social icon相關程式碼為:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="keyword">if</span> theme.social_icons.enable &#125;  <span class="comment">// ％符號會影響Code Block顯示因此在文章這裡移除</span></span><br><span class="line">    &#123; set sidebarIcon = <span class="string">'&lt;i class="'</span> + link.split(<span class="string">'||'</span>)[<span class="number">1</span>] | trim | <span class="keyword">default</span>(<span class="string">'globe'</span>) + <span class="string">'"&gt;&lt;/i&gt;'</span> &#125;</span><br><span class="line">&#123; endif &#125;</span><br></pre></td></tr></table></figure><br>如此在NexT Config就能直接設定Font Awsome的class name:<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">social:</span></span><br><span class="line"><span class="attr">  GitHub:</span> <span class="attr">https://github.com/username</span> <span class="string">||</span> <span class="string">fab</span> <span class="string">fa-github</span> <span class="string">fa-lg</span></span><br><span class="line"><span class="attr">  Linkedin:</span> <span class="attr">https://www.linkedin.com/</span> <span class="string">||</span> <span class="string">fab</span> <span class="string">fa-linkedin-in</span> <span class="string">fa-lg</span></span><br><span class="line"><span class="attr">  Twitter:</span> <span class="attr">https://twitter.com/</span> <span class="string">||</span> <span class="string">fab</span> <span class="string">fa-twitter</span> <span class="string">fa-lg</span></span><br><span class="line"><span class="attr">  E-Mail:</span> <span class="attr">mailto:username@gmail.com</span> <span class="string">||</span> <span class="string">fas</span> <span class="string">fa-envelope</span> <span class="string">fa-lg</span></span><br></pre></td></tr></table></figure><br><img src="https://i.imgur.com/f2Ssx2y.png" alt></p><h3 id="Change-Post-Icon"><a href="#Change-Post-Icon" class="headerlink" title="Change Post Icon"></a>Change Post Icon</h3><p>檔案路徑:themes/next/layout/_macro/post.swig<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;span <span class="class"><span class="keyword">class</span></span>=<span class="string">"post-meta-item-icon"</span>&gt;</span><br><span class="line">    &lt;i <span class="class"><span class="keyword">class</span></span>=<span class="string">"fas fa-calendar-alt"</span>&gt;&lt;/i&gt;</span><br><span class="line">&lt;<span class="regexp">/span&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;span class="post-meta-item-icon"&gt;</span></span><br><span class="line"><span class="regexp">    &lt;i class="fas fa-folder-open"&gt;&lt;/i</span>&gt;</span><br><span class="line">&lt;<span class="regexp">/span&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;span class="post-meta-item-icon"&gt;</span></span><br><span class="line"><span class="regexp">    &lt;i class="fas fa-comment-dots"&gt;&lt;/i</span>&gt;</span><br><span class="line">&lt;<span class="regexp">/span&gt;</span></span><br></pre></td></tr></table></figure></p><h2 id="Continue…"><a href="#Continue…" class="headerlink" title="Continue…"></a>Continue…</h2>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;持續優化。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Hexo" scheme="https://laplacetw.github.io/categories/Hexo/"/>
+    
+    
+      <category term="hexo" scheme="https://laplacetw.github.io/tags/hexo/"/>
+    
+      <category term="github pages" scheme="https://laplacetw.github.io/tags/github-pages/"/>
     
   </entry>
   
@@ -449,58 +497,6 @@
     
     
       <category term="python" scheme="https://laplacetw.github.io/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>在Heroku環境下使用自訂字型</title>
-    <link href="https://laplacetw.github.io/line-use-custom-fonts-in-heroku-apps/"/>
-    <id>https://laplacetw.github.io/line-use-custom-fonts-in-heroku-apps/</id>
-    <published>2018-08-03T04:00:26.000Z</published>
-    <updated>2019-04-28T09:39:38.321Z</updated>
-    
-    <content type="html"><![CDATA[<p>事情是這樣子的，持續努力讓Bot能查教師課表的某一天，在經歷了數據蒐集、數據處理、介接imgur api…等等，終於讓Bot傳來了一張圖片啦~但仔細一看似乎不太對勁!<br><a id="more"></a></p><h2 id="How-to-Use-Custom-Fonts-in-Heroku-Apps"><a href="#How-to-Use-Custom-Fonts-in-Heroku-Apps" class="headerlink" title="How to Use Custom Fonts in Heroku Apps?"></a>How to Use Custom Fonts in Heroku Apps?</h2><p></p><p><br>我X，踩雷了，竟然出現中文亂碼的狀況，這課表鬼才看得懂(鬼:口口口口口這鬼也看不懂好嘛)於是又開始try&amp;error loop…甚至讓Bot去下CLI指令刪除搬移檔案…繞了好一大圈，終於讓我找到答案了!!!令人難過的是，這方法非常簡單…雖然這是常有的事，可就是白耗了好多時間。但沒關係，讓碰見相同問題的人能快速找到解決方案，這就是學習筆記的意義所在。</p><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p></p><p><br>1.準備好你要的字型，要<span style="color:red;">特別注意</span>的是，該字型必須是Linux/Ubuntu所支援的字型。<br>2.在專案根目錄下新增一個名稱為「.fonts」的資料夾(tips:在命名時輸入.fonts.)<br>3.把字型檔案(.ttf)放到上述資料夾中<br>4.重新push專案</p><p><img src="https://i.imgur.com/uxdEvJZ.png" alt></p><p>關於中文亂碼，似乎是matplotlib無法在Heroku環境下找到可套用的中文字型，但我在本機測試是沒問題的…所以要自己提供字型就是了，真是踩了個莫名其妙的雷，總之中文亂碼問題就這麼解決了。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;事情是這樣子的，持續努力讓Bot能查教師課表的某一天，在經歷了數據蒐集、數據處理、介接imgur api…等等，終於讓Bot傳來了一張圖片啦~但仔細一看似乎不太對勁!&lt;br&gt;
-    
-    </summary>
-    
-      <category term="LineBot" scheme="https://laplacetw.github.io/categories/LineBot/"/>
-    
-    
-      <category term="python" scheme="https://laplacetw.github.io/tags/python/"/>
-    
-      <category term="heroku" scheme="https://laplacetw.github.io/tags/heroku/"/>
-    
-      <category term="matplotlib" scheme="https://laplacetw.github.io/tags/matplotlib/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>翻缸Day21:藍綠藻來襲</title>
-    <link href="https://laplacetw.github.io/restart-planted-tank-day21/"/>
-    <id>https://laplacetw.github.io/restart-planted-tank-day21/</id>
-    <published>2018-07-21T17:30:16.000Z</published>
-    <updated>2019-04-18T15:46:59.684Z</updated>
-    
-    <content type="html"><![CDATA[<p>開始新工作，下了班想發文卻提不起勁…呵。但還是利用假日來紀錄一下魚缸的近況吧。<br><a id="more"></a><br>↓上週三出門辦事發現水族店在隔壁，就進去逛了<br><img src="https://i.imgur.com/8QSsMfb.jpg" alt><br>↓於是加入新成員<br><img src="https://i.imgur.com/himpyCZ.jpg" alt><br>↓綠宮廷轉水中葉，全數拔起整理再植草<br><img src="https://i.imgur.com/k5Jxf0j.jpg" alt><br>↓角螺開心地啃藻…這缸子該刷了<br><img src="https://i.imgur.com/lSF2Z0A.jpg" alt><br>↓僱來一批除藻小幫手<br><img src="https://i.imgur.com/pkNizEv.jpg" alt></p><p>然後呢，最近幾天發現藍綠藻持續蔓延，底砂、牛毛氈甚至入水口生化棉也染上了噁心的藍綠色…即使拔起來用檸檬酸浸泡清洗試圖阻止，依然無效。經過爬文吸收資訊，也確定不會對魚蝦造成傷害，決定直接使用紅黴素來處理。雖然不會對魚蝦造成影響，但對於硝化菌們來說可就不妙了，所以投藥前必須將濾材另行安置才行。</p><p>↓到處生長的藍綠藻<br><img src="https://i.imgur.com/cEm4u6i.jpg" alt><br>↓移出圓桶中的濾材並加強打氣維持好氧的硝化菌<br><img src="https://i.imgur.com/umj5hh7.jpg" alt><br>↓然後紅黴素便可以登場了!(決鬥吧藍綠藻!抽牌!)<br><img src="https://i.imgur.com/X3OmePn.jpg" alt></p><h2 id="※關於投藥劑量"><a href="#※關於投藥劑量" class="headerlink" title="※關於投藥劑量"></a>※關於投藥劑量</h2><p>根據<a href="https://www.paludarium.net/aquarium/48" target="_blank" rel="noopener">P大</a>所說的2.5ppm來計算，我的魚缸水量約23L:23000000 * 0.00025% = 57.5(mg)，一顆紅黴素膠囊為250mg，所以我只需要1/5顆左右的劑量、持續投藥四日。</p><h2 id="2018-7-23-連續投藥Day3"><a href="#2018-7-23-連續投藥Day3" class="headerlink" title="2018/7/23 連續投藥Day3"></a>2018/7/23 連續投藥Day3</h2><p>除了每日換水1/2，光源也調整為上午與傍晚開啟、不連續合計8小時(有一說如此中斷能干擾藻類生長)，目前觀察到藍綠藻已停止蔓延，清洗後的入水口綿也沒有藍綠藻生長。</p><h2 id="2018-7-25-連續投藥Day5"><a href="#2018-7-25-連續投藥Day5" class="headerlink" title="2018/7/25 連續投藥Day5"></a>2018/7/25 連續投藥Day5</h2><p>↓藍綠藻明顯消失，但我決定今日不換水，讓藥物的效用多殘留一天，確保能控制住…別再來啦，真的是挺麻煩的。<br><img src="https://i.imgur.com/wtmQzkE.jpg" alt></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;開始新工作，下了班想發文卻提不起勁…呵。但還是利用假日來紀錄一下魚缸的近況吧。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Aquarium" scheme="https://laplacetw.github.io/categories/Aquarium/"/>
-    
-    
-      <category term="aquarium" scheme="https://laplacetw.github.io/tags/aquarium/"/>
-    
-      <category term="planted tank" scheme="https://laplacetw.github.io/tags/planted-tank/"/>
-    
-      <category term="cyanobacteria" scheme="https://laplacetw.github.io/tags/cyanobacteria/"/>
     
   </entry>
   

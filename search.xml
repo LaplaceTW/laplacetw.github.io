@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Mac Safari網頁檢閱器顯示位置]]></title>
+    <url>%2Fmac-safari-show-web-inspector%2F</url>
+    <content type="text"><![CDATA[這東西竟然困擾我兩天，我只記得在Safari檢視網頁原始碼的時候，意外點了某個按鈕，然後它就變成獨立視窗了、然後它就變成獨立視窗了、然後它就變成獨立視窗了…於是我開始把Safari的選單找了一遍又一遍，然後中文關鍵字搜尋只能告訴你該如何在Safari上面叫出這個網頁檢閱器🙄🙄🙄 最後終於讓我發現，有個國外的老兄在網路上問了How Do I Make the Web Inspector Appear In the Bottom Half Of My Browser Window?這樣的問題，我的老天鵝呀，感恩網路！讚嘆網路！ 原來我誤觸的按鈕，會讓網頁檢閱器顯示為獨立視窗 按下置於視窗底部的按鈕就回到Safari的底部啦！ 因為這按鈕在全螢幕模式下不可見，所以我才一直沒注意到這按鈕(傻眼)]]></content>
+      <categories>
+        <category>Mac</category>
+      </categories>
+      <tags>
+        <tag>mac</tag>
+        <tag>safari</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Google App Script串接Google Sheet]]></title>
     <url>%2Fgoogle-app-script-and-spreadsheet%2F</url>
     <content type="text"><![CDATA[若想以Google表單來做一個簡易的daily time tracking，提交一次表單就是一筆數據，但每天的時間總是會適當地分配，如此就得重複填寫並送出表單…這真是一個不聰明的方法，所以我想何不自己寫網頁表單，但request又被瀏覽器的同源政策擋了下來…雖然是有方法能繞過，但就試著用App Script來解決這件事吧，我也沒寫過呢。 Spread Sheet首先建立Google雲端試算表和App Script，複製試算表網址“docs.google.com/spreadsheets/d/{Sheet ID}/edit#gid=0”當中的{Sheet ID}，寫App Script的時候會需要這部分的資訊 若找不到App Script，點選連結更多應用程式，過濾Google的應用程式就能看到了，然後就將它連結至個人的雲端硬碟。 建好表格欄位後就可以來寫App Script了 App Script123456789101112131415161718192021222324function doGet(e) &#123; // parameter var params = e.parameter, date = params.Date, name = params.Name, proj = params.Proj, hours = params.Hours, des = params.Des; // google sheet var spreadSheet = SpreadsheetApp.openById(&#123;Sheet ID&#125;), # 需要Sheet ID sheet = spreadSheet.getSheets()[0], // focus on sheet 1 lastRow = sheet.getLastRow(); // set value &lt;= getRange(row, col) sheet.getRange(lastRow + 1, 1).setValue(date); sheet.getRange(lastRow + 1, 2).setValue(name); sheet.getRange(lastRow + 1, 3).setValue(proj); sheet.getRange(lastRow + 1, 4).setValue(hours); sheet.getRange(lastRow + 1, 5).setValue(des); // complete =&gt; return true return ContentService.createTextOutput(true);&#125; app script寫好之後，可以另外寫個debug.gs來執行看看123456789101112function debug() &#123; var status = doGet(&#123; "parameter": &#123; "Date" : "2019-05-06", "Name" : "LaplaceTW", "Proj" : "Proj-19-05-06", "Hours" : "4", 'Des' :"Daily Time Tracking", &#125; &#125;); Logger.log("Status : %s" , status);&#125; 沒問題的話，就部署為網路應用程式，部署成功後可取得API網址 Test用瀏覽器的開發人員模式console發送request測試]]></content>
@@ -10,6 +22,18 @@
       <tags>
         <tag>google</tag>
         <tag>spread sheet</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[個人化NexT主題(不斷更新)]]></title>
+    <url>%2Fhexo-next-optimize%2F</url>
+    <content type="text"><![CDATA[持續優化。 SEO(Search Engine Optimization)Google Webmaster tools verification輸入網址前置字元(部落格網址)，Google提供許多驗證方法，而我選擇的是Html標記方法，在Hexo根目錄找到/themes/next/layout/_partials/head/head.swig，貼上Google所提供的標記，部署後按下驗證即可。1&lt;meta name="google-site-verification" content="&#123;verification code&#125;" /&gt; Font Awsome IconNexT自帶的版本為v4.7.0，到官網找新版本CDN連結，貼在/themes/next/layout/_partials/head/head.swig就能套用更多icon呢。 ＊引入新版本後部分icon可能會因為class name改變而無法顯示 Change Side Bar Icon檔案路徑:/themes/next/layout/_macro/sidebar.swig修改social icon相關程式碼為:123&#123; if theme.social_icons.enable &#125; // ％符號會影響Code Block顯示因此在文章這裡移除 &#123; set sidebarIcon = '&lt;i class="' + link.split('||')[1] | trim | default('globe') + '"&gt;&lt;/i&gt;' &#125;&#123; endif &#125;如此在NexT Config就能直接設定Font Awsome的class name:12345social: GitHub: https://github.com/username || fab fa-github fa-lg Linkedin: https://www.linkedin.com/ || fab fa-linkedin-in fa-lg Twitter: https://twitter.com/ || fab fa-twitter fa-lg E-Mail: mailto:username@gmail.com || fas fa-envelope fa-lg Change Post Icon檔案路徑:themes/next/layout/_macro/post.swig1234567891011&lt;span class="post-meta-item-icon"&gt; &lt;i class="fas fa-calendar-alt"&gt;&lt;/i&gt;&lt;/span&gt;&lt;span class="post-meta-item-icon"&gt; &lt;i class="fas fa-folder-open"&gt;&lt;/i&gt;&lt;/span&gt;&lt;span class="post-meta-item-icon"&gt; &lt;i class="fas fa-comment-dots"&gt;&lt;/i&gt;&lt;/span&gt; Continue…]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>github pages</tag>
       </tags>
   </entry>
   <entry>
