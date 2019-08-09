@@ -1818,7 +1818,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #95471f;
+  background: #8ee795;
 }
 .feed-link,
 .chat {
@@ -3087,4 +3087,27 @@ ul.breadcrumb li+li:last-child {
   .pagination {
     margin: 8px 0 0;
   }
+}
+@media screen and (min-width: 1200px) {
+  body {
+    background-image: url("/images/background.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 50% 60%;
+  }
+  #footer a {
+    color: #eee;
+  }
+}
+.main-inner {
+  background: #fff;
+  opacity: 0.9;
+}
+.header-inner {
+  background: rgba(255,255,255,0.91);
+  opacity: 1;
+}
+.footer {
+  font-size: 14px;
+  color: #fff;
 }
