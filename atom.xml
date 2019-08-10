@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://laplacetw.github.io/"/>
-  <updated>2019-08-10T08:49:12.707Z</updated>
+  <updated>2019-08-10T17:27:09.003Z</updated>
   <id>https://laplacetw.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>資料科學筆記(5)：Selenium 模組</title>
+    <link href="https://laplacetw.github.io/data-sci-use-selenium-with-chrome-driver/"/>
+    <id>https://laplacetw.github.io/data-sci-use-selenium-with-chrome-driver/</id>
+    <published>2019-08-10T17:21:20.000Z</published>
+    <updated>2019-08-10T17:27:09.003Z</updated>
+    
+    <content type="html"><![CDATA[<p>使用 Selenium 模組控制 Chrome 瀏覽器。<br><a id="more"></a></p><p>自從開發環境轉移到 Mac OS 後，倒是沒有在這環境下測試用 Selenium 去控制瀏覽器，不過我並不想控制 Safari ，因為它不是一個跨平台的瀏覽器。</p><h2 id="第一次使用-Selenium-是學習-Web-Crawler-的過程中發現，在瀏覽器中可見的物件並不代表一定爬得到-初心者😗-，於是我了解到那些自己抓不到的數據是由-JavaScript-所動態產生的，因為我向目標伺服器所發出的-request-只能取得靜態的數據，若要進行進階的動態網頁資料擷取，那麼我就必須學習如何用程式碼去控制瀏覽器。"><a href="#第一次使用-Selenium-是學習-Web-Crawler-的過程中發現，在瀏覽器中可見的物件並不代表一定爬得到-初心者😗-，於是我了解到那些自己抓不到的數據是由-JavaScript-所動態產生的，因為我向目標伺服器所發出的-request-只能取得靜態的數據，若要進行進階的動態網頁資料擷取，那麼我就必須學習如何用程式碼去控制瀏覽器。" class="headerlink" title="第一次使用 Selenium 是學習 Web Crawler 的過程中發現，在瀏覽器中可見的物件並不代表一定爬得到(初心者😗)，於是我了解到那些自己抓不到的數據是由 JavaScript 所動態產生的，因為我向目標伺服器所發出的 request 只能取得靜態的數據，若要進行進階的動態網頁資料擷取，那麼我就必須學習如何用程式碼去控制瀏覽器。"></a>第一次使用 Selenium 是學習 Web Crawler 的過程中發現，在瀏覽器中可見的物件並不代表一定爬得到(初心者😗)，於是我了解到那些自己抓不到的數據是由 JavaScript 所動態產生的，因為我向目標伺服器所發出的 request 只能取得靜態的數據，若要進行進階的動態網頁資料擷取，那麼我就必須學習如何用程式碼去控制瀏覽器。</h2><h2 id="Install-Selenium"><a href="#Install-Selenium" class="headerlink" title="Install Selenium"></a>Install Selenium</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip3 install selenium</span><br></pre></td></tr></table></figure><h2 id="Download-Chrome-Driver"><a href="#Download-Chrome-Driver" class="headerlink" title="Download Chrome Driver"></a>Download Chrome Driver</h2><p>要讓 Selenium 能夠控制 Chrome 瀏覽器，需要<span style="color:red;">對應版本</span>的 <a href="https://chromedriver.storage.googleapis.com/index.html" target="_blank" rel="noopener">ChromeDriver</a>，例如我的 Chrome 為目前的最新版本 76.0.3809.100，那麼我就下載 ver.76 最新的 76.0.3809.68 版本 ChromeDriver，然後把 ChromeDriver 放在適當的路徑下，以便在程式中呼叫。</p><h2 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># coding:utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.chrome.options <span class="keyword">import</span> Options</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getChrome</span><span class="params">(show=False)</span>:</span>  <span class="comment"># return chrome handler</span></span><br><span class="line">    WINDOW_SIZE = <span class="string">"1366, 768"</span>  <span class="comment"># screen size</span></span><br><span class="line">    CHROMEDRIVER_PATH = <span class="string">r"/Users/nick/Downloads/chromedriver"</span></span><br><span class="line"></span><br><span class="line">    options = Options()  <span class="comment"># config</span></span><br><span class="line">    options.add_argument(<span class="string">"log-level=3"</span>)  <span class="comment"># shut the logging</span></span><br><span class="line">    options.add_argument(<span class="string">"--window-size=%s"</span> % WINDOW_SIZE)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> show: options.add_argument(<span class="string">"--headless"</span>)  <span class="comment"># headless mode</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> webdriver.Chrome(CHROMEDRIVER_PATH, chrome_options=options)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">chrome = getChrome()</span><br><span class="line">chrome.get(<span class="string">"https://laplacetw.github.io/categories/"</span>)</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line">chrome.save_screenshot(<span class="string">"screenshot.png"</span>)</span><br><span class="line">chrome.quit()</span><br></pre></td></tr></table></figure><p>測試程式若順利執行的話，在檔案目錄下應該會發現多了個執行畫面的截圖 :<br><img src="https://i.imgur.com/5qmRipW.png" alt="5qmRipW.png"></p><p>getChrome()預設會用 headless 模式啟動 Chrome，若想顯示使用者介面的話可以將 “show” 這個參數設為 True，就可以看到自動化執行 Chrome 的過程。但實際應用的情況下非必要就別啟動圖形介面了，執行速度會快很多的😎</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;使用 Selenium 模組控制 Chrome 瀏覽器。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Data Science" scheme="https://laplacetw.github.io/categories/Data-Science/"/>
+    
+    
+      <category term="python" scheme="https://laplacetw.github.io/tags/python/"/>
+    
+      <category term="web crawler" scheme="https://laplacetw.github.io/tags/web-crawler/"/>
+    
+      <category term="selenium" scheme="https://laplacetw.github.io/tags/selenium/"/>
+    
+      <category term="chromedriver" scheme="https://laplacetw.github.io/tags/chromedriver/"/>
+    
+  </entry>
   
   <entry>
     <title>關於 SharePoint REST API</title>
@@ -474,33 +502,6 @@
       <category term="hexo" scheme="https://laplacetw.github.io/tags/hexo/"/>
     
       <category term="github pages" scheme="https://laplacetw.github.io/tags/github-pages/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Error:檔案無法載入，因為這個系統已停用指令碼執行</title>
-    <link href="https://laplacetw.github.io/django-execution-of-scripts-is-disabled/"/>
-    <id>https://laplacetw.github.io/django-execution-of-scripts-is-disabled/</id>
-    <published>2018-08-15T16:35:25.000Z</published>
-    <updated>2019-05-01T08:41:14.594Z</updated>
-    
-    <content type="html"><![CDATA[<p>問題來源 : 今日在Win10作業系統下建立Python virtual environment for Django，接著要用Scripts/activate指令啟動虛擬環境時，CLI顯示了這個令人錯愕的訊息:</p><p>「檔案無法載入，因為這個系統已停用指令碼執行」</p><a id="more"></a><p>代表目前作業系統的Execution Policy設定為Restricted(不允許執行)這是我在Win7作業系統下使用虛擬環境從沒遇過的狀況，而Google搜尋結果顯示有許多人在PowerShell執行Script遇到相同問題。</p><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>以系統管理員權限執行PowerShell，執行以下指令:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-ExecutionPolicy RemoteSigned</span><br></pre></td></tr></table></figure><br>使作業系統接受所有自訂或信任來源的Script，如此問題便解決啦。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;問題來源 : 今日在Win10作業系統下建立Python virtual environment for Django，接著要用Scripts/activate指令啟動虛擬環境時，CLI顯示了這個令人錯愕的訊息:&lt;/p&gt;
-&lt;p&gt;「檔案無法載入，因為這個系統已停用指令碼執行」&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Django" scheme="https://laplacetw.github.io/categories/Django/"/>
-    
-    
-      <category term="django" scheme="https://laplacetw.github.io/tags/django/"/>
-    
-      <category term="pyhton" scheme="https://laplacetw.github.io/tags/pyhton/"/>
-    
-      <category term="error" scheme="https://laplacetw.github.io/tags/error/"/>
     
   </entry>
   

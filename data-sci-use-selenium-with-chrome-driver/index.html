@@ -112,18 +112,20 @@
 
 
 
-  <meta name="description" content="在搭建好部落格、龜毛地設定了root配置檔，然後抱持著既期待又怕受傷害的心情，在CLI敲下部署指令後，得到了error: failed to execute prompt script (exit code 1)這這般無情的回應…嗯，部署失敗！ 我X，都還沒發文呢。">
-<meta name="keywords" content="error,hexo,github pages">
+  <meta name="description" content="使用 Selenium 模組控制 Chrome 瀏覽器。">
+<meta name="keywords" content="python,web crawler,selenium,chromedriver">
 <meta property="og:type" content="article">
-<meta property="og:title" content="部署失敗:Failed to Execute Prompt Script">
-<meta property="og:url" content="https://laplacetw.github.io/hexo-failed-to-execute-prompt-script/index.html">
+<meta property="og:title" content="資料科學筆記(5)：Selenium 模組">
+<meta property="og:url" content="https://laplacetw.github.io/data-sci-use-selenium-with-chrome-driver/index.html">
 <meta property="og:site_name" content="Laplace&#39;s Lab">
-<meta property="og:description" content="在搭建好部落格、龜毛地設定了root配置檔，然後抱持著既期待又怕受傷害的心情，在CLI敲下部署指令後，得到了error: failed to execute prompt script (exit code 1)這這般無情的回應…嗯，部署失敗！ 我X，都還沒發文呢。">
+<meta property="og:description" content="使用 Selenium 模組控制 Chrome 瀏覽器。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-05-01T08:38:02.070Z">
+<meta property="og:image" content="https://i.imgur.com/5qmRipW.png">
+<meta property="og:updated_time" content="2019-08-10T17:27:09.003Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="部署失敗:Failed to Execute Prompt Script">
-<meta name="twitter:description" content="在搭建好部落格、龜毛地設定了root配置檔，然後抱持著既期待又怕受傷害的心情，在CLI敲下部署指令後，得到了error: failed to execute prompt script (exit code 1)這這般無情的回應…嗯，部署失敗！ 我X，都還沒發文呢。">
+<meta name="twitter:title" content="資料科學筆記(5)：Selenium 模組">
+<meta name="twitter:description" content="使用 Selenium 模組控制 Chrome 瀏覽器。">
+<meta name="twitter:image" content="https://i.imgur.com/5qmRipW.png">
 
 
 
@@ -133,7 +135,7 @@
 
   
   
-  <link rel="canonical" href="https://laplacetw.github.io/hexo-failed-to-execute-prompt-script/">
+  <link rel="canonical" href="https://laplacetw.github.io/data-sci-use-selenium-with-chrome-driver/">
 
 
 
@@ -143,7 +145,7 @@
   };
 </script>
 
-  <title>部署失敗:Failed to Execute Prompt Script | Laplace's Lab</title>
+  <title>資料科學筆記(5)：Selenium 模組 | Laplace's Lab</title>
   
 
 
@@ -357,7 +359,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://laplacetw.github.io/hexo-failed-to-execute-prompt-script/">
+    <link itemprop="mainEntityOfPage" href="https://laplacetw.github.io/data-sci-use-selenium-with-chrome-driver/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LaplaceTW">
@@ -374,7 +376,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">部署失敗:Failed to Execute Prompt Script
+          <h2 class="post-title" itemprop="name headline">資料科學筆記(5)：Selenium 模組
 
               
             
@@ -398,7 +400,7 @@
                 
               
 
-              <time title="Created: 2018-07-08 00:35:51" itemprop="dateCreated datePublished" datetime="2018-07-08T00:35:51+08:00">2018-07-08</time>
+              <time title="Created: 2019-08-11 01:21:20" itemprop="dateCreated datePublished" datetime="2019-08-11T01:21:20+08:00">2019-08-11</time>
             
 
             
@@ -414,7 +416,7 @@
               </span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Data-Science/" itemprop="url" rel="index"><span itemprop="name">Data Science</span></a></span>
 
                 
                 
@@ -433,8 +435,8 @@
                 </span>
             
                 <span class="post-meta-item-text">Comments: </span>
-                <a href="/hexo-failed-to-execute-prompt-script/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="hexo-failed-to-execute-prompt-script/" itemprop="commentCount"></span>
+                <a href="/data-sci-use-selenium-with-chrome-driver/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="data-sci-use-selenium-with-chrome-driver/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -468,12 +470,13 @@
       
 
       
-        <p>在搭建好部落格、龜毛地設定了root配置檔，然後抱持著既期待又怕受傷害的心情，在CLI敲下部署指令後，得到了error: failed to execute prompt script (exit code 1)這這般無情的回應…嗯，部署失敗！ 我X，都還沒發文呢。<br><a id="more"></a></p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p></p><p><br>找到Blog根目錄下的root配置檔_config.yml，修正部署設定。</p>
-<p>原始設定:<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repository:</span> <span class="attr">https://github.com/username/username.github.io.git</span></span><br><span class="line"><span class="attr">  branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure></p>
-<p>修改為:<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repository:</span> <span class="attr">https://username:userpassword@github.com/username/username.github.io.git</span></span><br><span class="line"><span class="attr">  branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure></p>
-<p>部署成功 : )</p>
-<p>*<a href="https://www.zhihu.com/question/38219432" target="_blank" rel="noopener">參考資料</a></p>
+        <p>使用 Selenium 模組控制 Chrome 瀏覽器。<br><a id="more"></a></p>
+<p>自從開發環境轉移到 Mac OS 後，倒是沒有在這環境下測試用 Selenium 去控制瀏覽器，不過我並不想控制 Safari ，因為它不是一個跨平台的瀏覽器。</p>
+<h2 id="第一次使用-Selenium-是學習-Web-Crawler-的過程中發現，在瀏覽器中可見的物件並不代表一定爬得到-初心者😗-，於是我了解到那些自己抓不到的數據是由-JavaScript-所動態產生的，因為我向目標伺服器所發出的-request-只能取得靜態的數據，若要進行進階的動態網頁資料擷取，那麼我就必須學習如何用程式碼去控制瀏覽器。"><a href="#第一次使用-Selenium-是學習-Web-Crawler-的過程中發現，在瀏覽器中可見的物件並不代表一定爬得到-初心者😗-，於是我了解到那些自己抓不到的數據是由-JavaScript-所動態產生的，因為我向目標伺服器所發出的-request-只能取得靜態的數據，若要進行進階的動態網頁資料擷取，那麼我就必須學習如何用程式碼去控制瀏覽器。" class="headerlink" title="第一次使用 Selenium 是學習 Web Crawler 的過程中發現，在瀏覽器中可見的物件並不代表一定爬得到(初心者😗)，於是我了解到那些自己抓不到的數據是由 JavaScript 所動態產生的，因為我向目標伺服器所發出的 request 只能取得靜態的數據，若要進行進階的動態網頁資料擷取，那麼我就必須學習如何用程式碼去控制瀏覽器。"></a>第一次使用 Selenium 是學習 Web Crawler 的過程中發現，在瀏覽器中可見的物件並不代表一定爬得到(初心者😗)，於是我了解到那些自己抓不到的數據是由 JavaScript 所動態產生的，因為我向目標伺服器所發出的 request 只能取得靜態的數據，若要進行進階的動態網頁資料擷取，那麼我就必須學習如何用程式碼去控制瀏覽器。</h2><h2 id="Install-Selenium"><a href="#Install-Selenium" class="headerlink" title="Install Selenium"></a>Install Selenium</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip3 install selenium</span><br></pre></td></tr></table></figure>
+<h2 id="Download-Chrome-Driver"><a href="#Download-Chrome-Driver" class="headerlink" title="Download Chrome Driver"></a>Download Chrome Driver</h2><p>要讓 Selenium 能夠控制 Chrome 瀏覽器，需要<span style="color:red;">對應版本</span>的 <a href="https://chromedriver.storage.googleapis.com/index.html" target="_blank" rel="noopener">ChromeDriver</a>，例如我的 Chrome 為目前的最新版本 76.0.3809.100，那麼我就下載 ver.76 最新的 76.0.3809.68 版本 ChromeDriver，然後把 ChromeDriver 放在適當的路徑下，以便在程式中呼叫。</p>
+<h2 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># coding:utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.chrome.options <span class="keyword">import</span> Options</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getChrome</span><span class="params">(show=False)</span>:</span>  <span class="comment"># return chrome handler</span></span><br><span class="line">    WINDOW_SIZE = <span class="string">"1366, 768"</span>  <span class="comment"># screen size</span></span><br><span class="line">    CHROMEDRIVER_PATH = <span class="string">r"/Users/nick/Downloads/chromedriver"</span></span><br><span class="line"></span><br><span class="line">    options = Options()  <span class="comment"># config</span></span><br><span class="line">    options.add_argument(<span class="string">"log-level=3"</span>)  <span class="comment"># shut the logging</span></span><br><span class="line">    options.add_argument(<span class="string">"--window-size=%s"</span> % WINDOW_SIZE)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> show: options.add_argument(<span class="string">"--headless"</span>)  <span class="comment"># headless mode</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> webdriver.Chrome(CHROMEDRIVER_PATH, chrome_options=options)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">chrome = getChrome()</span><br><span class="line">chrome.get(<span class="string">"https://laplacetw.github.io/categories/"</span>)</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line">chrome.save_screenshot(<span class="string">"screenshot.png"</span>)</span><br><span class="line">chrome.quit()</span><br></pre></td></tr></table></figure>
+<p>測試程式若順利執行的話，在檔案目錄下應該會發現多了個執行畫面的截圖 :<br><img src="https://i.imgur.com/5qmRipW.png" alt="5qmRipW.png"></p>
+<p>getChrome()預設會用 headless 模式啟動 Chrome，若想顯示使用者介面的話可以將 “show” 這個參數設為 True，就可以看到自動化執行 Chrome 的過程。但實際應用的情況下非必要就別啟動圖形介面了，執行速度會快很多的😎</p>
 
       
     </div>
@@ -501,11 +504,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/error/" rel="tag"><i class="fas fa-tags"></i> error</a>
+            <a href="/tags/python/" rel="tag"><i class="fas fa-tags"></i> python</a>
           
-            <a href="/tags/hexo/" rel="tag"><i class="fas fa-tags"></i> hexo</a>
+            <a href="/tags/web-crawler/" rel="tag"><i class="fas fa-tags"></i> web crawler</a>
           
-            <a href="/tags/github-pages/" rel="tag"><i class="fas fa-tags"></i> github pages</a>
+            <a href="/tags/selenium/" rel="tag"><i class="fas fa-tags"></i> selenium</a>
+          
+            <a href="/tags/chromedriver/" rel="tag"><i class="fas fa-tags"></i> chromedriver</a>
           
         </div>
       
@@ -539,8 +544,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/hexo-on-github-pages/" rel="next" title="Hexo on GitHub Pages:從零開始">
-                <i class="fa fa-chevron-left"></i> Hexo on GitHub Pages:從零開始
+              <a href="/sharepoint-rest-api/" rel="next" title="關於 SharePoint REST API">
+                <i class="fa fa-chevron-left"></i> 關於 SharePoint REST API
               </a>
             
           </div>
@@ -548,10 +553,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/take-a-headshot-yourself/" rel="prev" title="只要6塊錢~第一次自拍證件照就上手">
-                只要6塊錢~第一次自拍證件照就上手 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -834,7 +835,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">1.</span> <span class="nav-text">Solution</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一次使用-Selenium-是學習-Web-Crawler-的過程中發現，在瀏覽器中可見的物件並不代表一定爬得到-初心者😗-，於是我了解到那些自己抓不到的數據是由-JavaScript-所動態產生的，因為我向目標伺服器所發出的-request-只能取得靜態的數據，若要進行進階的動態網頁資料擷取，那麼我就必須學習如何用程式碼去控制瀏覽器。"><span class="nav-number">1.</span> <span class="nav-text">第一次使用 Selenium 是學習 Web Crawler 的過程中發現，在瀏覽器中可見的物件並不代表一定爬得到(初心者😗)，於是我了解到那些自己抓不到的數據是由 JavaScript 所動態產生的，因為我向目標伺服器所發出的 request 只能取得靜態的數據，若要進行進階的動態網頁資料擷取，那麼我就必須學習如何用程式碼去控制瀏覽器。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Install-Selenium"><span class="nav-number">2.</span> <span class="nav-text">Install Selenium</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Download-Chrome-Driver"><span class="nav-number">3.</span> <span class="nav-text">Download Chrome Driver</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Test"><span class="nav-number">4.</span> <span class="nav-text">Test</span></a></li></ol></div>
             
 
           </div>
@@ -1029,9 +1030,9 @@
 
 <script>
   var disqus_config = function() {
-    this.page.url = "https://laplacetw.github.io/hexo-failed-to-execute-prompt-script/";
-    this.page.identifier = "hexo-failed-to-execute-prompt-script/";
-    this.page.title = '部署失敗:Failed to Execute Prompt Script';
+    this.page.url = "https://laplacetw.github.io/data-sci-use-selenium-with-chrome-driver/";
+    this.page.identifier = "data-sci-use-selenium-with-chrome-driver/";
+    this.page.title = '資料科學筆記(5)：Selenium 模組';
     };
   function loadComments() {
     var d = document, s = d.createElement('script');
