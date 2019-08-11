@@ -112,18 +112,22 @@
 
 
 
-  <meta name="description" content="這是一段關於沒有伺服器權限的開發者於 SharePoint 進行網站開發的恐怖故事。">
-<meta name="keywords" content="web,sharepoint">
+  <meta name="description" content="以 MLP with Keras 進行手寫數字辨識測試。">
+<meta name="keywords" content="keras,mnist,machine learning">
 <meta property="og:type" content="article">
-<meta property="og:title" content="關於 SharePoint REST API">
-<meta property="og:url" content="https://laplacetw.github.io/sharepoint-rest-api/index.html">
+<meta property="og:title" content="資料科學筆記(6):ML Hello World — MNIST">
+<meta property="og:url" content="https://laplacetw.github.io/data-sci-ml-hello-world-mnist/index.html">
 <meta property="og:site_name" content="Laplace&#39;s Lab">
-<meta property="og:description" content="這是一段關於沒有伺服器權限的開發者於 SharePoint 進行網站開發的恐怖故事。">
+<meta property="og:description" content="以 MLP with Keras 進行手寫數字辨識測試。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-10T08:49:12.707Z">
+<meta property="og:image" content="https://i.imgur.com/IPC8oCO.png">
+<meta property="og:image" content="https://i.imgur.com/qCt4QIA.png">
+<meta property="og:image" content="https://i.imgur.com/yzVEsvh.png">
+<meta property="og:updated_time" content="2019-08-11T18:14:22.216Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="關於 SharePoint REST API">
-<meta name="twitter:description" content="這是一段關於沒有伺服器權限的開發者於 SharePoint 進行網站開發的恐怖故事。">
+<meta name="twitter:title" content="資料科學筆記(6):ML Hello World — MNIST">
+<meta name="twitter:description" content="以 MLP with Keras 進行手寫數字辨識測試。">
+<meta name="twitter:image" content="https://i.imgur.com/IPC8oCO.png">
 
 
 
@@ -133,7 +137,7 @@
 
   
   
-  <link rel="canonical" href="https://laplacetw.github.io/sharepoint-rest-api/">
+  <link rel="canonical" href="https://laplacetw.github.io/data-sci-ml-hello-world-mnist/">
 
 
 
@@ -143,7 +147,7 @@
   };
 </script>
 
-  <title>關於 SharePoint REST API | Laplace's Lab</title>
+  <title>資料科學筆記(6):ML Hello World — MNIST | Laplace's Lab</title>
   
 
 
@@ -357,7 +361,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://laplacetw.github.io/sharepoint-rest-api/">
+    <link itemprop="mainEntityOfPage" href="https://laplacetw.github.io/data-sci-ml-hello-world-mnist/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LaplaceTW">
@@ -374,7 +378,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">關於 SharePoint REST API
+          <h2 class="post-title" itemprop="name headline">資料科學筆記(6):ML Hello World — MNIST
 
               
             
@@ -398,7 +402,7 @@
                 
               
 
-              <time title="Created: 2019-08-09 21:57:31" itemprop="dateCreated datePublished" datetime="2019-08-09T21:57:31+08:00">2019-08-09</time>
+              <time title="Created: 2019-08-13 02:15:24" itemprop="dateCreated datePublished" datetime="2019-08-13T02:15:24+08:00">2019-08-13</time>
             
 
             
@@ -414,7 +418,7 @@
               </span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/SharePoint/" itemprop="url" rel="index"><span itemprop="name">SharePoint</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Data-Science/" itemprop="url" rel="index"><span itemprop="name">Data Science</span></a></span>
 
                 
                 
@@ -433,8 +437,8 @@
                 </span>
             
                 <span class="post-meta-item-text">Comments: </span>
-                <a href="/sharepoint-rest-api/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="sharepoint-rest-api/" itemprop="commentCount"></span>
+                <a href="/data-sci-ml-hello-world-mnist/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="data-sci-ml-hello-world-mnist/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -468,22 +472,37 @@
       
 
       
-        <p>這是一段關於沒有伺服器權限的開發者於 SharePoint 進行網站開發的恐怖故事。<br><a id="more"></a><br>這段故事實在是太可怕了，伺服器權限在資訊單位手裡，而完全不懂 SharePoint 也不會 .NET 的我只有使用者權限帳號(黑人問號.jpg)，看著一點幫助都沒有的 training kit 文件，我必須想辦法把它寫成一個入口網站…</p>
-<p>經過摸索研究最終想出了解決方法，我自製母版定義了導航列與頁腳，並利用內容編輯器這個 Web Part 在每個頁面「填入」我要的 HTML 內容，但不得不放棄內建的其他 Web Part，因為我根本無法完全控制那些頑固的東西，它們讓整個頁面佈局看起來相當糟糕!!!</p>
-<p>但如此我便擁有整個頁面內容的控制權了，前端頁面佈局樣式就交給 Bootstrap 去搞定啦，而後端就只能依賴 SharePoint REST API 去處理 CRUD。</p>
-<p>雖然很荒謬但我還是硬著頭皮上了，最後寫了個多功能的 SharePoint 企業內網 :</p>
+        <p>以 MLP with Keras 進行手寫數字辨識測試。<br><a id="more"></a></p>
+<h2 id="Load-MNIST-Data-Set"><a href="#Load-MNIST-Data-Set" class="headerlink" title="Load MNIST Data Set"></a>Load MNIST Data Set</h2><p>載入60000筆訓練資料與10000筆測試資料。<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(train_feature, train_label), (test_feature, test_label) = mnist.load_data()</span><br></pre></td></tr></table></figure></p>
+<h2 id="Data-Preprocessing"><a href="#Data-Preprocessing" class="headerlink" title="Data Preprocessing"></a>Data Preprocessing</h2><h3 id="Reshape"><a href="#Reshape" class="headerlink" title="Reshape"></a>Reshape</h3><p>將28x28特徵值 Raw Data(圖片)轉換為32位元浮點數一維資料。<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">train_feature_vector = train_feature.reshape(len(train_feature), <span class="number">784</span>).astype(<span class="string">'float32'</span>)</span><br><span class="line">test_feature_vector = test_feature.reshape(len(test_feature), <span class="number">784</span>).astype(<span class="string">'float32'</span>)</span><br></pre></td></tr></table></figure></p>
+<h3 id="Feature-Normalization"><a href="#Feature-Normalization" class="headerlink" title="Feature Normalization"></a>Feature Normalization</h3><p>對特徵值進行正規化處理，也就是將數據按比例縮放至[0, 1]區間，且不改變其原本分佈，以提升模型的訓練收斂速度與預測精準度。<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">train_feature_vector = train_feature.reshape(len(train_feature), <span class="number">784</span>).astype(<span class="string">'float32'</span>)</span><br><span class="line">test_feature_vector = test_feature.reshape(len(test_feature), <span class="number">784</span>).astype(<span class="string">'float32'</span>)</span><br></pre></td></tr></table></figure></p>
+<h3 id="One-Hot-Encoding"><a href="#One-Hot-Encoding" class="headerlink" title="One-Hot Encoding"></a>One-Hot Encoding</h3><p>對離散型資料標籤進行獨熱編碼處理轉換為布林陣列，以進行矩陣運算。<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">train_label_onehot = np_utils.to_categorical(train_label)</span><br><span class="line">test_label_onehot = np_utils.to_categorical(test_label)</span><br></pre></td></tr></table></figure></p>
+<h2 id="Model-Definition"><a href="#Model-Definition" class="headerlink" title="Model Definition"></a>Model Definition</h2><p>定義循序(線性)模型之結構、訓練方法、準確率評估<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">model = Sequential()</span><br></pre></td></tr></table></figure></p>
+<h3 id="Layer-Definition"><a href="#Layer-Definition" class="headerlink" title="Layer Definition"></a>Layer Definition</h3><p>定義輸入層、隱藏層、輸出層 :</p>
 <ul>
-<li>公告</li>
-<li>行事曆(支援批次匯入事件)</li>
-<li>會議室預約</li>
-<li>工時追蹤填報(支援統計圖表)</li>
-<li>出勤狀況發佈(系統通知信)</li>
-<li>討論區</li>
-<li>Smart Chat Bot(答覆公司系統與網站相關問題)</li>
+<li>神經元個數 : 784 –&gt; 256 –&gt; 10</li>
+<li>常態分佈亂數初始化權重＆偏移值</li>
+<li>活化函數採用 Relu &amp; Softmax</li>
 </ul>
-<p>這任務至此告一段落了，紀錄一下 SharePoint REST API 如何使用 : </p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> api_create = <span class="string">"https://server/site/_api/web/lists('&#123; your_list_guid &#125;')/items"</span>,</span><br><span class="line">    api_read = <span class="string">"https://server/site/_api/web/lists('&#123; your_list_guid &#125;')/items( &#123; your_list_item_id &#125; )"</span>,</span><br><span class="line">    api_update = <span class="string">"https://server/site/_api/web/lists('&#123; your_list_guid &#125;')/items( &#123; your_list_item_id &#125; )"</span>,</span><br><span class="line">    api_delete = <span class="string">"https://server/_api/web/lists('&#123; your_list_guid &#125;')/items( &#123; your_list_item_id &#125; )"</span>,</span><br><span class="line">    data =&#123;</span><br><span class="line">        __metadata: &#123; <span class="string">'type'</span>: <span class="string">'SP.Data.&#123; your_list_item_entity_type_fullname &#125;'</span> &#125;,</span><br><span class="line">        &#123; list_column_name &#125; : &#123; value &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sp_create</span>(<span class="params">api_create</span>)</span>&#123;</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        url: api_create,</span><br><span class="line">        method: <span class="string">"POST"</span>,</span><br><span class="line">        data: <span class="built_in">JSON</span>.stringify(data),</span><br><span class="line">        contentType: <span class="string">"application/json; odata=verbose"</span>,</span><br><span class="line">        headers:&#123;</span><br><span class="line">            <span class="string">"Accept"</span>: <span class="string">"application/json; odata=verbose"</span>,</span><br><span class="line">            <span class="string">"X-RequestDigest"</span>: $(<span class="string">"#__REQUESTDIGEST"</span>).val()</span><br><span class="line">        &#125;,</span><br><span class="line">        success: <span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">let</span> data = res.d; <span class="comment">// the data you create</span></span><br><span class="line">            <span class="comment">// do something</span></span><br><span class="line">        &#125;,</span><br><span class="line">        error: <span class="function"><span class="keyword">function</span>(<span class="params">error</span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="built_in">JSON</span>.stringify(error));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sp_read</span>(<span class="params">api_read</span>)</span>&#123;</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        url: api_read,</span><br><span class="line">        type: <span class="string">"GET"</span>,</span><br><span class="line">        headers: &#123;</span><br><span class="line">            <span class="string">"accept"</span>:<span class="string">"application/json; odata=verbose"</span></span><br><span class="line">        &#125;,</span><br><span class="line">        success: <span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">let</span> data = res.d; <span class="comment">// the data you read</span></span><br><span class="line">            <span class="comment">// do something</span></span><br><span class="line">        &#125;,</span><br><span class="line">        error: <span class="function"><span class="keyword">function</span>(<span class="params">error</span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="built_in">JSON</span>.stringify(error));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sp_update</span>(<span class="params">api_update</span>)</span>&#123;</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        url: api_update,</span><br><span class="line">        method: <span class="string">"POST"</span>,</span><br><span class="line">        data: <span class="built_in">JSON</span>.stringify(data),</span><br><span class="line">        contentType: <span class="string">"application/json; odata=verbose"</span>,</span><br><span class="line">        headers: &#123;</span><br><span class="line">            <span class="string">"Accept"</span>: <span class="string">"application/json;odata=verbose"</span>,</span><br><span class="line">            <span class="string">"X-RequestDigest"</span>: $(<span class="string">"#__REQUESTDIGEST"</span>).val(),</span><br><span class="line">            <span class="string">"IF-MATCH"</span>: <span class="string">"*"</span>,</span><br><span class="line">            <span class="string">"X-Http-Method"</span>: <span class="string">"MERGE"</span></span><br><span class="line">        &#125;,</span><br><span class="line">        success: <span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">let</span> data = res.d; <span class="comment">// the data you update</span></span><br><span class="line">            <span class="comment">// do something</span></span><br><span class="line">        &#125;,</span><br><span class="line">        error: <span class="function"><span class="keyword">function</span>(<span class="params">error</span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="built_in">JSON</span>.stringify(error));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sp_delete</span>(<span class="params">api_delete</span>)</span>&#123;</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        url: api,</span><br><span class="line">        method: <span class="string">'DELETE'</span>,</span><br><span class="line">        headers: &#123;</span><br><span class="line">            <span class="string">"Accept"</span>: <span class="string">"application/json;odata=verbose"</span>,</span><br><span class="line">            <span class="string">"X-RequestDigest"</span>: $(<span class="string">"#__REQUESTDIGEST"</span>).val(),</span><br><span class="line">            <span class="string">"IF-MATCH"</span>: <span class="string">"*"</span></span><br><span class="line">        &#125;,</span><br><span class="line">        success: <span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</span><br><span class="line">            <span class="comment">// do something</span></span><br><span class="line">        &#125;,</span><br><span class="line">        error: <span class="function"><span class="keyword">function</span>(<span class="params">error</span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="built_in">JSON</span>.stringify(error));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/* filter &amp; select &amp; order(asc / desc)</span></span><br><span class="line"><span class="comment">"https://server/_api/web/lists('&#123; your_list_guid &#125;')/items?$filter=&#123; list_column_name &#125; eq &#123; keyword &#125;&amp;$select=ID,AuthorId,Created,...&amp;$orderby=&#123; list_column_name &#125; desc"</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>特別留意 SharePoint REST API 返回的資料筆數預設值是100筆，這在我寫的會議室預約功能所依賴的資料庫筆數超過100之後，因為使用者反應預約完成的會議卻沒有顯示在頁面上而發現。此問題只要在 API 裡頭加上一個 “TOP”參數並指定返回的資料筆數即可解決，例如「TOP=5000」，而 API 能返回的最大值為5000筆。如果需要返回更多筆資料，印象中看過網路上相關討論，但我用在查詢會議室預約這樣有時效性的資料，估計5000筆已經綽綽有餘了XDD</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">model.add( Dense(units=<span class="number">256</span>, input_dim=<span class="number">784</span>, init=<span class="string">'normal'</span>, activation=<span class="string">'relu'</span>) )</span><br><span class="line">model.add( Dense(units=<span class="number">10</span>, init=<span class="string">'normal'</span>, activation=<span class="string">'softmax'</span>) )</span><br></pre></td></tr></table></figure>
+<h3 id="Training-Definition"><a href="#Training-Definition" class="headerlink" title="Training Definition"></a>Training Definition</h3><p>定義訓練方法 : </p>
+<ul>
+<li>損失函數採用 Cross Entropy</li>
+<li>優化器採用 Adam</li>
+<li>驗證資料分割比例為0.2</li>
+<li>訓練批次為10</li>
+<li>每批次樣本數為200</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">model.compile(loss=<span class="string">'categorical_crossentropy'</span>, optimizer=<span class="string">'adam'</span>, metrics=[<span class="string">'accuracy'</span>])</span><br><span class="line">model.fit(x=train_feature_normal, y=train_label_onehot, validation_split=<span class="number">0.2</span>, epochs=<span class="number">10</span>, batch_size=<span class="number">200</span>, verbose=<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="Accuracy-Evaluation"><a href="#Accuracy-Evaluation" class="headerlink" title="Accuracy Evaluation"></a>Accuracy Evaluation</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">accuracy = model.evaluate(test_feature_normal, test_label_onehot)</span><br><span class="line">print(<span class="string">'\n[Accuracy] = '</span>, accuracy[<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+<h3 id="Save-amp-Load-Model"><a href="#Save-amp-Load-Model" class="headerlink" title="Save &amp; Load Model"></a>Save &amp; Load Model</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># save</span></span><br><span class="line">model.save(<span class="string">"mdl_mlp_mnist.h5"</span>)</span><br><span class="line"><span class="comment"># load</span></span><br><span class="line">model = load_model(<span class="string">"mdl_mlp_mnist.h5"</span>)</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># coding:utf-8</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> keras.utils <span class="keyword">import</span> np_utils</span><br><span class="line"><span class="keyword">from</span> keras.datasets <span class="keyword">import</span> mnist</span><br><span class="line"><span class="keyword">from</span> keras.models <span class="keyword">import</span> Sequential</span><br><span class="line"><span class="keyword">from</span> keras.layers <span class="keyword">import</span> Dense</span><br><span class="line"><span class="keyword">from</span> keras.models <span class="keyword">import</span> load_model</span><br><span class="line">np.random.seed(<span class="number">1234</span>)  <span class="comment"># for reproducibility</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">showPredict</span><span class="params">(imgs, lbls, predictions)</span>:</span></span><br><span class="line">    plt.gcf().set_size_inches(<span class="number">10</span>, <span class="number">10</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, <span class="number">10</span>):</span><br><span class="line">        fig = plt.subplot(<span class="number">2</span>, <span class="number">5</span>, i + <span class="number">1</span>)</span><br><span class="line">        fig.imshow(imgs[i], cmap=<span class="string">'binary'</span>)</span><br><span class="line"></span><br><span class="line">        title = <span class="string">'prediction = '</span> + str(predictions[i])</span><br><span class="line">        <span class="keyword">if</span> predictions[i] != lbls[i]:</span><br><span class="line">            title += <span class="string">'(X)'</span></span><br><span class="line"></span><br><span class="line">        title += <span class="string">'\nlabel = '</span> + str(lbls[i])</span><br><span class="line">        fig.set_title(title, fontsize=<span class="number">10</span>)</span><br><span class="line">        fig.set_xticks([])</span><br><span class="line">        fig.set_yticks([])</span><br><span class="line">    </span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mdlTrain</span><span class="params">(train_feature, train_label, test_feature, test_label)</span>:</span></span><br><span class="line">    <span class="comment"># model definition</span></span><br><span class="line">    model = Sequential()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># input:784, hidden:256, output:10</span></span><br><span class="line">    model.add( Dense(units=<span class="number">256</span>, input_dim=<span class="number">784</span>, init=<span class="string">'normal'</span>, activation=<span class="string">'relu'</span>) )</span><br><span class="line">    model.add( Dense(units=<span class="number">10</span>, init=<span class="string">'normal'</span>, activation=<span class="string">'softmax'</span>) )</span><br><span class="line"></span><br><span class="line">    <span class="comment"># training definition</span></span><br><span class="line">    model.compile(loss=<span class="string">'categorical_crossentropy'</span>, optimizer=<span class="string">'adam'</span>, metrics=[<span class="string">'accuracy'</span>])</span><br><span class="line">    model.fit(x=train_feature, y=train_label, validation_split=<span class="number">0.2</span>, epochs=<span class="number">10</span>, batch_size=<span class="number">200</span>, verbose=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># accuracy evaluation</span></span><br><span class="line">    accuracy = model.evaluate(test_feature, test_label)</span><br><span class="line">    print(<span class="string">'\n[Accuracy] = '</span>, accuracy[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> model</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># load mnist data</span></span><br><span class="line">(train_feature, train_label), (test_feature, test_label) = mnist.load_data()</span><br><span class="line"></span><br><span class="line"><span class="comment"># data preprocessing</span></span><br><span class="line"><span class="comment"># reshape</span></span><br><span class="line">train_feature_vector = train_feature.reshape(len(train_feature), <span class="number">784</span>).astype(<span class="string">'float32'</span>)</span><br><span class="line">test_feature_vector = test_feature.reshape(len(test_feature), <span class="number">784</span>).astype(<span class="string">'float32'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># feature normalization </span></span><br><span class="line">train_feature_normal = train_feature_vector / <span class="number">255</span></span><br><span class="line">test_feature_normal = test_feature_vector / <span class="number">255</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># one-hot encoding</span></span><br><span class="line">train_label_onehot = np_utils.to_categorical(train_label)</span><br><span class="line">test_label_onehot = np_utils.to_categorical(test_label)</span><br><span class="line"></span><br><span class="line">action = input(<span class="string">"1: Model Testing\n2: Model Training\n"</span>)</span><br><span class="line"><span class="keyword">if</span> action == <span class="string">"1"</span>:</span><br><span class="line">    print(<span class="string">"Load mdl_mlp_mnist.h5"</span>)</span><br><span class="line">    model = load_model(<span class="string">"mdl_mlp_mnist.h5"</span>)</span><br><span class="line">    prediction = model.predict_classes(test_feature_normal)</span><br><span class="line">    showPredict(test_feature, test_label, prediction)</span><br><span class="line">    <span class="keyword">del</span> model</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">"===== Start training ====="</span>)</span><br><span class="line">    model = mdlTrain(train_feature_normal, train_label_onehot, test_feature_normal, test_label_onehot)</span><br><span class="line">    model.save(<span class="string">"mdl_mlp_mnist.h5"</span>)</span><br><span class="line">    print(<span class="string">"===== Model has been saved ====="</span>)</span><br><span class="line">    prediction = model.predict_classes(test_feature_normal)</span><br><span class="line">    showPredict(test_feature, test_label, prediction)</span><br><span class="line">    <span class="keyword">del</span> model</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/IPC8oCO.png" alt="IPC8oCO.png"><br><img src="https://i.imgur.com/qCt4QIA.png" alt="qCt4QIA.png"></p>
+<hr>
+<p>＊測試程式指定隨機亂數種子是為了<a href="https://keras.io/zh/getting-started/faq/#how-can-i-obtain-reproducible-results-using-keras-during-development" target="_blank" rel="noopener">再現性</a></p>
+<p>＊下載 MNIST 資料集時若發生 <a href="https://stackoverflow.com/questions/41691327/ssl-sslerror-ssl-certificate-verify-failed-certificate-verify-failed-ssl-c/41692664?utm_medium=organic&amp;utm_source=google_rich_qa&amp;utm_campaign=google_rich_qa" target="_blank" rel="noopener">ssl.SSLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed</a>，在 Terminal 執行以下命令 :<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Applications/Python\ 3.6/Install\ Certificates.command</span><br></pre></td></tr></table></figure><br><img src="https://i.imgur.com/yzVEsvh.png" alt="yzVEsvh.png"></p>
+<p>📄<a href="https://keras.io/zh/" target="_blank" rel="noopener">Keras中文說明文件</a></p>
 
       
     </div>
@@ -511,9 +530,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/web/" rel="tag"><i class="fas fa-tags"></i> web</a>
+            <a href="/tags/keras/" rel="tag"><i class="fas fa-tags"></i> keras</a>
           
-            <a href="/tags/sharepoint/" rel="tag"><i class="fas fa-tags"></i> sharepoint</a>
+            <a href="/tags/mnist/" rel="tag"><i class="fas fa-tags"></i> mnist</a>
+          
+            <a href="/tags/machine-learning/" rel="tag"><i class="fas fa-tags"></i> machine learning</a>
           
         </div>
       
@@ -547,8 +568,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/rspi-meet-raspberry-pi-b3-plus/" rel="next" title="第一次吃樹莓派">
-                <i class="fa fa-chevron-left"></i> 第一次吃樹莓派
+              <a href="/data-sci-use-selenium-with-chrome-driver/" rel="next" title="資料科學筆記(5):Selenium 模組">
+                <i class="fa fa-chevron-left"></i> 資料科學筆記(5):Selenium 模組
               </a>
             
           </div>
@@ -556,10 +577,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/data-sci-use-selenium-with-chrome-driver/" rel="prev" title="資料科學筆記(5):Selenium 模組">
-                資料科學筆記(5):Selenium 模組 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -610,8 +627,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -829,6 +855,23 @@
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Load-MNIST-Data-Set"><span class="nav-number">1.</span> <span class="nav-text">Load MNIST Data Set</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-Preprocessing"><span class="nav-number">2.</span> <span class="nav-text">Data Preprocessing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Reshape"><span class="nav-number">2.1.</span> <span class="nav-text">Reshape</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Feature-Normalization"><span class="nav-number">2.2.</span> <span class="nav-text">Feature Normalization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#One-Hot-Encoding"><span class="nav-number">2.3.</span> <span class="nav-text">One-Hot Encoding</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Model-Definition"><span class="nav-number">3.</span> <span class="nav-text">Model Definition</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Layer-Definition"><span class="nav-number">3.1.</span> <span class="nav-text">Layer Definition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Training-Definition"><span class="nav-number">3.2.</span> <span class="nav-text">Training Definition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Accuracy-Evaluation"><span class="nav-number">3.3.</span> <span class="nav-text">Accuracy Evaluation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Save-amp-Load-Model"><span class="nav-number">3.4.</span> <span class="nav-text">Save &amp; Load Model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Code"><span class="nav-number">3.5.</span> <span class="nav-text">Code</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
 
@@ -1017,9 +1060,9 @@
 
 <script>
   var disqus_config = function() {
-    this.page.url = "https://laplacetw.github.io/sharepoint-rest-api/";
-    this.page.identifier = "sharepoint-rest-api/";
-    this.page.title = '關於 SharePoint REST API';
+    this.page.url = "https://laplacetw.github.io/data-sci-ml-hello-world-mnist/";
+    this.page.identifier = "data-sci-ml-hello-world-mnist/";
+    this.page.title = '資料科學筆記(6):ML Hello World — MNIST';
     };
   function loadComments() {
     var d = document, s = d.createElement('script');
