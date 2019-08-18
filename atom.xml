@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://laplacetw.github.io/"/>
-  <updated>2019-08-12T15:06:37.807Z</updated>
+  <updated>2019-08-18T15:46:27.859Z</updated>
   <id>https://laplacetw.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>南科自造基地研習Part.1</title>
+    <link href="https://laplacetw.github.io/maker-space-workshop-part-1/"/>
+    <id>https://laplacetw.github.io/maker-space-workshop-part-1/</id>
+    <published>2019-08-18T15:46:01.000Z</published>
+    <updated>2019-08-18T15:46:27.859Z</updated>
+    
+    <content type="html"><![CDATA[<p>系統晶片應用―以無線心律檢測為例。<br><a id="more"></a><br>Part.1於8/14 ~ 8/16在成大系統系館進行，講師為 Prof. Shuenn-Yuh Lee。</p><h3 id="研習內容大綱"><a href="#研習內容大綱" class="headerlink" title="研習內容大綱"></a>研習內容大綱</h3><p><br></p><ul><li>應用於智慧互動照護與監控系統之體外感測網路簡介</li><li>應用於身體感測網路之低功率無線心電訊號截取電路與系統<ul><li>ZigBee 無線心電訊號截取系統晶片</li><li>身體感測網路之低功率無線心電訊號截取與分類系統</li></ul></li><li>應用於神經調節之植入式身體感測網路</li><li>應用於植入式身體感測網路之低功率雙向遙測裝置結合微型心臟起搏器</li></ul><hr><h3 id="筆記"><a href="#筆記" class="headerlink" title="筆記"></a>筆記</h3><p><br><br>在這三天的研習中，李教授講解了許多重要概念與知識 :</p><ul><li>IP-Based vs. Solution-Based</li><li>遠距醫療照護服務的潛在市場與預期成長</li><li>心肌於心搏週期中之極化、去極化、再極化</li><li>心電圖(ECG)之 P 波、QRS 波群和 T 波之簡易判讀</li><li>從實驗室走向產品化所面臨的挑戰<ul><li>居家照護系統</li><li>裝置續航力―低功耗設計</li><li>使用便利性―無線傳輸</li><li>訊號解析度對診斷精確度之影響</li><li>診斷結果對醫生與使用者之呈現</li></ul></li><li>Wi-Fi / Bluetooth / ZigBee 應用於穿戴式裝置無線傳輸之可行性評估</li><li>無線生物訊號擷取 SoC 所整合之元件架構介紹</li><li>植入式微型電刺激器之應用<ul><li>心臟起搏器</li><li>人工耳蝸</li><li>人工視網膜</li><li>功能性神經肌肉電刺激器</li><li>膀胱控制</li><li>深層腦部電刺激</li></ul></li><li>使用 HSPICE 進行電路模擬測試驗證</li></ul><p>＊HSPICE 筆記</p><ul><li>以電晶體、二極體、電阻和電容等各種電子元件模型為基礎，經數值模擬分析計算出電路中各結點之電壓、電流</li><li>主要提供直流穩態(DC)、暫態(TRAN)以及小信號頻率響應(AC)的模擬，使用者可依照所設計之電路自行編寫模擬分析等控制指令</li><li>語法規則<ul><li>指令檔(.sp)第一行預設不會執行，使用慣例為撰寫標題用</li><li>英文字母大小寫無區分</li><li>指令執行並無先後順序</li><li>註解符號為 ‘*’ (星號)</li><li>指令檔需以 ‘.END’ 宣告結束</li><li>引入元件庫 : .lib ‘filepath’ TT</li><li>引入子電路 : .include ‘filepath’</li><li>將引入元件庫指令放在.protect &amp; .unprotect 之間，可於模擬時不顯示元件之製程參數</li><li>宣告變數 : .param param_name = value</li></ul></li></ul><table><thead><tr><th style="text-align:center">元件代號</th><th style="text-align:center">對應元件  </th></tr></thead><tbody><tr><td style="text-align:center">V</td><td style="text-align:center">Voltage Source</td></tr><tr><td style="text-align:center">I</td><td style="text-align:center">Current Source</td></tr><tr><td style="text-align:center">R</td><td style="text-align:center">Resistor</td></tr><tr><td style="text-align:center">L</td><td style="text-align:center">Inductor</td></tr><tr><td style="text-align:center">C</td><td style="text-align:center">Capacitor</td></tr><tr><td style="text-align:center">M</td><td style="text-align:center">MOSFET</td></tr><tr><td style="text-align:center">X</td><td style="text-align:center">Sub-Circuit</td></tr></tbody></table><p>控制指令 :</p><table><thead><tr><th style="text-align:center">指令</th><th style="text-align:center">作用  </th></tr></thead><tbody><tr><td style="text-align:center">.AC</td><td style="text-align:center">交流分析(頻率響應)</td></tr><tr><td style="text-align:center">.DC</td><td style="text-align:center">直流分析</td></tr><tr><td style="text-align:center">.OP</td><td style="text-align:center">靜態點分析</td></tr><tr><td style="text-align:center">.NOISE</td><td style="text-align:center">雜訊分析</td></tr><tr><td style="text-align:center">.TRAN</td><td style="text-align:center">暫態分析</td></tr><tr><td style="text-align:center">.SUBCKT</td><td style="text-align:center">定義子電路</td></tr><tr><td style="text-align:center">.ENDS</td><td style="text-align:center">子電路定義結束</td></tr><tr><td style="text-align:center">.OPTIONS</td><td style="text-align:center">設定參數及其他功能</td></tr><tr><td style="text-align:center">.PRINT</td><td style="text-align:center">指定輸出內容</td></tr><tr><td style="text-align:center">.PLOT</td><td style="text-align:center">視覺化輸出</td></tr><tr><td style="text-align:center">.TEMP</td><td style="text-align:center">指定模擬環境溫度</td></tr><tr><td style="text-align:center">.END</td><td style="text-align:center">指令檔編寫結束</td></tr></tbody></table><hr><h3 id="心得"><a href="#心得" class="headerlink" title="心得"></a>心得</h3><p><br><br>很幸運能參與 AI 自造基地這一系列的研習，關於 Part.1的研習內容，雖然資工人沒學過電子學，De Morgan’s laws 也不大記得了呢😂，但知識總是不嫌多的，聽在心裡想在腦子裡，總是有個概念。而李教授除了課程內容，也講了許多受用的觀念，特別是 Solution-Based 的概念令我相當有感，投入職場至今確實見到台廠普遍沒有系統整合的概念，所以即使我們有先進工業製程能製造各種精密零組件，卻無法發揮其最大價值，只因為我們兜不出一個完整的東西。</p><p>研習課程的最後由李教授所指導的優秀博士生助教帶大家使用 HSPICE 來模擬電路，雖然我沒辦法完整編寫出模擬電路，但資工人對於電腦語言總是有點 Sense 的嘛😎，懂得大致上的語法規則後，也是看得懂每一行在做些什麼的，元件庫和子電路的概念也像是函式庫及自訂函式的概念，只是這類似 Verilog 的硬體描述語言真特別，指令檔的執行竟然沒有分先後順序，這跟一般的程式邏輯很不一樣呢XD</p><p>感謝 Prof. Shuenn-Yuh Lee 與助教們的用心講解，受益良多。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;系統晶片應用―以無線心律檢測為例。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Workshop" scheme="https://laplacetw.github.io/categories/Workshop/"/>
+    
+    
+      <category term="ecg" scheme="https://laplacetw.github.io/tags/ecg/"/>
+    
+      <category term="wireless" scheme="https://laplacetw.github.io/tags/wireless/"/>
+    
+      <category term="hspice" scheme="https://laplacetw.github.io/tags/hspice/"/>
+    
+  </entry>
   
   <entry>
     <title>資料科學筆記(6):ML Hello World — MNIST</title>
@@ -471,30 +497,6 @@
     <summary type="html">
     
       &lt;p&gt;使用Requests取得網頁內容後，會取得密密麻麻的html，這時候便可以讓BeautifulSoup來協助解析網頁內容。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Data Science" scheme="https://laplacetw.github.io/categories/Data-Science/"/>
-    
-    
-      <category term="python" scheme="https://laplacetw.github.io/tags/python/"/>
-    
-      <category term="web crawler" scheme="https://laplacetw.github.io/tags/web-crawler/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>資料科學筆記(1)：Requests模組</title>
-    <link href="https://laplacetw.github.io/data-sci-requests/"/>
-    <id>https://laplacetw.github.io/data-sci-requests/</id>
-    <published>2018-08-26T14:25:43.000Z</published>
-    <updated>2019-05-01T08:59:33.085Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash">pip3 install requests</span></span><br></pre></td></tr></table></figure><a id="more"></a><h2 id="Get"><a href="#Get" class="headerlink" title="Get"></a>Get</h2><p>範例程式為對網頁做基本請求＆接收回應，raise_for_status()為return檢查，若返回異常則拋出error<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests <span class="keyword">as</span> rq</span><br><span class="line"></span><br><span class="line">url = <span class="string">'http://www.google.com.tw/search?'</span>  <span class="comment"># target url</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    res = rq.get(url)</span><br><span class="line">    res.raise_for_status()</span><br><span class="line"><span class="keyword">except</span> rq.HTTPError:</span><br><span class="line">    print(<span class="string">'HTTP Error!'</span>)</span><br><span class="line"></span><br><span class="line">print(res.text)  <span class="comment"># html</span></span><br></pre></td></tr></table></figure></p><h2 id="Payload"><a href="#Payload" class="headerlink" title="Payload"></a>Payload</h2><p>必要時可以加上參數，例如Google Search:<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">payload = &#123;<span class="string">'q'</span>:<span class="string">'data science'</span>&#125;</span><br><span class="line">res = rq.get(url, params=payload)  <span class="comment"># http://www.google.com.tw/search?q=data+science</span></span><br></pre></td></tr></table></figure><br>＊參數的部分為字典結構，key則視url結構而定</p><h2 id="Post"><a href="#Post" class="headerlink" title="Post"></a>Post</h2><p>針對網頁中的表單，可以使用Post來傳送Payload<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">res = rq.post(url, params=payload)</span><br></pre></td></tr></table></figure></p><p>但…對Google Search頁面做Post會得到這樣的回應：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">//www.google.com/</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">logo</span> <span class="attr">aria-label</span>=<span class="string">Google</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">b</span>&gt;</span>405.<span class="tag">&lt;/<span class="name">b</span>&gt;</span> <span class="tag">&lt;<span class="name">ins</span>&gt;</span>That’s an error.<span class="tag">&lt;/<span class="name">ins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>The request method <span class="tag">&lt;<span class="name">code</span>&gt;</span>POST<span class="tag">&lt;/<span class="name">code</span>&gt;</span> is inappropriate for the URL <span class="tag">&lt;<span class="name">code</span>&gt;</span>/search?q=data+science<span class="tag">&lt;/<span class="name">code</span>&gt;</span>.  </span><br><span class="line"><span class="tag">&lt;<span class="name">ins</span>&gt;</span>That’s all we know.<span class="tag">&lt;/<span class="name">ins</span>&gt;</span></span><br></pre></td></tr></table></figure></p><p>Google說這樣是不當的行為呢，我只是做個示範，好孩子不要學呀＾.&lt;</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Install&quot;&gt;&lt;a href=&quot;#Install&quot; class=&quot;headerlink&quot; title=&quot;Install&quot;&gt;&lt;/a&gt;Install&lt;/h2&gt;&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;bash&quot;&gt;pip3 install requests&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
