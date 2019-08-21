@@ -112,21 +112,21 @@
 
 
 
-  <meta name="description" content="以 MLP with Keras 進行手寫數字辨識測試。">
+  <meta name="description" content="Load MNIST Data Set載入60000筆訓練資料與10000筆測試資料。1(train_feature, train_label), (test_feature, test_label) = mnist.load_data() Data PreprocessingReshape將28x28特徵值 Raw Data(圖片)轉換為32位元浮點數一維資料。12train_fea">
 <meta name="keywords" content="keras,mnist,machine learning">
 <meta property="og:type" content="article">
-<meta property="og:title" content="資料科學筆記(6):ML Hello World — MNIST">
+<meta property="og:title" content="以 MLP with Keras 進行手寫數字辨識測試">
 <meta property="og:url" content="https://laplacetw.github.io/data-sci-ml-hello-world-mnist/index.html">
 <meta property="og:site_name" content="Laplace&#39;s Lab">
-<meta property="og:description" content="以 MLP with Keras 進行手寫數字辨識測試。">
+<meta property="og:description" content="Load MNIST Data Set載入60000筆訓練資料與10000筆測試資料。1(train_feature, train_label), (test_feature, test_label) = mnist.load_data() Data PreprocessingReshape將28x28特徵值 Raw Data(圖片)轉換為32位元浮點數一維資料。12train_fea">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://i.imgur.com/IPC8oCO.png">
 <meta property="og:image" content="https://i.imgur.com/qCt4QIA.png">
 <meta property="og:image" content="https://i.imgur.com/yzVEsvh.png">
-<meta property="og:updated_time" content="2019-08-12T15:06:37.807Z">
+<meta property="og:updated_time" content="2019-08-21T08:25:19.347Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="資料科學筆記(6):ML Hello World — MNIST">
-<meta name="twitter:description" content="以 MLP with Keras 進行手寫數字辨識測試。">
+<meta name="twitter:title" content="以 MLP with Keras 進行手寫數字辨識測試">
+<meta name="twitter:description" content="Load MNIST Data Set載入60000筆訓練資料與10000筆測試資料。1(train_feature, train_label), (test_feature, test_label) = mnist.load_data() Data PreprocessingReshape將28x28特徵值 Raw Data(圖片)轉換為32位元浮點數一維資料。12train_fea">
 <meta name="twitter:image" content="https://i.imgur.com/IPC8oCO.png">
 
 
@@ -147,7 +147,7 @@
   };
 </script>
 
-  <title>資料科學筆記(6):ML Hello World — MNIST | Laplace's Lab</title>
+  <title>以 MLP with Keras 進行手寫數字辨識測試 | Laplace's Lab</title>
   
 
 
@@ -378,7 +378,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">資料科學筆記(6):ML Hello World — MNIST
+          <h2 class="post-title" itemprop="name headline">以 MLP with Keras 進行手寫數字辨識測試
 
               
             
@@ -472,7 +472,7 @@
       
 
       
-        <p>以 MLP with Keras 進行手寫數字辨識測試。<br><a id="more"></a></p>
+        <a id="more"></a>
 <h2 id="Load-MNIST-Data-Set"><a href="#Load-MNIST-Data-Set" class="headerlink" title="Load MNIST Data Set"></a>Load MNIST Data Set</h2><p>載入60000筆訓練資料與10000筆測試資料。<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(train_feature, train_label), (test_feature, test_label) = mnist.load_data()</span><br></pre></td></tr></table></figure></p>
 <h2 id="Data-Preprocessing"><a href="#Data-Preprocessing" class="headerlink" title="Data Preprocessing"></a>Data Preprocessing</h2><h3 id="Reshape"><a href="#Reshape" class="headerlink" title="Reshape"></a>Reshape</h3><p>將28x28特徵值 Raw Data(圖片)轉換為32位元浮點數一維資料。<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">train_feature_vector = train_feature.reshape(len(train_feature), <span class="number">784</span>).astype(<span class="string">'float32'</span>)</span><br><span class="line">test_feature_vector = test_feature.reshape(len(test_feature), <span class="number">784</span>).astype(<span class="string">'float32'</span>)</span><br></pre></td></tr></table></figure></p>
 <h3 id="Feature-Normalization"><a href="#Feature-Normalization" class="headerlink" title="Feature Normalization"></a>Feature Normalization</h3><p>對特徵值進行正規化處理，也就是將數據按比例縮放至[0, 1]區間，且不改變其原本分佈，以提升模型的訓練收斂速度與預測精準度。<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">train_feature_normal = train_feature_vector / <span class="number">255</span></span><br><span class="line">test_feature_normal = test_feature_vector / <span class="number">255</span></span><br></pre></td></tr></table></figure></p>
@@ -568,8 +568,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/data-sci-use-selenium-with-chrome-driver/" rel="next" title="資料科學筆記(5):Selenium 模組">
-                <i class="fa fa-chevron-left"></i> 資料科學筆記(5):Selenium 模組
+              <a href="/data-sci-use-selenium-with-chrome-driver/" rel="next" title="使用 Selenium 模組控制瀏覽器">
+                <i class="fa fa-chevron-left"></i> 使用 Selenium 模組控制瀏覽器
               </a>
             
           </div>
@@ -1074,7 +1074,7 @@
   var disqus_config = function() {
     this.page.url = "https://laplacetw.github.io/data-sci-ml-hello-world-mnist/";
     this.page.identifier = "data-sci-ml-hello-world-mnist/";
-    this.page.title = '資料科學筆記(6):ML Hello World — MNIST';
+    this.page.title = '以 MLP with Keras 進行手寫數字辨識測試';
     };
   function loadComments() {
     var d = document, s = d.createElement('script');

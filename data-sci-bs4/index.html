@@ -112,21 +112,21 @@
 
 
 
-  <meta name="description" content="使用Requests取得網頁內容後，會取得密密麻麻的html，這時候便可以讓BeautifulSoup來協助解析網頁內容。">
+  <meta name="description" content="發出請求取得網頁內容後，會得到密密麻麻的 HTML，此時便可以讓 BeautifulSoup 來協助解析網頁內容。">
 <meta name="keywords" content="python,web crawler">
 <meta property="og:type" content="article">
-<meta property="og:title" content="資料科學筆記(2)：BeautifulSoup模組">
+<meta property="og:title" content="以 BeautifulSoup 解析網頁內容">
 <meta property="og:url" content="https://laplacetw.github.io/data-sci-bs4/index.html">
 <meta property="og:site_name" content="Laplace&#39;s Lab">
-<meta property="og:description" content="使用Requests取得網頁內容後，會取得密密麻麻的html，這時候便可以讓BeautifulSoup來協助解析網頁內容。">
+<meta property="og:description" content="發出請求取得網頁內容後，會得到密密麻麻的 HTML，此時便可以讓 BeautifulSoup 來協助解析網頁內容。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://i.imgur.com/PAuJRHa.png">
 <meta property="og:image" content="https://i.imgur.com/56hpBfq.png">
 <meta property="og:image" content="https://i.imgur.com/NmCiRB0.png">
-<meta property="og:updated_time" content="2019-05-01T09:01:00.761Z">
+<meta property="og:updated_time" content="2019-08-21T08:31:24.048Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="資料科學筆記(2)：BeautifulSoup模組">
-<meta name="twitter:description" content="使用Requests取得網頁內容後，會取得密密麻麻的html，這時候便可以讓BeautifulSoup來協助解析網頁內容。">
+<meta name="twitter:title" content="以 BeautifulSoup 解析網頁內容">
+<meta name="twitter:description" content="發出請求取得網頁內容後，會得到密密麻麻的 HTML，此時便可以讓 BeautifulSoup 來協助解析網頁內容。">
 <meta name="twitter:image" content="https://i.imgur.com/PAuJRHa.png">
 
 
@@ -147,7 +147,7 @@
   };
 </script>
 
-  <title>資料科學筆記(2)：BeautifulSoup模組 | Laplace's Lab</title>
+  <title>以 BeautifulSoup 解析網頁內容 | Laplace's Lab</title>
   
 
 
@@ -378,7 +378,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">資料科學筆記(2)：BeautifulSoup模組
+          <h2 class="post-title" itemprop="name headline">以 BeautifulSoup 解析網頁內容
 
               
             
@@ -472,12 +472,12 @@
       
 
       
-        <p>使用Requests取得網頁內容後，會取得密密麻麻的html，這時候便可以讓BeautifulSoup來協助解析網頁內容。<br><a id="more"></a></p>
+        <p>發出請求取得網頁內容後，會得到密密麻麻的 HTML，此時便可以讓 BeautifulSoup 來協助解析網頁內容。<br><a id="more"></a></p>
 <h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span>pip3 install bs4</span><br></pre></td></tr></table></figure>
-<h2 id="Web-Analytics"><a href="#Web-Analytics" class="headerlink" title="Web Analytics"></a>Web Analytics</h2><p>來試著寫一個簡單的Web Crawler去PTT西斯版逛逛吧，但因為西斯版有年齡驗證，所以必須利用Requests.Session()物件去做post，按下大家在美好童年就已經按過的「我已滿18歲按鈕」，讓Web Crawler取得伺服器驗證後就可以在西斯版橫行無阻(嘿嘿)。</p>
-<p>從截圖可以看到，url為 <a href="https://www.ptt.cc/ask/over18.." target="_blank" rel="noopener">https://www.ptt.cc/ask/over18..</a>. 這就是取得驗證的網址，注意url後頭的from=%2Fbbs%2Fsex…在post驗證的payload要寫入from這個key，表示post來自西斯版。<br><img src="https://i.imgur.com/PAuJRHa.png" alt></p>
-<p>關於BeautifulSoup更多細節可參考<a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.html" target="_blank" rel="noopener">官方文件</a>，這邊簡單說明，基本上就是把request取得的html丟給Soup去解析，接著可以使用find(), find_all(), select()等方法來篩選尋找目標數據所在的區塊。</p>
-<p>舉例來說，若要讓Web Crawler去爬取西斯版的文章標題＆連結，觀察網頁原始碼後可以發現目標數據就在class＝r-ent的區塊裡面。<br><img src="https://i.imgur.com/56hpBfq.png" alt></p>
+<h2 id="Web-Analytics"><a href="#Web-Analytics" class="headerlink" title="Web Analytics"></a>Web Analytics</h2><p>寫個簡單的 Web Crawler 去 PTT 西斯版逛逛吧，但因為西斯版有年齡驗證，所以必須利用 Requests.Session()物件去做 post，按下大家在美好童年就已經按過的「我已滿18歲按鈕」，讓 Web Crawler 取得伺服器驗證後就可以在西斯版橫行無阻(嘿嘿)。</p>
+<p>從截圖可以看到，url 為 <a href="https://www.ptt.cc/ask/over18.." target="_blank" rel="noopener">https://www.ptt.cc/ask/over18..</a>. 這就是取得驗證的網址，注意 url 後頭的 from=%2Fbbs%2Fsex…在 post 驗證的 payload 要寫入 from 這個 key，表示 post 來自西斯版。<br><img src="https://i.imgur.com/PAuJRHa.png" alt></p>
+<p>關於 BeautifulSoup 更多細節可參考<a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.html" target="_blank" rel="noopener">官方文件</a>，這邊簡單說明，基本上就是把 request 取得的 html 丟給 Soup 去解析，接著可以使用 find(), find_all(), select()等方法來篩選尋找目標數據所在的區塊。</p>
+<p>舉例來說，若要讓 Web Crawler 去爬取西斯版的文章標題＆連結，觀察網頁原始碼後可以發現目標數據就在 class＝r-ent 的區塊裡面。<br><img src="https://i.imgur.com/56hpBfq.png" alt></p>
 <h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests <span class="keyword">as</span> rq</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup <span class="keyword">as</span> bs</span><br><span class="line"></span><br><span class="line">url = <span class="string">'https://www.ptt.cc/bbs/sex/index.html'</span></span><br><span class="line">payload = &#123;</span><br><span class="line">    <span class="string">'from'</span>:url,</span><br><span class="line">    <span class="string">'yes'</span>:<span class="string">'yes'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">session = rq.Session()</span><br><span class="line">session.post(<span class="string">'https://www.ptt.cc/ask/over18'</span>, data=payload)</span><br><span class="line">res = session.get(url)</span><br><span class="line"></span><br><span class="line">soup = bs(res.text, <span class="string">'html.parser'</span>)</span><br><span class="line">result = soup.select(<span class="string">'.r-ent .title a'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> title <span class="keyword">in</span> result:</span><br><span class="line">    print(title.text, title[<span class="string">'href'</span>])</span><br></pre></td></tr></table></figure>
 <p>輸出結果：<br><img src="https://i.imgur.com/NmCiRB0.png" alt></p>
 
@@ -543,8 +543,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/data-sci-requests/" rel="next" title="資料科學筆記(1)：Requests模組">
-                <i class="fa fa-chevron-left"></i> 資料科學筆記(1)：Requests模組
+              <a href="/data-sci-requests/" rel="next" title="Requests 模組測試">
+                <i class="fa fa-chevron-left"></i> Requests 模組測試
               </a>
             
           </div>
@@ -553,8 +553,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/data-sci-google-search/" rel="prev" title="資料科學筆記(3)：Web Crawler">
-                資料科學筆記(3)：Web Crawler <i class="fa fa-chevron-right"></i>
+              <a href="/data-sci-google-search/" rel="prev" title="以 Requests 取得 Google 搜尋結果">
+                以 Requests 取得 Google 搜尋結果 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1049,7 +1049,7 @@
   var disqus_config = function() {
     this.page.url = "https://laplacetw.github.io/data-sci-bs4/";
     this.page.identifier = "data-sci-bs4/";
-    this.page.title = '資料科學筆記(2)：BeautifulSoup模組';
+    this.page.title = '以 BeautifulSoup 解析網頁內容';
     };
   function loadComments() {
     var d = document, s = d.createElement('script');
