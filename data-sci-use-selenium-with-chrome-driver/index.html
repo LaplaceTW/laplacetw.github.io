@@ -112,19 +112,19 @@
 
 
 
-  <meta name="description" content="自從開發環境轉移到 Mac OS 後，倒是沒有在這環境下測試用 Selenium 去控制瀏覽器，不過我並不想控制 Safari ，因為它不是一個跨平台的瀏覽器。 第一次使用 Selenium 是學習 Web Crawler 的過程中發現，在瀏覽器中可見的物件並不代表一定爬得到(初心者😗)，於是我了解到那些自己抓不到的數據是由 JavaScript 所動態產生的，因為我向目標伺服器所發出的 re">
+  <meta name="description" content="自從開發環境轉移到 Mac OS 後，倒是沒有在這環境下測試用 Selenium 去控制瀏覽器，不過我並不想控制 Safari ，因為它不是一個跨平台的瀏覽器。">
 <meta name="keywords" content="python,web crawler,selenium,chromedriver">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用 Selenium 模組控制瀏覽器">
 <meta property="og:url" content="https://laplacetw.github.io/data-sci-use-selenium-with-chrome-driver/index.html">
 <meta property="og:site_name" content="Laplace&#39;s Lab">
-<meta property="og:description" content="自從開發環境轉移到 Mac OS 後，倒是沒有在這環境下測試用 Selenium 去控制瀏覽器，不過我並不想控制 Safari ，因為它不是一個跨平台的瀏覽器。 第一次使用 Selenium 是學習 Web Crawler 的過程中發現，在瀏覽器中可見的物件並不代表一定爬得到(初心者😗)，於是我了解到那些自己抓不到的數據是由 JavaScript 所動態產生的，因為我向目標伺服器所發出的 re">
+<meta property="og:description" content="自從開發環境轉移到 Mac OS 後，倒是沒有在這環境下測試用 Selenium 去控制瀏覽器，不過我並不想控制 Safari ，因為它不是一個跨平台的瀏覽器。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://i.imgur.com/5qmRipW.png">
-<meta property="og:updated_time" content="2019-08-21T08:24:21.417Z">
+<meta property="og:updated_time" content="2019-08-23T17:28:01.058Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用 Selenium 模組控制瀏覽器">
-<meta name="twitter:description" content="自從開發環境轉移到 Mac OS 後，倒是沒有在這環境下測試用 Selenium 去控制瀏覽器，不過我並不想控制 Safari ，因為它不是一個跨平台的瀏覽器。 第一次使用 Selenium 是學習 Web Crawler 的過程中發現，在瀏覽器中可見的物件並不代表一定爬得到(初心者😗)，於是我了解到那些自己抓不到的數據是由 JavaScript 所動態產生的，因為我向目標伺服器所發出的 re">
+<meta name="twitter:description" content="自從開發環境轉移到 Mac OS 後，倒是沒有在這環境下測試用 Selenium 去控制瀏覽器，不過我並不想控制 Safari ，因為它不是一個跨平台的瀏覽器。">
 <meta name="twitter:image" content="https://i.imgur.com/5qmRipW.png">
 
 
@@ -470,9 +470,7 @@
       
 
       
-        <a id="more"></a>
-<p>自從開發環境轉移到 Mac OS 後，倒是沒有在這環境下測試用 Selenium 去控制瀏覽器，不過我並不想控制 Safari ，因為它不是一個跨平台的瀏覽器。</p>
-<p>第一次使用 Selenium 是學習 Web Crawler 的過程中發現，在瀏覽器中可見的物件並不代表一定爬得到(初心者😗)，於是我了解到那些自己抓不到的數據是由 JavaScript 所動態產生的，因為我向目標伺服器所發出的 request 只能取得靜態的數據，若要進行進階的動態網頁資料擷取，那麼我就必須學習如何用程式碼去控制瀏覽器。</p>
+        <p>自從開發環境轉移到 Mac OS 後，倒是沒有在這環境下測試用 Selenium 去控制瀏覽器，不過我並不想控制 Safari ，因為它不是一個跨平台的瀏覽器。<br><a id="more"></a><br>第一次使用 Selenium 是學習 Web Crawler 的過程中發現，在瀏覽器中可見的物件並不代表一定爬得到(初心者😗)，於是我了解到那些自己抓不到的數據是由 JavaScript 所動態產生的，因為我向目標伺服器所發出的 request 只能取得靜態的數據，若要進行進階的動態網頁資料擷取，那麼我就必須學習如何用程式碼去控制瀏覽器。</p>
 <hr>
 <h2 id="Install-Selenium"><a href="#Install-Selenium" class="headerlink" title="Install Selenium"></a>Install Selenium</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip3 install selenium</span><br></pre></td></tr></table></figure>
 <h2 id="Download-Chrome-Driver"><a href="#Download-Chrome-Driver" class="headerlink" title="Download Chrome Driver"></a>Download Chrome Driver</h2><p>要讓 Selenium 能夠控制 Chrome 瀏覽器，需要<span style="color:red;">對應版本</span>的 <a href="https://chromedriver.storage.googleapis.com/index.html" target="_blank" rel="noopener">ChromeDriver</a>，例如我的 Chrome 為目前的最新版本 76.0.3809.100，那麼我就下載 ver.76 最新的 76.0.3809.68 版本 ChromeDriver，然後把 ChromeDriver 放在適當的路徑下，以便在程式中呼叫。</p>

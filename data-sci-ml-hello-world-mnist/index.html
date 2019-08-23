@@ -112,21 +112,21 @@
 
 
 
-  <meta name="description" content="Load MNIST Data Set載入60000筆訓練資料與10000筆測試資料。1(train_feature, train_label), (test_feature, test_label) = mnist.load_data() Data PreprocessingReshape將28x28特徵值 Raw Data(圖片)轉換為32位元浮點數一維資料。12train_fea">
+  <meta name="description" content="Load MNIST Data Set">
 <meta name="keywords" content="keras,mnist,machine learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="以 MLP with Keras 進行手寫數字辨識測試">
 <meta property="og:url" content="https://laplacetw.github.io/data-sci-ml-hello-world-mnist/index.html">
 <meta property="og:site_name" content="Laplace&#39;s Lab">
-<meta property="og:description" content="Load MNIST Data Set載入60000筆訓練資料與10000筆測試資料。1(train_feature, train_label), (test_feature, test_label) = mnist.load_data() Data PreprocessingReshape將28x28特徵值 Raw Data(圖片)轉換為32位元浮點數一維資料。12train_fea">
+<meta property="og:description" content="Load MNIST Data Set">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://i.imgur.com/IPC8oCO.png">
 <meta property="og:image" content="https://i.imgur.com/qCt4QIA.png">
 <meta property="og:image" content="https://i.imgur.com/yzVEsvh.png">
-<meta property="og:updated_time" content="2019-08-23T17:19:43.282Z">
+<meta property="og:updated_time" content="2019-08-23T17:27:08.369Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="以 MLP with Keras 進行手寫數字辨識測試">
-<meta name="twitter:description" content="Load MNIST Data Set載入60000筆訓練資料與10000筆測試資料。1(train_feature, train_label), (test_feature, test_label) = mnist.load_data() Data PreprocessingReshape將28x28特徵值 Raw Data(圖片)轉換為32位元浮點數一維資料。12train_fea">
+<meta name="twitter:description" content="Load MNIST Data Set">
 <meta name="twitter:image" content="https://i.imgur.com/IPC8oCO.png">
 
 
@@ -472,8 +472,8 @@
       
 
       
-        <a id="more"></a>
-<h2 id="Load-MNIST-Data-Set"><a href="#Load-MNIST-Data-Set" class="headerlink" title="Load MNIST Data Set"></a>Load MNIST Data Set</h2><p>載入60000筆訓練資料與10000筆測試資料。<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(train_feature, train_label), (test_feature, test_label) = mnist.load_data()</span><br></pre></td></tr></table></figure></p>
+        <h2 id="Load-MNIST-Data-Set"><a href="#Load-MNIST-Data-Set" class="headerlink" title="Load MNIST Data Set"></a>Load MNIST Data Set</h2><a id="more"></a>
+<p>載入60000筆訓練資料與10000筆測試資料。<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(train_feature, train_label), (test_feature, test_label) = mnist.load_data()</span><br></pre></td></tr></table></figure></p>
 <h2 id="Data-Preprocessing"><a href="#Data-Preprocessing" class="headerlink" title="Data Preprocessing"></a>Data Preprocessing</h2><h3 id="Reshape"><a href="#Reshape" class="headerlink" title="Reshape"></a>Reshape</h3><p>將28x28特徵值 Raw Data(圖片)轉換為32位元浮點數一維資料。<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">train_feature_vector = train_feature.reshape(len(train_feature), <span class="number">784</span>).astype(<span class="string">'float32'</span>)</span><br><span class="line">test_feature_vector = test_feature.reshape(len(test_feature), <span class="number">784</span>).astype(<span class="string">'float32'</span>)</span><br></pre></td></tr></table></figure></p>
 <h3 id="Feature-Normalization"><a href="#Feature-Normalization" class="headerlink" title="Feature Normalization"></a>Feature Normalization</h3><p>對特徵值進行正規化處理，也就是將數據按比例縮放至[0, 1]區間，且不改變其原本分佈，以提升模型的訓練收斂速度與預測精準度。<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">train_feature_normal = train_feature_vector / <span class="number">255</span></span><br><span class="line">test_feature_normal = test_feature_vector / <span class="number">255</span></span><br></pre></td></tr></table></figure></p>
 <h3 id="One-Hot-Encoding"><a href="#One-Hot-Encoding" class="headerlink" title="One-Hot Encoding"></a>One-Hot Encoding</h3><p>對離散型資料標籤進行獨熱編碼處理轉換為布林陣列，以進行矩陣運算。<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">train_label_onehot = np_utils.to_categorical(train_label)</span><br><span class="line">test_label_onehot = np_utils.to_categorical(test_label)</span><br></pre></td></tr></table></figure></p>
