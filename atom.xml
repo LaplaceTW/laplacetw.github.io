@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://laplacetw.github.io/"/>
-  <updated>2019-09-01T14:03:53.452Z</updated>
+  <updated>2019-09-06T09:36:12.928Z</updated>
   <id>https://laplacetw.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>動手更換老舊的電源插座</title>
+    <link href="https://laplacetw.github.io/replace-electrical-socket/"/>
+    <id>https://laplacetw.github.io/replace-electrical-socket/</id>
+    <published>2019-09-06T08:12:17.000Z</published>
+    <updated>2019-09-06T09:36:12.928Z</updated>
+    
+    <content type="html"><![CDATA[<p>突然想起很久、很久以前，似乎在五金賣場買了兩個插座要來更換，但買回來後就一直擱著…然後就忘了這件事😅<a id="more"></a>雖然插座不知道為什麼某天就突然插不緊了，我一開始還以為是裡頭的簧片變形之類的，不過就一直忘了換，儘管插頭插上去不是很穩固，但也還算得上堪用。</p><p>＊<span style="color:red;">安全至上，插座是有電的，更換前務必切掉總開關。</span></p><p>但我終於想起來啦，趕緊把兩個放到長灰塵的新插座挖出來，開始拆掉舊的插座，卸下蓋板、轉開兩顆固定螺絲…草泥馬呀！😱我想說怎麼看起來怪怪的，原來是插座本體的塑膠外殼竟然劣化斷掉了，所以才會直接看到裡頭的簧片…我以為只是簧片變形 ＝＝<br><img src="https://i.imgur.com/VVpK0Au.png" alt></p><p>接著用一字起子往電線旁紅圈處的卡榫插進去，就可以把電線給卸除了，不過我手邊沒有一字起子，所以用之前魚缸用的不鏽鋼長夾代替XD 如果怕忘了怎麼裝(或原本裝設的人裝反了)，卸除電線之前可以先拍照紀錄，通常紅色的為火線(有電)、白色的為水線(無電)，如果是三孔插座的話還會有綠色的接地線。</p><p>話說這插座還真是裂得誇張…<br><img src="https://i.imgur.com/wID59J9.png" alt></p><p>電線都卸除後就可以安裝新的插座啦，電線安裝的孔位旁邊會有圖示，較短的橫槓表示為火線安裝處，較長的橫槓則為水線，或有標示一個大寫英文字母W的字樣，中間則是接地線，務必確認電線有插到底不會鬆脫。而我當初買的是兩孔插座並沒有接地的設計，所以兩條接地線稍微整個線收好，就可以把插座面板鎖回去啦。<br><img src="https://i.imgur.com/hqiXjor.png" alt></p><p>打開電源總開關測試一下插座是否安裝正確，裝上插座蓋板，完成～😎<br><img src="https://i.imgur.com/uLTa5wO.png" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;突然想起很久、很久以前，似乎在五金賣場買了兩個插座要來更換，但買回來後就一直擱著…然後就忘了這件事😅
+    
+    </summary>
+    
+      <category term="Daily" scheme="https://laplacetw.github.io/categories/Daily/"/>
+    
+    
+      <category term="DIY" scheme="https://laplacetw.github.io/tags/DIY/"/>
+    
+      <category term="plug socket" scheme="https://laplacetw.github.io/tags/plug-socket/"/>
+    
+  </entry>
   
   <entry>
     <title>南科自造基地研習Part 2</title>
@@ -484,30 +508,6 @@
       <category term="aquarium" scheme="https://laplacetw.github.io/tags/aquarium/"/>
     
       <category term="planted tank" scheme="https://laplacetw.github.io/tags/planted-tank/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>正則式與re模組</title>
-    <link href="https://laplacetw.github.io/data-sci-re/"/>
-    <id>https://laplacetw.github.io/data-sci-re/</id>
-    <published>2018-09-16T06:58:17.000Z</published>
-    <updated>2019-08-21T08:37:49.604Z</updated>
-    
-    <content type="html"><![CDATA[<p>什麼是正則式(Regex)？常見的說法有正規表示式、正則表達式…等等，維基百科是如此描述的：使用單個字串來描述、符合某個句法規則的字串。在很多文字編輯器裡，正則運算式通常被用來檢索、替換那些符合某個模式的文字，總之就是「描述某種規則的表達式」。<br><a id="more"></a><br>舉例來說，email address其格式具有一定規則，假設要在一堆密密麻麻的html中尋找Gmail郵件地址，就必須使用正則式來描述過濾規則，讓程式能準確判斷出符合Gmail郵件地址格式的字串。<br><img src="https://i.imgur.com/lZufQJS.png" alt></p><h2 id="Pythex"><a href="#Pythex" class="headerlink" title="Pythex"></a>Pythex</h2><p>上述示範如何用正則式表達Gmail郵件地址規則的網站為<a href="https://pythex.org" target="_blank" rel="noopener">pythex.org</a>，可以用來驗證Regex正確與否，因為Regex的符號有點複雜，該頁面也相當貼心地放了速查表呢～只要按下regular expression cheatsheet按鈕即可查看。<br><img src="https://i.imgur.com/DIorI8v.png" alt></p><h2 id="re-module"><a href="#re-module" class="headerlink" title="re module"></a>re module</h2><p>在Python中使用正則式需要import re模組，常用的方法有search()、match()、findall()等，可參考<a href="https://docs.python.org/2/library/re.html" target="_blank" rel="noopener">官方文件</a>以取得更詳盡的說明。</p><p>那麼，search跟match有什麼不同呢？這是我一開始對這兩個方法的疑問，那就<a href="https://docs.python.org/2/library/re.html#search-vs-match" target="_blank" rel="noopener">看看官方文件怎麼說</a>，但實際編寫程式碼會幫助自己理解兩者間的差異。</p><p>根據官方文件的解釋：re.match() checks for a match only at the <span style="color:red;">beginning</span> of the string, while re.search() checks for a match <span style="color:red;">anywhere</span> in the string.</p><ul><li>match的搜尋方式為「從字串起始開始搜索，遇到不符合的字元便停止」</li><li>search的搜尋方式為「整個字串」</li></ul><p>個人覺得最常用到的應該是findall()，比對所有符合規則的字串並返回串列：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">str_ =  <span class="string">'_.Aa123Bb456Cc789Dd3.14'</span></span><br><span class="line"></span><br><span class="line">find_alphabet = re.findall(<span class="string">r'[A-Za-z]+'</span>, str_)</span><br><span class="line">print(find_alphabet)  ＃ [<span class="string">'Aa'</span>, <span class="string">'Bb'</span>, <span class="string">'Cc'</span>, <span class="string">'Dd'</span>]</span><br><span class="line"></span><br><span class="line">find_rational = re.findall(<span class="string">r'[0-9]+\.?[0-9]*'</span>, str_)</span><br><span class="line">print(find_rational)  ＃ [<span class="string">'123'</span>, <span class="string">'456'</span>, <span class="string">'789'</span>, <span class="string">'3.14'</span>]</span><br></pre></td></tr></table></figure></p><h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><p>在Google首頁中尋找.jpg/.png，雖然只有一張圖片(笑)，另外，常用的Regex可以透過re.compile()轉換為Regex Object，以便於直接呼叫search()、match()、findall()，也可以在使用bs4模組解析網頁時使用:<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!usr/bin/env python3</span></span><br><span class="line"><span class="comment"># coding:utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> requests <span class="keyword">as</span> rq</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup <span class="keyword">as</span> bs</span><br><span class="line"></span><br><span class="line">pattern = re.compile(<span class="string">r'.+\.jpg|.+\.png'</span>)</span><br><span class="line">url = <span class="string">'https://www.google.com'</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    res = rq.get(url)</span><br><span class="line">    res.raise_for_status()</span><br><span class="line"><span class="keyword">except</span> rq.HTTPError:</span><br><span class="line">    print(<span class="string">'HTTP Error!'</span>)</span><br><span class="line"></span><br><span class="line">soup = bs(res.text, <span class="string">'html.parser'</span>)</span><br><span class="line">imgs = soup.find_all(<span class="string">"meta"</span>, &#123;<span class="string">"content"</span>:pattern&#125;)  <span class="comment"># find all images in attr 'content' of tag 'meta'</span></span><br><span class="line"><span class="keyword">for</span> img <span class="keyword">in</span> imgs:</span><br><span class="line">    print(img[<span class="string">'content'</span>])  <span class="comment"># /images/branding/googleg/1x/googleg_standard_color_128dp.png</span></span><br></pre></td></tr></table></figure></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;什麼是正則式(Regex)？常見的說法有正規表示式、正則表達式…等等，維基百科是如此描述的：使用單個字串來描述、符合某個句法規則的字串。在很多文字編輯器裡，正則運算式通常被用來檢索、替換那些符合某個模式的文字，總之就是「描述某種規則的表達式」。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Data Science" scheme="https://laplacetw.github.io/categories/Data-Science/"/>
-    
-    
-      <category term="python" scheme="https://laplacetw.github.io/tags/python/"/>
-    
-      <category term="regex" scheme="https://laplacetw.github.io/tags/regex/"/>
     
   </entry>
   
