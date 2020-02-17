@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://laplacetw.github.io/"/>
-  <updated>2019-11-04T07:42:11.110Z</updated>
+  <updated>2020-02-17T15:26:33.630Z</updated>
   <id>https://laplacetw.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python批次加密PDF文件</title>
+    <link href="https://laplacetw.github.io/python-pdf-batch-encrypt/"/>
+    <id>https://laplacetw.github.io/python-pdf-batch-encrypt/</id>
+    <published>2020-02-17T14:30:28.000Z</published>
+    <updated>2020-02-17T15:26:33.630Z</updated>
+    
+    <content type="html"><![CDATA[<p>又好一段時間沒更新了(忙，然後就2020年了…紀錄一下前陣子寫了段程式碼幫人處理批次加密PDF。<br><a id="more"></a></p><h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>事實上這需求與薪資系統有關，我只知道那系統似乎很瞎，但人工處理這種大量重複性的問題更瞎🙄<br>於是我們會有無數個PDF文件和一個txt文件，PDF內容是個人機密😎，而txt裡頭則是對照表，當程式讀進路徑下所有PDF文件後，會依照PDF檔名去對照每個人的ID Number，以作為PDF文件加密的密碼，然後使用PyPDF2這個模組來進行加密。需注意讀取跟寫入的檔名不能相同，因為加密完會遇到檔案已存在而無法回寫的情況，只好在讀檔之前一律先把檔名改為”tmp.pdf”，讀進來加密完再另存回原檔名，然後刪除”tmp.pdf”，如此完成一個PDF文件的加密。</p><p>＊PDF檔名即為code，而txt檔裡頭的對照表有兩個欄位：code | id_number<br>＊註解掉的區塊，我本來以為需要做前置處理，也就是先將.docx批次轉檔為.pdf再進行批次加密，不過後來沒用到😶</p><h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># *** coding:utf-8 ***</span></span><br><span class="line"><span class="keyword">import</span> os, glob</span><br><span class="line"><span class="keyword">from</span> PyPDF2 <span class="keyword">import</span> PdfFileReader <span class="keyword">as</span> pdfReader</span><br><span class="line"><span class="keyword">from</span> PyPDF2 <span class="keyword">import</span> PdfFileWriter <span class="keyword">as</span> pdfWriter</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">find_id_by_code</span><span class="params">(code, table)</span>:</span></span><br><span class="line">    pswd = <span class="string">"123456"</span>  <span class="comment"># default password</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> table:</span><br><span class="line">        <span class="keyword">if</span> code <span class="keyword">in</span> i:</span><br><span class="line">            pswd = str(i).split()[<span class="number">1</span>]</span><br><span class="line">            print(code, <span class="string">"--&gt;"</span>, pswd)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> pswd</span><br><span class="line"></span><br><span class="line">id = open(<span class="string">"ID.txt"</span>)</span><br><span class="line">ID_table = list(id)</span><br><span class="line">id.close()</span><br><span class="line"></span><br><span class="line">pdf_files = glob.glob(<span class="string">r"*.pdf"</span>)</span><br><span class="line"><span class="keyword">for</span> path <span class="keyword">in</span> pdf_files:</span><br><span class="line">    code = path.replace(<span class="string">".pdf"</span>, <span class="string">""</span>)</span><br><span class="line">    os.rename(path, <span class="string">"tmp.pdf"</span>)</span><br><span class="line">    in_file = open(<span class="string">"tmp.pdf"</span>, <span class="string">"r+b"</span>)</span><br><span class="line">    in_pdf = pdfReader(in_file)</span><br><span class="line"></span><br><span class="line">    out_pdf = pdfWriter()</span><br><span class="line">    out_pdf.appendPagesFromReader(in_pdf)</span><br><span class="line">    pswd = find_id_by_code(code, ID_table)</span><br><span class="line">    out_pdf.encrypt(pswd)</span><br><span class="line"></span><br><span class="line">    out_file = open(path, <span class="string">"wb"</span>)</span><br><span class="line">    out_pdf.write(out_file)</span><br><span class="line"></span><br><span class="line">    in_file.close()</span><br><span class="line">    out_file.close()</span><br><span class="line">    os.remove(<span class="string">"tmp.pdf"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">del</span> in_pdf, out_pdf</span><br><span class="line">input(<span class="string">"Encrypt Complete! Now you can close the window."</span>)</span><br><span class="line"></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">from win32com import client</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">def doc2pdf(doc_name, pdf_name):</span></span><br><span class="line"><span class="string">    try:</span></span><br><span class="line"><span class="string">        word = client.DispatchEx("Word.Application")</span></span><br><span class="line"><span class="string">        if os.path.exists(pdf_name):</span></span><br><span class="line"><span class="string">            os.remove(pdf_name)</span></span><br><span class="line"><span class="string">        worddoc = word.Documents.Open(doc_name,ReadOnly = 1)</span></span><br><span class="line"><span class="string">        worddoc.SaveAs(pdf_name, FileFormat = 17)</span></span><br><span class="line"><span class="string">        worddoc.Close()</span></span><br><span class="line"><span class="string">        return pdf_name</span></span><br><span class="line"><span class="string">    except Exception as e:</span></span><br><span class="line"><span class="string">        print(e)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">docx_files = glob.glob(r"*.docx")</span></span><br><span class="line"><span class="string">for path in docx_files:</span></span><br><span class="line"><span class="string">    abpath = os.path.abspath(path)</span></span><br><span class="line"><span class="string">    print(abpath)</span></span><br><span class="line"><span class="string">    pdf_name = abpath.replace("docx", "pdf")</span></span><br><span class="line"><span class="string">    doc2pdf(abpath, pdf_name)</span></span><br><span class="line"><span class="string">'''</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;又好一段時間沒更新了(忙，然後就2020年了…紀錄一下前陣子寫了段程式碼幫人處理批次加密PDF。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="https://laplacetw.github.io/categories/Python/"/>
+    
+    
+      <category term="python" scheme="https://laplacetw.github.io/tags/python/"/>
+    
+      <category term="pdf" scheme="https://laplacetw.github.io/tags/pdf/"/>
+    
+  </entry>
   
   <entry>
     <title>大眾運輸x穿戴裝置x感應進站</title>
@@ -470,32 +494,6 @@
     <summary type="html">
     
       &lt;p&gt;專案下的環境設定、如何建立Django App。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Django" scheme="https://laplacetw.github.io/categories/Django/"/>
-    
-    
-      <category term="python" scheme="https://laplacetw.github.io/tags/python/"/>
-    
-      <category term="django" scheme="https://laplacetw.github.io/tags/django/"/>
-    
-      <category term="web" scheme="https://laplacetw.github.io/tags/web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Django2.0筆記(1):初始化設定</title>
-    <link href="https://laplacetw.github.io/django-start/"/>
-    <id>https://laplacetw.github.io/django-start/</id>
-    <published>2018-09-19T15:55:31.000Z</published>
-    <updated>2019-08-21T08:39:19.979Z</updated>
-    
-    <content type="html"><![CDATA[<p>近期耗費大量心力在學習Django，因為Google搜尋到的教學文多數版本停留在Django 1.x，對初學者來說略過太多細節。<a id="more"></a>作為WEB初學者，Django有許多概念並不是很直觀，必須實際測試來幫助自己理解。目前所使用的版本為Django 2.1，於是我踩了相當、相當多的坑，感謝無數撰寫教學文的高手前輩讓自己學習了很多。在各種線索的拼湊之下、終於讓Django Project在Apache Server順利運作了(汗)。</p><h1 id="Django-Virtual-Environment-amp-New-Project"><a href="#Django-Virtual-Environment-amp-New-Project" class="headerlink" title="Django:Virtual Environment &amp; New Project"></a>Django:Virtual Environment &amp; New Project</h1><p>雖然網路上有許多教學文，但最詳細也最可靠的還是官方文件：<a href="https://docs.djangoproject.com/en/2.1/" target="_blank" rel="noopener">Django2.1 Doc</a>。</p><h2 id="Virtual-Environment-for-Django"><a href="#Virtual-Environment-for-Django" class="headerlink" title="Virtual Environment for Django"></a>Virtual Environment for Django</h2><p>開發Django Project建議另建一個乾淨的虛擬環境，只安裝專案所需套件，Python環境建置就不贅述，從安裝及建立虛擬環境開始:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">pip install virtualenv  # install virtual environment package</span><br><span class="line">cd c:\</span><br><span class="line">virtualenv &#123;virtualenv_name&#125;  # build virtual environment for Django</span><br><span class="line"></span><br><span class="line">cd &#123;virtualenv_name&#125;</span><br><span class="line">Scripts\activate  # start virtual environment</span><br><span class="line">pip install django  # install Django package</span><br><span class="line">deactivate  # stop virtual environment</span><br></pre></td></tr></table></figure><br>＊ 在Mac環境下啟動虛擬環境的指令為source bin/activate<br>＊ 提示字元前面的(virtualenv_name)表示目前已啟動虛擬環境</p><h2 id="Start-New-Django-Project"><a href="#Start-New-Django-Project" class="headerlink" title="Start New Django Project"></a>Start New Django Project</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> start virtual environment first</span></span><br><span class="line">django-admin startproject &#123;project_name&#125;  # build new project</span><br></pre></td></tr></table></figure><h2 id="Run-Django-Server"><a href="#Run-Django-Server" class="headerlink" title="Run Django Server"></a>Run Django Server</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> start virtual environment first</span></span><br><span class="line">cd &#123;project_name&#125;</span><br><span class="line">python manage.py runserver</span><br></pre></td></tr></table></figure><p>＊ 在專案目錄下成功啟動測試Server後，在瀏覽器輸入127.0.0.1:8000，應該要看見以下畫面：<br><img src="https://i.imgur.com/9pdBamW.jpg" alt></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;近期耗費大量心力在學習Django，因為Google搜尋到的教學文多數版本停留在Django 1.x，對初學者來說略過太多細節。
     
     </summary>
     
