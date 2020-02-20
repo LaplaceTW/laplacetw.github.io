@@ -425,19 +425,6 @@
           
             
             
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fas fa-comment-dots"></i>
-                </span>
-            
-                <span class="post-meta-item-text">Comments: </span>
-                <a href="/django-app-and-settings/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="django-app-and-settings/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -600,10 +587,7 @@
           
 
   
-    <div class="comments" id="comments">
-      <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
-      </div>
+    <div class="comments" id="gitalk-container">
     </div>
 
   
@@ -1094,48 +1078,36 @@
 
 
   
-  
-  <script id="dsq-count-scr" src="https://laplacetw.disqus.com/count.js" async></script>
 
+
+  
+    
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+
+
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
 
 <script>
-  var disqus_config = function() {
-    this.page.url = "https://laplacetw.github.io/django-app-and-settings/";
-    this.page.identifier = "django-app-and-settings/";
-    this.page.title = 'Django2.0筆記(2):專案設定與應用程式';
-    };
-  function loadComments() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://laplacetw.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', '' + +new Date());
-    (d.head || d.body).appendChild(s);
-  }
-  
-    $(function() {
-      var offsetTop = $('#comments').offset().top - $(window).height();
-      if (offsetTop <= 0) {
-        // load directly when there's no a scrollbar
-        loadComments();
-      } else {
-        $(window).on('scroll.disqus_scroll', function() {
-          // offsetTop may changes because of manually resizing browser window or lazy loading images.
-          var offsetTop = $('#comments').offset().top - $(window).height();
-          var scrollTop = $(window).scrollTop();
-
-          // pre-load comments a bit? (margin or anything else)
-          if (offsetTop - scrollTop < 60) {
-            $(window).off('.disqus_scroll');
-            loadComments();
-          }
-        });
-      }
-    });
-  
+  var gitalk = new Gitalk({
+    clientID: '2bf2be4543c59fa85f04',
+    clientSecret: '24bbabf54fdd449213b697ca8b457f2343c0adc8',
+    repo: 'laplacetw.github.io',
+    owner: 'laplacetw',
+    admin: ['laplacetw'],
+    id: md5(location.pathname),
+    
+      language: window.navigator.language || window.navigator.userLanguage,
+    
+    distractionFreeMode: 'false'
+  });
+  gitalk.render('gitalk-container');
 </script>
-
-
-
-
 
   
 
