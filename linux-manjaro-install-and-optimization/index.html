@@ -135,7 +135,7 @@
 <meta property="og:image" content="https://i.imgur.com/W5KyxXn.png">
 <meta property="og:image" content="https://i.imgur.com/EvXxv3m.png">
 <meta property="og:image" content="https://i.imgur.com/F2H0OyB.gif">
-<meta property="og:updated_time" content="2020-02-22T12:01:32.589Z">
+<meta property="og:updated_time" content="2020-02-22T12:07:28.983Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Manjaro KDE 安裝＆個人化">
 <meta name="twitter:description" content="前陣子組了一台新主機，安裝了Manjaro Linux。">
@@ -500,7 +500,7 @@
 <p>同步軟體庫＆更新<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -Syyu</span><br></pre></td></tr></table></figure></p>
 <p><img src="https://i.imgur.com/yHCOIyM.png" alt></p>
 <p>＊所有更新完成後若發生中文亂碼的情況，則需安裝字體並重新登入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -S noto-fonts-cjk</span><br></pre></td></tr></table></figure></p>
-<p>我所安裝的Noto Fonts為Google的開源字型，<a href="https://wiki.archlinux.org/index.php/Localization/Traditional_Chinese_(正體中文" target="_blank" rel="noopener">Arch Wiki</a>#中文字體)亦有其他推薦的中文字體可選擇。</p>
+<p>我所安裝的Noto Fonts為Google的開源字型，<a href="https://wiki.archlinux.org/index.php/Localization/Traditional_Chinese_(正體中文\" target="_blank" rel="noopener">Arch Wiki</a>)亦有其他推薦的中文字體可選擇。</p>
 <h4 id="Chinese-IME-Input-Method-Editor"><a href="#Chinese-IME-Input-Method-Editor" class="headerlink" title="Chinese IME(Input Method Editor)"></a>Chinese IME(Input Method Editor)</h4><p>中文輸入法安裝參考 : <a href="https://manjaro-zh.blogspot.com/2015/05/manjaro-linux-gcin.html" target="_blank" rel="noopener">Manjaro@中文</a><br>安裝gcin<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -S gcin</span><br></pre></td></tr></table></figure></p>
 <p>編輯.xprofile<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ kate ~/.xprofile</span><br></pre></td></tr></table></figure><br>寫入以下設定 :<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> GTK_IM_MODULE=gcin</span><br><span class="line"><span class="built_in">export</span> QT_IM_MODULE=gcin</span><br><span class="line"><span class="built_in">export</span> LC_CTYPE=zh_TW.UTF-8</span><br><span class="line"><span class="built_in">export</span> XMODIFIERS=<span class="string">"@im=gcin"</span></span><br><span class="line">gcin &amp;</span><br></pre></td></tr></table></figure></p>
 <p>打開terminal執行下列指令 :<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo gtk-query-immodules-2.0 --update-cache</span><br><span class="line">$ sudo gtk-query-immodules-3.0 --update-cache</span><br></pre></td></tr></table></figure></p>
