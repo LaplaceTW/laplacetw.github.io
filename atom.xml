@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://laplacetw.github.io/"/>
-  <updated>2020-02-23T05:45:07.380Z</updated>
+  <updated>2020-02-23T16:59:41.830Z</updated>
   <id>https://laplacetw.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Manjaro:You need to load kernel first</title>
+    <link href="https://laplacetw.github.io/linux-need-to-load-kernel-first/"/>
+    <id>https://laplacetw.github.io/linux-need-to-load-kernel-first/</id>
+    <published>2020-02-23T16:58:38.000Z</published>
+    <updated>2020-02-23T16:59:41.830Z</updated>
+    
+    <content type="html"><![CDATA[<p>Manjaro在安裝完成並執行同步軟體庫&amp;更新後，重新開機黑屏顯示「error: file ‘/boot/vmlinuz-4.19-x86_64’ not found」<a id="more"></a>、「error: You need to load kernel first」，這問題在我重新安裝並更新後依然發生了，到Manjaro Forum爬文才得知此問題來自pacman原始碼的變更，若使用低於18.1.5的舊版本ISO檔進行安裝就可能會受到影響，而我是使用18.0.1來安裝的😅</p><h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><p>使用live USB來開機啟動Manjaro，在terminal執行以下指令 :<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ sudo manjaro-chroot -a</span><br><span class="line">$ pacman -S linux419 linux419-headers</span><br><span class="line">$ mkinitcpio -P</span><br><span class="line">$ update-grub</span><br><span class="line">$ sync</span><br><span class="line">$ <span class="built_in">exit</span></span><br></pre></td></tr></table></figure></p><p>header版本依照錯誤訊息顯示哪個版本not found，重新安裝該版本就行了，指令執行完畢重新開機即可。</p><p>參考 :</p><ul><li><a href="https://forum.manjaro.org/t/howto-rescue-your-system-error-hook-invalid-value-path/123226" target="_blank" rel="noopener">Rescue your system: error: hook … Invalid value Path</a></li><li><a href="https://forum.manjaro.org/t/error-file-boot-vmlinux-4-19-x86-64-not-found/123303" target="_blank" rel="noopener">error: file ‘/boot/vmlinux-4.19-x86_64’ not found</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Manjaro在安裝完成並執行同步軟體庫&amp;amp;更新後，重新開機黑屏顯示「error: file ‘/boot/vmlinuz-4.19-x86_64’ not found」
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://laplacetw.github.io/categories/Linux/"/>
+    
+    
+      <category term="error" scheme="https://laplacetw.github.io/tags/error/"/>
+    
+      <category term="linux" scheme="https://laplacetw.github.io/tags/linux/"/>
+    
+      <category term="manjaro" scheme="https://laplacetw.github.io/tags/manjaro/"/>
+    
+  </entry>
   
   <entry>
     <title>Manjaro KDE 安裝＆個人化</title>
@@ -481,32 +507,6 @@
       <category term="excel" scheme="https://laplacetw.github.io/tags/excel/"/>
     
       <category term="pivot table" scheme="https://laplacetw.github.io/tags/pivot-table/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Django2.0筆記(3):軟體架構</title>
-    <link href="https://laplacetw.github.io/django-software-architecture/"/>
-    <id>https://laplacetw.github.io/django-software-architecture/</id>
-    <published>2018-09-24T16:32:58.000Z</published>
-    <updated>2019-08-21T08:41:33.091Z</updated>
-    
-    <content type="html"><![CDATA[<p>模型、視圖與模板。<br><a id="more"></a></p><h2 id="Model–View–Controller"><a href="#Model–View–Controller" class="headerlink" title="Model–View–Controller"></a>Model–View–Controller</h2><ul><li>Model: 資料庫存取</li><li>View:  使用者介面</li><li>Controller: 控制整合</li></ul><p>說到網頁開發，就不得不提一下MVC架構，維基百科如是說：MVC為軟體工程中的一種軟體架構，將軟體系統分為三個部分：模型(Model)、視圖(View)和控制器(Controller)，目的是為了實現一種<span style="color:red;">動態</span>的程式設計，使後續對程式的修改及擴充簡化，並且使程式某一部分的重複利用成為可能。</p><p>MVC是一種<span style="color:red;">設計理念</span>而非技術，旨在提高開發項目的可擴展性及可維護性，而這樣一個從實際開發所歸納出來的抽象概念，事實上其定義是相當模糊的，尤其是在經過了多年發展後…在Django筆記就不多做探討了。</p><h2 id="Model-Template-View"><a href="#Model-Template-View" class="headerlink" title="Model-Template-View"></a>Model-Template-View</h2><ul><li>Model: 資料庫存取</li><li>Template: 使用者介面</li><li>View:  控制整合</li></ul><p>Django雖然看似獨樹一格自定義了MTV架構，但MTV和MVC的概念是相同的，我嘗試畫了架構對照圖：<br><img src="https://i.imgur.com/vAeWv7K.png" alt><br>以較為白話的方式來描述MTV架構，就是依開發需求去定義Model在資料庫中生成對應的Table，透過View所定義的程式邏輯去整合、控制數據，再交由負責前端的Template呈現給使用者，而使用者亦是透過Template和後端數據做互動。</p><p>我認為Django初學者只是抽象地討論MTV是無法很好地理解其互動關係的，還是喜歡learning by doing。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;模型、視圖與模板。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Django" scheme="https://laplacetw.github.io/categories/Django/"/>
-    
-    
-      <category term="python" scheme="https://laplacetw.github.io/tags/python/"/>
-    
-      <category term="django" scheme="https://laplacetw.github.io/tags/django/"/>
-    
-      <category term="web" scheme="https://laplacetw.github.io/tags/web/"/>
     
   </entry>
   
