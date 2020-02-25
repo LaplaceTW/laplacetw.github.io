@@ -1818,7 +1818,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #f76958;
+  background: #126c22;
 }
 .feed-link,
 .chat {
@@ -3099,7 +3099,7 @@ ul.breadcrumb li+li:last-child {
     margin: 8px 0 0;
   }
 }
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 768px) {
   body {
     background-image: url("/images/background.png");
     background-repeat: no-repeat;
@@ -3110,23 +3110,12 @@ ul.breadcrumb li+li:last-child {
     color: #eee;
   }
 }
-@media screen and (min-width: 768px) {
-  body {
-    background-image: url("/images/background_1024.png");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: 50% 60%;
-  }
-  #footer a {
-    color: #eee;
-  }
-}
-@media screen and (min-width: 320px) {
+@media screen and (min-width: 320px) and (max-width: 768px) {
   body {
     background-image: url("/images/background_768.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-position: 50% 60%;
+    background-position: 50% 0%;
   }
   #footer a {
     color: #eee;
