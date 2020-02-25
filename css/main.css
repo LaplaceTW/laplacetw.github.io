@@ -1818,7 +1818,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff3d88;
+  background: #f76958;
 }
 .feed-link,
 .chat {
@@ -3099,7 +3099,7 @@ ul.breadcrumb li+li:last-child {
     margin: 8px 0 0;
   }
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1200px) {
   body {
     background-image: url("/images/background.png");
     background-repeat: no-repeat;

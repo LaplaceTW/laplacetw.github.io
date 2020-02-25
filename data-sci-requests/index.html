@@ -454,7 +454,7 @@
       
 
       
-        <h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span>pip3 install requests</span><br></pre></td></tr></table></figure>
+        <h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash">pip3 install requests</span></span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <h2 id="Get"><a href="#Get" class="headerlink" title="Get"></a>Get</h2><p>範例程式為對網頁做基本請求＆接收回應，raise_for_status()為return檢查，若返回異常則拋出error<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests <span class="keyword">as</span> rq</span><br><span class="line"></span><br><span class="line">url = <span class="string">'http://www.google.com.tw/search?'</span>  <span class="comment"># target url</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    res = rq.get(url)</span><br><span class="line">    res.raise_for_status()</span><br><span class="line"><span class="keyword">except</span> rq.HTTPError:</span><br><span class="line">    print(<span class="string">'HTTP Error!'</span>)</span><br><span class="line"></span><br><span class="line">print(res.text)  <span class="comment"># html</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="Payload"><a href="#Payload" class="headerlink" title="Payload"></a>Payload</h2><p>必要時可以加上參數，例如Google Search:<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">payload = &#123;<span class="string">'q'</span>:<span class="string">'data science'</span>&#125;</span><br><span class="line">res = rq.get(url, params=payload)  <span class="comment"># http://www.google.com.tw/search?q=data+science</span></span><br></pre></td></tr></table></figure><br>＊參數的部分為字典結構，key則視url結構而定</p>
@@ -470,7 +470,12 @@
 
 
     
-
+    <!--GOOGLE ADS-->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-gw-3+1f-3d+2z" data-ad-client="ca-pub-4538365482496611" data-ad-slot="3162862880"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
     
     
     
@@ -494,12 +499,6 @@
           
         </div>
       
-      <!--GOOGLE ADS-->
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-      <ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-gw-3+1f-3d+2z" data-ad-client="ca-pub-4538365482496611" data-ad-slot="3162862880"></ins>
-      <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
       
       
         <div class="post-widgets">
