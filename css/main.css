@@ -1818,7 +1818,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #126c22;
+  background: #9d67be;
 }
 .feed-link,
 .chat {
@@ -3115,7 +3115,7 @@ ul.breadcrumb li+li:last-child {
     background-image: url("/images/background_768.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-position: 50% 0%;
+    background-position: 70% 0%;
   }
   #footer a {
     color: #eee;
