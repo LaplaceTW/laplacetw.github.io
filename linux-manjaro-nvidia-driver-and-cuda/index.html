@@ -113,17 +113,21 @@
 
 
 
-  <meta name="description" content="Developer">
-<meta name="keywords" content="Note, Python, Web Crawler, Data Science">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Laplace&#39;s Lab">
-<meta property="og:url" content="https://laplacetw.github.io/archives/2018/page/2/index.html">
+  <meta name="description" content="搞定Manjaro的基本環境後，接下來要設定GTX 1660 Super以利後續的運算任務…噢，又折騰了不少時間，得好好紀錄過程與問題才行吶。">
+<meta name="keywords" content="keras,linux,manjaro,nvidia">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Manjaro安裝NVIDIA Driver＆CUDA">
+<meta property="og:url" content="https://laplacetw.github.io/linux-manjaro-nvidia-driver-and-cuda/index.html">
 <meta property="og:site_name" content="Laplace&#39;s Lab">
-<meta property="og:description" content="Developer">
+<meta property="og:description" content="搞定Manjaro的基本環境後，接下來要設定GTX 1660 Super以利後續的運算任務…噢，又折騰了不少時間，得好好紀錄過程與問題才行吶。">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="https://i.imgur.com/mfQGFmj.png">
+<meta property="og:image" content="https://i.imgur.com/UKIf8U1.png">
+<meta property="og:updated_time" content="2020-03-02T17:20:23.761Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Laplace&#39;s Lab">
-<meta name="twitter:description" content="Developer">
+<meta name="twitter:title" content="Manjaro安裝NVIDIA Driver＆CUDA">
+<meta name="twitter:description" content="搞定Manjaro的基本環境後，接下來要設定GTX 1660 Super以利後續的運算任務…噢，又折騰了不少時間，得好好紀錄過程與問題才行吶。">
+<meta name="twitter:image" content="https://i.imgur.com/mfQGFmj.png">
 
 
 
@@ -131,7 +135,7 @@
 
   
   
-  <link rel="canonical" href="https://laplacetw.github.io/archives/2018/page/2/">
+  <link rel="canonical" href="https://laplacetw.github.io/linux-manjaro-nvidia-driver-and-cuda/">
 
 
 
@@ -141,7 +145,7 @@
   };
 </script>
 
-  <title>Archive | Laplace's Lab</title>
+  <title>Manjaro安裝NVIDIA Driver＆CUDA | Laplace's Lab</title>
   
 
 
@@ -189,7 +193,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -265,7 +269,7 @@
         
         
           
-          <li class="menu-item menu-item-archives menu-item-active">
+          <li class="menu-item menu-item-archives">
 
     
     
@@ -336,416 +340,253 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
+  <div id="posts" class="posts-expand">
+    
+
+  
 
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://laplacetw.github.io/linux-manjaro-nvidia-driver-and-cuda/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LaplaceTW">
+      <meta itemprop="description" content="Developer">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Laplace's Lab">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Manjaro安裝NVIDIA Driver＆CUDA
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fas fa-calendar-alt"></i>
+              </span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2020-03-03 01:19:26" itemprop="dateCreated datePublished" datetime="2020-03-03T01:19:26+08:00">2020-03-03</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fas fa-folder-open"></i>
+              </span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon" title="Views">
+            <i class="fa fa-eye"></i>
+            
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+      
+      
 
       
-      <span class="archive-page-counter">
-        
-        
-         
-        
-        OK! 42 posts in total. Keep on posting.
-      </span>
-      
+        <p>搞定Manjaro的基本環境後，接下來要設定GTX 1660 Super以利後續的運算任務…噢，又折騰了不少時間，得好好紀錄過程與問題才行吶。<a id="more"></a></p>
+<h3 id="Manjaro-freezing-at-boot-screen-after-NVIDIA-driver-installed"><a href="#Manjaro-freezing-at-boot-screen-after-NVIDIA-driver-installed" class="headerlink" title="Manjaro freezing at boot screen after NVIDIA driver installed"></a>Manjaro freezing at boot screen after NVIDIA driver installed</h3><p>透過Manjaro硬體偵測安裝non-free driver：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo mhwd -a pci nonfree 0300</span><br></pre></td></tr></table></figure><br><img src="https://i.imgur.com/mfQGFmj.png" alt></p>
+<p>重新開機後，很好，畫面就停在黑螢幕了，進不去登入畫面(傻眼。原來在安裝了NVIDIA驅動後還必須手動修改硬體設定，否則視窗服務的運作會異常，導致系統看起來掛了，所以安裝N卡驅動的正確姿勢應該是要先修改設定文件後再重新啟動。首先，在黑螢幕的畫面按下ctrl + alt + F3來進入Terminal：</p>
+<p>查詢GPU BusID<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ lspci | grep -E <span class="string">"VGA|3D"</span></span><br></pre></td></tr></table></figure><br>輸出訊息前三組數字即為BusID(忽略前綴0)，例如「01:00.0」則BusID為「1:0:0」。</p>
+<p>備份設定<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo mv /etc/X11/xorg.conf.d/90-mhwd.conf /etc/X11/xorg.conf.d/90-mhwd.conf.bak</span><br></pre></td></tr></table></figure></p>
+<p>寫入 /etc/X11/xorg.conf.d/90-mhwd.conf，BusID改為你要設定的GPU，我是設定為內顯的AMD GPU。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Section <span class="string">"Module"</span></span><br><span class="line">    Load <span class="string">"modesetting"</span></span><br><span class="line">EndSection</span><br><span class="line"></span><br><span class="line">Section <span class="string">"Device"</span></span><br><span class="line">    Identifier <span class="string">"nvidia"</span></span><br><span class="line">    Driver <span class="string">"nvidia"</span></span><br><span class="line">    BusID <span class="string">"PCI:1:0:0"</span></span><br><span class="line">    Option <span class="string">"AllowEmptyInitialConfiguration"</span></span><br><span class="line">EndSection</span><br></pre></td></tr></table></figure></p>
+<p>修改完成後重新啟動即可。</p>
+<p>參考：<a href="https://blog.csdn.net/baidu_33340703/article/details/103977592" target="_blank" rel="noopener">https://blog.csdn.net/baidu_33340703/article/details/103977592</a></p>
+<h3 id="CUDA＆cuDNN"><a href="#CUDA＆cuDNN" class="headerlink" title="CUDA＆cuDNN"></a>CUDA＆cuDNN</h3><p>在安裝CUDA之前，先確認N卡驅動是否正確安裝：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ nvidia-smi</span><br></pre></td></tr></table></figure><br><img src="https://i.imgur.com/UKIf8U1.png" alt></p>
+<p>安裝CUDA、cuDNN以及後續會用到的Python函式庫：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -Syu tensorflow-cuda cuda cudnn python-pycuda python-tensorflow-cuda python-matplotlib</span><br></pre></td></tr></table></figure><br>＊為避免和pacman軟體庫提供的版本衝突，Arch/Manjaro移除了pip軟體庫中的tensorflow-gpu，以tensorflow-cuda取代之。</p>
+<p>將CUDA安裝目錄中的samples複製到home目錄下，編譯然後測試CUDA是否安裝成功：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cp -r /opt/cuda/samples ~</span><br><span class="line">$ ~/samples</span><br><span class="line">$ sudo make -k</span><br></pre></td></tr></table></figure><br>編譯過程需要點時間，大概30分鐘，編譯完成後執行deviceQuery：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/samples/1_Utilities/deviceQuery</span><br><span class="line">$ ./deviceQuery</span><br><span class="line">./deviceQuery Starting...</span><br><span class="line"></span><br><span class="line">CUDA Device Query (Runtime API) version (CUDART static linking)</span><br><span class="line"></span><br><span class="line">Detected 1 CUDA Capable device(s)</span><br><span class="line"></span><br><span class="line">Device 0: <span class="string">"GeForce GTX 1660 SUPER"</span></span><br><span class="line"> CUDA Driver Version / Runtime Version          10.2 / 10.2</span><br><span class="line"> CUDA Capability Major/Minor version number:    7.5</span><br><span class="line"> Total amount of global memory:                 5945 MBytes (6233391104 bytes)</span><br><span class="line"> (22) Multiprocessors, ( 64) CUDA Cores/MP:     1408 CUDA Cores</span><br><span class="line"> </span><br><span class="line">(略...)</span><br><span class="line"></span><br><span class="line">deviceQuery, CUDA Driver = CUDART, CUDA Driver Version = 10.2, CUDA Runtime Version = 10.2, NumDevs = 1</span><br><span class="line">Result = PASS  <span class="comment"># PASS表示CUDA安裝成功</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h3><p>用<a href="https://laplacetw.github.io/data-sci-ml-hello-world-mnist/">MNIST手寫數字辨識</a>來做測試，每批次都1秒就運算完了，雖然實際應該不到1秒XD</p>
+<h3 id="Keras-could-not-create-cudnn-handle-cudnn-status-alloc-failed"><a href="#Keras-could-not-create-cudnn-handle-cudnn-status-alloc-failed" class="headerlink" title="Keras could not create cudnn handle: cudnn_status_alloc_failed"></a>Keras could not create cudnn handle: cudnn_status_alloc_failed</h3><p>噢，正想說一切都配置好了，趕緊來繼續實驗放置了半個月的cifar-10模型訓練(因為Google CoLab的免費資源太熱門導致經常斷線而白忙，只好自己建置運算環境了😂)，結果出現了一個看起來很厲害的錯誤訊息(傻眼x2。查詢後發現是GPU記憶體配置問題，<a href="https://www.tensorflow.org/guide/gpu#limiting_gpu_memory_growth" target="_blank" rel="noopener">Tensorflow為了避免記憶體碎片化</a>，預設會盡可能把可見的GPU記憶體都映射給當前的進程：</p>
+<blockquote>
+<p>By default, TensorFlow maps nearly all of the GPU memory of all GPUs (subject to CUDA_VISIBLE_DEVICES) visible to the process. This is done to more efficiently use the relatively precious GPU memory resources on the devices by reducing memory fragmentation.</p>
+</blockquote>
+<p>結果就是cifar-10這樣的運算量就導致記憶體不足而拋出錯誤訊息，所以我們必須讓Tensorflow按需求配置GPU記憶體：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">config = tf.compat.v1.ConfigProto()  <span class="comment"># tensorflow-gpu 2.1.0</span></span><br><span class="line">config.gpu_options.allow_growth=<span class="keyword">True</span></span><br><span class="line">tf.compat.v1.keras.backend.set_session(tf.compat.v1.Session(config=config))</span><br></pre></td></tr></table></figure></p>
+<p>解決～每批次的運算速度比我在CoLab上面快10秒呢，$$沒有白花了QQ</p>
+<p>參考：</p>
+<ul>
+<li><a href="https://blog.csdn.net/weixin_42769131/article/details/88848478" target="_blank" rel="noopener">https://blog.csdn.net/weixin_42769131/article/details/88848478</a></li>
+<li><a href="https://blog.csdn.net/zuoyouzouzou/article/details/104329286" target="_blank" rel="noopener">https://blog.csdn.net/zuoyouzouzou/article/details/104329286</a></li>
+</ul>
 
       
+    </div>
 
+    
+      
+
+
+    
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/keras/" rel="tag"><i class="fas fa-tags"></i> keras</a>
+          
+            <a href="/tags/linux/" rel="tag"><i class="fas fa-tags"></i> linux</a>
+          
+            <a href="/tags/manjaro/" rel="tag"><i class="fas fa-tags"></i> manjaro</a>
+          
+            <a href="/tags/nvidia/" rel="tag"><i class="fas fa-tags"></i> nvidia</a>
+          
+        </div>
+        <!--GOOGLE ADS-->
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-gw-3+1f-3d+2z" data-ad-client="ca-pub-4538365482496611" data-ad-slot="3162862880"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      
+      
+      
+        <div class="post-widgets">
         
-        
+
         
 
         
           
-          <div class="collection-title">
-            <h2 class="archive-year" id="archive-year-2018">2018</h2>
+          <div class="social_share">
+            
+            
+              <div id="needsharebutton-postbottom">
+                <span class="btn">
+                  <i class="fa fa-share-alt" aria-hidden="true"></i>
+                </span>
+              </div>
+            
+            
           </div>
         
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/hexo-switching-from-win-to-mac/" itemprop="url">
-            
-              <span itemprop="name">Hexo on GitHub Pages:從Win轉移到Mac</span>
-            
-          </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-08-24T21:52:28+08:00" content="2018-08-24">
-          08-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
+        </div>
+      
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/django-execution-of-scripts-is-disabled/" itemprop="url">
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span itemprop="name">Error:檔案無法載入，因為這個系統已停用指令碼執行</span>
+              <a href="/linux-need-to-load-kernel-first/" rel="next" title="Manjaro:You need to load kernel first">
+                <i class="fa fa-chevron-left"></i> Manjaro:You need to load kernel first
+              </a>
             
-          </a>
-        
-      </h3>
+          </div>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-08-16T00:35:25+08:00" content="2018-08-16">
-          08-16
-        </time>
-      </div>
+          <span class="post-nav-divider"></span>
 
-    </header>
-  </article>
-
-
-
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/python-vscode-setup/" itemprop="url">
-            
-              <span itemprop="name">VS Code快速建立Python開發環境</span>
-            
-          </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-08-08T17:17:55+08:00" content="2018-08-08">
-          08-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/hexo-first-post/" itemprop="url">
-            
-              <span itemprop="name">Hexo on GitHub Pages:發文</span>
-            
-          </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-08-08T10:24:53+08:00" content="2018-08-08">
-          08-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/python-scope-of-variables/" itemprop="url">
-            
-              <span itemprop="name">關於Python的變數範圍</span>
-            
-          </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-08-08T01:09:13+08:00" content="2018-08-08">
-          08-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/line-use-custom-fonts-in-heroku-apps/" itemprop="url">
-            
-              <span itemprop="name">在Heroku環境下使用自訂字型</span>
-            
-          </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-08-03T12:00:26+08:00" content="2018-08-03">
-          08-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/restart-planted-tank-day21/" itemprop="url">
-            
-              <span itemprop="name">翻缸Day21:藍綠藻來襲</span>
-            
-          </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-07-22T01:30:16+08:00" content="2018-07-22">
-          07-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/hexo-config/" itemprop="url">
-            
-              <span itemprop="name">先別管Hexo如何發文了，你聽過NexT嗎?(2019/04更新)</span>
-            
-          </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-07-12T01:01:20+08:00" content="2018-07-12">
-          07-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/restart-planted-tank-day8/" itemprop="url">
-            
-              <span itemprop="name">翻缸Day8:除藻生物</span>
-            
-          </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-07-09T11:35:05+08:00" content="2018-07-09">
-          07-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/take-a-headshot-yourself/" itemprop="url">
-            
-              <span itemprop="name">只要6塊錢~第一次自拍證件照就上手</span>
-            
-          </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-07-08T23:23:05+08:00" content="2018-07-08">
-          07-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-    </div>
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/2018/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/archives/2018/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/2018/page/3/">3</a><a class="extend next" rel="next" href="/archives/2018/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
-  </nav>
+  </article>
 
 
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="gitalk-container">
+    </div>
+  
+
+
 
         </div>
         
@@ -765,8 +606,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1031,6 +881,23 @@
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Manjaro-freezing-at-boot-screen-after-NVIDIA-driver-installed"><span class="nav-number">1.</span> <span class="nav-text">Manjaro freezing at boot screen after NVIDIA driver installed</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CUDA＆cuDNN"><span class="nav-number">2.</span> <span class="nav-text">CUDA＆cuDNN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Test"><span class="nav-number">3.</span> <span class="nav-text">Test</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Keras-could-not-create-cudnn-handle-cudnn-status-alloc-failed"><span class="nav-number">4.</span> <span class="nav-text">Keras could not create cudnn handle: cudnn_status_alloc_failed</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
 
@@ -1186,6 +1053,10 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
 
   
 
@@ -1206,31 +1077,43 @@
   
 
   
+  
+  
+
+
+  
+
+
+  
     
-      
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+
+
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: '',
+    clientSecret: '',
+    repo: 'laplacetw.github.io',
+    owner: 'laplacetw',
+    admin: ['laplacetw'],
+    id: md5(location.pathname),
     
-  
-  
-  
-    <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
-    <script>
-      
-        window.addEventListener('load', () => {
-      
-        quicklink({
-          timeout: 3000,
-          priority: true,
-          ignores: [uri => uri.includes('#'),uri => uri == 'https://laplacetw.github.io/archives/2018/page/2/',]
-        });
-      
-        });
-      
-    </script>
-  
-
+      language: window.navigator.language || window.navigator.userLanguage,
+    
+    distractionFreeMode: 'false'
+  });
+  gitalk.render('gitalk-container');
+</script>
 
   
-
 
 
   
