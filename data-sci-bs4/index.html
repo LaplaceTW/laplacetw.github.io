@@ -459,7 +459,7 @@
 
       
         <p>發出請求取得網頁內容後，會得到密密麻麻的 HTML，此時便可以讓 BeautifulSoup 來協助解析網頁內容。<br><a id="more"></a></p>
-<h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash">pip3 install bs4</span></span><br></pre></td></tr></table></figure>
+<h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span>pip3 install bs4</span><br></pre></td></tr></table></figure>
 <h2 id="Web-Analytics"><a href="#Web-Analytics" class="headerlink" title="Web Analytics"></a>Web Analytics</h2><p>寫個簡單的 Web Crawler 去 PTT 西斯版逛逛吧，但因為西斯版有年齡驗證，所以必須利用 Requests.Session()物件去做 post，按下大家在美好童年就已經按過的「我已滿18歲按鈕」，讓 Web Crawler 取得伺服器驗證後就可以在西斯版橫行無阻(嘿嘿)。</p>
 <p>從截圖可以看到，url 為 <a href="https://www.ptt.cc/ask/over18.." target="_blank" rel="noopener">https://www.ptt.cc/ask/over18..</a>. 這就是取得驗證的網址，注意 url 後頭的 from=%2Fbbs%2Fsex…在 post 驗證的 payload 要寫入 from 這個 key，表示 post 來自西斯版。<br><img src="https://i.imgur.com/PAuJRHa.png" alt></p>
 <p>關於 BeautifulSoup 更多細節可參考<a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.html" target="_blank" rel="noopener">官方文件</a>，這邊簡單說明，基本上就是把 request 取得的 html 丟給 Soup 去解析，接著可以使用 find(), find_all(), select()等方法來篩選尋找目標數據所在的區塊。</p>
