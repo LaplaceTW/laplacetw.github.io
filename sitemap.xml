@@ -9,637 +9,652 @@
 
 <url>
   <loc>https://laplacetw.github.io/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/categories/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/archives/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://laplacetw.github.io/rspi-thermal-cam-amg8833/</loc>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://laplacetw.github.io/categories/Raspberry-Pi/</loc>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/taiwan-emask-pre-order/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/categories/Daily/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/linux-manjaro-nvidia-driver-and-cuda/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/categories/Linux/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/linux-need-to-load-kernel-first/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/linux-manjaro-install-and-optimization/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://laplacetw.github.io/python-pdf-batch-encrypt/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://laplacetw.github.io/categories/Python/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/page/2/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/page/9/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/ANEC/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/DIY/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/NLP/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://laplacetw.github.io/tags/adafruit/</loc>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/algae-control/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/apple-watch/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/aquarium/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/chatbot/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/chromedriver/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/covid-2019/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/cyanobacteria/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/django/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/e-payment/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/ecg/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/error/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/excel/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/gitHub-pages/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/google/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/google-form/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/headshot/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/heroku/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/hexo/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/hspice/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/influenza/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/ipass/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/kde/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/keras/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/linux/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/mac/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/machine-learning/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/manjaro/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/matplotlib/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/mnist/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/nvidia/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/pdf/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/pivot-table/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/planted-tank/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/plug-socket/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/pyhton/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/python/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/qr-code/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/raspberry-pi/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/regex/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/safari/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/selenium/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/semantic-analysis/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/sharepoint/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/spread-sheet/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://laplacetw.github.io/tags/thermal-camera/</loc>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/vs-code/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/web/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/web-crawler/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/wireless/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/categories/Aquarium/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/categories/Data-Science/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/categories/Django/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/categories/Excel/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/categories/Google/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/categories/Hexo/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/categories/LineBot/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/categories/Mac/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://laplacetw.github.io/categories/Raspberry-Pi/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <loc>https://laplacetw.github.io/categories/Python/</loc>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/categories/SharePoint/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/categories/Study/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/categories/Tools/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/categories/Workshop/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://laplacetw.github.io/python-pdf-batch-encrypt/</loc>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/apple-watch-with-ipass/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/replace-electrical-socket/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/maker-space-workshop-part-2/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/acute-necrotizing-encephalopathy-of-childhood/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://laplacetw.github.io/maker-space-workshop-part-1/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/archives/page/2/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/archives/page/5/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://laplacetw.github.io/take-a-headshot-yourself/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://laplacetw.github.io/data-sci-ml-hello-world-mnist/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://laplacetw.github.io/python-auto-fill-out-google-form/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://laplacetw.github.io/python-vscode-setup/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://laplacetw.github.io/python-scope-of-variables/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://laplacetw.github.io/page/3/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://laplacetw.github.io/hexo-failed-to-execute-prompt-script/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://laplacetw.github.io/hexo-on-github-pages/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://laplacetw.github.io/restart-my-1.5ft-planted-tank/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://laplacetw.github.io/page/8/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://laplacetw.github.io/restart-planted-tank-day8/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://laplacetw.github.io/restart-planted-tank-2month/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://laplacetw.github.io/restart-planted-tank-day21/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://laplacetw.github.io/data-sci-use-selenium-with-chrome-driver/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://laplacetw.github.io/django-software-architecture/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://laplacetw.github.io/django-app-and-settings/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://laplacetw.github.io/django-start/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://laplacetw.github.io/django-execution-of-scripts-is-disabled/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://laplacetw.github.io/excel-func-chart-pivot-table/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://laplacetw.github.io/google-app-script-and-spreadsheet/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://laplacetw.github.io/line-use-custom-fonts-in-heroku-apps/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://laplacetw.github.io/hexo-next-optimize/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://laplacetw.github.io/hexo-theme-icarus/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://laplacetw.github.io/hexo-error-busuanzi/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://laplacetw.github.io/hexo-switching-from-win-to-mac/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://laplacetw.github.io/hexo-first-post/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://laplacetw.github.io/hexo-config/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/rspi-meet-raspberry-pi-b3-plus/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://laplacetw.github.io/take-a-headshot-yourself/</loc>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://laplacetw.github.io/data-sci-ml-hello-world-mnist/</loc>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://laplacetw.github.io/page/3/</loc>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://laplacetw.github.io/hexo-failed-to-execute-prompt-script/</loc>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://laplacetw.github.io/hexo-on-github-pages/</loc>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://laplacetw.github.io/restart-my-1.5ft-planted-tank/</loc>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://laplacetw.github.io/page/8/</loc>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://laplacetw.github.io/restart-planted-tank-day8/</loc>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://laplacetw.github.io/restart-planted-tank-2month/</loc>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://laplacetw.github.io/restart-planted-tank-day21/</loc>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://laplacetw.github.io/data-sci-use-selenium-with-chrome-driver/</loc>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://laplacetw.github.io/django-software-architecture/</loc>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://laplacetw.github.io/django-app-and-settings/</loc>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://laplacetw.github.io/django-start/</loc>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://laplacetw.github.io/django-execution-of-scripts-is-disabled/</loc>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://laplacetw.github.io/maker-space-workshop-part-1/</loc>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://laplacetw.github.io/excel-func-chart-pivot-table/</loc>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://laplacetw.github.io/google-app-script-and-spreadsheet/</loc>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://laplacetw.github.io/python-auto-fill-out-google-form/</loc>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://laplacetw.github.io/line-use-custom-fonts-in-heroku-apps/</loc>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://laplacetw.github.io/hexo-next-optimize/</loc>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://laplacetw.github.io/hexo-theme-icarus/</loc>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://laplacetw.github.io/hexo-error-busuanzi/</loc>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://laplacetw.github.io/hexo-switching-from-win-to-mac/</loc>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://laplacetw.github.io/hexo-first-post/</loc>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://laplacetw.github.io/hexo-config/</loc>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/mac-safari-show-web-inspector/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/data-sci-re/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/data-sci-google-search/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/data-sci-bs4/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/data-sci-requests/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/tags/python/page/2/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/create-qrcode-with-image-by-qart-coder/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/sharepoint-rest-api/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
+  <loc>https://laplacetw.github.io/python-vscode-setup/</loc>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://laplacetw.github.io/python-scope-of-variables/</loc>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
   <loc>https://laplacetw.github.io/archives/page/3/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/archives/page/4/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/page/4/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/page/7/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/page/5/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.41</priority>
 </url>
 <url>
   <loc>https://laplacetw.github.io/page/6/</loc>
-  <lastmod>2020-03-26T15:37:19+00:00</lastmod>
+  <lastmod>2020-04-21T17:33:43+00:00</lastmod>
   <priority>0.41</priority>
 </url>
 
