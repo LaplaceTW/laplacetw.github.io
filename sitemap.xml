@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://laplacetw.github.io/data-sci-vgg-cifar10/</loc>
+    
+    <lastmod>2020-06-29T08:51:52.006Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://laplacetw.github.io/data-sci-ml-hello-world-mnist/</loc>
+    
+    <lastmod>2020-06-29T05:07:30.483Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://laplacetw.github.io/study-acute-necrotizing-encephalopathy-of-childhood/</loc>
     
     <lastmod>2020-06-12T17:20:47.914Z</lastmod>
@@ -33,13 +47,6 @@
     <loc>https://laplacetw.github.io/hexo-config/</loc>
     
     <lastmod>2020-05-29T09:53:57.595Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://laplacetw.github.io/data-sci-ml-hello-world-mnist/</loc>
-    
-    <lastmod>2020-05-29T03:02:57.421Z</lastmod>
     
   </url>
   
