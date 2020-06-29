@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://laplacetw.github.io/study-fractional-max-pooling/</loc>
+    
+    <lastmod>2020-06-29T11:39:34.890Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://laplacetw.github.io/data-sci-vgg-cifar10/</loc>
     
     <lastmod>2020-06-29T08:51:52.006Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>https://laplacetw.github.io/linux-manjaro-install-and-optimization/</loc>
     
     <lastmod>2020-06-05T07:04:42.582Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://laplacetw.github.io/study-fractional-max-pooling/</loc>
-    
-    <lastmod>2020-05-30T10:34:38.990Z</lastmod>
     
   </url>
   

@@ -127,7 +127,7 @@
 <meta property="og:image" content="https://i.imgur.com/NXYLssj.png">
 <meta property="og:image" content="https://i.imgur.com/NblVtwE.png">
 <meta property="og:image" content="https://i.imgur.com/fNDKsYO.png">
-<meta property="og:updated_time" content="2020-05-30T10:34:38.990Z">
+<meta property="og:updated_time" content="2020-06-29T11:39:34.890Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="翻譯：Fractional Max-Pooling">
 <meta name="twitter:description" content="作者：Benjamin Graham原文：https://arxiv.org/abs/1412.6071">
@@ -479,7 +479,7 @@
 <p>於第二節中，我們將說明分數階最大取樣的形式。簡而言之，有三種選擇會影響FMP的實現方式：</p>
 <ul>
 <li>取樣的非整數值α決定了取樣層輸入和輸出的特徵空間尺寸比例。例如2 × 2最大取樣對應於α = 2的特定情況。</li>
-<li>取樣區域可以用隨機或偽隨機的方式來選擇。在FMP的隨機性和使用隨機去活化是否搭配數據增強(data augmentation)之間似乎得做適當的取捨，隨機的FMP或許可以表現得更好，但如果「過度」使用隨機去活化或訓練數據強化，則可能導致欠擬合(overfitting)。</li>
+<li>取樣區域可以用隨機或偽隨機的方式來選擇。在FMP的隨機性和使用隨機去活化是否搭配數據增強(data augmentation)之間似乎得做適當的取捨，隨機的FMP或許可以表現得更好，但如果「過度」使用隨機去活化或訓練數據強化，則可能導致欠擬合(underfitting)。</li>
 <li>取樣區域可以不相交(disjoint)或重疊(overlapping)。不相交的區域較容易描述，但我們發現重疊區域的效果更好。</li>
 </ul>
 <p>我們會在第三節中描述如何設計和訓練我們的卷積網路，並於第四節中展示MNIST手寫數字、CIFAR-10、CIFAR-100、阿薩姆語手寫文字以及CASIA-OLHWDB1.1手寫漢字等數據集的訓練結果。</p>
