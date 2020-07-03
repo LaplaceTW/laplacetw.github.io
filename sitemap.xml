@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://laplacetw.github.io/rspi-meet-raspberry-pi-b3-plus/</loc>
+    
+    <lastmod>2020-07-03T09:26:59.564Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://laplacetw.github.io/rspi-thermal-cam-amg8833/</loc>
+    
+    <lastmod>2020-07-03T09:26:37.055Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://laplacetw.github.io/arduino-uno-r3-learning-kit/</loc>
+    
+    <lastmod>2020-07-03T09:22:00.597Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://laplacetw.github.io/hexo-next-optimize/</loc>
+    
+    <lastmod>2020-07-02T09:30:41.256Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://laplacetw.github.io/study-fractional-max-pooling/</loc>
     
     <lastmod>2020-06-29T11:39:34.890Z</lastmod>
@@ -30,13 +58,6 @@
   </url>
   
   <url>
-    <loc>https://laplacetw.github.io/hexo-next-optimize/</loc>
-    
-    <lastmod>2020-06-12T17:14:41.854Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://laplacetw.github.io/linux-manjaro-install-and-optimization/</loc>
     
     <lastmod>2020-06-05T07:04:42.582Z</lastmod>
@@ -47,13 +68,6 @@
     <loc>https://laplacetw.github.io/hexo-config/</loc>
     
     <lastmod>2020-05-29T09:53:57.595Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://laplacetw.github.io/rspi-thermal-cam-amg8833/</loc>
-    
-    <lastmod>2020-04-22T14:51:12.152Z</lastmod>
     
   </url>
   
@@ -75,13 +89,6 @@
     <loc>https://laplacetw.github.io/linux-need-to-load-kernel-first/</loc>
     
     <lastmod>2020-02-23T16:59:41.830Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://laplacetw.github.io/rspi-meet-raspberry-pi-b3-plus/</loc>
-    
-    <lastmod>2020-02-20T16:23:56.131Z</lastmod>
     
   </url>
   
