@@ -2,16 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://laplacetw.github.io/rspi-meet-raspberry-pi-b3-plus/</loc>
+    <loc>https://laplacetw.github.io/data-sci-yolo-accuracy/</loc>
     
-    <lastmod>2020-07-03T09:26:59.564Z</lastmod>
+    <lastmod>2020-07-07T17:57:06.790Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://laplacetw.github.io/python-batch-video-to-gif/</loc>
+    
+    <lastmod>2020-07-06T08:37:51.872Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://laplacetw.github.io/rspi-thermal-cam-amg8833/</loc>
     
-    <lastmod>2020-07-03T09:26:37.055Z</lastmod>
+    <lastmod>2020-07-06T06:48:38.501Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://laplacetw.github.io/python-pdf-batch-encrypt/</loc>
+    
+    <lastmod>2020-07-06T02:57:07.205Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://laplacetw.github.io/rspi-meet-raspberry-pi-b3-plus/</loc>
+    
+    <lastmod>2020-07-03T09:26:59.564Z</lastmod>
     
   </url>
   
@@ -89,13 +110,6 @@
     <loc>https://laplacetw.github.io/linux-need-to-load-kernel-first/</loc>
     
     <lastmod>2020-02-23T16:59:41.830Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://laplacetw.github.io/python-pdf-batch-encrypt/</loc>
-    
-    <lastmod>2020-02-17T15:44:57.538Z</lastmod>
     
   </url>
   
