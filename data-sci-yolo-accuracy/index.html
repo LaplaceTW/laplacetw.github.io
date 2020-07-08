@@ -122,13 +122,13 @@
 <meta property="og:description" content="這幾天媒體報導了YOLOv4的相關新聞，提到其為中研院研究團隊與俄羅斯開發者所共同研發，而這全世界最快最準的物體偵測演算法，其平均準確率為43.5%。於是這43.5%的準確率迅速引來許多不明就裡的人留言批評，我深刻體會『對自己的無知一無所知』是一件多麼可怕的事情。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://i.imgur.com/O62Ncev.png">
-<meta property="og:image" content="https://i.imgur.com/4KonIn4.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ouyanghuiyu/darknet_face_with_landmark/master/test_imgs/selfie.jpg">
 <meta property="og:image" content="https://i.imgur.com/OdWNkUk.png">
 <meta property="og:image" content="https://i.imgur.com/KgFbe8Y.png">
 <meta property="og:image" content="https://i.imgur.com/w7sc0Vc.jpg">
 <meta property="og:image" content="https://user-images.githubusercontent.com/4096485/82835867-f1c62380-9ecd-11ea-9134-1598ed2abc4b.png">
 <meta property="og:image" content="https://i.imgur.com/NG4nEoT.png">
-<meta property="og:updated_time" content="2020-07-08T04:34:04.624Z">
+<meta property="og:updated_time" content="2020-07-08T06:43:01.683Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正確理解YOLO的辨識準確率">
 <meta name="twitter:description" content="這幾天媒體報導了YOLOv4的相關新聞，提到其為中研院研究團隊與俄羅斯開發者所共同研發，而這全世界最快最準的物體偵測演算法，其平均準確率為43.5%。於是這43.5%的準確率迅速引來許多不明就裡的人留言批評，我深刻體會『對自己的無知一無所知』是一件多麼可怕的事情。">
@@ -469,7 +469,8 @@
 </blockquote>
 <p>然後我們可能又會疑惑：FPS? COCO? mAP? 別著急，多理解一下物體偵測。</p>
 <p>電腦是如何進行物體偵測？一般做法是透過各種選擇性搜索演算法(selective search)，偵測、分割出影像中可能有物體存在的區域(region proposal)，那麼沒有物體存在的區域就不需要進行無效的運算，也能加快處理速度，接著再對這些可能有物體存在的區域進行辨識分類。如此先搜索region proposal再進行辨識的處理方式稱為Two Stage(e.g. R-CNN)。<br><img src="https://i.imgur.com/O62Ncev.png" alt></p>
-<p>但這有個潛在問題，假設系統偵測出影像中有數百個甚至上千個region proposal，那麼就得進行上千次的辨識運算…個人電腦即便有高階GPU亦可能做不到即時運算，更遑論行動裝置。<br><img src="https://i.imgur.com/4KonIn4.png" alt></p>
+<p>但這有個潛在問題，假設系統偵測出影像中有數百個甚至上千個region proposal，那麼就得進行上千次的辨識運算…個人電腦即便有高階GPU亦可能做不到即時運算，更遑論行動裝置。</p>
+<p></p><p>圖片連結自<a href="https://github.com/ouyanghuiyu/darknet_face_with_landmark" target="_blank" rel="noopener">https://github.com/ouyanghuiyu/darknet_face_with_landmark</a>⬇︎<br><img src="https://raw.githubusercontent.com/ouyanghuiyu/darknet_face_with_landmark/master/test_imgs/selfie.jpg" alt></p>
 <p>於是我們有了One Stage(e.g. YOLO)，物體偵測和辨識一氣呵成，這樣的做法能大幅提升處理速度。不過有一好沒兩好，要速度快你就得在準確率做點取捨，因此整體辨識準確率相較Two Stage來得差一些，但One Stage在許多應用上仍是可接受範圍內，兩種作法各有其優勢，端看需求。<br><img src="https://i.imgur.com/OdWNkUk.png" alt></p>
 <p>回到YOLO，自從2015年發佈v1發展至今，最新版本為今年4月底所發佈的v4，處理速度簡直快到沒朋友，但YOLO的創造者<a href="https://pjreddie.com/" target="_blank" rel="noopener">Joseph Redmon</a>今年二月<a href="https://twitter.com/pjreddie/status/1230524770350817280" target="_blank" rel="noopener">於推特宣佈退出電腦視覺研究領域</a>，當時引起相當大的討論，多少人引頸期盼YOLO的下個版本，Joseph Redmon表示自己的工作對人類社會的衝擊性實在太大了，即使熱愛電腦視覺的研究工作，但其終究無法忽視自己的研究成果在軍事科技應用以及個人隱私方面可能導致的問題。因此YOLOv4為俄羅斯開發者、YOLOv3的實現 — Darknet作者<a href="https://twitter.com/alexeyab84" target="_blank" rel="noopener">Alexey Bochkovskiy</a>與中研院資科所所長Hong-Yuan Liao及博士後研究員Chien-Yao Wang等三人基於後兩位研發的CSPNet，對YOLO的最新研究成果。而Joseph Redmon也<a href="https://github.com/pjreddie/darknet#darknet" target="_blank" rel="noopener">更新</a>了YOLOv4的論文與原始碼連結，顯示YOLOv4為官方所認可的後繼版本。</p>
 <h2 id="什麼是FPS"><a href="#什麼是FPS" class="headerlink" title="什麼是FPS?"></a>什麼是FPS?</h2><p></p><p>FPS就是影格率或是經常聽到的幀數，<a href="https://zh.wikipedia.org/wiki/%E5%BD%B1%E6%A0%BC%E7%8E%87" target="_blank" rel="noopener">維基百科</a>就有寫了沒啥好說：</p>
