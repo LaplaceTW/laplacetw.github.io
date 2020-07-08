@@ -128,7 +128,7 @@
 <meta property="og:image" content="https://i.imgur.com/w7sc0Vc.jpg">
 <meta property="og:image" content="https://user-images.githubusercontent.com/4096485/82835867-f1c62380-9ecd-11ea-9134-1598ed2abc4b.png">
 <meta property="og:image" content="https://i.imgur.com/NG4nEoT.png">
-<meta property="og:updated_time" content="2020-07-08T02:29:44.588Z">
+<meta property="og:updated_time" content="2020-07-08T04:16:34.861Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正確理解YOLO的辨識準確率">
 <meta name="twitter:description" content="這幾天媒體報導了YOLOv4的相關新聞，提到其為中研院研究團隊與俄羅斯開發者所共同研發，而這全世界最快最準的物體偵測演算法，其平均準確率為43.5%。於是這43.5%的準確率迅速引來許多不明就裡的人留言批評，我深刻體會『對自己的無知一無所知』是一件多麼可怕的事情。">
@@ -462,7 +462,7 @@
       
 
       
-        <p>這幾天媒體報導了<a href="https://arxiv.org/abs/2004.10934" target="_blank" rel="noopener">YOLOv4</a>的相關新聞，提到其為中研院研究團隊與俄羅斯開發者所共同研發，而這全世界最快最準的物體偵測演算法，其平均準確率為43.5%。於是這43.5%的準確率迅速引來許多不明就裡的人留言批評，我深刻體會『對自己的無知一無所知』是一件多麼可怕的事情。<a id="more"></a>不懂沒有關係，我們可以先查證，再提出質疑，而非只是「我覺得這準確率有夠低」就輕率地批評指責(中研院難道是能隨便誇大其詞的研究機構嗎？)，但你可能連state-of-the-art意味什麼都不明白。這對無私貢獻的<a href="https://zh.wikipedia.org/wiki/%E9%96%8B%E6%BA%90%E8%BB%9F%E9%AB%94" target="_blank" rel="noopener">Open Source</a>開發者一點都不公平，唉，站著說話不腰疼。</p>
+        <p>這幾天媒體報導了<a href="https://arxiv.org/abs/2004.10934" target="_blank" rel="noopener">YOLOv4</a>的相關新聞，提到其為中研院研究團隊與俄羅斯開發者所共同研發，而這全世界最快最準的物體偵測演算法，其平均準確率為43.5%。於是這43.5%的準確率迅速引來許多不明就裡的人留言批評，我深刻體會『對自己的無知一無所知』是一件多麼可怕的事情。<a id="more"></a>不懂沒有關係，我們可以先查證，再提出質疑，而非只是「我覺得這準確率有夠低」就輕率地批評指責(中研院難道是能隨便誇大其詞的研究機構嗎？)，但你可能連state-of-the-art意味什麼都不明白。這對無私貢獻的<a href="https://zh.wikipedia.org/wiki/%E9%96%8B%E6%BA%90%E8%BB%9F%E9%AB%94" target="_blank" rel="noopener">Open Source</a>開發者一點都不公平，真是站著說話不腰疼、躺著留言不費勁。</p>
 <h2 id="什麼是YOLO"><a href="#什麼是YOLO" class="headerlink" title="什麼是YOLO?"></a>什麼是YOLO?</h2><p></p><p><a href="https://pjreddie.com/darknet/yolo/" target="_blank" rel="noopener">YOLO官網</a>是這麼介紹它自己的：</p>
 <blockquote>
 <p>You only look once (YOLO) is a state-of-the-art, real-time object detection system. On a Pascal Titan X it processes images at 30 FPS and has a mAP of 57.9% on COCO test-dev. (YOLO是最先進的即時物體偵測系統，在Pascal Titan X GPU上以30 FPS的速度處理影像，於COCO測試開發資料集中的mAP為57.9%)</p>
@@ -558,7 +558,11 @@
 <p>因此以COCO資料集的AP指標而言，可以看到其IoU並非一個固定值，而是「.50:.05:.95」，意思是IoU共有{0.5, 0.55,…0.95}10個閾值，以這10個標準做判定、計算AP再取平均，而AP50(IoU=.50)或AP75(IoU=.75)則是傳統的評估方式。</p>
 <h2 id="平均準確率"><a href="#平均準確率" class="headerlink" title="平均準確率"></a>平均準確率</h2><p></p><p>說了一堆，可以來看底下這張效能表現比較圖了。</p>
 <p>我直接連結<a href="https://github.com/AlexeyAB/darknet" target="_blank" rel="noopener">Darknet</a>其GitHub頁面的圖片⬇︎<br><img src="https://user-images.githubusercontent.com/4096485/82835867-f1c62380-9ecd-11ea-9134-1598ed2abc4b.png" alt></p>
-<p>YOLOv4的效能表現是相當突出的，在FPS 90的條件下，v4的AP比v3多了10%，要不光看它和YOLOv3那條線之間有好大一段垂直距離也不難理解。對於一件事情的難易度若是沒有概念，光看43.5%這一串數字能看出什麼呢？即時辨識無數的物體要<strong>快狠準</strong>是相當不容易的的事情。<br><img src="https://i.imgur.com/NG4nEoT.png" alt><br><div class="video-container"><iframe src="//www.youtube.com/embed/1_SiUOYUoOI" frameborder="0" allowfullscreen></iframe></div></p>
+<p>YOLOv4的效能表現是相當突出的，在FPS為90的時候，v4的AP比v3多了10%，要不光看它和YOLOv3那條線之間有好大一段垂直距離也不難理解。對於一件事情的難易度若是沒有概念，光看43.5%這一串數字能看出什麼呢？最起碼也看一下摘要吧：</p>
+<blockquote>
+<p>43.5% AP (65.7% AP50) for the MS COCO dataset at a realtime speed of ~65 FPS on Tesla V100.</p>
+</blockquote>
+<p>辨識無數的物體要<strong>即時</strong>又要<strong>快狠準</strong>你說容易嗎？<br><img src="https://i.imgur.com/NG4nEoT.png" alt><br><div class="video-container"><iframe src="//www.youtube.com/embed/1_SiUOYUoOI" frameborder="0" allowfullscreen></iframe></div></p>
 <h2 id="Research-Papers-of-YOLO"><a href="#Research-Papers-of-YOLO" class="headerlink" title="Research Papers of YOLO"></a>Research Papers of YOLO</h2><p></p><p></p>
 <ul>
 <li><a href="https://arxiv.org/abs/1506.02640" target="_blank" rel="noopener">You Only Look Once: Unified, Real-Time Object Detection</a></li>
