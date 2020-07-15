@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://laplacetw.github.io/arduino-uno-r3-rgb-module/</loc>
+    
+    <lastmod>2020-07-15T09:24:56.696Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://laplacetw.github.io/arduino-uno-r3-learning-kit/</loc>
+    
+    <lastmod>2020-07-15T08:31:22.927Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://laplacetw.github.io/rspi-thermal-cam-amg8833/</loc>
+    
+    <lastmod>2020-07-14T12:18:44.783Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://laplacetw.github.io/data-sci-vgg-cifar10/</loc>
+    
+    <lastmod>2020-07-10T06:40:19.593Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://laplacetw.github.io/data-sci-yolo-accuracy/</loc>
     
     <lastmod>2020-07-08T06:43:01.683Z</lastmod>
@@ -12,13 +40,6 @@
     <loc>https://laplacetw.github.io/python-batch-video-to-gif/</loc>
     
     <lastmod>2020-07-06T08:37:51.872Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://laplacetw.github.io/rspi-thermal-cam-amg8833/</loc>
-    
-    <lastmod>2020-07-06T06:48:38.501Z</lastmod>
     
   </url>
   
@@ -37,13 +58,6 @@
   </url>
   
   <url>
-    <loc>https://laplacetw.github.io/arduino-uno-r3-learning-kit/</loc>
-    
-    <lastmod>2020-07-03T09:22:00.597Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://laplacetw.github.io/hexo-next-optimize/</loc>
     
     <lastmod>2020-07-02T09:30:41.256Z</lastmod>
@@ -54,13 +68,6 @@
     <loc>https://laplacetw.github.io/study-fractional-max-pooling/</loc>
     
     <lastmod>2020-06-29T11:39:34.890Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://laplacetw.github.io/data-sci-vgg-cifar10/</loc>
-    
-    <lastmod>2020-06-29T08:51:52.006Z</lastmod>
     
   </url>
   
