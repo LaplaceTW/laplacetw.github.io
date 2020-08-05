@@ -113,13 +113,13 @@
 
 
 
-  <meta name="description" content="這幾天媒體報導了YOLOv4的相關新聞，提到其為中研院研究團隊與俄羅斯開發者所共同研發，而這全世界最快最準的物體偵測演算法，其平均準確率為43.5%。於是這43.5%的準確率迅速引來許多不明就裡的人留言批評。">
+  <meta name="description" content="這幾天媒體報導了YOLOv4的相關新聞，提到其為中研院研究團隊與俄羅斯開發者所共同研發，而這全世界最快最準的物體偵測演算法，其平均準確率為43.5%，於是這43.5%的準確率迅速引來許多不明就裡的人留言批評。">
 <meta name="keywords" content="deep learning,computer vision,yolo,darknet">
 <meta property="og:type" content="article">
 <meta property="og:title" content="正確理解YOLO的辨識準確率">
 <meta property="og:url" content="https://laplacetw.github.io/data-sci-yolo-accuracy/index.html">
 <meta property="og:site_name" content="Laplace&#39;s Lab">
-<meta property="og:description" content="這幾天媒體報導了YOLOv4的相關新聞，提到其為中研院研究團隊與俄羅斯開發者所共同研發，而這全世界最快最準的物體偵測演算法，其平均準確率為43.5%。於是這43.5%的準確率迅速引來許多不明就裡的人留言批評。">
+<meta property="og:description" content="這幾天媒體報導了YOLOv4的相關新聞，提到其為中研院研究團隊與俄羅斯開發者所共同研發，而這全世界最快最準的物體偵測演算法，其平均準確率為43.5%，於是這43.5%的準確率迅速引來許多不明就裡的人留言批評。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://i.imgur.com/O62Ncev.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/ouyanghuiyu/darknet_face_with_landmark/master/test_imgs/selfie.jpg">
@@ -128,10 +128,10 @@
 <meta property="og:image" content="https://i.imgur.com/w7sc0Vc.jpg">
 <meta property="og:image" content="https://user-images.githubusercontent.com/4096485/82835867-f1c62380-9ecd-11ea-9134-1598ed2abc4b.png">
 <meta property="og:image" content="https://i.imgur.com/NG4nEoT.png">
-<meta property="og:updated_time" content="2020-08-05T06:30:25.375Z">
+<meta property="og:updated_time" content="2020-08-05T06:36:45.670Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正確理解YOLO的辨識準確率">
-<meta name="twitter:description" content="這幾天媒體報導了YOLOv4的相關新聞，提到其為中研院研究團隊與俄羅斯開發者所共同研發，而這全世界最快最準的物體偵測演算法，其平均準確率為43.5%。於是這43.5%的準確率迅速引來許多不明就裡的人留言批評。">
+<meta name="twitter:description" content="這幾天媒體報導了YOLOv4的相關新聞，提到其為中研院研究團隊與俄羅斯開發者所共同研發，而這全世界最快最準的物體偵測演算法，其平均準確率為43.5%，於是這43.5%的準確率迅速引來許多不明就裡的人留言批評。">
 <meta name="twitter:image" content="https://i.imgur.com/O62Ncev.png">
 
 
@@ -462,7 +462,7 @@
       
 
       
-        <p>這幾天媒體報導了<a href="https://arxiv.org/abs/2004.10934" target="_blank" rel="noopener">YOLOv4</a>的相關新聞，提到其為中研院研究團隊與俄羅斯開發者所共同研發，而這全世界最快最準的物體偵測演算法，其平均準確率為43.5%。於是這43.5%的準確率迅速引來許多不明就裡的人留言批評。<a id="more"></a>不懂沒有關係，我們可以先查證，再提出質疑，而非只是「我覺得這準確率有夠低」就輕率地批評指責(中研院難道是能隨便誇大其詞的研究機構嗎？)，但你可能連state-of-the-art意味什麼都不明白。這對無私貢獻的<a href="https://zh.wikipedia.org/wiki/%E9%96%8B%E6%BA%90%E8%BB%9F%E9%AB%94" target="_blank" rel="noopener">Open Source</a>開發者一點都不公平，真是站著說話不腰疼、躺著留言不費勁。</p>
+        <p>這幾天媒體報導了<a href="https://arxiv.org/abs/2004.10934" target="_blank" rel="noopener">YOLOv4</a>的相關新聞，提到其為中研院研究團隊與俄羅斯開發者所共同研發，而這全世界最快最準的物體偵測演算法，其平均準確率為43.5%，於是這43.5%的準確率迅速引來許多不明就裡的人留言批評。<a id="more"></a>不懂沒有關係，我們可以先查證，再提出質疑，而非只是「我覺得這準確率有夠低」就輕率地批評指責(中研院難道是能隨便誇大其詞的研究機構嗎？)，但你可能連state-of-the-art意味什麼都不明白。這對無私貢獻的<a href="https://zh.wikipedia.org/wiki/%E9%96%8B%E6%BA%90%E8%BB%9F%E9%AB%94" target="_blank" rel="noopener">Open Source</a>開發者一點都不公平，真是站著說話不腰疼、躺著留言不費勁。</p>
 <h2 id="什麼是YOLO"><a href="#什麼是YOLO" class="headerlink" title="什麼是YOLO?"></a>什麼是YOLO?</h2><p></p><p><a href="https://pjreddie.com/darknet/yolo/" target="_blank" rel="noopener">YOLO官網</a>是這麼介紹它自己的：</p>
 <blockquote>
 <p>You only look once (YOLO) is a state-of-the-art, real-time object detection system. On a Pascal Titan X it processes images at 30 FPS and has a mAP of 57.9% on COCO test-dev. (YOLO是最先進的即時物體偵測系統，在Pascal Titan X GPU上以30 FPS的速度處理影像，於COCO測試開發資料集中的mAP為57.9%)</p>
