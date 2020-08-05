@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://laplacetw.github.io/data-sci-yolo-accuracy/</loc>
+    
+    <lastmod>2020-08-05T06:30:25.375Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://laplacetw.github.io/coscup-2020/</loc>
     
-    <lastmod>2020-08-04T02:52:07.658Z</lastmod>
+    <lastmod>2020-08-05T06:29:26.940Z</lastmod>
     
   </url>
   
@@ -40,13 +47,6 @@
     <loc>https://laplacetw.github.io/data-sci-vgg-cifar10/</loc>
     
     <lastmod>2020-07-10T06:40:19.593Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://laplacetw.github.io/data-sci-yolo-accuracy/</loc>
-    
-    <lastmod>2020-07-08T06:43:01.683Z</lastmod>
     
   </url>
   
