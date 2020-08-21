@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://laplacetw.github.io/rspi-thermal-cam-amg8833/</loc>
+    
+    <lastmod>2020-08-21T09:05:53.983Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://laplacetw.github.io/data-sci-yolo-accuracy/</loc>
     
     <lastmod>2020-08-05T06:36:45.670Z</lastmod>
@@ -40,13 +47,6 @@
     <loc>https://laplacetw.github.io/arduino-uno-r3-learning-kit/</loc>
     
     <lastmod>2020-07-15T08:31:22.927Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://laplacetw.github.io/rspi-thermal-cam-amg8833/</loc>
-    
-    <lastmod>2020-07-14T12:18:44.783Z</lastmod>
     
   </url>
   
