@@ -127,7 +127,7 @@
 <meta property="og:image" content="https://i.imgur.com/NXYLssj.png">
 <meta property="og:image" content="https://i.imgur.com/NblVtwE.png">
 <meta property="og:image" content="https://i.imgur.com/fNDKsYO.png">
-<meta property="og:updated_time" content="2020-06-29T11:39:34.890Z">
+<meta property="og:updated_time" content="2020-08-24T16:56:16.851Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="翻譯：Fractional Max-Pooling">
 <meta name="twitter:description" content="作者：Benjamin Graham原文：https://arxiv.org/abs/1412.6071">
@@ -527,7 +527,7 @@
 <h4 id="CIFAR-10搭配隨機去活化與訓練數據增強"><a href="#CIFAR-10搭配隨機去活化與訓練數據增強" class="headerlink" title="CIFAR-10搭配隨機去活化與訓練數據增強"></a>CIFAR-10搭配隨機去活化與訓練數據增強</h4><p>對於CIFAR-10數據集，我們使用了隨機去活化和透過仿射轉換來擴充訓練數據：隨機對數據集執行平移、旋轉、反射、拉伸及剪切的預處理。相較之下，人類在CIFAR-10數據集的表現估計為6%$ {}^2 $ 。而近期(2015)於Kaggle平台上的CIFAR-10競賽，獲勝者的測試誤差為4.47%$ {}^3 $, 使用上述的數據增強策略和以下的網路結構：<br>$$ (300_nC2-300_nC2-MP2)_5-C2-C1-output $$</p>
 <p>使用偽隨機的重疊FMP網路：<br>$$ (160_nC2-FMP\sqrt[3]{2})_12-C2-C1-output $$</p>
 <p>我們得到了4.50%(1 test)，3.67%(12 tests)及3.47%(100 tests)的測試誤差。</p>
-<p>註2：<a href="http://karpathy.github.io/2011/04/27/manually-classifying-cifar10/" target="_blank" rel="noopener">http://karpathy.github.io/2011/04/27/manually-classifying-cifar10/</a><br>註3：<a href="https://www.kaggle.com/c/cifar-10/" target="_blank" rel="noopener">https://www.kaggle.com/c/cifar-10/</a><br>＊原文中註2的原始網址(<a href="http://karpathy.ca/myblog/?p=160)已失效，推測是網站搬遷。" target="_blank" rel="noopener">http://karpathy.ca/myblog/?p=160)已失效，推測是網站搬遷。</a></p>
+<p>註2：<a href="http://karpathy.github.io/2011/04/27/manually-classifying-cifar10/" target="_blank" rel="noopener">http://karpathy.github.io/2011/04/27/manually-classifying-cifar10/</a><br>註3：<a href="https://www.kaggle.com/c/cifar-10/" target="_blank" rel="noopener">https://www.kaggle.com/c/cifar-10/</a><br>＊原文中註2的<a href="http://karpathy.ca/myblog/?p=160" target="_blank" rel="noopener">原始網址</a>已失效，推測是網站搬遷。</p>
 <h3 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h3><p>我們在許多受歡迎的數據集上訓練搭配分數階最大取樣的卷積網路，並於效能方面發現有顯著的改善。取樣區域重疊的FMP比起不相交的似乎表現得更好。使用訓練數據增強時，偽隨機取樣區域比隨機取樣區域的表現更佳。若微調隨機去活化的使用數量，隨機取樣可能會重新取得優勢。</p>
 <p>再次查看Figure 2由隨機取樣所創造的失真，請注意此「失真」可以分解為「X軸的失真」和「Y軸的失真」，探究無法以<a href="#link-formula-1">方程式(1)</a>表達的取樣區域可能會很有趣，因為它們可能將更為通用的失真編碼至結果的卷積網路。</p>
 <h3 id="參考文獻"><a href="#參考文獻" class="headerlink" title="參考文獻"></a>參考文獻</h3><p>[1] K. Bache and M. Lichman. UCI machine learning repository, 2013.</p>

@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://laplacetw.github.io/study-fractional-max-pooling/</loc>
+    
+    <lastmod>2020-08-24T16:56:16.851Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://laplacetw.github.io/data-sci-vgg-cifar10/</loc>
     
     <lastmod>2020-08-24T16:50:12.598Z</lastmod>
@@ -82,13 +89,6 @@
     <loc>https://laplacetw.github.io/hexo-next-optimize/</loc>
     
     <lastmod>2020-07-02T09:30:41.256Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://laplacetw.github.io/study-fractional-max-pooling/</loc>
-    
-    <lastmod>2020-06-29T11:39:34.890Z</lastmod>
     
   </url>
   
