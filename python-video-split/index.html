@@ -113,25 +113,21 @@
 
 
 
-  <meta name="description" content="偶爾會為了DEMO用途，需要將影片轉換為GIF的形式，便於穿插在文章裡頭，但我不想為了這小小的需求安裝什麼軟體。">
+  <meta name="description" content="人們經常在通訊軟體分享各種多媒體訊息，而影片長度或檔案大小可能會有上傳限制，只好將其分割成多個片段上傳。">
 <meta name="keywords" content="python,moviepy,mytoolbox">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python批次影片轉GIF">
-<meta property="og:url" content="https://laplacetw.github.io/python-batch-video-to-gif/index.html">
+<meta property="og:title" content="Python分割影片為指定長度">
+<meta property="og:url" content="https://laplacetw.github.io/python-video-split/index.html">
 <meta property="og:site_name" content="Laplace&#39;s Lab">
-<meta property="og:description" content="偶爾會為了DEMO用途，需要將影片轉換為GIF的形式，便於穿插在文章裡頭，但我不想為了這小小的需求安裝什麼軟體。">
+<meta property="og:description" content="人們經常在通訊軟體分享各種多媒體訊息，而影片長度或檔案大小可能會有上傳限制，只好將其分割成多個片段上傳。">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://i.imgur.com/FwCJqVN.png">
-<meta property="og:image" content="https://i.imgur.com/6FNRGii.png">
-<meta property="og:image" content="https://i.imgur.com/tLDHNqj.gif">
-<meta property="og:image" content="https://i.imgur.com/IaS7v3K.gif">
-<meta property="og:image" content="https://i.imgur.com/XLTZUVm.gif">
-<meta property="og:image" content="https://i.imgur.com/aKcPhnH.gif">
-<meta property="og:updated_time" content="2020-08-05T06:34:56.333Z">
+<meta property="og:image" content="https://i.imgur.com/IgC7WQW.png">
+<meta property="og:image" content="https://i.imgur.com/XqVlcYG.gif">
+<meta property="og:updated_time" content="2020-08-24T06:46:03.546Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python批次影片轉GIF">
-<meta name="twitter:description" content="偶爾會為了DEMO用途，需要將影片轉換為GIF的形式，便於穿插在文章裡頭，但我不想為了這小小的需求安裝什麼軟體。">
-<meta name="twitter:image" content="https://i.imgur.com/FwCJqVN.png">
+<meta name="twitter:title" content="Python分割影片為指定長度">
+<meta name="twitter:description" content="人們經常在通訊軟體分享各種多媒體訊息，而影片長度或檔案大小可能會有上傳限制，只好將其分割成多個片段上傳。">
+<meta name="twitter:image" content="https://i.imgur.com/IgC7WQW.png">
 
 
 
@@ -139,7 +135,7 @@
 
   
   
-  <link rel="canonical" href="https://laplacetw.github.io/python-batch-video-to-gif/">
+  <link rel="canonical" href="https://laplacetw.github.io/python-video-split/">
 
 
 
@@ -149,7 +145,7 @@
   };
 </script>
 
-  <title>Python批次影片轉GIF | Laplace's Lab</title>
+  <title>Python分割影片為指定長度 | Laplace's Lab</title>
   
 
 
@@ -363,7 +359,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://laplacetw.github.io/python-batch-video-to-gif/">
+    <link itemprop="mainEntityOfPage" href="https://laplacetw.github.io/python-video-split/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LaplaceTW">
@@ -380,7 +376,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Python批次影片轉GIF
+          <h2 class="post-title" itemprop="name headline">Python分割影片為指定長度
 
               
             
@@ -404,7 +400,7 @@
                 
               
 
-              <time title="Created: 2020-04-10 01:30:51" itemprop="dateCreated datePublished" datetime="2020-04-10T01:30:51+08:00">2020-04-10</time>
+              <time title="Created: 2020-08-24 11:38:49" itemprop="dateCreated datePublished" datetime="2020-08-24T11:38:49+08:00">2020-08-24</time>
             
 
             
@@ -461,43 +457,15 @@
       
 
       
-        <p>偶爾會為了DEMO用途，需要將影片轉換為GIF的形式，便於穿插在文章裡頭，但我不想為了這小小的需求安裝什麼軟體。<a id="more"></a>而線上服務就是圖個方便打到很多使用者的痛點，但你必須將圖片上傳，這對某些使用者而言可能有疑慮…雖然我見到的線上轉檔服務使用者都是莫名安心地上傳的(?)</p>
-<p>Python是非常美好的程式語言，自己寫段程式碼來處理就行了😎&nbsp;&nbsp;我們只需要先在電腦安裝<a href="https://ffmpeg.org/" target="_blank" rel="noopener">FFmpeg</a>，然後引入<a href="https://pypi.org/project/moviepy/" target="_blank" rel="noopener">moviepy</a>這個套件就行了，作者zulko在他的個人網站有<a href="http://zulko.github.io/blog/2014/01/23/making-animated-gifs-from-video-files-with-python/" target="_blank" rel="noopener">詳細的教學</a>。</p>
+        <p>人們經常在通訊軟體分享各種多媒體訊息，而影片長度或檔案大小可能會有上傳限制，只好將其分割成多個片段上傳。<a id="more"></a>就Line而言，我查到的資訊是限制影片長度5分鐘內、檔案大小300MB以下，就能順利傳送並於聊天室中播放。短片的話自己手動分割一下就行了，但你知道的(?)，有些人分享的片段完整加總起來都數十分鐘甚至一個多小時，仔細觀察那些片段的長度竟然都不一樣，而且還有上字(XXX分享之類的)，這…還真是吃力不討好啊，我只能說祝大大一生平安🙆‍♂️。</p>
 <hr>
-<p>範例程式：</p>
-<p>設置參數可更換影片輸入格式、是否加入浮水印以及生成的GIF和浮水印的縮放倍率。<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="keyword">from</span> glob <span class="keyword">import</span> glob</span><br><span class="line"><span class="keyword">import</span> moviepy.editor <span class="keyword">as</span> mp</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># setting</span></span><br><span class="line">filetype = <span class="string">'.mov'</span></span><br><span class="line">watermark = <span class="string">'./devilcat.png'</span></span><br><span class="line">scale_gif = <span class="number">0.3</span></span><br><span class="line">scale_mark = <span class="number">0.3</span></span><br><span class="line"></span><br><span class="line">videos = glob(<span class="string">'./*'</span> + filetype)</span><br><span class="line">videos.sort()</span><br><span class="line"><span class="keyword">for</span> video <span class="keyword">in</span> videos:</span><br><span class="line">    output = video.replace(filetype, <span class="string">'.gif'</span>)</span><br><span class="line">    <span class="keyword">with</span> mp.VideoFileClip(video).resize(scale_gif) <span class="keyword">as</span> clip:</span><br><span class="line">        <span class="keyword">if</span> watermark == <span class="string">''</span>:  <span class="comment"># no watermark</span></span><br><span class="line">            clip.write_gif(output, fps=<span class="number">5</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            mark_image = (mp.ImageClip(watermark)</span><br><span class="line">            .resize(scale_mark)</span><br><span class="line">            .set_duration(clip.duration)</span><br><span class="line">            .set_pos((<span class="string">"left"</span>, <span class="string">"top"</span>)))</span><br><span class="line">            </span><br><span class="line">            <span class="comment"># add watermark to video</span></span><br><span class="line">            mark_video = mp.CompositeVideoClip([clip, mark_image])</span><br><span class="line">            mark_video.write_gif(output, fps=<span class="number">5</span>)</span><br></pre></td></tr></table></figure><br>＊關於resize的錯誤參考：<a href="https://stackoverflow.com/questions/57696343/moviepy-does-not-recognize-resize-function" target="_blank" rel="noopener">stackoverflow — Moviepy does not recognize resize function</a></p>
+<p>還是交給程式來處理吧，指定影片分割秒數，並自動在片頭上字持續3秒做為順序標記。此範例需用到<a href="https://pypi.org/project/moviepy/" target="_blank" rel="noopener">moviepy</a>套件，且需事先安裝<a href="https://ffmpeg.org/" target="_blank" rel="noopener">FFmpeg</a>和<a href="https://imagemagick.org/script/download.php" target="_blank" rel="noopener">ImageMagick</a>這兩個開源軟體。</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="keyword">import</span> moviepy.editor <span class="keyword">as</span> mp</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># e.g. video_split("./LaplaceTW.mp4", 300)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">video_split</span><span class="params">(filepath, duration)</span>:</span></span><br><span class="line">    video = mp.VideoFileClip(filepath).resize(width=<span class="number">720</span>)</span><br><span class="line">    video_length = int(video.duration) <span class="comment"># seconds</span></span><br><span class="line">    parts = int(video_length / duration)</span><br><span class="line">    remaining = video_length - (duration * parts)</span><br><span class="line">    parts = (parts + <span class="number">1</span>) <span class="keyword">if</span> remaining &gt; <span class="number">0</span> <span class="keyword">else</span> parts</span><br><span class="line">    print(<span class="string">"Video Length:"</span>, video_length, <span class="string">" | Split Parts:"</span>, parts)</span><br><span class="line"></span><br><span class="line">    start, end = <span class="number">0</span>, duration</span><br><span class="line">    <span class="keyword">for</span> part <span class="keyword">in</span> range(<span class="number">1</span>, parts + <span class="number">1</span>):</span><br><span class="line">        title = <span class="string">"Part."</span> + str(part)</span><br><span class="line">        text = (mp.TextClip(title, fontsize=<span class="number">50</span>, color=<span class="string">'yellow'</span>)</span><br><span class="line">            .set_pos((<span class="string">"right"</span>, <span class="string">"top"</span>))</span><br><span class="line">            .set_duration(<span class="number">3</span>))</span><br><span class="line"></span><br><span class="line">        clip = video.subclip(start, end)</span><br><span class="line">        clip = mp.CompositeVideoClip([clip, text])</span><br><span class="line">        clip.write_videofile(title + <span class="string">'.mp4'</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> part == parts - <span class="number">1</span> <span class="keyword">and</span> remaining &gt; <span class="number">0</span>:</span><br><span class="line">            start += duration</span><br><span class="line">            end += remaining</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            start += duration</span><br><span class="line">            end += duration</span><br></pre></td></tr></table></figure>
+<p>分割長時間影片 ⬇︎<br><img src="https://i.imgur.com/IgC7WQW.png" alt></p>
+<p>處理結果 ⬇︎<br><img src="https://i.imgur.com/XqVlcYG.gif" alt></p>
 <hr>
-<p>我使用<a href="https://youtu.be/H4Cn4taeuA4" target="_blank" rel="noopener">YT頻道哈哈台訪問浪漫Duke經典片段</a>當範例，實際執行將影片轉換為GIF動圖並加上浮水印。</p>
-<ul>
-<li><p>首先來畫一個浮水印…惡魔貓男！你今晚的惡夢！(激動 ⬇︎<br><img src="https://i.imgur.com/FwCJqVN.png" alt></p>
-</li>
-<li><p>接著準備幾個要轉成GIF的片段，開始轉換⬇︎<br><img src="https://i.imgur.com/6FNRGii.png" alt></p>
-</li>
-<li><p>轉檔結果，可以看到GIF左上角出現剛剛畫的浮水印🤣&nbsp;&nbsp;⬇︎</p>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">世界要有愛!</th>
-<th style="text-align:center">雞肉飯❤️</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><img src="https://i.imgur.com/tLDHNqj.gif" alt></td>
-<td style="text-align:center"><img src="https://i.imgur.com/IaS7v3K.gif" alt></td>
-</tr>
-<tr>
-<td style="text-align:center">好看!</td>
-<td style="text-align:center">浪漫Duke❤️</td>
-</tr>
-<tr>
-<td style="text-align:center"><img src="https://i.imgur.com/XLTZUVm.gif" alt></td>
-<td style="text-align:center"><img src="https://i.imgur.com/aKcPhnH.gif" alt></td>
-</tr>
-</tbody>
-</table>
+<p>＊若沒有安裝ImageMagick則會發生執行錯誤：[Errno 2] No such file or directory: ‘unset’: ‘unset’<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">OSError: MoviePy Error: creation of None failed because of the following error:</span><br><span class="line"></span><br><span class="line">[Errno 2] No such file or directory: <span class="string">'unset'</span>: <span class="string">'unset'</span>.</span><br><span class="line"></span><br><span class="line">.This error can be due to the fact that ImageMagick is not installed on your computer, </span><br><span class="line">or (<span class="keyword">for</span> Windows users) that you didn<span class="string">'t specify the path to the ImageMagick binary in </span></span><br><span class="line"><span class="string">file conf.py, or that the path you specified is incorrect</span></span><br></pre></td></tr></table></figure></p>
+<p>Ref. <a href="https://github.com/Zulko/moviepy/issues/1003" target="_blank" rel="noopener">TextClip Doesn’t work at all #1003</a></p>
 
       
     </div>
@@ -561,8 +529,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/taiwan-emask-pre-order/" rel="next" title="eMask口罩預購&取貨">
-                <i class="fa fa-chevron-left"></i> eMask口罩預購&取貨
+              <a href="/coscup-2020/" rel="next" title="COSCUP 2020！">
+                <i class="fa fa-chevron-left"></i> COSCUP 2020！
               </a>
             
           </div>
@@ -570,10 +538,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/rspi-thermal-cam-amg8833/" rel="prev" title="樹莓派：紅外線熱像儀">
-                樹莓派：紅外線熱像儀 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -1106,9 +1070,9 @@
 
 <script>
   var disqus_config = function() {
-    this.page.url = "https://laplacetw.github.io/python-batch-video-to-gif/";
-    this.page.identifier = "python-batch-video-to-gif/";
-    this.page.title = 'Python批次影片轉GIF';
+    this.page.url = "https://laplacetw.github.io/python-video-split/";
+    this.page.identifier = "python-video-split/";
+    this.page.title = 'Python分割影片為指定長度';
     };
   function loadComments() {
     var d = document, s = d.createElement('script');
