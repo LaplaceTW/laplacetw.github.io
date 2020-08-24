@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://laplacetw.github.io/data-sci-vgg-cifar10/</loc>
+    
+    <lastmod>2020-08-24T16:50:12.598Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://laplacetw.github.io/python-video-split/</loc>
     
     <lastmod>2020-08-24T06:46:03.546Z</lastmod>
@@ -54,13 +61,6 @@
     <loc>https://laplacetw.github.io/arduino-uno-r3-learning-kit/</loc>
     
     <lastmod>2020-07-15T08:31:22.927Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://laplacetw.github.io/data-sci-vgg-cifar10/</loc>
-    
-    <lastmod>2020-07-10T06:40:19.593Z</lastmod>
     
   </url>
   
