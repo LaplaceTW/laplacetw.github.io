@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://laplacetw.github.io/hexo-next-optimize/</loc>
+    
+    <lastmod>2020-08-25T04:13:45.922Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://laplacetw.github.io/study-fractional-max-pooling/</loc>
     
     <lastmod>2020-08-24T16:56:16.851Z</lastmod>
@@ -82,13 +89,6 @@
     <loc>https://laplacetw.github.io/rspi-meet-raspberry-pi-b3-plus/</loc>
     
     <lastmod>2020-07-03T09:26:59.564Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://laplacetw.github.io/hexo-next-optimize/</loc>
-    
-    <lastmod>2020-07-02T09:30:41.256Z</lastmod>
     
   </url>
   
