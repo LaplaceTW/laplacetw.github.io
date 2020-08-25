@@ -1133,6 +1133,12 @@ pre .javascript .function {
   font-size: 13px;
   color: #ddd;
 }
+@media (max-width: 767px) {
+  .site-subtitle {
+    padding-left: 15%;
+    padding-right: 15%;
+  }
+}
 .use-motion .brand {
   opacity: 0;
 }
@@ -1482,7 +1488,7 @@ pre .javascript .function {
   margin-left: 5px;
 }
 .posts-expand .post-meta {
-  margin: 3px 0 60px 0;
+  margin: 3px 0 25px 0;
   color: #999;
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 12px;
@@ -1818,7 +1824,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #b5bddf;
+  background: #ffb198;
 }
 .feed-link,
 .chat {
