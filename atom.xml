@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://laplacetw.github.io/"/>
-  <updated>2020-08-24T06:46:03.546Z</updated>
+  <updated>2020-08-26T16:56:43.865Z</updated>
   <id>https://laplacetw.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Apache Kafka安裝測試</title>
+    <link href="https://laplacetw.github.io/data-sci-kafka-hello-world/"/>
+    <id>https://laplacetw.github.io/data-sci-kafka-hello-world/</id>
+    <published>2020-08-26T07:19:58.000Z</published>
+    <updated>2020-08-26T16:56:43.865Z</updated>
+    
+    <content type="html"><![CDATA[<p>紀錄前陣子嘗試建立Kafka平台模擬事件串流的過程。<a id="more"></a>模擬的情境是，假設有人感染了COVID-19，然後我們要利用Kafka Producer發佈該事件通知，使Kafka Consumer接收到訊息並顯示出來。</p><h3 id="What-is-Apache-Kafka"><a href="#What-is-Apache-Kafka" class="headerlink" title="What is Apache Kafka?"></a>What is Apache Kafka?</h3><p><a href="https://kafka.apache.org/" target="_blank" rel="noopener">Apache Kafka官網</a>：</p><blockquote><p>Apache Kafka is an open-source <font color="red">distributed</font> event streaming platform used by thousands of companies for high-performance data pipelines, streaming analytics, data integration, and mission-critical applications.</p></blockquote><p><a href="https://zh.wikipedia.org/wiki/Kafka" target="_blank" rel="noopener">維基中文頁面</a>：</p><blockquote><p>Kafka最初是由領英開發，由Scala和Java編寫，於2011年初開源。該專案的目標是為處理即時資料提供一個統一、高吞吐、低延遲的平台。</p></blockquote><p>在Kafka中有幾個主要的概念：</p><table><thead><tr><th style="text-align:center"></th><th style="text-align:center"></th></tr></thead><tbody><tr><td style="text-align:center">Broker</td><td style="text-align:center">實現資料儲存的主機伺服器</td></tr><tr><td style="text-align:center">Producer</td><td style="text-align:center">訊息的生產者</td></tr><tr><td style="text-align:center">Consumer</td><td style="text-align:center">訊息的消費者</td></tr><tr><td style="text-align:center">Topic</td><td style="text-align:center">訊息的分類</td></tr><tr><td style="text-align:center">Partition</td><td style="text-align:center">Topic中的訊息會被分為若干Partition，以提高訊息處理效率</td></tr></tbody></table><h3 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h3><ul><li>安裝JDK：<a href="https://www.oracle.com/tw/java/technologies/javase-downloads.html" target="_blank" rel="noopener">官網下載連結</a></li><li>下載Apache Kafka並解壓縮：<a href="https://kafka.apache.org/downloads" target="_blank" rel="noopener">官網下載連結</a></li><li>安裝kafka-python套件<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip install kafka-python</span><br></pre></td></tr></table></figure></li></ul><h3 id="Get-Started"><a href="#Get-Started" class="headerlink" title="Get Started"></a>Get Started</h3><p>移動到解壓縮後的Kafka資料夾根目錄</p><ul><li><p>啟動Zookeeper server</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/zookeeper-server-start.sh config/zookeeper.properties</span><br></pre></td></tr></table></figure></li><li><p>啟動Kafka server</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/kafka-server-start.sh config/server.properties</span><br></pre></td></tr></table></figure></li></ul><p>＊<a href="https://zookeeper.apache.org/" target="_blank" rel="noopener">Apache Zookeeper</a>是用來管理Kafka分散式叢集(Brokers)組態設定與其資源配置的服務。<br>＊啟動server若發生Unrecognized VM option ‘PrintGCDateStamps’錯誤請參考<a href="https://stackoverflow.com/questions/36970622/kafka-unrecognized-vm-option-printgcdatestamps" target="_blank" rel="noopener">stackoverflow的相關討論</a>，修改/bin/kafka-run-class.sh這個檔案：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [[ <span class="string">"<span class="variable">$JAVA_MAJOR_VERSION</span>"</span> -ge <span class="string">"9"</span> ]]</span><br></pre></td></tr></table></figure></p><p><font color="red">將上述的if條件式內容修改為</font></p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JAVA_MAJOR_VERSION=$(<span class="variable">$JAVA</span> -version 2&gt;&amp;1 | sed -E -n <span class="string">'s/.* version "([^.-]*).*/\1/p'</span>)</span><br></pre></td></tr></table></figure><ul><li><p>建立Topic<br>以下指令會建立一個具有一個副本、一個分區的名稱為covid-19的Topic：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic covid-19</span><br></pre></td></tr></table></figure></li><li><p>確認已建立的Topic</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/kafka-topics.sh --list --zookeeper localhost:2181</span><br></pre></td></tr></table></figure></li><li><p>Producer</p><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!usr/bin/env python3</span></span><br><span class="line"><span class="comment"># coding:utf-8</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> kafka <span class="keyword">import</span> KafkaProducer</span><br><span class="line">producer = KafkaProducer(bootstrap_servers=<span class="string">'localhost:9092'</span>)</span><br><span class="line">counter = <span class="number">1</span></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    msg = <span class="string">'[Total: '</span> + str(counter) + <span class="string">']Someone is contracted COVID-19! Be careful!'</span></span><br><span class="line">    msg = msg.encode(<span class="string">'ascii'</span>)</span><br><span class="line">    producer.send(<span class="string">'covid-19'</span>, msg)</span><br><span class="line">    time.sleep(<span class="number">5</span>)</span><br><span class="line">    counter += <span class="number">1</span></span><br></pre></td></tr></table></figure></li><li><p>Consumer</p><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!usr/bin/env python3</span></span><br><span class="line"><span class="comment"># coding:utf-8</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> kafka <span class="keyword">import</span> KafkaConsumer</span><br><span class="line">consumer = KafkaConsumer(<span class="string">'covid-19'</span>)</span><br><span class="line"><span class="keyword">for</span> msg <span class="keyword">in</span> consumer:</span><br><span class="line">    print(msg.value.decode(<span class="string">'ascii'</span>))</span><br></pre></td></tr></table></figure></li></ul><p>可以看到Consumer都接收到了COVID-19事件通知⬇︎<br><img src="https://i.imgur.com/DK82jfm.gif" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;紀錄前陣子嘗試建立Kafka平台模擬事件串流的過程。
+    
+    </summary>
+    
+      <category term="Data Science" scheme="https://laplacetw.github.io/categories/Data-Science/"/>
+    
+    
+      <category term="python" scheme="https://laplacetw.github.io/tags/python/"/>
+    
+      <category term="kafka" scheme="https://laplacetw.github.io/tags/kafka/"/>
+    
+      <category term="big data" scheme="https://laplacetw.github.io/tags/big-data/"/>
+    
+  </entry>
   
   <entry>
     <title>Python分割影片為指定長度</title>
@@ -36,9 +62,9 @@
     
       <category term="python" scheme="https://laplacetw.github.io/tags/python/"/>
     
-      <category term="mytoolbox" scheme="https://laplacetw.github.io/tags/mytoolbox/"/>
-    
       <category term="moviepy" scheme="https://laplacetw.github.io/tags/moviepy/"/>
+    
+      <category term="mytoolbox" scheme="https://laplacetw.github.io/tags/mytoolbox/"/>
     
   </entry>
   
@@ -264,9 +290,9 @@
     
       <category term="python" scheme="https://laplacetw.github.io/tags/python/"/>
     
-      <category term="mytoolbox" scheme="https://laplacetw.github.io/tags/mytoolbox/"/>
-    
       <category term="moviepy" scheme="https://laplacetw.github.io/tags/moviepy/"/>
+    
+      <category term="mytoolbox" scheme="https://laplacetw.github.io/tags/mytoolbox/"/>
     
   </entry>
   
@@ -392,9 +418,9 @@
     
       <category term="python" scheme="https://laplacetw.github.io/tags/python/"/>
     
-      <category term="pdf" scheme="https://laplacetw.github.io/tags/pdf/"/>
-    
       <category term="mytoolbox" scheme="https://laplacetw.github.io/tags/mytoolbox/"/>
+    
+      <category term="pdf" scheme="https://laplacetw.github.io/tags/pdf/"/>
     
   </entry>
   
@@ -495,32 +521,6 @@
       <category term="ANEC" scheme="https://laplacetw.github.io/tags/ANEC/"/>
     
       <category term="influenza" scheme="https://laplacetw.github.io/tags/influenza/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>南科自造基地研習Part 1</title>
-    <link href="https://laplacetw.github.io/maker-space-workshop-part-1/"/>
-    <id>https://laplacetw.github.io/maker-space-workshop-part-1/</id>
-    <published>2019-08-18T15:46:01.000Z</published>
-    <updated>2019-09-01T10:55:57.132Z</updated>
-    
-    <content type="html"><![CDATA[<p>系統晶片應用―以無線心律檢測為例。<br><a id="more"></a><br>Part 1於8/14 ~ 8/16在成大系統系館進行，講師為Prof. Shuenn-Yuh Lee。</p><h3 id="研習內容大綱"><a href="#研習內容大綱" class="headerlink" title="研習內容大綱"></a>研習內容大綱</h3><p><br></p><ul><li>應用於智慧互動照護與監控系統之體外感測網路簡介</li><li>應用於身體感測網路之低功率無線心電訊號擷取電路與系統<ul><li>ZigBee無線心電訊號擷取系統晶片</li><li>身體感測網路之低功率無線心電訊號擷取與分類系統</li></ul></li><li>應用於神經調節之植入式身體感測網路</li><li>應用於植入式身體感測網路之低功率雙向遙測裝置結合微型心臟起搏器</li></ul><hr><h3 id="筆記"><a href="#筆記" class="headerlink" title="筆記"></a>筆記</h3><p><br></p><ul><li>IP-Based vs. Solution-Based</li><li>遠距醫療照護服務的潛在市場與預期成長</li><li>心肌於心搏週期中之極化、去極化、再極化</li><li>心電圖(ECG)之P波、QRS波群和T波之簡易判讀</li><li>從實驗室走向產品化所面臨的挑戰<ul><li>居家照護系統</li><li>裝置續航力―低功耗設計</li><li>使用便利性―無線傳輸</li><li>訊號解析度對診斷精確度之影響</li><li>診斷結果對醫生與使用者之呈現</li></ul></li><li>Wi-Fi/Bluetooth/ZigBee應用於穿戴式裝置無線傳輸之可行性評估</li><li>無線生物訊號擷取SoC所整合之元件架構介紹<ul><li>涉及過多電子學知識，個人認知無法消化…QQ</li></ul></li><li>植入式微型電刺激器之應用<ul><li>心臟起搏器</li><li>人工耳蝸</li><li>人工視網膜</li><li>功能性神經肌肉電刺激器</li><li>膀胱控制</li><li>深層腦部電刺激</li></ul></li></ul><h3 id="實作練習"><a href="#實作練習" class="headerlink" title="實作練習"></a>實作練習</h3><ul><li>使用HSPICE進行電路模擬測試驗證</li></ul><p>＊HSPICE筆記</p><ul><li>以電晶體、二極體、電阻和電容等各種電子元件模型為基礎，經數值模擬分析計算出電路中各結點之電壓、電流</li><li>主要提供直流穩態(DC)、暫態(TRAN)以及小信號頻率響應(AC)的模擬，使用者可依照所設計之電路自行編寫模擬分析等控制指令</li><li>語法規則<ul><li>指令檔(.sp)第一行預設不會執行，使用慣例為撰寫標題用</li><li>英文字母大小寫無區分</li><li>指令執行並無先後順序</li><li>註解符號為 ‘*’(星號)</li><li>指令檔需以 ‘.END’宣告結束</li><li>引入元件庫 : .lib ‘filepath’ TT</li><li>引入子電路 : .include ‘filepath’</li><li>將引入元件庫指令放在.protect &amp; .unprotect之間，可於模擬時不顯示元件之製程參數</li><li>宣告變數 : .param param_name = value</li><li>呼叫元件―MOSFET : M11 n1 n2 n3 n4 N_18 W=10u L=1u m=2<ul><li>M11的M代表MOSFET，11為自定義元件名稱，如同程式語言中的變數名稱</li><li>MOSFET為四端元件，因此n1 ~ n4依序代表其D、G、S、B端點所連接的節點</li><li>N_18表示呼叫元件庫中名稱為N_18的MOSFET元件</li><li>W &amp; L參數為指定MOSFET元件之寬度與通道長度</li><li>m = 2代表將兩個Ｍ11元件並聯，此為“抽象上的並聯”，也就是說呼叫這個MOSFET元件時，實際寬度為W x m，當所需的MOSFET寬度超出製程規定區間時，可適當地利用此參數來做調整</li></ul></li></ul></li></ul><table><thead><tr><th style="text-align:center">元件代號</th><th style="text-align:center">對應元件  </th></tr></thead><tbody><tr><td style="text-align:center">V</td><td style="text-align:center">Voltage Source</td></tr><tr><td style="text-align:center">I</td><td style="text-align:center">Current Source</td></tr><tr><td style="text-align:center">R</td><td style="text-align:center">Resistor</td></tr><tr><td style="text-align:center">L</td><td style="text-align:center">Inductor</td></tr><tr><td style="text-align:center">C</td><td style="text-align:center">Capacitor</td></tr><tr><td style="text-align:center">M</td><td style="text-align:center">MOSFET</td></tr><tr><td style="text-align:center">X</td><td style="text-align:center">Sub-Circuit</td></tr></tbody></table><p>控制指令 :</p><table><thead><tr><th style="text-align:center">指令</th><th style="text-align:center">作用  </th></tr></thead><tbody><tr><td style="text-align:center">.AC</td><td style="text-align:center">交流分析(頻率響應)</td></tr><tr><td style="text-align:center">.DC</td><td style="text-align:center">直流分析</td></tr><tr><td style="text-align:center">.OP</td><td style="text-align:center">靜態點分析</td></tr><tr><td style="text-align:center">.NOISE</td><td style="text-align:center">雜訊分析</td></tr><tr><td style="text-align:center">.TRAN</td><td style="text-align:center">暫態分析</td></tr><tr><td style="text-align:center">.SUBCKT</td><td style="text-align:center">定義子電路</td></tr><tr><td style="text-align:center">.ENDS</td><td style="text-align:center">子電路定義結束</td></tr><tr><td style="text-align:center">.OPTIONS</td><td style="text-align:center">設定參數及其他功能</td></tr><tr><td style="text-align:center">.PRINT</td><td style="text-align:center">指定輸出內容</td></tr><tr><td style="text-align:center">.PLOT</td><td style="text-align:center">視覺化輸出</td></tr><tr><td style="text-align:center">.TEMP</td><td style="text-align:center">指定模擬環境溫度</td></tr><tr><td style="text-align:center">.END</td><td style="text-align:center">指令檔編寫結束</td></tr></tbody></table><hr><h3 id="心得"><a href="#心得" class="headerlink" title="心得"></a>心得</h3><p><br><br>很幸運能參與自造基地這一系列的研習，關於Part 1的研習內容，雖然資工人沒學過電子學(我想我該找本電子學來研讀😅)，De Morgan’s laws也不大記得了😂，但知識不嫌多，聽在心裡想在腦子裡，總是有個概念。而李教授除了課程內容，也講了許多受用的觀念，特別是Solution-Based的概念令我相當有感，投入職場至今確實見到台廠普遍沒有系統整合的概念，撇開台積電那樣將晶圓代工做到極致的特例不談，即使我們有先進工業製程能生產各種精密機械與零組件，卻無法發揮其最大價值，因為我們習慣當打工仔，不負責兜出完整的終端產品。</p><p>研習課程的最後由李老師所指導的優秀博士生助教帶大家使用HSPICE來模擬電路，雖然我不懂如何完整編寫出模擬電路，但資工人對於電腦語言總是有點Sense😎，理解語法規則後，也是看得懂每一行在做些什麼的，例如元件庫和子電路的概念，就如同程式語言中的函式庫及自訂函式。</p><p>感謝Prof. Shuenn-Yuh Lee與助教們的用心講解，受益良多。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;系統晶片應用―以無線心律檢測為例。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Workshop" scheme="https://laplacetw.github.io/categories/Workshop/"/>
-    
-    
-      <category term="ecg" scheme="https://laplacetw.github.io/tags/ecg/"/>
-    
-      <category term="wireless" scheme="https://laplacetw.github.io/tags/wireless/"/>
-    
-      <category term="hspice" scheme="https://laplacetw.github.io/tags/hspice/"/>
     
   </entry>
   
