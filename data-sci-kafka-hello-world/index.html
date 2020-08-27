@@ -122,7 +122,7 @@
 <meta property="og:description" content="紀錄前陣子嘗試建立Kafka平台模擬事件串流的過程。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://i.imgur.com/DK82jfm.gif">
-<meta property="og:updated_time" content="2020-08-26T16:56:43.865Z">
+<meta property="og:updated_time" content="2020-08-27T06:16:56.158Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Apache Kafka安裝測試">
 <meta name="twitter:description" content="紀錄前陣子嘗試建立Kafka平台模擬事件串流的過程。">
@@ -511,7 +511,8 @@
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/kafka-server-start.sh config/server.properties</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>＊<a href="https://zookeeper.apache.org/" target="_blank" rel="noopener">Apache Zookeeper</a>是用來管理Kafka分散式叢集(Brokers)組態設定與其資源配置的服務。<br>＊啟動server若發生Unrecognized VM option ‘PrintGCDateStamps’錯誤請參考<a href="https://stackoverflow.com/questions/36970622/kafka-unrecognized-vm-option-printgcdatestamps" target="_blank" rel="noopener">stackoverflow的相關討論</a>，修改/bin/kafka-run-class.sh這個檔案：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [[ <span class="string">"<span class="variable">$JAVA_MAJOR_VERSION</span>"</span> -ge <span class="string">"9"</span> ]]</span><br></pre></td></tr></table></figure></p>
+<p>＊<a href="https://zookeeper.apache.org/" target="_blank" rel="noopener">Apache Zookeeper</a>是用來管理Kafka分散式叢集(Brokers)組態設定與其資源配置的服務。<br>＊啟動server若顯示以下錯誤訊息：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Unrecognized VM option <span class="string">'PrintGCDateStamps'</span></span><br><span class="line">Error: Could not create the Java Virtual Machine.</span><br><span class="line">Error: A fatal exception has occurred. Program will <span class="built_in">exit</span>.</span><br></pre></td></tr></table></figure></p>
+<p>參考<a href="https://stackoverflow.com/questions/36970622/kafka-unrecognized-vm-option-printgcdatestamps" target="_blank" rel="noopener">stackoverflow相關討論</a>，修改/bin/kafka-run-class.sh這個檔案：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [[ <span class="string">"<span class="variable">$JAVA_MAJOR_VERSION</span>"</span> -ge <span class="string">"9"</span> ]]</span><br></pre></td></tr></table></figure></p>
 <p><font color="red">將上述的if條件式內容修改為</font></p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JAVA_MAJOR_VERSION=$(<span class="variable">$JAVA</span> -version 2&gt;&amp;1 | sed -E -n <span class="string">'s/.* version "([^.-]*).*/\1/p'</span>)</span><br></pre></td></tr></table></figure>
 <ul>
@@ -529,6 +530,7 @@
 </li>
 </ul>
 <p>可以看到Consumer都接收到了COVID-19事件通知⬇︎<br><img src="https://i.imgur.com/DK82jfm.gif" alt></p>
+<p>Ref. <a href="https://timber.io/blog/hello-world-in-kafka-using-python" target="_blank" rel="noopener">Hello World In Kafka Using Python</a></p>
 
       
     </div>
