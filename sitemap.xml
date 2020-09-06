@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://laplacetw.github.io/data-sci-heroku-selenium-chrome-driver/</loc>
+    
+    <lastmod>2020-09-06T12:33:32.956Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://laplacetw.github.io/data-sci-use-selenium-with-chrome-driver/</loc>
+    
+    <lastmod>2020-09-06T10:05:25.812Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://laplacetw.github.io/medical-AI-summer-camp-2020/</loc>
     
     <lastmod>2020-09-01T15:22:55.932Z</lastmod>
@@ -215,13 +229,6 @@
     <loc>https://laplacetw.github.io/restart-my-1.5ft-planted-tank/</loc>
     
     <lastmod>2019-08-23T17:30:30.909Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://laplacetw.github.io/data-sci-use-selenium-with-chrome-driver/</loc>
-    
-    <lastmod>2019-08-23T17:28:01.058Z</lastmod>
     
   </url>
   
