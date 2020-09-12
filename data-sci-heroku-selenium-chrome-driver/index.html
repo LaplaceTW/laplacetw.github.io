@@ -113,20 +113,20 @@
 
 
 
-  <meta name="description" content="紀錄相關設定與測試。">
-<meta name="keywords" content="heroku,python,web crawler,selenium,chrome driver">
+  <meta name="description" content="如題。">
+<meta name="keywords" content="python,web crawler,heroku,selenium,chrome driver">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在Heroku遠端主機控制瀏覽器">
 <meta property="og:url" content="https://laplacetw.github.io/data-sci-heroku-selenium-chrome-driver/index.html">
 <meta property="og:site_name" content="Laplace&#39;s Lab">
-<meta property="og:description" content="紀錄相關設定與測試。">
+<meta property="og:description" content="如題。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://i.imgur.com/qOPtW4a.png">
 <meta property="og:image" content="https://i.imgur.com/SrXtcYd.png">
-<meta property="og:updated_time" content="2020-09-06T12:33:32.956Z">
+<meta property="og:updated_time" content="2020-09-12T06:14:01.567Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在Heroku遠端主機控制瀏覽器">
-<meta name="twitter:description" content="紀錄相關設定與測試。">
+<meta name="twitter:description" content="如題。">
 <meta name="twitter:image" content="https://i.imgur.com/qOPtW4a.png">
 
 
@@ -457,8 +457,7 @@
       
 
       
-        <p>紀錄相關設定與測試。<a id="more"></a></p>
-<p><br>最近在研究Telegram Bot API，雖然讀過文件知道許多語言都已經有不少第三方框架支援，基於某些應用目的不想被框架綁住，所以打算自己寫。然後我就耗了整整兩天，嘗試如何讓部署在Heroku上的Bot能順利使用headless browser擷取到我要的數據…。說也奇怪，本機執行是沒問題的，但在遠端主機就是一直丟出Timeout Error，原來遠端主機控制Chrome訪問目標網頁的時候總是遭遇某DDoS Protection服務所阻擋，但經過一番嘗試目前暫時是應對不了這個情況，就先這樣吧。</p>
+        <p>如題。<a id="more"></a>最近在研究Telegram Bot API，雖然讀過文件知道許多語言都已經有不少第三方框架支援，基於某些應用目的不想被框架綁住，所以打算自己寫。然後我就耗了整整兩天，嘗試如何讓部署在Heroku上的Bot能順利使用headless browser擷取到我要的數據…。說也奇怪，本機執行是沒問題的，但在遠端主機就是一直丟出Timeout Error，原來遠端主機控制Chrome訪問目標網頁的時候總是遭遇某DDoS Protection服務所阻擋，但經過一番嘗試目前仍是應對不了這個情況，耗了好幾天…於是學到了windows.navigator.webdriver這個參數。</p>
 <p>*假設Heroku APP已建立。</p>
 <h3 id="Add-Config-Vars-amp-Buildpacks"><a href="#Add-Config-Vars-amp-Buildpacks" class="headerlink" title="Add Config Vars &amp; Buildpacks"></a>Add Config Vars &amp; Buildpacks</h3><p></p><p>在APP的Setting頁面，設定以下兩個環境變數：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CHROMEDRIVER_PATH = /app/.chromedriver/bin/chromedriver</span><br><span class="line">GOOGLE_CHROME_BIN = /app/.apt/usr/bin/google-chrome</span><br></pre></td></tr></table></figure></p>
 <p>在APP的Setting頁面，設定以下兩個buildpack：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/heroku/heroku-buildpack-google-chrome</span><br><span class="line">https://github.com/heroku/heroku-buildpack-chromedriver</span><br></pre></td></tr></table></figure></p>
@@ -493,11 +492,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/heroku/" rel="tag"><i class="fas fa-tags"></i> heroku</a>
-          
             <a href="/tags/python/" rel="tag"><i class="fas fa-tags"></i> python</a>
           
             <a href="/tags/web-crawler/" rel="tag"><i class="fas fa-tags"></i> web crawler</a>
+          
+            <a href="/tags/heroku/" rel="tag"><i class="fas fa-tags"></i> heroku</a>
           
             <a href="/tags/selenium/" rel="tag"><i class="fas fa-tags"></i> selenium</a>
           
