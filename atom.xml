@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://laplacetw.github.io/"/>
-  <updated>2020-09-12T06:14:01.567Z</updated>
+  <updated>2020-09-17T07:01:26.891Z</updated>
   <id>https://laplacetw.github.io/</id>
   
   <author>
@@ -17,13 +17,39 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Python:快速建立Telegram聊天機器人</title>
+    <link href="https://laplacetw.github.io/python-botlegram/"/>
+    <id>https://laplacetw.github.io/python-botlegram/</id>
+    <published>2020-09-17T04:17:59.000Z</published>
+    <updated>2020-09-17T07:01:26.891Z</updated>
+    
+    <content type="html"><![CDATA[<p>我認真的為自己寫了一個套件，雖然現在還沒啥功能，只能發送文字和照片。<a id="more"></a>也不是只有搞了個套件，還嘗試了用<a href="https://www.sphinx-doc.org/en/master/" target="_blank" rel="noopener">Sphinx</a>自動產生文件然後托管到<a href="https://readthedocs.org/" target="_blank" rel="noopener">Read The Docs</a>，被autodoc路徑折騰了不少時間…這是另一段故事了。雖然現在才開始研究怎麼寫Telegram Bot，也有多種程式語言的現成框架可以用，但我不想要使用高度封裝的複雜框架，所以決定一邊學習Telegram Bot API，一邊完成這個套件，希望我有足夠的時間和心力 😌</p><h3 id="Botlegram"><a href="#Botlegram" class="headerlink" title="Botlegram"></a>Botlegram</h3><p></p><p>鏘！鏘！經過一番折騰終於發佈到Github上了，我希望能保持它的彈性，不要做多餘的事，它就只是一個Telegram Bot API的Python版本，所以功能函式命名也會盡可能地保持與<a href="https://core.telegram.org/bots/api#available-methods" target="_blank" rel="noopener">Telegram Bot API methods</a>一致。</p><ul><li>source code: <a href="https://github.com/laplacetw/botlegram" target="_blank" rel="noopener">Botlegram</a></li><li>online document: <a href="https://botlegram.readthedocs.io/" target="_blank" rel="noopener">Botlegram Doc</a></li></ul><h3 id="Tutorial"><a href="#Tutorial" class="headerlink" title="Tutorial"></a>Tutorial</h3><p></p><h5 id="準備工作："><a href="#準備工作：" class="headerlink" title="準備工作："></a>準備工作：</h5><ul><li>以下說明是以部署在Heroku為例，所以必須先準備一個<a href="https://www.heroku.com/" target="_blank" rel="noopener">Heroku帳號</a>，然後<a href="https://trailhead.salesforce.com/content/learn/projects/develop-heroku-applications/create-a-heroku-app" target="_blank" rel="noopener">建立一支APP</a></li><li>初次使用Heroku則必須先<a href="https://devcenter.heroku.com/articles/heroku-command-line" target="_blank" rel="noopener">安裝Heroku CLI</a></li><li>下載我預先準備的Telegram Bot懶人包: <a href="https://github.com/laplacetw/botlegram/files/5236011/echoBot.zip" target="_blank" rel="noopener">echo Bot</a></li><li>和Telegram官方帳號<a href="https://telegram.me/BotFather" target="_blank" rel="noopener">BotFather</a>進行對話 (取名叫Bot Father我覺得很有趣 😆&nbsp;)，按指示建立Bot取得專屬token，此token必須由你自己妥善保管，因為<font color="red">任何人都能使用這個token來控制你的Bot</font>。</li></ul><p><img src="https://i.imgur.com/wauvK7S.png" alt></p><h5 id="解壓縮懶人包echoBot-zip"><a href="#解壓縮懶人包echoBot-zip" class="headerlink" title="解壓縮懶人包echoBot.zip"></a>解壓縮懶人包echoBot.zip</h5><p>開啟app.py:</p><ul><li>your_bot_token替換成你的專屬token</li><li>your_host替換成你的Heroku App網址，請注意不可忽略的斜線<br>e.g. “<a href="https://APP_NAME.herokuapp.com/&quot;" target="_blank" rel="noopener">https://APP_NAME.herokuapp.com/&quot;</a></li></ul><h5 id="部署到Heroku"><a href="#部署到Heroku" class="headerlink" title="部署到Heroku"></a>部署到Heroku</h5><p>打開終端機依照下方指令操作，APP_NAME替換成你的Heroku App name<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ heroku login</span><br><span class="line">$ heroku git:remote -a APP_NAME</span><br><span class="line">$ git add .</span><br><span class="line">$ git commit -am <span class="string">"echo Bot"</span></span><br><span class="line">$ git push heroku master</span><br></pre></td></tr></table></figure></p><h5 id="確認與測試"><a href="#確認與測試" class="headerlink" title="確認與測試"></a>確認與測試</h5><p>部署成功的話，可以在Heroku的APP Logs頁面看到「Webhook is already set」<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Starting process with <span class="built_in">command</span> `gunicorn app:app`</span><br><span class="line">[INFO] Starting gunicorn 20.0.4</span><br><span class="line">[INFO] Listening at: http://0.0.0.0:10426 (4)</span><br><span class="line">[INFO] Using worker: sync</span><br><span class="line">[INFO] Booting worker with pid: 10</span><br><span class="line">[INFO] Booting worker with pid: 11</span><br><span class="line">State changed from starting to up</span><br><span class="line">* [Bot] Webhook is already <span class="built_in">set</span></span><br><span class="line">* [Bot] Webhook is already <span class="built_in">set</span></span><br></pre></td></tr></table></figure></p><p>打開Telegram和你的機器人對話，它應該會開始鸚鵡學舌囉 🐧</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;我認真的為自己寫了一個套件，雖然現在還沒啥功能，只能發送文字和照片。
+    
+    </summary>
+    
+      <category term="Python" scheme="https://laplacetw.github.io/categories/Python/"/>
+    
+    
+      <category term="python" scheme="https://laplacetw.github.io/tags/python/"/>
+    
+      <category term="chatbot" scheme="https://laplacetw.github.io/tags/chatbot/"/>
+    
+      <category term="telegram" scheme="https://laplacetw.github.io/tags/telegram/"/>
+    
+  </entry>
+  
+  <entry>
     <title>在Heroku遠端主機控制瀏覽器</title>
     <link href="https://laplacetw.github.io/data-sci-heroku-selenium-chrome-driver/"/>
     <id>https://laplacetw.github.io/data-sci-heroku-selenium-chrome-driver/</id>
     <published>2020-09-06T10:01:30.000Z</published>
-    <updated>2020-09-12T06:14:01.567Z</updated>
+    <updated>2020-09-17T04:11:16.585Z</updated>
     
-    <content type="html"><![CDATA[<p>如題。<a id="more"></a>最近在研究Telegram Bot API，雖然讀過文件知道許多語言都已經有不少第三方框架支援，基於某些應用目的不想被框架綁住，所以打算自己寫。然後我就耗了整整兩天，嘗試如何讓部署在Heroku上的Bot能順利使用headless browser擷取到我要的數據…。說也奇怪，本機執行是沒問題的，但在遠端主機就是一直丟出Timeout Error，原來遠端主機控制Chrome訪問目標網頁的時候總是遭遇某DDoS Protection服務所阻擋，但經過一番嘗試目前仍是應對不了這個情況，耗了好幾天…於是學到了windows.navigator.webdriver這個參數。</p><p>*假設Heroku APP已建立。</p><h3 id="Add-Config-Vars-amp-Buildpacks"><a href="#Add-Config-Vars-amp-Buildpacks" class="headerlink" title="Add Config Vars &amp; Buildpacks"></a>Add Config Vars &amp; Buildpacks</h3><p></p><p>在APP的Setting頁面，設定以下兩個環境變數：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CHROMEDRIVER_PATH = /app/.chromedriver/bin/chromedriver</span><br><span class="line">GOOGLE_CHROME_BIN = /app/.apt/usr/bin/google-chrome</span><br></pre></td></tr></table></figure></p><p>在APP的Setting頁面，設定以下兩個buildpack：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/heroku/heroku-buildpack-google-chrome</span><br><span class="line">https://github.com/heroku/heroku-buildpack-chromedriver</span><br></pre></td></tr></table></figure></p><p></p><p><br><img src="https://i.imgur.com/qOPtW4a.png" alt></p><h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><p></p><p>程式的部分，Chrome driver的參數會使用到上述所設定的環境變數。<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_chrome</span><span class="params">()</span>:</span></span><br><span class="line">    op = webdriver.ChromeOptions()</span><br><span class="line">    op.binary_location = os.environ.get(<span class="string">"GOOGLE_CHROME_BIN"</span>)</span><br><span class="line">    op.add_argument(<span class="string">"--headless"</span>)</span><br><span class="line">    op.add_argument(<span class="string">"--disable-dev-shm-usage"</span>)</span><br><span class="line">    op.add_argument(<span class="string">"--no-sandbox"</span>)</span><br><span class="line">    op.add_argument(<span class="string">'--disable-infobars'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> webdriver.Chrome(executable_path=os.environ.get(<span class="string">"CHROMEDRIVER_PATH"</span>), options=op)</span><br></pre></td></tr></table></figure></p><h3 id="Deploy"><a href="#Deploy" class="headerlink" title="Deploy"></a>Deploy</h3><p></p><p>然後就可以進行部署使用了，不過APP會需要安裝許多依賴套件，使得APP增加100+MB的使用空間。</p><p>透過APP bash測試從證交所擷取上市股票代號一覽表⬇︎<br><img src="https://i.imgur.com/SrXtcYd.png" alt></p><h3 id="Ref"><a href="#Ref" class="headerlink" title="Ref."></a>Ref.</h3><p></p><p><br>＊<a href="https://www.andressevilla.com/running-chromedriver-with-python-selenium-on-heroku/" target="_blank" rel="noopener">Running ChromeDriver with Python Selenium on Heroku</a><br>＊<a href="https://selenium-python.readthedocs.io/" target="_blank" rel="noopener">Selenium 官方文件</a></p>]]></content>
+    <content type="html"><![CDATA[<p>如題。<a id="more"></a>最近在研究Telegram Bot API，雖然讀過文件知道許多語言都已經有不少第三方框架支援，基於某些應用目的不想被框架綁住，所以打算自己寫。然後我就耗了整整兩天，嘗試如何讓部署在Heroku上的Bot能順利使用headless browser擷取到我要的數據…。說也奇怪，本機執行是沒問題的，但在遠端主機就是一直丟出Timeout Error，原來遠端主機控制Chrome訪問目標網頁的時候總是遭遇某DDoS Protection服務所阻擋，但經過一番嘗試目前仍是應對不了這個情況，耗了好幾天…於是學到了windows.navigator.webdriver這個參數。</p><p>*假設Heroku APP已建立。</p><h3 id="Add-Config-Vars-amp-Buildpacks"><a href="#Add-Config-Vars-amp-Buildpacks" class="headerlink" title="Add Config Vars &amp; Buildpacks"></a>Add Config Vars &amp; Buildpacks</h3><p></p><p>在APP的Setting頁面，設定以下兩個環境變數：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CHROMEDRIVER_PATH = /app/.chromedriver/bin/chromedriver</span><br><span class="line">GOOGLE_CHROME_BIN = /app/.apt/usr/bin/google-chrome</span><br></pre></td></tr></table></figure></p><p>在APP的Setting頁面，設定以下兩個buildpack：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/heroku/heroku-buildpack-google-chrome</span><br><span class="line">https://github.com/heroku/heroku-buildpack-chromedriver</span><br></pre></td></tr></table></figure></p><p></p><p><br><img src="https://i.imgur.com/qOPtW4a.png" alt></p><h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><p></p><p>程式的部分，Chrome driver的參數會使用到上述所設定的環境變數。<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_chrome</span><span class="params">()</span>:</span></span><br><span class="line">    op = webdriver.ChromeOptions()</span><br><span class="line">    op.binary_location = os.environ.get(<span class="string">"GOOGLE_CHROME_BIN"</span>)</span><br><span class="line">    op.add_argument(<span class="string">"--headless"</span>)</span><br><span class="line">    op.add_argument(<span class="string">"--disable-dev-shm-usage"</span>)</span><br><span class="line">    op.add_argument(<span class="string">"--no-sandbox"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    # avoid detection 好孩子先不要 ^.&lt;</span></span><br><span class="line"><span class="string">    op.add_argument('--disable-infobars')</span></span><br><span class="line"><span class="string">    op.add_experimental_option('useAutomationExtension', False)</span></span><br><span class="line"><span class="string">    op.add_experimental_option("excludeSwitches", ["enable-automation"])</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> webdriver.Chrome(executable_path=os.environ.get(<span class="string">"CHROMEDRIVER_PATH"</span>), options=op)</span><br></pre></td></tr></table></figure></p><h3 id="Deploy"><a href="#Deploy" class="headerlink" title="Deploy"></a>Deploy</h3><p></p><p>然後就可以進行部署使用了，Heroku APP會需要安裝許多依賴套件而增加100+MB的使用空間。</p><p>透過APP bash測試從證交所擷取上市股票代號一覽表⬇︎<br><img src="https://i.imgur.com/SrXtcYd.png" alt></p><h3 id="Ref"><a href="#Ref" class="headerlink" title="Ref."></a>Ref.</h3><p></p><p><br>＊<a href="https://www.andressevilla.com/running-chromedriver-with-python-selenium-on-heroku/" target="_blank" rel="noopener">Running ChromeDriver with Python Selenium on Heroku</a><br>＊<a href="https://selenium-python.readthedocs.io/" target="_blank" rel="noopener">Selenium 官方文件</a></p><h3 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h3><p></p><p><br>關於動態網頁資料擷取的小技巧：雖然Selenium WebDriverWait提供explicit waits可等待指定頁面元素載入，但實際上並沒有這麼順利，不過這也是讓我覺得學習web crawler有趣的地方(儘管有時候很頭疼😖)。有時候會發生指定元素確實在頁面上載入完成了，但內容卻是空空如也，又或許是我慧根不夠用不好<a href="https://selenium-python.readthedocs.io/waits.html?highlight=WebDriverWait#explicit-waits" target="_blank" rel="noopener">text_to_be_present_in_element</a>，試了半天還是抓不到我要的數據。哭啊，我就是要擷取內容文字咩！只好換個方式等待：</p><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium.webdriver.support.ui <span class="keyword">import</span> WebDriverWait</span><br><span class="line"></span><br><span class="line">driver = get_chrome()</span><br><span class="line">driver.get(<span class="string">""</span>)</span><br><span class="line">is_text = <span class="keyword">lambda</span> driver: driver.find_element_by_css_selector(<span class="string">''</span>).text.strip() != <span class="string">''</span></span><br><span class="line">WebDriverWait(driver, <span class="number">30</span>, <span class="number">0.5</span>).until(is_text)</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
@@ -38,11 +64,11 @@
     
       <category term="web crawler" scheme="https://laplacetw.github.io/tags/web-crawler/"/>
     
-      <category term="heroku" scheme="https://laplacetw.github.io/tags/heroku/"/>
-    
       <category term="selenium" scheme="https://laplacetw.github.io/tags/selenium/"/>
     
       <category term="chrome driver" scheme="https://laplacetw.github.io/tags/chrome-driver/"/>
+    
+      <category term="heroku" scheme="https://laplacetw.github.io/tags/heroku/"/>
     
   </entry>
   
@@ -118,9 +144,9 @@
     
       <category term="python" scheme="https://laplacetw.github.io/tags/python/"/>
     
-      <category term="mytoolbox" scheme="https://laplacetw.github.io/tags/mytoolbox/"/>
-    
       <category term="moviepy" scheme="https://laplacetw.github.io/tags/moviepy/"/>
+    
+      <category term="mytoolbox" scheme="https://laplacetw.github.io/tags/mytoolbox/"/>
     
   </entry>
   
@@ -346,9 +372,9 @@
     
       <category term="python" scheme="https://laplacetw.github.io/tags/python/"/>
     
-      <category term="mytoolbox" scheme="https://laplacetw.github.io/tags/mytoolbox/"/>
-    
       <category term="moviepy" scheme="https://laplacetw.github.io/tags/moviepy/"/>
+    
+      <category term="mytoolbox" scheme="https://laplacetw.github.io/tags/mytoolbox/"/>
     
   </entry>
   
@@ -474,9 +500,9 @@
     
       <category term="python" scheme="https://laplacetw.github.io/tags/python/"/>
     
-      <category term="pdf" scheme="https://laplacetw.github.io/tags/pdf/"/>
-    
       <category term="mytoolbox" scheme="https://laplacetw.github.io/tags/mytoolbox/"/>
+    
+      <category term="pdf" scheme="https://laplacetw.github.io/tags/pdf/"/>
     
   </entry>
   
@@ -503,30 +529,6 @@
       <category term="ipass" scheme="https://laplacetw.github.io/tags/ipass/"/>
     
       <category term="e-payment" scheme="https://laplacetw.github.io/tags/e-payment/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>動手更換老舊的電源插座</title>
-    <link href="https://laplacetw.github.io/replace-electrical-socket/"/>
-    <id>https://laplacetw.github.io/replace-electrical-socket/</id>
-    <published>2019-09-06T08:12:17.000Z</published>
-    <updated>2019-09-06T09:36:12.928Z</updated>
-    
-    <content type="html"><![CDATA[<p>突然想起很久、很久以前，似乎在五金賣場買了兩個插座要來更換，但買回來後就一直擱著…然後就忘了這件事😅<a id="more"></a>雖然插座不知道為什麼某天就突然插不緊了，我一開始還以為是裡頭的簧片變形之類的，不過就一直忘了換，儘管插頭插上去不是很穩固，但也還算得上堪用。</p><p>＊<span style="color:red;">安全至上，插座是有電的，更換前務必切掉總開關。</span></p><p>但我終於想起來啦，趕緊把兩個放到長灰塵的新插座挖出來，開始拆掉舊的插座，卸下蓋板、轉開兩顆固定螺絲…草泥馬呀！😱我想說怎麼看起來怪怪的，原來是插座本體的塑膠外殼竟然劣化斷掉了，所以才會直接看到裡頭的簧片…我以為只是簧片變形 ＝＝<br><img src="https://i.imgur.com/VVpK0Au.png" alt></p><p>接著用一字起子往電線旁紅圈處的卡榫插進去，就可以把電線給卸除了，不過我手邊沒有一字起子，所以用之前魚缸用的不鏽鋼長夾代替XD 如果怕忘了怎麼裝(或原本裝設的人裝反了)，卸除電線之前可以先拍照紀錄，通常紅色的為火線(有電)、白色的為水線(無電)，如果是三孔插座的話還會有綠色的接地線。</p><p>話說這插座還真是裂得誇張…<br><img src="https://i.imgur.com/wID59J9.png" alt></p><p>電線都卸除後就可以安裝新的插座啦，電線安裝的孔位旁邊會有圖示，較短的橫槓表示為火線安裝處，較長的橫槓則為水線，或有標示一個大寫英文字母W的字樣，中間則是接地線，務必確認電線有插到底不會鬆脫。而我當初買的是兩孔插座並沒有接地的設計，所以兩條接地線稍微整個線收好，就可以把插座面板鎖回去啦。<br><img src="https://i.imgur.com/hqiXjor.png" alt></p><p>打開電源總開關測試一下插座是否安裝正確，裝上插座蓋板，完成～😎<br><img src="https://i.imgur.com/uLTa5wO.png" alt></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;突然想起很久、很久以前，似乎在五金賣場買了兩個插座要來更換，但買回來後就一直擱著…然後就忘了這件事😅
-    
-    </summary>
-    
-      <category term="Daily" scheme="https://laplacetw.github.io/categories/Daily/"/>
-    
-    
-      <category term="DIY" scheme="https://laplacetw.github.io/tags/DIY/"/>
-    
-      <category term="plug socket" scheme="https://laplacetw.github.io/tags/plug-socket/"/>
     
   </entry>
   
