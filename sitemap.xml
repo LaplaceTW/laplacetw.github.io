@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://laplacetw.github.io/hexo-next-optimize/</loc>
+    
+    <lastmod>2020-09-17T07:34:22.698Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://laplacetw.github.io/python-botlegram/</loc>
     
-    <lastmod>2020-09-17T07:01:26.891Z</lastmod>
+    <lastmod>2020-09-17T07:27:34.371Z</lastmod>
     
   </url>
   
@@ -40,13 +47,6 @@
     <loc>https://laplacetw.github.io/data-sci-kafka-hello-world/</loc>
     
     <lastmod>2020-08-27T06:16:56.158Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://laplacetw.github.io/hexo-next-optimize/</loc>
-    
-    <lastmod>2020-08-25T04:13:45.922Z</lastmod>
     
   </url>
   

@@ -113,19 +113,19 @@
 
 
 
-  <meta name="description" content="我認真的為自己寫了一個套件，雖然現在還沒啥功能，只能發送文字和照片。">
+  <meta name="description" content="寫了一個套件，雖然現在還沒啥功能，只能發送文字和照片。">
 <meta name="keywords" content="python,chatbot,telegram">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python:快速建立Telegram聊天機器人">
 <meta property="og:url" content="https://laplacetw.github.io/python-botlegram/index.html">
 <meta property="og:site_name" content="Laplace&#39;s Lab">
-<meta property="og:description" content="我認真的為自己寫了一個套件，雖然現在還沒啥功能，只能發送文字和照片。">
+<meta property="og:description" content="寫了一個套件，雖然現在還沒啥功能，只能發送文字和照片。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://i.imgur.com/wauvK7S.png">
-<meta property="og:updated_time" content="2020-09-17T07:01:26.891Z">
+<meta property="og:updated_time" content="2020-09-17T07:27:34.371Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python:快速建立Telegram聊天機器人">
-<meta name="twitter:description" content="我認真的為自己寫了一個套件，雖然現在還沒啥功能，只能發送文字和照片。">
+<meta name="twitter:description" content="寫了一個套件，雖然現在還沒啥功能，只能發送文字和照片。">
 <meta name="twitter:image" content="https://i.imgur.com/wauvK7S.png">
 
 
@@ -456,7 +456,7 @@
       
 
       
-        <p>我認真的為自己寫了一個套件，雖然現在還沒啥功能，只能發送文字和照片。<a id="more"></a>也不是只有搞了個套件，還嘗試了用<a href="https://www.sphinx-doc.org/en/master/" target="_blank" rel="noopener">Sphinx</a>自動產生文件然後托管到<a href="https://readthedocs.org/" target="_blank" rel="noopener">Read The Docs</a>，被autodoc路徑折騰了不少時間…這是另一段故事了。雖然現在才開始研究怎麼寫Telegram Bot，也有多種程式語言的現成框架可以用，但我不想要使用高度封裝的複雜框架，所以決定一邊學習Telegram Bot API，一邊完成這個套件，希望我有足夠的時間和心力 😌</p>
+        <p>寫了一個套件，雖然現在還沒啥功能，只能發送文字和照片。<a id="more"></a>也不是只有搞了個套件，還嘗試了用<a href="https://www.sphinx-doc.org/en/master/" target="_blank" rel="noopener">Sphinx</a>自動產生文件然後托管到<a href="https://readthedocs.org/" target="_blank" rel="noopener">Read The Docs</a>，被autodoc路徑折騰了不少時間…這是另一段故事了。雖然現在才開始研究怎麼寫Telegram Bot，也有多種程式語言的現成框架可以用，但我不想要使用高度封裝的複雜框架，所以決定一邊學習Telegram Bot API，一邊完成這個套件，希望我有足夠的時間和心力 😌</p>
 <h3 id="Botlegram"><a href="#Botlegram" class="headerlink" title="Botlegram"></a>Botlegram</h3><p>
 
 </p><p>鏘！鏘！經過一番折騰終於發佈到Github上了，我希望能保持它的彈性，不要做多餘的事，它就只是一個Telegram Bot API的Python版本，所以功能函式命名也會盡可能地保持與<a href="https://core.telegram.org/bots/api#available-methods" target="_blank" rel="noopener">Telegram Bot API methods</a>一致。</p>
@@ -478,7 +478,7 @@
 <li>your_bot_token替換成你的專屬token</li>
 <li>your_host替換成你的Heroku App網址，請注意不可忽略的斜線<br>e.g. “<a href="https://APP_NAME.herokuapp.com/&quot;" target="_blank" rel="noopener">https://APP_NAME.herokuapp.com/&quot;</a></li>
 </ul>
-<h5 id="部署到Heroku"><a href="#部署到Heroku" class="headerlink" title="部署到Heroku"></a>部署到Heroku</h5><p>打開終端機依照下方指令操作，APP_NAME替換成你的Heroku App name<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ heroku login</span><br><span class="line">$ heroku git:remote -a APP_NAME</span><br><span class="line">$ git add .</span><br><span class="line">$ git commit -am <span class="string">"echo Bot"</span></span><br><span class="line">$ git push heroku master</span><br></pre></td></tr></table></figure></p>
+<h5 id="部署到Heroku"><a href="#部署到Heroku" class="headerlink" title="部署到Heroku"></a>部署到Heroku</h5><p>打開終端機依照下方指令操作，APP_NAME替換成你的Heroku App name<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> echoBot</span><br><span class="line">$ heroku login</span><br><span class="line">$ heroku git:remote -a APP_NAME</span><br><span class="line">$ git add .</span><br><span class="line">$ git commit -am <span class="string">"echo Bot"</span></span><br><span class="line">$ git push heroku master</span><br></pre></td></tr></table></figure></p>
 <h5 id="確認與測試"><a href="#確認與測試" class="headerlink" title="確認與測試"></a>確認與測試</h5><p>部署成功的話，可以在Heroku的APP Logs頁面看到「Webhook is already set」<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Starting process with <span class="built_in">command</span> `gunicorn app:app`</span><br><span class="line">[INFO] Starting gunicorn 20.0.4</span><br><span class="line">[INFO] Listening at: http://0.0.0.0:10426 (4)</span><br><span class="line">[INFO] Using worker: sync</span><br><span class="line">[INFO] Booting worker with pid: 10</span><br><span class="line">[INFO] Booting worker with pid: 11</span><br><span class="line">State changed from starting to up</span><br><span class="line">* [Bot] Webhook is already <span class="built_in">set</span></span><br><span class="line">* [Bot] Webhook is already <span class="built_in">set</span></span><br></pre></td></tr></table></figure></p>
 <p>打開Telegram和你的機器人對話，它應該會開始鸚鵡學舌囉 🐧</p>
 
