@@ -121,10 +121,12 @@
 <meta property="og:site_name" content="Laplace&#39;s Lab">
 <meta property="og:description" content="啊啊，ERROR。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-09-20T06:10:53.646Z">
+<meta property="og:image" content="https://i.imgur.com/9Y96knz.png">
+<meta property="og:updated_time" content="2020-09-20T10:52:11.056Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python:&amp;nbsp;install psycopg2 error">
 <meta name="twitter:description" content="啊啊，ERROR。">
+<meta name="twitter:image" content="https://i.imgur.com/9Y96knz.png">
 
 
 
@@ -460,6 +462,10 @@
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Error: pg_config executable not found.</span><br><span class="line"></span><br><span class="line">Please add the directory containing pg_config to the PATH</span><br><span class="line"></span><br><span class="line">(omitted...)</span><br><span class="line"></span><br><span class="line">ERROR: Command errored out with <span class="built_in">exit</span> status 1: python setup.py egg_info Check the logs <span class="keyword">for</span> full <span class="built_in">command</span> output.</span><br></pre></td></tr></table></figure>
 <p>pip報錯說找不到pg_config路徑，要把Postgress.app的bin資料夾路徑加入環境變數，<a href="https://stackoverflow.com/questions/11618898/pg-config-executable-not-found#24684701" target="_blank" rel="noopener">參考stackoverflow上的討論</a>，於安裝時指定其路徑(Mac OS)：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PATH=<span class="string">"/Applications/Postgres.app/Contents/Versions/latest/bin:<span class="variable">$PATH</span>"</span> pip install psycopg2</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/9Y96knz.png" alt></p>
+<h5 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h5><p></p><p><br><a href="http://postgresguide.com/utilities/psql.html" target="_blank" rel="noopener">Psql Commonly used commands</a></p>
+<p>\list: list databases<br>\dt : list tables in current DB<br>\d TABLE_NAME : list table columns<br>\x : enable expanded display (e.g. SELECT * FROM mytable LIMIT 10;)</p>
+
       
     </div>
 
@@ -583,8 +589,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -886,6 +901,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Note"><span class="nav-number">1.</span> <span class="nav-text">Note</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
