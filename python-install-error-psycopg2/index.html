@@ -121,7 +121,7 @@
 <meta property="og:site_name" content="Laplace&#39;s Lab">
 <meta property="og:description" content="啊啊，ERROR。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-09-20T05:51:07.217Z">
+<meta property="og:updated_time" content="2020-09-20T06:10:53.646Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python:&amp;nbsp;install psycopg2 error">
 <meta name="twitter:description" content="啊啊，ERROR。">
@@ -455,7 +455,7 @@
 
       
         <p>啊啊，ERROR。<a id="more"></a></p>
-<p>上一次安裝PostgreSQL是汰換Win 7筆電之前，這次在Mac OS安裝<a href="http://postgresapp.com/" target="_blank" rel="noopener">Postgress.app</a>，然後要安裝psycopg2的時候報錯了。</p>
+<p>上一次安裝PostgreSQL是汰換Win 7筆電之前，這次在Mac OS安裝<a href="http://postgresapp.com/" target="_blank" rel="noopener">Postgres.app</a>，然後要安裝psycopg2的時候報錯了。</p>
 <p>傻眼，我有些急用啊，你大哥請支援收銀好嗎？</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Error: pg_config executable not found.</span><br><span class="line"></span><br><span class="line">Please add the directory containing pg_config to the PATH</span><br><span class="line"></span><br><span class="line">(omitted...)</span><br><span class="line"></span><br><span class="line">ERROR: Command errored out with <span class="built_in">exit</span> status 1: python setup.py egg_info Check the logs <span class="keyword">for</span> full <span class="built_in">command</span> output.</span><br></pre></td></tr></table></figure>
 <p>pip報錯說找不到pg_config路徑，要把Postgress.app的bin資料夾路徑加入環境變數，<a href="https://stackoverflow.com/questions/11618898/pg-config-executable-not-found#24684701" target="_blank" rel="noopener">參考stackoverflow上的討論</a>，於安裝時指定其路徑(Mac OS)：</p>
