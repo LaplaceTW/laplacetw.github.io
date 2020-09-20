@@ -1824,7 +1824,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #2fbfff;
+  background: #ffed8f;
 }
 .feed-link,
 .chat {
@@ -3127,16 +3127,19 @@ ul.breadcrumb li+li:last-child {
   background: #fff;
   opacity: 0.9;
 }
-.post-body p a {
+.post-body p a,
+.post-body li a {
   color: #003d79;
   border-bottom: none;
   border-bottom: 1px solid #003d79;
 }
-.post-body p a:hover {
+.post-body p a:hover,
+.post-body li a:hover {
   color: #0080ff;
   border-bottom: none;
   border-bottom: 1px solid #0080ff;
 }
+#posts > article > div > div > ul:nth-child(5) > li:nth-child(1) > a,
 .header-inner {
   background: rgba(255,255,255,0.91);
   opacity: 1;
