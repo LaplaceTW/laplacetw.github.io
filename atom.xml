@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://laplacetw.github.io/"/>
-  <updated>2020-09-20T10:52:11.056Z</updated>
+  <updated>2020-09-29T16:38:19.646Z</updated>
   <id>https://laplacetw.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python:字典排序</title>
+    <link href="https://laplacetw.github.io/pyhton-sort-dict-by-value/"/>
+    <id>https://laplacetw.github.io/pyhton-sort-dict-by-value/</id>
+    <published>2020-09-29T12:30:02.000Z</published>
+    <updated>2020-09-29T16:38:19.646Z</updated>
+    
+    <content type="html"><![CDATA[<p>有時候會需要依據dict value來排序，嗯，就是會有這種時候(´･_･`)<a id="more"></a> 話說我看了官方文件才發現，從Python 3.6開始依據<a href="https://www.python.org/dev/peps/pep-0468/" target="_blank" rel="noopener">PEP 468</a>將保留**kwargs的順序，所以現在dict也是有序的呢(插入元素的順序)，而我開始學習Python的時候是3.5版。</p><p><br>假設有個dict長這樣：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">my_friend = &#123;</span><br><span class="line">    <span class="string">'Mike'</span>:&#123;<span class="string">'gender'</span>:<span class="string">'male'</span>, <span class="string">'age'</span>:<span class="number">25</span>&#125;, </span><br><span class="line">    <span class="string">'Emily'</span>:&#123;<span class="string">'gender'</span>:<span class="string">'female'</span>, <span class="string">'age'</span>:<span class="number">23</span>&#125;, </span><br><span class="line">    <span class="string">'John'</span>:&#123;<span class="string">'gender'</span>:<span class="string">'male'</span>, <span class="string">'age'</span>:<span class="number">30</span>&#125;, </span><br><span class="line">    <span class="string">'Ted'</span>:&#123;<span class="string">'gender'</span>:<span class="string">'male'</span>, <span class="string">'age'</span>:<span class="number">26</span>&#125;, </span><br><span class="line">    <span class="string">'Alice'</span>:&#123;<span class="string">'gender'</span>:<span class="string">'female'</span>, <span class="string">'age'</span>:<span class="number">29</span>&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>如果想依據’age’來排序？ 利用lambda將sort key指定為dict value中的某個值來排序dict.items()：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>sort_my_friend = sorted(my_friend.items(), key=<span class="keyword">lambda</span> x:x[<span class="number">1</span>][<span class="string">'age'</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>sort_my_friend</span><br><span class="line">[(<span class="string">'Emily'</span>, &#123;<span class="string">'gender'</span>: <span class="string">'female'</span>, <span class="string">'age'</span>: <span class="number">23</span>&#125;), (<span class="string">'Mike'</span>, &#123;<span class="string">'gender'</span>: <span class="string">'male'</span>, <span class="string">'age'</span>: <span class="number">25</span>&#125;), (<span class="string">'Ted'</span>, &#123;<span class="string">'gender'</span>: <span class="string">'male'</span>, <span class="string">'age'</span>: <span class="number">26</span>&#125;), (<span class="string">'Alice'</span>, &#123;<span class="string">'gender'</span>: <span class="string">'female'</span>, <span class="string">'age'</span>: <span class="number">29</span>&#125;), (<span class="string">'John'</span>, &#123;<span class="string">'gender'</span>: <span class="string">'male'</span>, <span class="string">'age'</span>: <span class="number">30</span>&#125;)]</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;有時候會需要依據dict value來排序，嗯，就是會有這種時候(´･_･`)
+    
+    </summary>
+    
+      <category term="Python" scheme="https://laplacetw.github.io/categories/Python/"/>
+    
+    
+      <category term="python" scheme="https://laplacetw.github.io/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>Python:&amp;nbsp;install psycopg2 error</title>
@@ -505,32 +527,6 @@
       <category term="manjaro" scheme="https://laplacetw.github.io/tags/manjaro/"/>
     
       <category term="kde" scheme="https://laplacetw.github.io/tags/kde/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python批次加密PDF文件</title>
-    <link href="https://laplacetw.github.io/python-pdf-batch-encrypt/"/>
-    <id>https://laplacetw.github.io/python-pdf-batch-encrypt/</id>
-    <published>2020-02-17T14:30:28.000Z</published>
-    <updated>2020-07-06T02:57:07.205Z</updated>
-    
-    <content type="html"><![CDATA[<p>又好一段時間沒更新了(忙，然後就2020年了…紀錄一下前陣子寫了段程式碼幫人處理批次加密PDF。<br><a id="more"></a></p><h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>事實上這需求與薪資系統有關，我只知道那系統似乎很瞎，但人工處理這種大量重複性的問題更瞎🙄<br>於是我們會有無數個PDF文件和一個txt文件，PDF內容是個人機密😎，而txt裡頭則是對照表，當程式讀進路徑下所有PDF文件後，會依照PDF檔名去對照每個人的ID Number，以作為PDF文件加密的密碼，然後使用PyPDF2這個模組來進行加密。需注意讀取跟寫入的檔名不能相同，因為加密完會遇到檔案已存在而無法回寫的情況，只好在讀檔之前一律先把檔名改為”tmp.pdf”，讀進來加密完再另存回原檔名，然後刪除”tmp.pdf”，如此完成一個PDF文件的加密。</p><p>＊PDF檔名即為code，而txt檔裡頭的對照表有兩個欄位：code | id_number</p><h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># *** coding:utf-8 ***</span></span><br><span class="line"><span class="keyword">import</span> os, glob</span><br><span class="line"><span class="keyword">from</span> PyPDF2 <span class="keyword">import</span> PdfFileReader <span class="keyword">as</span> pdfReader</span><br><span class="line"><span class="keyword">from</span> PyPDF2 <span class="keyword">import</span> PdfFileWriter <span class="keyword">as</span> pdfWriter</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">find_id_by_code</span><span class="params">(code, table)</span>:</span></span><br><span class="line">    pswd = <span class="string">"123456"</span>  <span class="comment"># default password</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> table:</span><br><span class="line">        <span class="keyword">if</span> code <span class="keyword">in</span> i:</span><br><span class="line">            pswd = str(i).split()[<span class="number">1</span>]</span><br><span class="line">            print(code, <span class="string">"--&gt;"</span>, pswd)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> pswd</span><br><span class="line"></span><br><span class="line">id = open(<span class="string">"ID.txt"</span>)</span><br><span class="line">ID_table = list(id)</span><br><span class="line">id.close()</span><br><span class="line"></span><br><span class="line">pdf_files = glob.glob(<span class="string">r"*.pdf"</span>)</span><br><span class="line"><span class="keyword">for</span> path <span class="keyword">in</span> pdf_files:</span><br><span class="line">    code = path.replace(<span class="string">".pdf"</span>, <span class="string">""</span>)</span><br><span class="line">    os.rename(path, <span class="string">"tmp.pdf"</span>)</span><br><span class="line">    in_file = open(<span class="string">"tmp.pdf"</span>, <span class="string">"r+b"</span>)</span><br><span class="line">    in_pdf = pdfReader(in_file)</span><br><span class="line"></span><br><span class="line">    out_pdf = pdfWriter()</span><br><span class="line">    out_pdf.appendPagesFromReader(in_pdf)</span><br><span class="line">    pswd = find_id_by_code(code, ID_table)</span><br><span class="line">    out_pdf.encrypt(pswd)</span><br><span class="line"></span><br><span class="line">    out_file = open(path, <span class="string">"wb"</span>)</span><br><span class="line">    out_pdf.write(out_file)</span><br><span class="line"></span><br><span class="line">    in_file.close()</span><br><span class="line">    out_file.close()</span><br><span class="line">    os.remove(<span class="string">"tmp.pdf"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">del</span> in_pdf, out_pdf</span><br><span class="line">input(<span class="string">"Encrypt Complete! Now you can close the window."</span>)</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;又好一段時間沒更新了(忙，然後就2020年了…紀錄一下前陣子寫了段程式碼幫人處理批次加密PDF。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="https://laplacetw.github.io/categories/Python/"/>
-    
-    
-      <category term="python" scheme="https://laplacetw.github.io/tags/python/"/>
-    
-      <category term="mytoolbox" scheme="https://laplacetw.github.io/tags/mytoolbox/"/>
-    
-      <category term="pdf" scheme="https://laplacetw.github.io/tags/pdf/"/>
     
   </entry>
   
