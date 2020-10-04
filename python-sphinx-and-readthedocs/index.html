@@ -123,7 +123,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://i.imgur.com/XowPf8k.png">
 <meta property="og:image" content="https://i.imgur.com/DhpdU4O.png">
-<meta property="og:updated_time" content="2020-10-01T16:37:34.081Z">
+<meta property="og:updated_time" content="2020-10-04T08:46:54.425Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python:&amp;nbsp;Sphinx ＆ ReadTheDocs">
 <meta name="twitter:description" content="當我認真想為個人專案寫文件的時候，於是想到了Sphinx，">
@@ -479,8 +479,9 @@
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -- Path setup --------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># If extensions (or modules to document with autodoc) are in another directory,</span></span><br><span class="line"><span class="comment"># add these directories to sys.path here. If the directory is relative to the</span></span><br><span class="line"><span class="comment"># documentation root, use os.path.abspath to make it absolute, like shown here.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.path.insert(<span class="number">0</span>, os.path.abspath(<span class="string">'../../src'</span>))</span><br></pre></td></tr></table></figure>
 <p>路徑不能亂設定，例如<a href="https://stackoverflow.com/questions/20251007/sphinx-and-relative-imports-in-python-3" target="_blank" rel="noopener">將package目錄直接設定為原始碼路徑</a>，然後就導致各種import error然後文件建置失敗😅</p>
 </li>
-<li><p>首頁</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -- General configuration ---------------------------------------------------</span></span><br><span class="line">master_doc = <span class="string">'index'</span>  <span class="comment"># index.rst</span></span><br></pre></td></tr></table></figure>
+<li><p>一般設定</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -- General configuration ---------------------------------------------------</span></span><br><span class="line">master_doc = <span class="string">'index'</span>  <span class="comment"># main page: index.rst</span></span><br><span class="line">autodoc_member_order = <span class="string">'bysource'</span>  <span class="comment"># optional</span></span><br></pre></td></tr></table></figure>
+<p>如果不希望autodoc自動對member排序就設定為’bysource’。</p>
 </li>
 <li><p>擴充功能</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Add any Sphinx extension module names here, as strings. They can be</span></span><br><span class="line"><span class="comment"># extensions coming with Sphinx (named 'sphinx.ext.*') or your custom</span></span><br><span class="line"><span class="comment"># ones.</span></span><br><span class="line">extensions = [<span class="string">'sphinx.ext.autodoc'</span>]</span><br></pre></td></tr></table></figure>

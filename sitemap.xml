@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://laplacetw.github.io/python-sphinx-and-readthedocs/</loc>
+    
+    <lastmod>2020-10-04T08:46:54.425Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://laplacetw.github.io/sofdev-travis-ci/</loc>
     
     <lastmod>2020-10-03T08:13:31.009Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>https://laplacetw.github.io/python-botlegram/</loc>
     
     <lastmod>2020-10-03T04:25:41.363Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://laplacetw.github.io/python-sphinx-and-readthedocs/</loc>
-    
-    <lastmod>2020-10-01T16:37:34.081Z</lastmod>
     
   </url>
   
