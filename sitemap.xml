@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://laplacetw.github.io/asserting-waived-succession/</loc>
+    
+    <lastmod>2020-10-29T16:33:43.753Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://laplacetw.github.io/python-sphinx-and-readthedocs/</loc>
     
     <lastmod>2020-10-04T08:46:54.425Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>https://laplacetw.github.io/python-botlegram/</loc>
     
     <lastmod>2020-10-03T04:25:41.363Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://laplacetw.github.io/asserting-waived-succession/</loc>
-    
-    <lastmod>2020-09-30T12:38:47.397Z</lastmod>
     
   </url>
   
