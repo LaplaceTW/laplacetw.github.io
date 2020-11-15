@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://laplacetw.github.io/"/>
-  <updated>2020-10-03T08:13:31.009Z</updated>
+  <updated>2020-11-15T13:33:42.003Z</updated>
   <id>https://laplacetw.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Manjaro安裝VirtualBox</title>
+    <link href="https://laplacetw.github.io/linux-manjaro-virtualbox/"/>
+    <id>https://laplacetw.github.io/linux-manjaro-virtualbox/</id>
+    <published>2020-11-15T12:35:00.000Z</published>
+    <updated>2020-11-15T13:33:42.003Z</updated>
+    
+    <content type="html"><![CDATA[<p>因為某堂課程的作業需要M$環境…<a id="more"></a>就為了操作檔案加密，我本來挖出了退役的舊筆電，結果它是Windows 7家用版，無法使用那該死的檔案加密功能！只好裝起虛擬機 🤬</p><h4 id="Enabling-Virtualisation"><a href="#Enabling-Virtualisation" class="headerlink" title="Enabling Virtualisation"></a>Enabling Virtualisation</h4><p>在安裝VirtualBox之前，必須先進BIOS檢查，確定有啟用CPU虛擬化，否則會跳出VERR_SVM_DIABLED錯誤。</p><h4 id="Install-VirtualBox"><a href="#Install-VirtualBox" class="headerlink" title="Install VirtualBox"></a>Install VirtualBox</h4><p>我們會需要安裝virtualbox和host modules，後者得根據系統核心來安裝對應的版本：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># check the version of Linux kernel</span></span><br><span class="line">$ mhwd-kernel -li</span><br><span class="line">Currently running: 4.19.126-1-MANJARO (linux419)</span><br><span class="line">The following kernels are installed <span class="keyword">in</span> your system:</span><br><span class="line">   * linux419</span><br></pre></td></tr></table></figure></p><p>執行系統更新並根據系統核心版本安裝virtualbox：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># &#123;KERNEL_VERSION&#125;-virtualbox-host-modules</span></span><br><span class="line">$ sudo pacman -Syu virtualbox linux419-virtualbox-host-modules</span><br></pre></td></tr></table></figure></p><p>如果有跑系統更新，建議安裝完成後重新啟動。或手動將virtualbox載入系統核心：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vboxreload</span><br></pre></td></tr></table></figure></p><p>確認VirtualBox版本：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ vboxmanage --version</span><br><span class="line">6.1.16r140961</span><br></pre></td></tr></table></figure></p><h4 id="Host-Config"><a href="#Host-Config" class="headerlink" title="Host Config"></a>Host Config</h4><p>在啟動virtualbox之前，還要將自己的系統帳號加入vboxusers使用者群組才行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo gpasswd -a &#123;USERNAME&#125; vboxusers</span><br></pre></td></tr></table></figure></p><p>記得登出或重啟系統以使帳號設定變更生效，然後就可以啟動virtualbox啦：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ virtualbox</span><br></pre></td></tr></table></figure></p><p><img src="https://i.imgur.com/qf6bNsr.png" alt><br><img src="https://i.imgur.com/gO2vZqD.png" alt></p><p>Ref. <a href="https://wiki.manjaro.org/index.php/VirtualBox" target="_blank" rel="noopener">https://wiki.manjaro.org/index.php/VirtualBox</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;因為某堂課程的作業需要M$環境…
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://laplacetw.github.io/categories/Linux/"/>
+    
+    
+      <category term="linux" scheme="https://laplacetw.github.io/tags/linux/"/>
+    
+      <category term="manjaro" scheme="https://laplacetw.github.io/tags/manjaro/"/>
+    
+  </entry>
   
   <entry>
     <title>Travis CI使用設置</title>
@@ -416,11 +440,11 @@
     
       <category term="keras" scheme="https://laplacetw.github.io/tags/keras/"/>
     
-      <category term="cifar-10" scheme="https://laplacetw.github.io/tags/cifar-10/"/>
-    
       <category term="deep learning" scheme="https://laplacetw.github.io/tags/deep-learning/"/>
     
       <category term="computer vision" scheme="https://laplacetw.github.io/tags/computer-vision/"/>
+    
+      <category term="cifar-10" scheme="https://laplacetw.github.io/tags/cifar-10/"/>
     
   </entry>
   
@@ -499,28 +523,6 @@
       <category term="moviepy" scheme="https://laplacetw.github.io/tags/moviepy/"/>
     
       <category term="mytoolbox" scheme="https://laplacetw.github.io/tags/mytoolbox/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>eMask口罩預購&amp;取貨</title>
-    <link href="https://laplacetw.github.io/taiwan-emask-pre-order/"/>
-    <id>https://laplacetw.github.io/taiwan-emask-pre-order/</id>
-    <published>2020-03-26T14:40:12.000Z</published>
-    <updated>2020-03-29T17:03:12.627Z</updated>
-    
-    <content type="html"><![CDATA[<p>Taiwan No.1❤️<a id="more"></a></p><h3 id="口罩預購"><a href="#口罩預購" class="headerlink" title="口罩預購"></a>口罩預購</h3><p><br><br><a href="https://emask.taiwan.gov.tw/msk/index.jsp" target="_blank" rel="noopener">eMask口罩預購系統</a>於3/12~3/18開放首波預購，今天終於開始取貨啦！取貨時間為3/26~4/1，若沒有在期限內完成領取就視同放棄唷。(這可不是什麼愚人節梗！</p><p>第二波預購期間為3/25~3/27晚上8點截止，詳情見<a href="https://mrmad.com.tw/emask-taiwan-gov-20-app" target="_blank" rel="noopener">衛福部公告</a>，我個人是使用健保快易通APP來預購的，相關設定可以參考這篇教學：<a href="https://mrmad.com.tw/emask-taiwan-gov-20-app" target="_blank" rel="noopener">點我</a>，無須讀取我們的<del>地表最強</del>健保卡，非常方便。</p><p>預購完成後就等待抽籤，首波預購人數不多，因此有參加預購的人都能買到(儘管有18萬人沒有繳費…)，第二波就未知數了＠＠<br>3/28 更新：因為第二波預購人數依然未超過上限，因此登記預購者都能買到。<br><img src="https://i.imgur.com/vRZqnCX.jpg" alt></p><h3 id="預購繳費"><a href="#預購繳費" class="headerlink" title="預購繳費"></a>預購繳費</h3><p><br><br>第二波預購開放APP也能刷卡繳費囉～話說填寫信用卡資訊的這個「卡片後三碼」反而讓我有點錯愕，就檢核碼呀😅<br><img src="https://i.imgur.com/Hi10jKK.png" alt><br>繳費成功！<br><img src="https://i.imgur.com/t3NxohE.png" alt></p><h3 id="口罩領取"><a href="#口罩領取" class="headerlink" title="口罩領取"></a>口罩領取</h3><p><br><br>統一超商ibon首頁就能看到口罩取貨專區😷<br><img src="https://i.imgur.com/c0mPcLA.jpg" alt></p><p>輸入身分證後4碼以及取貨通知簡訊中的取貨序號<br><img src="https://i.imgur.com/jEZxkSq.jpg" alt></p><p>拿著小白單到超商櫃檯就能領取到珍貴的口罩！<br><img src="https://i.imgur.com/CW90CFq.jpg" alt></p><p>希望這糟糕的一切能盡快結束😬，祝福我們都健健康康💪。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Taiwan No.1❤️
-    
-    </summary>
-    
-      <category term="Daily" scheme="https://laplacetw.github.io/categories/Daily/"/>
-    
-    
-      <category term="covid-2019" scheme="https://laplacetw.github.io/tags/covid-2019/"/>
     
   </entry>
   

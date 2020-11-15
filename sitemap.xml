@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://laplacetw.github.io/linux-manjaro-virtualbox/</loc>
+    
+    <lastmod>2020-11-15T13:33:42.003Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://laplacetw.github.io/linux-manjaro-install-and-optimization/</loc>
+    
+    <lastmod>2020-11-15T12:33:46.471Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://laplacetw.github.io/asserting-waived-succession/</loc>
     
     <lastmod>2020-10-29T16:33:43.753Z</lastmod>
@@ -173,13 +187,6 @@
     <loc>https://laplacetw.github.io/study-acute-necrotizing-encephalopathy-of-childhood/</loc>
     
     <lastmod>2020-06-12T17:20:47.914Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://laplacetw.github.io/linux-manjaro-install-and-optimization/</loc>
-    
-    <lastmod>2020-06-05T07:04:42.582Z</lastmod>
     
   </url>
   
