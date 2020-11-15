@@ -113,17 +113,21 @@
 
 
 
-  <meta name="description" content="CS Graduate Student">
-<meta name="keywords" content="Python, Computer Science, Data Science, Deep Learning, Internet of Things">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Laplace&#39;s Lab">
-<meta property="og:url" content="https://laplacetw.github.io/page/12/index.html">
+  <meta name="description" content="順便筆記一下安裝指令。">
+<meta name="keywords" content="mac,vs code">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Zsh在VS Code中的顯示設定">
+<meta property="og:url" content="https://laplacetw.github.io/mac-zsh-and-vscode/index.html">
 <meta property="og:site_name" content="Laplace&#39;s Lab">
-<meta property="og:description" content="CS Graduate Student">
+<meta property="og:description" content="順便筆記一下安裝指令。">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="https://i.imgur.com/yn3BTug.png">
+<meta property="og:image" content="https://i.imgur.com/Fuw8S8v.png">
+<meta property="og:updated_time" content="2020-11-15T14:35:29.700Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Laplace&#39;s Lab">
-<meta name="twitter:description" content="CS Graduate Student">
+<meta name="twitter:title" content="Zsh在VS Code中的顯示設定">
+<meta name="twitter:description" content="順便筆記一下安裝指令。">
+<meta name="twitter:image" content="https://i.imgur.com/yn3BTug.png">
 
 
 
@@ -131,7 +135,7 @@
 
   
   
-  <link rel="canonical" href="https://laplacetw.github.io/page/12/">
+  <link rel="canonical" href="https://laplacetw.github.io/mac-zsh-and-vscode/">
 
 
 
@@ -141,7 +145,7 @@
   };
 </script>
 
-  <title>Laplace's Lab – “We're believers that the best way to learn something is to do it.”</title>
+  <title>Zsh在VS Code中的顯示設定 | Laplace's Lab</title>
   
 
 
@@ -189,8 +193,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left 
-  page-home">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -340,9 +343,8 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -357,7 +359,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://laplacetw.github.io/python-scope-of-variables/">
+    <link itemprop="mainEntityOfPage" href="https://laplacetw.github.io/mac-zsh-and-vscode/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LaplaceTW">
@@ -374,10 +376,8 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/python-scope-of-variables/" class="post-title-link" itemprop="url">關於Python的變數範圍</a>
+          <h2 class="post-title" itemprop="name headline">Zsh在VS Code中的顯示設定
+
               
             
           </h2>
@@ -400,7 +400,7 @@
                 
               
 
-              <time title="Created: 2018-08-08 01:09:13" itemprop="dateCreated datePublished" datetime="2018-08-08T01:09:13+08:00">2018-08-08</time>
+              <time title="Created: 2020-11-15 21:48:44" itemprop="dateCreated datePublished" datetime="2020-11-15T21:48:44+08:00">2020-11-15</time>
             
 
             
@@ -416,7 +416,7 @@
               </span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Mac/" itemprop="url" rel="index"><span itemprop="name">Mac</span></a></span>
 
                 
                 
@@ -432,6 +432,13 @@
           
           
 
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon" title="Views">
+            <i class="fa fa-eye"></i>
+            
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
           
 
           
@@ -450,21 +457,19 @@
       
 
       
-        
-          <p>在Python的世界裡，變數是不需要事先宣告就能直接賦値並使用的，而<strong>變數的作用範圍會在賦値的時候建立</strong>，除非你指定了global或nonlocal關鍵字。<br>
+        <p>順便筆記一下安裝指令。<a id="more"></a></p>
+<h3 id="Install-Oh-My-Zsh"><a href="#Install-Oh-My-Zsh" class="headerlink" title="Install Oh My Zsh"></a>Install Oh My Zsh</h3><p>參考<a href="https://mrmad.com.tw/macos-terminal-oh-my-zsh" target="_blank" rel="noopener">瘋先生MRMAD的快速教學</a>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ sh -c <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)</span>"</span></span><br><span class="line">$ vim ~/.zshrc  <span class="comment"># change ZSH_THEME as "agnoster"</span></span><br><span class="line">$ <span class="built_in">echo</span> <span class="string">'syntax on'</span> &gt;&gt; ~/.vimrc  <span class="comment"># enable syntax highlight</span></span><br><span class="line">$ <span class="built_in">echo</span> <span class="string">'set nu!'</span> &gt;&gt; ~/.vimrc    <span class="comment"># enable line numbers</span></span><br><span class="line">$ <span class="built_in">source</span> ~/.zshrc  <span class="comment"># make changes reload</span></span><br></pre></td></tr></table></figure>
+<p>安裝、設定完成會發現Terminal顯示亂碼的情形，因為agnoster主題包含特殊符號，需安裝Powerline系列字體才能正常顯示：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/Downloads &amp;&amp; git <span class="built_in">clone</span> https://github.com/powerline/fonts.git</span><br><span class="line">$ <span class="built_in">cd</span> fonts &amp;&amp; ./install.sh</span><br><span class="line">$ <span class="built_in">cd</span> &amp;&amp; rm -rf ~/Downloads/fonts</span><br></pre></td></tr></table></figure></p>
+<p>接著打開Terminal偏好設定 &gt; 描述檔 &gt; 字體，變更為Powerline系列的字體。我是用Source Code Pro for Powerline，另外路徑的背景顏色預設會有過深的問題，可以調整ANSI顏色選項的藍色部分為淺一點的顏色。</p>
+<h3 id="VS-Code-Integrated-Terminal"><a href="#VS-Code-Integrated-Terminal" class="headerlink" title="VS Code Integrated Terminal"></a>VS Code Integrated Terminal</h3><p>Terminal顯示亂碼在VS Code裡頭也會見到，同樣要修改字體為Powerline系列字體：設定 &gt; 功能 &gt; 終端機 &gt; Integrated: Font Family。</p>
+<p>顏色設定可以在設定中搜尋workbench，找到Workbench: Color Customizations的選項，點選「在settings.json內編輯」，相關參數設定可參考VS Code官網的說明：<a href="https://code.visualstudio.com/api/references/theme-color#integrated-terminal-colors" target="_blank" rel="noopener">Integrated Terminal Colors</a></p>
+<p><img src="https://i.imgur.com/yn3BTug.png" alt></p>
+<p>不過我另外有找到一個設定檔的<a href="https://github.com/Tyriar/vscode-snazzy" target="_blank" rel="noopener">懶人包</a>，或許可以直接套用，再來做調整比較省事 😄</p>
+<p><img src="https://i.imgur.com/Fuw8S8v.png" alt></p>
 
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/python-scope-of-variables/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
       
-    </p></div>
+    </div>
 
     
       
@@ -486,496 +491,58 @@
 
     <footer class="post-footer">
       
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://laplacetw.github.io/line-use-custom-fonts-in-heroku-apps/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LaplaceTW">
-      <meta itemprop="description" content="CS Graduate Student">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Laplace's Lab">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/line-use-custom-fonts-in-heroku-apps/" class="post-title-link" itemprop="url">在Heroku環境下使用自訂字型</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fas fa-calendar-alt"></i>
-              </span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-08-03 12:00:26" itemprop="dateCreated datePublished" datetime="2018-08-03T12:00:26+08:00">2018-08-03</time>
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fas fa-folder-open"></i>
-              </span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/LineBot/" itemprop="url" rel="index"><span itemprop="name">LineBot</span></a></span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/mac/" rel="tag"><i class="fas fa-tags"></i> mac</a>
           
-
+            <a href="/tags/vs-code/" rel="tag"><i class="fas fa-tags"></i> vs code</a>
           
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
       
       
-
       
-        
-          <p>事情是這樣子的，持續努力讓Bot能查教師課表的某一天，在經歷了數據蒐集、數據處理、介接imgur api…等等，終於讓Bot傳來了一張圖片啦~但仔細一看似乎不太對勁!<br>
-
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/line-use-custom-fonts-in-heroku-apps/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </p></div>
-
-    
-      
-
-
-    
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://laplacetw.github.io/restart-planted-tank-day21/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LaplaceTW">
-      <meta itemprop="description" content="CS Graduate Student">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Laplace's Lab">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/restart-planted-tank-day21/" class="post-title-link" itemprop="url">翻缸Day21:藍綠藻來襲</a>
-              
-            
-          </h2>
+        <div class="post-widgets">
         
 
-        <div class="post-meta">
-          <span class="post-time">
+        
 
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fas fa-calendar-alt"></i>
-              </span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-07-22 01:30:16" itemprop="dateCreated datePublished" datetime="2018-07-22T01:30:16+08:00">2018-07-22</time>
-            
-
-            
-          </span>
-
+        
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fas fa-folder-open"></i>
-              </span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Aquarium/" itemprop="url" rel="index"><span itemprop="name">Aquarium</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
+          <div class="social_share">
             
             
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+              <div id="needsharebutton-postbottom">
+                <span class="btn">
+                  <i class="fa fa-share-alt" aria-hidden="true"></i>
+                </span>
+              </div>
+            
+            
+          </div>
+        
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
       
       
 
       
-        
-          <p>開始新工作，下了班想發文卻提不起勁…呵。但還是利用假日來紀錄一下魚缸的近況吧。<br>
-
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/restart-planted-tank-day21/#more" rel="contents">
-                Read more &raquo;
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/linux-manjaro-virtualbox/" rel="next" title="Manjaro安裝VirtualBox">
+                <i class="fa fa-chevron-left"></i> Manjaro安裝VirtualBox
               </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </p></div>
-
-    
-      
-
-
-    
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://laplacetw.github.io/hexo-config/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LaplaceTW">
-      <meta itemprop="description" content="CS Graduate Student">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Laplace's Lab">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/hexo-config/" class="post-title-link" itemprop="url">先別管Hexo如何發文了，你聽過NexT嗎?</a>
-              
             
-          </h2>
-        
+          </div>
 
-        <div class="post-meta">
-          <span class="post-time">
+          <span class="post-nav-divider"></span>
 
+          <div class="post-nav-prev post-nav-item">
             
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fas fa-calendar-alt"></i>
-              </span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-07-12 01:01:20" itemprop="dateCreated datePublished" datetime="2018-07-12T01:01:20+08:00">2018-07-12</time>
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fas fa-folder-open"></i>
-              </span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-      
       
 
       
-        
-          <p>2020/05/29更新。<br>部署完部落格別急著發文，先來找個喜歡的佈景主題。<br>
-
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/hexo-config/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </p></div>
-
-    
-      
-
-
-    
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -985,179 +552,22 @@
   </article>
 
 
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://laplacetw.github.io/restart-planted-tank-day8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LaplaceTW">
-      <meta itemprop="description" content="CS Graduate Student">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Laplace's Lab">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/restart-planted-tank-day8/" class="post-title-link" itemprop="url">翻缸Day8:除藻生物</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fas fa-calendar-alt"></i>
-              </span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-07-09 11:35:05" itemprop="dateCreated datePublished" datetime="2018-07-09T11:35:05+08:00">2018-07-09</time>
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fas fa-folder-open"></i>
-              </span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Aquarium/" itemprop="url" rel="index"><span itemprop="name">Aquarium</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-      
-      
-
-      
-        
-          <p>目前光照時間已拉長至8小時，光源為Johnlen LED 1.5呎19W水草自然混光燈、色溫4000k&amp;7000k的燈珠各3顆，CO2則是24小時不間斷，唯夜間會降低出氣量。重新翻缸後，底床僅有舊矽砂無鋪設基肥，依植草位置適量埋入ISTA水草根肥，因此在每週換水1/2後會酌量添加TBS綠色&amp;紅色水草液肥。雖然目前並無藻類大量滋生的跡象，但除藻生物可是水草缸不可或缺的小幫手呢。<br>
-
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/restart-planted-tank-day8/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </p></div>
-
-    
-      
-
-
-    
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/11/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/13/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
-  </nav>
-
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -1177,8 +587,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1493,6 +912,23 @@
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-Oh-My-Zsh"><span class="nav-number">1.</span> <span class="nav-text">Install Oh My Zsh</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VS-Code-Integrated-Terminal"><span class="nav-number">2.</span> <span class="nav-text">VS Code Integrated Terminal</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
 
@@ -1648,6 +1084,10 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
 
   
 
@@ -1666,37 +1106,55 @@
   
 
   
-    
-      
-    
-  
 
   
   
   
-    <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
-    <script>
-      
-        window.addEventListener('load', () => {
-      
-        quicklink({
-          timeout: 3000,
-          priority: true,
-          ignores: [uri => uri.includes('#'),uri => uri == 'https://laplacetw.github.io/page/12/',]
+
+
+  
+  
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://laplacetw.github.io/mac-zsh-and-vscode/";
+    this.page.identifier = "mac-zsh-and-vscode/";
+    this.page.title = 'Zsh在VS Code中的顯示設定';
+    };
+  function loadComments() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://laplaces-lab.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', '' + +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  
+    $(function() {
+      var offsetTop = $('#comments').offset().top - $(window).height();
+      if (offsetTop <= 0) {
+        // load directly when there's no a scrollbar
+        loadComments();
+      } else {
+        $(window).on('scroll.disqus_scroll', function() {
+          // offsetTop may changes because of manually resizing browser window or lazy loading images.
+          var offsetTop = $('#comments').offset().top - $(window).height();
+          var scrollTop = $(window).scrollTop();
+
+          // pre-load comments a bit? (margin or anything else)
+          if (offsetTop - scrollTop < 60) {
+            $(window).off('.disqus_scroll');
+            loadComments();
+          }
         });
-      
-        });
-      
-    </script>
+      }
+    });
   
+</script>
+
+
+
 
 
   
-  
-
-
-
-
 
 
   
@@ -2032,18 +1490,6 @@
   
 
   
-  
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
   
 
   

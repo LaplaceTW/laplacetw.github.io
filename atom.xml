@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://laplacetw.github.io/"/>
-  <updated>2020-11-15T13:33:42.003Z</updated>
+  <updated>2020-11-15T14:35:29.700Z</updated>
   <id>https://laplacetw.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Zsh在VS Code中的顯示設定</title>
+    <link href="https://laplacetw.github.io/mac-zsh-and-vscode/"/>
+    <id>https://laplacetw.github.io/mac-zsh-and-vscode/</id>
+    <published>2020-11-15T13:48:44.000Z</published>
+    <updated>2020-11-15T14:35:29.700Z</updated>
+    
+    <content type="html"><![CDATA[<p>順便筆記一下安裝指令。<a id="more"></a></p><h3 id="Install-Oh-My-Zsh"><a href="#Install-Oh-My-Zsh" class="headerlink" title="Install Oh My Zsh"></a>Install Oh My Zsh</h3><p>參考<a href="https://mrmad.com.tw/macos-terminal-oh-my-zsh" target="_blank" rel="noopener">瘋先生MRMAD的快速教學</a>。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ sh -c <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)</span>"</span></span><br><span class="line">$ vim ~/.zshrc  <span class="comment"># change ZSH_THEME as "agnoster"</span></span><br><span class="line">$ <span class="built_in">echo</span> <span class="string">'syntax on'</span> &gt;&gt; ~/.vimrc  <span class="comment"># enable syntax highlight</span></span><br><span class="line">$ <span class="built_in">echo</span> <span class="string">'set nu!'</span> &gt;&gt; ~/.vimrc    <span class="comment"># enable line numbers</span></span><br><span class="line">$ <span class="built_in">source</span> ~/.zshrc  <span class="comment"># make changes reload</span></span><br></pre></td></tr></table></figure><p>安裝、設定完成會發現Terminal顯示亂碼的情形，因為agnoster主題包含特殊符號，需安裝Powerline系列字體才能正常顯示：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/Downloads &amp;&amp; git <span class="built_in">clone</span> https://github.com/powerline/fonts.git</span><br><span class="line">$ <span class="built_in">cd</span> fonts &amp;&amp; ./install.sh</span><br><span class="line">$ <span class="built_in">cd</span> &amp;&amp; rm -rf ~/Downloads/fonts</span><br></pre></td></tr></table></figure></p><p>接著打開Terminal偏好設定 &gt; 描述檔 &gt; 字體，變更為Powerline系列的字體。我是用Source Code Pro for Powerline，另外路徑的背景顏色預設會有過深的問題，可以調整ANSI顏色選項的藍色部分為淺一點的顏色。</p><h3 id="VS-Code-Integrated-Terminal"><a href="#VS-Code-Integrated-Terminal" class="headerlink" title="VS Code Integrated Terminal"></a>VS Code Integrated Terminal</h3><p>Terminal顯示亂碼在VS Code裡頭也會見到，同樣要修改字體為Powerline系列字體：設定 &gt; 功能 &gt; 終端機 &gt; Integrated: Font Family。</p><p>顏色設定可以在設定中搜尋workbench，找到Workbench: Color Customizations的選項，點選「在settings.json內編輯」，相關參數設定可參考VS Code官網的說明：<a href="https://code.visualstudio.com/api/references/theme-color#integrated-terminal-colors" target="_blank" rel="noopener">Integrated Terminal Colors</a></p><p><img src="https://i.imgur.com/yn3BTug.png" alt></p><p>不過我另外有找到一個設定檔的<a href="https://github.com/Tyriar/vscode-snazzy" target="_blank" rel="noopener">懶人包</a>，或許可以直接套用，再來做調整比較省事 😄</p><p><img src="https://i.imgur.com/Fuw8S8v.png" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;順便筆記一下安裝指令。
+    
+    </summary>
+    
+      <category term="Mac" scheme="https://laplacetw.github.io/categories/Mac/"/>
+    
+    
+      <category term="mac" scheme="https://laplacetw.github.io/tags/mac/"/>
+    
+      <category term="vs code" scheme="https://laplacetw.github.io/tags/vs-code/"/>
+    
+  </entry>
   
   <entry>
     <title>Manjaro安裝VirtualBox</title>
@@ -497,32 +521,6 @@
       <category term="adafruit" scheme="https://laplacetw.github.io/tags/adafruit/"/>
     
       <category term="thermal camera" scheme="https://laplacetw.github.io/tags/thermal-camera/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python批次影片轉GIF</title>
-    <link href="https://laplacetw.github.io/python-batch-video-to-gif/"/>
-    <id>https://laplacetw.github.io/python-batch-video-to-gif/</id>
-    <published>2020-04-09T17:30:51.000Z</published>
-    <updated>2020-08-05T06:34:56.333Z</updated>
-    
-    <content type="html"><![CDATA[<p>偶爾會為了DEMO用途，需要將影片轉換為GIF的形式，便於穿插在文章裡頭，但我不想為了這小小的需求安裝什麼軟體。<a id="more"></a>而線上服務就是圖個方便打到很多使用者的痛點，但你必須將圖片上傳，這對某些使用者而言可能有疑慮…雖然我見到的線上轉檔服務使用者都是莫名安心地上傳的(?)</p><p>Python是非常美好的程式語言，自己寫段程式碼來處理就行了😎&nbsp;&nbsp;我們只需要先在電腦安裝<a href="https://ffmpeg.org/" target="_blank" rel="noopener">FFmpeg</a>，然後引入<a href="https://pypi.org/project/moviepy/" target="_blank" rel="noopener">moviepy</a>這個套件就行了，作者zulko在他的個人網站有<a href="http://zulko.github.io/blog/2014/01/23/making-animated-gifs-from-video-files-with-python/" target="_blank" rel="noopener">詳細的教學</a>。</p><hr><p>範例程式：</p><p>設置參數可更換影片輸入格式、是否加入浮水印以及生成的GIF和浮水印的縮放倍率。<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="keyword">from</span> glob <span class="keyword">import</span> glob</span><br><span class="line"><span class="keyword">import</span> moviepy.editor <span class="keyword">as</span> mp</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># setting</span></span><br><span class="line">filetype = <span class="string">'.mov'</span></span><br><span class="line">watermark = <span class="string">'./devilcat.png'</span></span><br><span class="line">scale_gif = <span class="number">0.3</span></span><br><span class="line">scale_mark = <span class="number">0.3</span></span><br><span class="line"></span><br><span class="line">videos = glob(<span class="string">'./*'</span> + filetype)</span><br><span class="line">videos.sort()</span><br><span class="line"><span class="keyword">for</span> video <span class="keyword">in</span> videos:</span><br><span class="line">    output = video.replace(filetype, <span class="string">'.gif'</span>)</span><br><span class="line">    <span class="keyword">with</span> mp.VideoFileClip(video).resize(scale_gif) <span class="keyword">as</span> clip:</span><br><span class="line">        <span class="keyword">if</span> watermark == <span class="string">''</span>:  <span class="comment"># no watermark</span></span><br><span class="line">            clip.write_gif(output, fps=<span class="number">5</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            mark_image = (mp.ImageClip(watermark)</span><br><span class="line">            .resize(scale_mark)</span><br><span class="line">            .set_duration(clip.duration)</span><br><span class="line">            .set_pos((<span class="string">"left"</span>, <span class="string">"top"</span>)))</span><br><span class="line">            </span><br><span class="line">            <span class="comment"># add watermark to video</span></span><br><span class="line">            mark_video = mp.CompositeVideoClip([clip, mark_image])</span><br><span class="line">            mark_video.write_gif(output, fps=<span class="number">5</span>)</span><br></pre></td></tr></table></figure><br>＊關於resize的錯誤參考：<a href="https://stackoverflow.com/questions/57696343/moviepy-does-not-recognize-resize-function" target="_blank" rel="noopener">stackoverflow — Moviepy does not recognize resize function</a></p><hr><p>我使用<a href="https://youtu.be/H4Cn4taeuA4" target="_blank" rel="noopener">YT頻道哈哈台訪問浪漫Duke經典片段</a>當範例，實際執行將影片轉換為GIF動圖並加上浮水印。</p><ul><li><p>首先來畫一個浮水印…惡魔貓男！你今晚的惡夢！(激動 ⬇︎<br><img src="https://i.imgur.com/FwCJqVN.png" alt></p></li><li><p>接著準備幾個要轉成GIF的片段，開始轉換⬇︎<br><img src="https://i.imgur.com/6FNRGii.png" alt></p></li><li><p>轉檔結果，可以看到GIF左上角出現剛剛畫的浮水印🤣&nbsp;&nbsp;⬇︎</p></li></ul><table><thead><tr><th style="text-align:center">世界要有愛!</th><th style="text-align:center">雞肉飯❤️</th></tr></thead><tbody><tr><td style="text-align:center"><img src="https://i.imgur.com/tLDHNqj.gif" alt></td><td style="text-align:center"><img src="https://i.imgur.com/IaS7v3K.gif" alt></td></tr><tr><td style="text-align:center">好看!</td><td style="text-align:center">浪漫Duke❤️</td></tr><tr><td style="text-align:center"><img src="https://i.imgur.com/XLTZUVm.gif" alt></td><td style="text-align:center"><img src="https://i.imgur.com/aKcPhnH.gif" alt></td></tr></tbody></table>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;偶爾會為了DEMO用途，需要將影片轉換為GIF的形式，便於穿插在文章裡頭，但我不想為了這小小的需求安裝什麼軟體。
-    
-    </summary>
-    
-      <category term="Python" scheme="https://laplacetw.github.io/categories/Python/"/>
-    
-    
-      <category term="python" scheme="https://laplacetw.github.io/tags/python/"/>
-    
-      <category term="moviepy" scheme="https://laplacetw.github.io/tags/moviepy/"/>
-    
-      <category term="mytoolbox" scheme="https://laplacetw.github.io/tags/mytoolbox/"/>
     
   </entry>
   
