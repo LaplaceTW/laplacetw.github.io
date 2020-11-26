@@ -116,16 +116,16 @@
   <meta name="description" content="順便筆記一下安裝指令。">
 <meta name="keywords" content="mac,vs code">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Zsh在VS Code中的顯示設定">
+<meta property="og:title" content="Zsh安裝和VS Code顯示設定">
 <meta property="og:url" content="https://laplacetw.github.io/mac-zsh-and-vscode/index.html">
 <meta property="og:site_name" content="Laplace&#39;s Lab">
 <meta property="og:description" content="順便筆記一下安裝指令。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://i.imgur.com/yn3BTug.png">
 <meta property="og:image" content="https://i.imgur.com/Fuw8S8v.png">
-<meta property="og:updated_time" content="2020-11-15T14:35:29.700Z">
+<meta property="og:updated_time" content="2020-11-26T08:58:59.906Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Zsh在VS Code中的顯示設定">
+<meta name="twitter:title" content="Zsh安裝和VS Code顯示設定">
 <meta name="twitter:description" content="順便筆記一下安裝指令。">
 <meta name="twitter:image" content="https://i.imgur.com/yn3BTug.png">
 
@@ -145,7 +145,7 @@
   };
 </script>
 
-  <title>Zsh在VS Code中的顯示設定 | Laplace's Lab</title>
+  <title>Zsh安裝和VS Code顯示設定 | Laplace's Lab</title>
   
 
 
@@ -376,7 +376,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Zsh在VS Code中的顯示設定
+          <h2 class="post-title" itemprop="name headline">Zsh安裝和VS Code顯示設定
 
               
             
@@ -462,6 +462,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ sh -c <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)</span>"</span></span><br><span class="line">$ vim ~/.zshrc  <span class="comment"># change ZSH_THEME as "agnoster"</span></span><br><span class="line">$ <span class="built_in">echo</span> <span class="string">'syntax on'</span> &gt;&gt; ~/.vimrc  <span class="comment"># enable syntax highlight</span></span><br><span class="line">$ <span class="built_in">echo</span> <span class="string">'set nu!'</span> &gt;&gt; ~/.vimrc    <span class="comment"># enable line numbers</span></span><br><span class="line">$ <span class="built_in">source</span> ~/.zshrc  <span class="comment"># make changes reload</span></span><br></pre></td></tr></table></figure>
 <p>安裝、設定完成會發現Terminal顯示亂碼的情形，因為agnoster主題包含特殊符號，需安裝Powerline系列字體才能正常顯示：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/Downloads &amp;&amp; git <span class="built_in">clone</span> https://github.com/powerline/fonts.git</span><br><span class="line">$ <span class="built_in">cd</span> fonts &amp;&amp; ./install.sh</span><br><span class="line">$ <span class="built_in">cd</span> &amp;&amp; rm -rf ~/Downloads/fonts</span><br></pre></td></tr></table></figure></p>
 <p>接著打開Terminal偏好設定 &gt; 描述檔 &gt; 字體，變更為Powerline系列的字體。我是用Source Code Pro for Powerline，另外路徑的背景顏色預設會有過深的問題，可以調整ANSI顏色選項的藍色部分為淺一點的顏色。</p>
+<p>＊<span style="color:red;">on my sh默認設定檔為~/.zshrc</span>，若原本bash設定檔是寫在~/.bash_profile，則須在zshrc中寫入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [ -f ~/.bash_profile ]; <span class="keyword">then</span></span><br><span class="line">  . ~/.bash_profile</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure></p>
 <h3 id="VS-Code-Integrated-Terminal"><a href="#VS-Code-Integrated-Terminal" class="headerlink" title="VS Code Integrated Terminal"></a>VS Code Integrated Terminal</h3><p>Terminal顯示亂碼在VS Code裡頭也會見到，同樣要修改字體為Powerline系列字體：設定 &gt; 功能 &gt; 終端機 &gt; Integrated: Font Family。</p>
 <p>顏色設定可以在設定中搜尋workbench，找到Workbench: Color Customizations的選項，點選「在settings.json內編輯」，相關參數設定可參考VS Code官網的說明：<a href="https://code.visualstudio.com/api/references/theme-color#integrated-terminal-colors" target="_blank" rel="noopener">Integrated Terminal Colors</a></p>
 <p><img src="https://i.imgur.com/yn3BTug.png" alt></p>
@@ -1119,7 +1120,7 @@
   var disqus_config = function() {
     this.page.url = "https://laplacetw.github.io/mac-zsh-and-vscode/";
     this.page.identifier = "mac-zsh-and-vscode/";
-    this.page.title = 'Zsh在VS Code中的顯示設定';
+    this.page.title = 'Zsh安裝和VS Code顯示設定';
     };
   function loadComments() {
     var d = document, s = d.createElement('script');
