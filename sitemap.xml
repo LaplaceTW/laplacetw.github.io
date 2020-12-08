@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://laplacetw.github.io/data-sci-vgg-cifar10/</loc>
+    
+    <lastmod>2020-12-08T03:08:04.646Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://laplacetw.github.io/ios-shortcut-tinyurl/</loc>
     
     <lastmod>2020-12-07T05:31:22.154Z</lastmod>
@@ -110,13 +117,6 @@
     <loc>https://laplacetw.github.io/data-sci-kafka-hello-world/</loc>
     
     <lastmod>2020-08-27T06:16:56.158Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://laplacetw.github.io/data-sci-vgg-cifar10/</loc>
-    
-    <lastmod>2020-08-24T16:50:12.598Z</lastmod>
     
   </url>
   
