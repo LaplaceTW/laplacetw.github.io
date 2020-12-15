@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://laplacetw.github.io/data-sci-gans-in-action-ch2/</loc>
+    
+    <lastmod>2020-12-15T17:20:29.754Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://laplacetw.github.io/data-sci-vgg-cifar10/</loc>
     
     <lastmod>2020-12-08T03:08:04.646Z</lastmod>
