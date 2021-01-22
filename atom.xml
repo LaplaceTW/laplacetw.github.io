@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://laplacetw.github.io/"/>
-  <updated>2021-01-21T10:13:52.062Z</updated>
+  <updated>2021-01-22T08:06:51.458Z</updated>
   <id>https://laplacetw.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>資訊隱藏：離散小波轉換</title>
+    <link href="https://laplacetw.github.io/stegano-distributed-wavelet-transform/"/>
+    <id>https://laplacetw.github.io/stegano-distributed-wavelet-transform/</id>
+    <published>2021-01-21T16:51:30.000Z</published>
+    <updated>2021-01-22T08:06:51.458Z</updated>
+    
+    <content type="html"><![CDATA[<p>單純以LSB的方式嵌入秘密資訊的方式雖簡單又易實現，但載體影像卻難以抵抗各種攻擊。<a id="more"></a>所以接續上篇來寫能抵抗破壞的數位浮水印，只修過一學期相關課程的菜雞我呢，雖然在寫課程作業期間也找了論文來輔助參考，但也算不上系統性的學習相關知識，想從艱困的預算中編列購買相關書籍來研讀的費用啊&nbsp;&nbsp;😶</p><p><a href="https://zh.wikipedia.org/wiki/數位浮水印" target="_blank" rel="noopener">維基百科</a>對數位浮水印的描述：</p><blockquote><p>數位浮水印，是指將特定的資訊嵌入數字訊號中，數位訊號可能是音訊、圖片或是影片等。若要拷貝有數位浮水印的訊號，所嵌入的資訊也會一併被拷貝。數位浮水印可分為浮現式和隱藏式兩種，前者是可被看見的浮水印(visible watermarking)，其所包含的資訊可在觀看圖片或影片時同時被看見。一般來說，浮現式的浮水印通常包含著作權擁有者的名稱或標誌。電視台在畫面角落所放置的標誌，也是浮現式浮水印的一種。</p></blockquote><blockquote><p>隱藏式的浮水印是以數位資料的方式加入音訊、圖片或影片中，但在一般的狀況下無法被看見。隱藏式浮水印的重要應用之一是保護著作權，期望能藉此避免或阻止數位媒體未經授權的複製和拷貝。隱寫術(Steganography)也是數位浮水印的一種應用，雙方可利用隱藏在數位訊號中的資訊進行溝通。數位相片中的註釋資料能記錄相片拍攝的時間、使用的光圈和快門，甚至是相機的廠牌等資訊，這也是數位浮水印的應用之一。某些檔案格式可以包含這些稱為「metadata」的額外資訊。</p></blockquote><p>而數位浮水印的嵌入方式，除了空間域，還有頻率域，也就是將影像轉換至頻率域再進行嵌入。高頻訊號較不易為人眼所察覺，低頻訊號較能抵抗攻擊，在嵌入時可視需求作取捨。</p><p>我以一階<a href="https://zh.wikipedia.org/wiki/哈爾小波轉換" target="_blank" rel="noopener">哈爾小波轉換</a>來進行測試，影像將被分割為LL、HL、LH、HH四個頻帶，其中LL即為能量最為集中的低頻帶，人類視覺對此部分的變化較靈敏。然後將浮水印分割為上下兩個部分，上半部在空間域進行嵌入，下半部則嵌入頻率域的HH頻帶，來看對攻擊的抵抗能力。</p><p>空間域嵌入、頻率域嵌入和還原結果⬇︎<br><img src="https://i.imgur.com/lvk5KXs.png" alt><br>將影像去除中央128x128的區域後的還原結果⬇︎<br><img src="https://i.imgur.com/Ixe4Fl5.png" alt><br>將影像去除中央二個方框區域後的還原結果⬇︎<br><img src="https://i.imgur.com/gW8uUS6.png" alt></p><p>可以明顯的看出，將影像去除128x128的區域後，嵌入於空間域的浮水印只剩渣&nbsp;&nbsp;🤣 &nbsp;&nbsp;而去除方框區域後的浮水印還原結果也能看到白色框線的粗細對比。真的蠻有趣的啊😲</p><p>＊原始碼連結：<a href="https://github.com/laplacetw/stegano/blob/main/dwt.py" target="_blank" rel="noopener">Github</a><br>＊測試影像來源：<a href="https://unsplash.com/photos/r2nJPbEYuSQ" target="_blank" rel="noopener">unsplash</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;單純以LSB的方式嵌入秘密資訊的方式雖簡單又易實現，但載體影像卻難以抵抗各種攻擊。
+    
+    </summary>
+    
+      <category term="Steganography" scheme="https://laplacetw.github.io/categories/Steganography/"/>
+    
+    
+      <category term="python" scheme="https://laplacetw.github.io/tags/python/"/>
+    
+      <category term="data hiding" scheme="https://laplacetw.github.io/tags/data-hiding/"/>
+    
+  </entry>
   
   <entry>
     <title>Github：basic auth using a password to Git is deprecated</title>
@@ -41,13 +65,13 @@
   </entry>
   
   <entry>
-    <title>資料隱藏：最低有效位元</title>
-    <link href="https://laplacetw.github.io/stegano-lsb/"/>
-    <id>https://laplacetw.github.io/stegano-lsb/</id>
+    <title>資訊隱藏：最低有效位元</title>
+    <link href="https://laplacetw.github.io/stegano-least-significant-bit/"/>
+    <id>https://laplacetw.github.io/stegano-least-significant-bit/</id>
     <published>2021-01-20T06:27:08.000Z</published>
-    <updated>2021-01-20T09:31:10.998Z</updated>
+    <updated>2021-01-22T06:53:16.501Z</updated>
     
-    <content type="html"><![CDATA[<p>這學期修了很有趣的課程，我覺得隱寫術這個詞還蠻中二的。<a id="more"></a></p><p><a href="https://zh.wikipedia.org/wiki/隱寫術" target="_blank" rel="noopener">維基百科</a>對於隱寫術的說明：</p><blockquote><p>隱寫術是一門關於資訊隱藏的技巧與科學，所謂資訊隱藏指的是不讓除預期的接收者之外的任何人知曉資訊的傳遞事件或者資訊的內容。隱寫術的英文叫做Steganography，來源於特裡特米烏斯的一本講述密碼學與隱寫術的著作Steganographia，該書書名源於希臘語，意為「隱秘書寫」。</p></blockquote><blockquote><p>一般來說，隱寫的資訊看起來像一些其他的東西，例如一張購物清單，一篇文章，一篇圖畫或者其他「偽裝」(cover)的訊息。隱寫的資訊通常用一些傳統的方法進行加密，然後用某種方法修改一個「偽裝文字」(covertext)，使其包含被加密過的訊息，形成所謂的「隱秘文字」(stegotext)。例如，文字的大小、間距、字體，或者掩飾文字的其他特性可以被修改來包含隱藏的資訊。只有接收者知道所使用的隱藏技術，才能夠恢復資訊，然後對其進行解密。</p></blockquote><p>現代的隱寫術是利用數位媒介作為載體，例如影像、聲音以及影片。載體檔案相對隱秘檔案的數據量越大，隱藏後者就越容易。或許是和授課者的專業領域有關，這學期的課都是以影像作為載體使用。</p><p>我想最低有效位元(LSB，Least Significant Bit)應該是最簡單的方法吧，透過將秘密資訊嵌入影像像素的LSB，其對影像的修改程度非常細微，達到肉眼無法察覺的程度。而在嵌入資訊前，對影像進行了量化處理，量化值(Ｌ)的大小對影像品質也有著相對的影響。</p><p><img src="https://i.imgur.com/lg0WsNO.png" alt></p><p>對於嵌入秘密資訊後的影像，再次以同樣的量化值進行處理，以前者減去後者的像素值，就能萃取出嵌入的秘密資訊。實際上在課程作業有用了算數編碼對秘密資訊加密後再嵌入，但自己在實作上的結果並不穩定，得再花點時間找資料研究思考。而最低有效位元的方式雖然簡單，卻也相當脆弱，影像如果被壓縮過，嵌入的資訊也會遭到破壞…。因此在後續的課程也學習到一些進階的方式，令菜雞我覺得很厲害。</p><p>下面的測試影像藏入了這段文字：</p><blockquote><p>After billions of dollars and a decade of work, NASA’s plans to send astronauts back to the moon had a new setback on Saturday. A planned eight-minute test firing of the four engines of a new mega rocket needed for the moon missions came to an abrupt end after only about a minute.As engineers disentangle what went wrong, the first launch of the rocket is likely to slip further into the future, and NASA astronauts may have to wait longer before setting foot on the moon again.</p></blockquote><p>藏入一段文字後的影像，量化值越大，峰值訊噪比就越低⬇︎<br><img src="https://i.imgur.com/vUFXa1i.png" alt></p><p>＊原始碼連結：<a href="https://github.com/laplacetw/stegano/blob/main/lsb.py" target="_blank" rel="noopener">Github</a><br>＊測試影像來源：<a href="https://unsplash.com/photos/r2nJPbEYuSQ" target="_blank" rel="noopener">unsplash</a></p>]]></content>
+    <content type="html"><![CDATA[<p>這學期修了很有趣的課程，我覺得隱寫術這個詞還蠻中二的。<a id="more"></a></p><p><a href="https://zh.wikipedia.org/wiki/隱寫術" target="_blank" rel="noopener">維基百科</a>對於隱寫術的描述：</p><blockquote><p>隱寫術是一門關於資訊隱藏的技巧與科學，所謂資訊隱藏指的是不讓除預期的接收者之外的任何人知曉資訊的傳遞事件或者資訊的內容。隱寫術的英文叫做Steganography，來源於特裡特米烏斯的一本講述密碼學與隱寫術的著作Steganographia，該書書名源於希臘語，意為「隱秘書寫」。</p></blockquote><blockquote><p>一般來說，隱寫的資訊看起來像一些其他的東西，例如一張購物清單，一篇文章，一篇圖畫或者其他「偽裝」(cover)的訊息。隱寫的資訊通常用一些傳統的方法進行加密，然後用某種方法修改一個「偽裝文字」(covertext)，使其包含被加密過的訊息，形成所謂的「隱秘文字」(stegotext)。例如，文字的大小、間距、字體，或者掩飾文字的其他特性可以被修改來包含隱藏的資訊。只有接收者知道所使用的隱藏技術，才能夠恢復資訊，然後對其進行解密。</p></blockquote><p>現代的隱寫術是利用數位媒介作為載體，例如影像、聲音以及影片。載體檔案相對隱秘檔案的數據量越大，隱藏後者就越容易。或許是和授課者的專業領域有關，這學期的課都是以影像作為載體使用。</p><p>我想最低有效位元(LSB，Least Significant Bit)應該是最簡單的方法吧，透過將秘密資訊嵌入影像像素的LSB，其對影像的修改程度非常細微，達到肉眼無法察覺的程度。而在嵌入資訊前，對影像進行了量化處理，量化值(Ｌ)的大小對影像品質也有著相對的影響。</p><p><img src="https://i.imgur.com/lg0WsNO.png" alt></p><p>對於嵌入秘密資訊後的影像，再次以同樣的量化值進行處理，以前者減去後者的像素值，就能萃取出嵌入的秘密資訊。實際上在課程作業有用了算數編碼對秘密資訊加密後再嵌入，但自己在實作上的結果並不穩定，得再花點時間找資料研究思考。而最低有效位元的方式雖然簡單，卻也相當脆弱，影像如果被壓縮過，嵌入的資訊也會遭到破壞…。因此在後續的課程也學習到一些進階的方式，令菜雞我覺得很厲害。</p><p>下面的測試影像藏入了這段文字：</p><blockquote><p>After billions of dollars and a decade of work, NASA’s plans to send astronauts back to the moon had a new setback on Saturday. A planned eight-minute test firing of the four engines of a new mega rocket needed for the moon missions came to an abrupt end after only about a minute.As engineers disentangle what went wrong, the first launch of the rocket is likely to slip further into the future, and NASA astronauts may have to wait longer before setting foot on the moon again.</p></blockquote><p>藏入一段文字後的影像，量化值越大，峰值訊噪比就越低⬇︎<br><img src="https://i.imgur.com/vUFXa1i.png" alt></p><p>＊原始碼連結：<a href="https://github.com/laplacetw/stegano/blob/main/lsb.py" target="_blank" rel="noopener">Github</a><br>＊測試影像來源：<a href="https://unsplash.com/photos/r2nJPbEYuSQ" target="_blank" rel="noopener">unsplash</a></p>]]></content>
     
     <summary type="html">
     
@@ -487,34 +511,6 @@
       <category term="IoT" scheme="https://laplacetw.github.io/tags/IoT/"/>
     
       <category term="arduino" scheme="https://laplacetw.github.io/tags/arduino/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>正確理解YOLO的辨識準確率</title>
-    <link href="https://laplacetw.github.io/data-sci-yolo-accuracy/"/>
-    <id>https://laplacetw.github.io/data-sci-yolo-accuracy/</id>
-    <published>2020-07-07T17:56:17.000Z</published>
-    <updated>2020-08-05T06:36:45.670Z</updated>
-    
-    <content type="html"><![CDATA[<p>這幾天媒體報導了<a href="https://arxiv.org/abs/2004.10934" target="_blank" rel="noopener">YOLOv4</a>的相關新聞，提到其為中研院研究團隊與俄羅斯開發者所共同研發，而這全世界最快最準的物體偵測演算法，其平均準確率為43.5%，於是這43.5%的準確率迅速引來許多不明就裡的人留言批評。<a id="more"></a>不懂沒有關係，我們可以先查證，再提出質疑，而非只是「我覺得這準確率有夠低」就輕率地批評指責(中研院難道是能隨便誇大其詞的研究機構嗎？)，但你可能連state-of-the-art意味什麼都不明白。這對無私貢獻的<a href="https://zh.wikipedia.org/wiki/%E9%96%8B%E6%BA%90%E8%BB%9F%E9%AB%94" target="_blank" rel="noopener">Open Source</a>開發者一點都不公平，真是站著說話不腰疼、躺著留言不費勁。</p><h2 id="什麼是YOLO"><a href="#什麼是YOLO" class="headerlink" title="什麼是YOLO?"></a>什麼是YOLO?</h2><p></p><p><a href="https://pjreddie.com/darknet/yolo/" target="_blank" rel="noopener">YOLO官網</a>是這麼介紹它自己的：</p><blockquote><p>You only look once (YOLO) is a state-of-the-art, real-time object detection system. On a Pascal Titan X it processes images at 30 FPS and has a mAP of 57.9% on COCO test-dev. (YOLO是最先進的即時物體偵測系統，在Pascal Titan X GPU上以30 FPS的速度處理影像，於COCO測試開發資料集中的mAP為57.9%)</p></blockquote><p>然後我們可能又會疑惑：FPS? COCO? mAP? 別著急，多理解一下物體偵測。</p><p>電腦是如何進行物體偵測？一般做法是透過各種選擇性搜索演算法(selective search)，偵測、分割出影像中可能有物體存在的區域(region proposal)，那麼沒有物體存在的區域就不需要進行無效的運算，也能加快處理速度，接著再對這些可能有物體存在的區域進行辨識分類。如此先搜索region proposal再進行辨識的處理方式稱為Two Stage(e.g. R-CNN)。<br><img src="https://i.imgur.com/O62Ncev.png" alt></p><p>但這有個潛在問題，假設系統偵測出影像中有數百個甚至上千個region proposal，那麼就得進行上千次的辨識運算…個人電腦即便有高階GPU亦可能做不到即時運算，更遑論行動裝置。</p><p></p><p>圖片連結自<a href="https://github.com/ouyanghuiyu/darknet_face_with_landmark" target="_blank" rel="noopener">https://github.com/ouyanghuiyu/darknet_face_with_landmark</a>⬇︎<br><img src="https://raw.githubusercontent.com/ouyanghuiyu/darknet_face_with_landmark/master/test_imgs/selfie.jpg" alt></p><p>於是我們有了One Stage(e.g. YOLO)，物體偵測和辨識一氣呵成，這樣的做法能大幅提升處理速度。不過有一好沒兩好，要速度快你就得在準確率做點取捨，因此整體辨識準確率相較Two Stage來得差一些，但One Stage在許多應用上仍是可接受範圍內，兩種作法各有其優勢，端看需求。<br><img src="https://i.imgur.com/OdWNkUk.png" alt></p><p>回到YOLO，自從2015年發佈v1發展至今，最新版本為今年4月底所發佈的v4，處理速度簡直快到沒朋友，但YOLO的創造者<a href="https://pjreddie.com/" target="_blank" rel="noopener">Joseph Redmon</a>今年二月<a href="https://twitter.com/pjreddie/status/1230524770350817280" target="_blank" rel="noopener">於推特宣佈退出電腦視覺研究領域</a>，當時引起相當大的討論，多少人引頸期盼YOLO的下個版本，Joseph Redmon表示自己的工作對人類社會的衝擊性實在太大了，即使熱愛電腦視覺的研究工作，但其終究無法忽視自己的研究成果在軍事科技應用以及個人隱私方面可能導致的問題。因此YOLOv4為俄羅斯開發者、YOLOv3的實現 — Darknet作者<a href="https://twitter.com/alexeyab84" target="_blank" rel="noopener">Alexey Bochkovskiy</a>與中研院資科所所長Hong-Yuan Liao及博士後研究員Chien-Yao Wang等三人基於後兩位研發的CSPNet，對YOLO的最新研究成果。而Joseph Redmon也<a href="https://github.com/pjreddie/darknet#darknet" target="_blank" rel="noopener">更新</a>了YOLOv4的論文與原始碼連結，顯示YOLOv4為官方所認可的後繼版本。</p><h2 id="什麼是FPS"><a href="#什麼是FPS" class="headerlink" title="什麼是FPS?"></a>什麼是FPS?</h2><p></p><p>FPS就是影格率或是經常聽到的幀數，<a href="https://zh.wikipedia.org/wiki/%E5%BD%B1%E6%A0%BC%E7%8E%87" target="_blank" rel="noopener">維基百科</a>就有寫了沒啥好說：</p><blockquote><p>影格率是用於測量顯示影格數的量度。測量單位為「每秒顯示影格數」(Frame per Second，FPS)或「赫茲」，一般來說FPS用於描述影片、電子繪圖或遊戲每秒播放多少影格。</p></blockquote><h2 id="什麼是COCO資料集？"><a href="#什麼是COCO資料集？" class="headerlink" title="什麼是COCO資料集？"></a>什麼是COCO資料集？</h2><p></p><p><a href="https://cocodataset.org/" target="_blank" rel="noopener">COCO資料集(Common Objects in Context)</a>是微軟所發佈、擁有33萬張影像的大型開源資料集：</p><blockquote><p>COCO is a large-scale object detection, segmentation, and captioning dataset. COCO has several features:</p><ul><li>Object segmentation</li><li>Recognition in context</li><li>Superpixel stuff segmentation</li><li>330K images (&gt;200K labeled)</li><li>1.5 million object instances</li><li>80 object categories</li><li>91 stuff categories</li><li>5 captions per image</li><li>250,000 people with keypoints</li></ul></blockquote><h2 id="什麼是mAP？"><a href="#什麼是mAP？" class="headerlink" title="什麼是mAP？"></a>什麼是mAP？</h2><p></p><p>mAP的”m”代表”mean”，簡而言之，AP(average precision)是用來評估物體識別模型效能表現的指標之一。我參考維基百科<a href="https://en.wikipedia.org/wiki/Precision_and_recall" target="_blank" rel="noopener">Precison and Recall</a>頁面的說明圖片，重新繪製了下方這張圖(原圖為直向)來說明。<br>*關於Precision and Recall可參考：<a href="https://medium.com/@ChingTien/529d18abc3a" target="_blank" rel="noopener">心理學和機器學習中的 Accuracy、Precision、Recall Rate 和 Confusion Matrix</a><br><img src="https://i.imgur.com/KgFbe8Y.png" alt></p><p>假設我現在要從一些含有各種物體的影像中找出狗的圖片，那麼上圖左側深灰色矩形代表狗的圖片集合，右側淺灰色影像代表其他物體的圖片集合，中間的大圓圈則是被判定為狗的圖片的集合，其中包含真的為狗的圖片(分類正確)以及不是狗的圖片(分類錯誤)。所以precision就代表在「所有被判定為狗的圖片」之中有多少<strong>比例</strong>是「狗的圖片」。</p><p>至於average precision的計算則是將precision加總後取平均值：</p><table><thead><tr><th style="text-align:center">判定為狗且真的為狗的圖片數</th><th style="text-align:center">判定為狗的圖片數</th><th style="text-align:center">Precision</th></tr></thead><tbody><tr><td style="text-align:center">1</td><td style="text-align:center">1</td><td style="text-align:center">1</td></tr><tr><td style="text-align:center">1</td><td style="text-align:center">2</td><td style="text-align:center">1/2</td></tr><tr><td style="text-align:center">1</td><td style="text-align:center">3</td><td style="text-align:center">1/3</td></tr><tr><td style="text-align:center">2</td><td style="text-align:center">4</td><td style="text-align:center">2/4</td></tr><tr><td style="text-align:center">2</td><td style="text-align:center">5</td><td style="text-align:center">2/5</td></tr><tr><td style="text-align:center">…</td><td style="text-align:center">…</td><td style="text-align:center">…</td></tr></tbody></table><p>又物體識別會有許多類別，以COCO資料集而言就有80種object categories，mean average precision便是所有類別AP加總的平均值。</p><p>＊COCO資料集究竟有多少個類別？網路上有人說80種，也有人說91種，合理推測是將object categories跟stuff categories搞混了，這兩種分類的差異我也是看了某篇論文的摘要才明白，根據<a href="https://arxiv.org/abs/1612.03716" target="_blank" rel="noopener">COCO-Stuff: Thing and Stuff Classes in Context</a>所述：</p><blockquote><p>Semantic classes can be either things (objects with a well-defined shape, e.g. car, person) or stuff (amorphous background regions, e.g. grass, sky).</p></blockquote><p>object類就是能明確界定形狀的<strong>物體</strong>，例如汽車、人。stuff類則是沒有特定形狀或邊界的<strong>背景區域</strong>，例如草地、天空。懂！</p><h2 id="效能評估指標"><a href="#效能評估指標" class="headerlink" title="效能評估指標"></a>效能評估指標</h2><p></p><p>根據COCO資料集的效能評估頁面所述：</p><blockquote><p>Average Precision (AP):</p><ul><li>AP：AP at IoU=.50:.05:.95 (primary challenge metric)</li><li>AP IoU=.50：AP at IoU=.50 (PASCAL VOC metric)</li><li>AP IoU=.75：AP at IoU=.75 (strict metric)<br></li></ul></blockquote><p>從這段敘述可以確定COCO資料集效能評估指標的AP指的就是mAP：</p><blockquote><p>AP is averaged over all categories. Traditionally, this is called “mean average precision” (mAP). We make no distinction between AP and mAP (and likewise AR and mAR) and assume the difference is clear from context.</p></blockquote><p>說到這兒又得理解一個跟AP有關係的詞：IoU(Intersection over Union，並交比)，簡而言之，物體識別的IoU為物體標記範圍與系統偵測範圍這兩個集合的交集和並集之間的比例，有請台北市立動物園的水豚君幫忙示範一下：<br><img src="https://i.imgur.com/w7sc0Vc.jpg" alt><br>假設紅框為影像的原始標記邊界範圍a1，黃框為YOLO所偵測的物體邊界範圍a2，那麼IoU則為a1與a2的<strong>交集</strong>除以a1與a2的<strong>聯集</strong>。</p><p>因此以COCO資料集的AP指標而言，可以看到其IoU並非一個固定值，而是「.50:.05:.95」，意思是IoU共有{0.5, 0.55,…0.95}10個閾值，以這10個標準做判定、計算AP再取平均，而AP50(IoU=.50)或AP75(IoU=.75)則是傳統的評估方式。</p><h2 id="平均準確率"><a href="#平均準確率" class="headerlink" title="平均準確率"></a>平均準確率</h2><p></p><p>說了一堆，可以來看底下這張效能表現比較圖了。</p><p>我直接連結<a href="https://github.com/AlexeyAB/darknet" target="_blank" rel="noopener">Darknet</a>其GitHub頁面的圖片⬇︎<br><img src="https://user-images.githubusercontent.com/4096485/82835867-f1c62380-9ecd-11ea-9134-1598ed2abc4b.png" alt></p><p>YOLOv4的效能表現是相當突出的，在FPS為90的時候，v4的AP比v3多了10%，要不光看它和YOLOv3那條線之間有好大一段垂直距離也不難理解。對於一件事情的難易度若是沒有概念，只看43.5%這個數字能看出什麼呢？</p><p>YOLOv4論文摘要：</p><blockquote><p>We use new features: WRC, CSP, CmBN, SAT, Mish activation, Mosaic data augmentation, CmBN, DropBlock regularization, and CIoU loss, and combine some of them to achieve state-of-the-art results: 43.5% AP (65.7% AP50) for the MS COCO dataset at a realtime speed of ~65 FPS on Tesla V100.</p></blockquote><p>辨識無數的物體要<strong>即時</strong>又要<strong>快狠準</strong>你說容易嗎？<br><img src="https://i.imgur.com/NG4nEoT.png" alt><br><div class="video-container"><iframe src="//www.youtube.com/embed/1_SiUOYUoOI" frameborder="0" allowfullscreen></iframe></div></p><h2 id="Research-Papers-of-YOLO"><a href="#Research-Papers-of-YOLO" class="headerlink" title="Research Papers of YOLO"></a>Research Papers of YOLO</h2><p></p><p></p><ul><li><a href="https://arxiv.org/abs/1506.02640" target="_blank" rel="noopener">You Only Look Once: Unified, Real-Time Object Detection</a></li><li><a href="https://arxiv.org/abs/1612.08242" target="_blank" rel="noopener">YOLO9000: Better, Faster, Stronger</a></li><li><a href="https://arxiv.org/abs/1804.02767" target="_blank" rel="noopener">YOLOv3: An Incremental Improvement</a></li><li><a href="https://arxiv.org/abs/2004.10934" target="_blank" rel="noopener">YOLOv4: Optimal Speed and Accuracy of Object Detection</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;這幾天媒體報導了&lt;a href=&quot;https://arxiv.org/abs/2004.10934&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;YOLOv4&lt;/a&gt;的相關新聞，提到其為中研院研究團隊與俄羅斯開發者所共同研發，而這全世界最快最準的物體偵測演算法，其平均準確率為43.5%，於是這43.5%的準確率迅速引來許多不明就裡的人留言批評。
-    
-    </summary>
-    
-      <category term="Data Science" scheme="https://laplacetw.github.io/categories/Data-Science/"/>
-    
-    
-      <category term="deep learning" scheme="https://laplacetw.github.io/tags/deep-learning/"/>
-    
-      <category term="computer vision" scheme="https://laplacetw.github.io/tags/computer-vision/"/>
-    
-      <category term="yolo" scheme="https://laplacetw.github.io/tags/yolo/"/>
-    
-      <category term="darknet" scheme="https://laplacetw.github.io/tags/darknet/"/>
     
   </entry>
   
