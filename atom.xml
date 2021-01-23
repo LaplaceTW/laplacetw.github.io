@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://laplacetw.github.io/"/>
-  <updated>2021-01-22T08:06:51.458Z</updated>
+  <updated>2021-01-23T17:18:54.493Z</updated>
   <id>https://laplacetw.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>資訊隱藏：竄改偵測與復原</title>
+    <link href="https://laplacetw.github.io/stegano-tamper-recovery/"/>
+    <id>https://laplacetw.github.io/stegano-tamper-recovery/</id>
+    <published>2021-01-23T09:20:29.000Z</published>
+    <updated>2021-01-23T17:18:54.493Z</updated>
+    
+    <content type="html"><![CDATA[<p>在這學期的資訊隱藏課程內容中，我認為這是最有趣的<a id="more"></a>，利用事先藏入彩色影像中的隱密資訊，竟然可以偵測出遭到竄改的區域，甚至進行一定程度的復原，這好像有點神奇…&nbsp;&nbsp;😲</p><h4 id="資訊嵌入"><a href="#資訊嵌入" class="headerlink" title="資訊嵌入"></a>資訊嵌入</h4><p>藏入的隱密資訊其長度為36-bit，由16-bit authentication data加上20-bit recovery data所組成。生成這36-bit資訊的過程有些繁瑣：</p><ol><li>生成global feature：將影像摘要資訊以MD5生成128-bit hash value，依序分割為8段、每段16-bit進行XOR運算。</li><li>將影像分割為2x2的不重疊區塊，然後做區塊映射：其結果將用來隱藏recovery data，也就是將目標區塊的復原資訊藏在映射區塊。</li><li>生成local feature：將2x2區塊每個像素之RGB各取5-bit最大有效位元(MSB)，再加上1-bit偶校驗(Even Parity)組成該像素的feature data，然後將4組feature data和區塊的row index、column index進行XOR運算。</li><li>生成authentication data：將global feature與2x2區塊的local feature進行XOR運算。</li><li>生成recovery data：計算2x2區塊的像素RGB平均值並轉換色彩空間至YCbCr，將Y加上Cb、Cr各取6-bit MSBs組成20-bit復原資訊。</li></ol><p>根據區塊映射之結果，將映射區塊的authentication data加上目標區塊的recovery data，組合成36-bit隱密資訊並嵌入至映射區塊。嵌入方式為自2x2映射區塊中，從每個像素點之R、G、B各取3-bit最低有效位元(LSB)來使用。</p><p>＊舉例來說，假設目標區塊A的index為(3, 4)，其映射區塊為B(2, 1)，則要嵌入至區塊B的36-bit隱密資訊 = 區塊B的16-bit authentication data + 區塊A的20-bit recovery data。因此，在影像遭到竄改而導致區塊A毀損，而區塊B完好如初的情況下，就可以從區塊B取出復原資訊來修復區塊A。</p><p><img src="https://i.imgur.com/VTzHSXG.png" alt></p><h4 id="竄改偵測"><a href="#竄改偵測" class="headerlink" title="竄改偵測"></a>竄改偵測</h4><p>要知道經過上述處理的影像是否遭到竄改，可透過找出真正的global feature以比對出可能遭到竄改的區域：</p><ol><li>將影像分割為2x2的不重疊區塊，提取出嵌入於區塊中的16-bit authentication data。</li><li>提取global feature：生成區塊的local feature並和authentication data進行XOR運算。</li><li>統計所有區塊提取出的global feature，出現頻率最多次的即為真正的global feature。</li><li>比對所有區塊的global feature，就能劃分出可能遭到竄改的區域。</li></ol><p><img src="https://i.imgur.com/eY5kQvd.png" alt></p><h4 id="影像復原"><a href="#影像復原" class="headerlink" title="影像復原"></a>影像復原</h4><p>透過上述的竄改偵測，若確認影像遭到竄改，可利用嵌入其中的recovery data來嘗試復原影像：</p><ol><li>確認竄改區域，定位被竄改區塊的區塊映射位置。</li><li>比對global feature檢查映射區塊是否也遭到竄改，以確認recovery data的可用性。</li><li>若映射區塊並無遭到竄改，則提取映射區塊中的20-bit recovery data，還原YCbCr(Cb、Cr捨棄的2-bit LSBs補0)並將色彩空間轉換回RGB，以此RGB值來復原被竄改的區塊。</li><li>若映射區塊亦遭到竄改，在recovery data不可用的情況下，就只能使用其所有相鄰區塊的像素平均值來修復了。</li></ol><p><img src="https://i.imgur.com/ffgTaAQ.png" alt></p><p>＊原始碼連結：<a href="https://github.com/laplacetw/stegano/blob/main/tamper-recovery.py" target="_blank" rel="noopener">Github</a><br>＊測試影像來源：<a href="https://unsplash.com/photos/IuDN1alE1GE" target="_blank" rel="noopener">unsplash</a>、<a href="https://unsplash.com/photos/1oAUMHQk7fY" target="_blank" rel="noopener">unsplash</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在這學期的資訊隱藏課程內容中，我認為這是最有趣的
+    
+    </summary>
+    
+      <category term="Steganography" scheme="https://laplacetw.github.io/categories/Steganography/"/>
+    
+    
+      <category term="python" scheme="https://laplacetw.github.io/tags/python/"/>
+    
+      <category term="data hiding" scheme="https://laplacetw.github.io/tags/data-hiding/"/>
+    
+  </entry>
   
   <entry>
     <title>資訊隱藏：離散小波轉換</title>
@@ -478,30 +502,6 @@
     <summary type="html">
     
       &lt;p&gt;其實原曲名叫Astronomia啊，只是被幾位知名舞者(?)給抬出名了。
-    
-    </summary>
-    
-      <category term="Arduino" scheme="https://laplacetw.github.io/categories/Arduino/"/>
-    
-    
-      <category term="IoT" scheme="https://laplacetw.github.io/tags/IoT/"/>
-    
-      <category term="arduino" scheme="https://laplacetw.github.io/tags/arduino/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Arduino UNO：RGB模組、PWM、負數</title>
-    <link href="https://laplacetw.github.io/arduino-uno-r3-rgb-module/"/>
-    <id>https://laplacetw.github.io/arduino-uno-r3-rgb-module/</id>
-    <published>2020-07-13T14:42:09.000Z</published>
-    <updated>2020-07-15T09:24:56.696Z</updated>
-    
-    <content type="html"><![CDATA[<p>What happens if we give a negative value to analogWrite() ?<a id="more"></a>當我看了learning kit提供的、關於RGB模組的範例，在輸出給RGB的數值變化過程中是有出現負值的，於是我困惑了很久，想弄明白analogWrite()如何處理負數。</p><h3 id="PWM"><a href="#PWM" class="headerlink" title="PWM"></a>PWM</h3><p>PWM = Pulse Width Modulation，脈衝寬度調變，是一種利用數位脈衝訊號模擬類比訊號的技術，如何模擬呢？我們知道數位訊號只有0與1兩種狀態，也就是低電位與高電位，而在頻率不變的狀態下，改變工作週期大小，使整體平均電壓值上升或下降來做到控制或節能的行為，這就是PWM。白話點說呢，就是快速的開、關、開、關、開、關…以LED燈來說，就是快到肉眼無法察覺的程度，當我們調整工作週期中開和關的持續時間比例，若開的時間較長，那麼LED燈看起來就比較亮，反之則較暗。</p><p>在Arduino中可用PWM模擬0~5v之間的電壓。圖片連結自<a href="https://www.arduino.cc/en/tutorial/PWM" target="_blank" rel="noopener">arduino.cc</a>⬇︎<br><img src="https://www.arduino.cc/en/uploads/Tutorial/pwm.gif" alt></p><h3 id="RGB-Module"><a href="#RGB-Module" class="headerlink" title="RGB Module"></a>RGB Module</h3><p>我手邊的是共陽極RGB模組，也就是其4根接腳為VCC、R、G、B。<br><img src="https://i.imgur.com/R6BxKqA.jpg" alt></p><p>RGB模組範例程式：<br>此範例使用有PWM功能的digital I/O pin 9 ~ 11，原始範例是有對這3個腳位設定pin mode，但<a href="https://www.arduino.cc/reference/en/language/functions/analog-io/analogwrite/" target="_blank" rel="noopener">Arduino官方說analogWrite()不需要設定pin mode喔</a>：</p><blockquote><p>You do not need to call pinMode() to set the pin as an output before calling analogWrite().<br>The analogWrite function has nothing to do with the analog pins or the analogRead function.</p></blockquote><p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PIN_G 9</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PIN_B 10</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PIN_R 11</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Serial.begin(<span class="number">9600</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">255</span>; i &gt; <span class="number">0</span>; i--) &#123;</span><br><span class="line">        <span class="keyword">int</span> blue = <span class="number">128</span> -i;</span><br><span class="line">        <span class="comment">//twos_complement(blue);</span></span><br><span class="line"></span><br><span class="line">        analogWrite(PIN_R, i);</span><br><span class="line">        analogWrite(PIN_B, blue); <span class="comment">// 127 -&gt; 0 -&gt; 127 </span></span><br><span class="line">        analogWrite(PIN_G, <span class="number">255</span> - i);</span><br><span class="line"></span><br><span class="line">        delay(<span class="number">50</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">255</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> blue = <span class="number">128</span> -i;</span><br><span class="line">        <span class="comment">//twos_complement(blue);</span></span><br><span class="line"></span><br><span class="line">        analogWrite(PIN_R, i); </span><br><span class="line">        analogWrite(PIN_B, blue); <span class="comment">// 128 -&gt; 0 -&gt; 126 </span></span><br><span class="line">        analogWrite(PIN_G, <span class="number">255</span> - i);</span><br><span class="line"></span><br><span class="line">        delay(<span class="number">50</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">twos_complement</span><span class="params">(<span class="keyword">int</span> binary)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (binary &lt; <span class="number">0</span>) Serial.println((~binary) + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">else</span> Serial.println(binary);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><img src="https://i.imgur.com/WQXvn2G.gif" alt></p><h3 id="analogWrite"><a href="#analogWrite" class="headerlink" title="analogWrite()"></a>analogWrite()</h3><p>從上面的範例程式可以看到，analogWrite()寫入RGB module的B pin值，也就是for loop中的變數blue，它是會出現負值的。但analogWrite()只接受0 ~ 255之間的值呢？？？後來我找到<a href="https://techexplorations.com/blog/arduino/blog-what-happens-if-you-give-a-negative-pwm-value-to-analogwrite/" target="_blank" rel="noopener">一篇文章</a>說Arduino使用二補數來處理負數，於是我寫了twos_complement()來計算二補數並print出實際上寫入B pin的值。</p><h3 id="Ref"><a href="#Ref" class="headerlink" title="Ref."></a>Ref.</h3><p><a href="https://www.arduino.cc/en/tutorial/PWM" target="_blank" rel="noopener">https://www.arduino.cc/en/tutorial/PWM</a><br><a href="http://wiki.csie.ncku.edu.tw/embedded/PWM" target="_blank" rel="noopener">http://wiki.csie.ncku.edu.tw/embedded/PWM</a><br><a href="https://www.arduino.cc/reference/en/language/functions/analog-io/analogwrite/" target="_blank" rel="noopener">https://www.arduino.cc/reference/en/language/functions/analog-io/analogwrite/</a><br><a href="https://techexplorations.com/blog/arduino/blog-what-happens-if-you-give-a-negative-pwm-value-to-analogwrite/" target="_blank" rel="noopener">https://techexplorations.com/blog/arduino/blog-what-happens-if-you-give-a-negative-pwm-value-to-analogwrite/</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;What happens if we give a negative value to analogWrite() ?
     
     </summary>
     
