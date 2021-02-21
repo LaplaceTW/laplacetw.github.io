@@ -122,7 +122,7 @@
 <meta property="og:description" content="事情是這樣子的，持續努力讓Bot能查教師課表的某一天，在經歷了數據蒐集、數據處理、介接imgur api…等等，終於讓Bot傳來了一張圖片啦~但仔細一看似乎不太對勁!">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://i.imgur.com/uxdEvJZ.png">
-<meta property="og:updated_time" content="2019-04-28T09:39:38.321Z">
+<meta property="og:updated_time" content="2021-02-21T10:36:31.339Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在Heroku環境下使用自訂字型">
 <meta name="twitter:description" content="事情是這樣子的，持續努力讓Bot能查教師課表的某一天，在經歷了數據蒐集、數據處理、介接imgur api…等等，終於讓Bot傳來了一張圖片啦~但仔細一看似乎不太對勁!">
@@ -458,7 +458,8 @@
       
         <p>事情是這樣子的，持續努力讓Bot能查教師課表的某一天，在經歷了數據蒐集、數據處理、介接imgur api…等等，終於讓Bot傳來了一張圖片啦~但仔細一看似乎不太對勁!<br><a id="more"></a></p>
 <h2 id="How-to-Use-Custom-Fonts-in-Heroku-Apps"><a href="#How-to-Use-Custom-Fonts-in-Heroku-Apps" class="headerlink" title="How to Use Custom Fonts in Heroku Apps?"></a>How to Use Custom Fonts in Heroku Apps?</h2><p></p><p><br>我X，踩雷了，竟然出現中文亂碼的狀況，這課表鬼才看得懂(鬼:口口口口口這鬼也看不懂好嘛)於是又開始try&amp;error loop…甚至讓Bot去下CLI指令刪除搬移檔案…繞了好一大圈，終於讓我找到答案了!!!令人難過的是，這方法非常簡單…雖然這是常有的事，可就是白耗了好多時間。但沒關係，讓碰見相同問題的人能快速找到解決方案，這就是學習筆記的意義所在。</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p></p><p><br>1.準備好你要的字型，要<span style="color:red;">特別注意</span>的是，該字型必須是Linux/Ubuntu所支援的字型。<br>2.在專案根目錄下新增一個名稱為「.fonts」的資料夾(tips:在命名時輸入.fonts.)<br>3.把字型檔案(.ttf)放到上述資料夾中<br>4.重新push專案</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p></p><p><br>1.準備好你要的字型，須<span style="color:red;">特別注意</span>的是，該字型必須是<span style="color:red;">Linux/Ubuntu</span>所支援的字型。<br>2.在專案根目錄下新增一個名稱為「.fonts」的資料夾(tips:在命名時輸入.fonts.)<br>3.把字型檔案(.ttf)放到上述資料夾中<br>4.重新部署</p>
+<p>＊2021/02/21補充說明：因收到來信詢問相關問題，我使用的字體為SimHei。<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.rcParams[<span class="string">'font.sans-serif'</span>] = [<span class="string">'SimHei'</span>]</span><br></pre></td></tr></table></figure></p>
 <p><img src="https://i.imgur.com/uxdEvJZ.png" alt></p>
 <p>關於中文亂碼，似乎是matplotlib無法在Heroku環境下找到可套用的中文字型，但我在本機測試是沒問題的…所以要自己提供字型就是了，真是踩了個莫名其妙的雷，總之中文亂碼問題就這麼解決了。</p>
 
