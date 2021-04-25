@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://laplacetw.github.io/"/>
-  <updated>2021-04-18T08:59:54.109Z</updated>
+  <updated>2021-04-25T08:27:55.669Z</updated>
   <id>https://laplacetw.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>React Native 開發環境設置</title>
+    <link href="https://laplacetw.github.io/react-native-env-setup/"/>
+    <id>https://laplacetw.github.io/react-native-env-setup/</id>
+    <published>2021-04-25T08:27:33.000Z</published>
+    <updated>2021-04-25T08:27:55.669Z</updated>
+    
+    <content type="html"><![CDATA[<p>因為有跨行動平台的需求，我在幾個解決方案之間考量：<a id="more"></a></p><ul><li><a href="https://zh.wikipedia.org/wiki/Flutter" target="_blank" rel="noopener">Flutter</a></li><li><a href="https://zh.wikipedia.org/wiki/React_Native" target="_blank" rel="noopener">React Native</a></li><li><a href="https://zh.wikipedia.org/wiki/Xamarin" target="_blank" rel="noopener">Xamarin</a></li></ul><p>基於我對Dart和C#都不甚理解，且想藉機了解React，亦考量各框架的活躍度，因而選擇了React Native。</p><h3 id="MacOS"><a href="#MacOS" class="headerlink" title="MacOS"></a>MacOS</h3><p>React Native官方文件所列出的工具需求：</p><ol><li><p>Node.js 12+</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew install node</span><br></pre></td></tr></table></figure><p>＊為了<a href="ttps://laplacetw.github.io/hexo-err-invalid-arg-type">將Node.js更新到12+</a>真的是折騰了些時間，有使用Hexo框架寫部落格的人可別直接安裝最新版啊。</p></li><li><p>Watchman</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew install watchman</span><br></pre></td></tr></table></figure></li><li><p>CocoaPods</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo gem install cocoapods</span><br></pre></td></tr></table></figure></li><li><p>Xcode 10+<br>從<a href="https://apps.apple.com/tw/app/xcode/id497799835" target="_blank" rel="noopener">App Store</a>下載，然後在偏好設定中安裝Xcode Command Line Tools和模擬器。<br><img src="https://i.imgur.com/TVozuay.png" alt><br><img src="https://i.imgur.com/M0FX6FG.png" alt></p></li><li><p>React Native CLI<br>毋需安裝，官方文件建議使用Node.js附帶的npx來存取最新版本：</p><blockquote><p>React Native has a built-in command line interface. Rather than install and manage a specific version of the CLI globally, we recommend you access the current version at runtime using npx, which ships with Node.js. With npx react-native <command>, the current stable version of the CLI will be downloaded and executed at the time the command is run.</p></blockquote></li></ol><p>以上的工具都準備好了之後，就可以來建立我們的第一個React Native專案了：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npx react-native init MyFirstApp</span><br></pre></td></tr></table></figure><br><img src="https://i.imgur.com/lWhdK1l.png" alt></p><p>專案資料夾結構⬇︎<br><img src="https://i.imgur.com/uXqvhWQ.png" alt></p><p>編譯iOS App：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> MyFirstApp</span><br><span class="line">$ npx react-native run-ios</span><br></pre></td></tr></table></figure></p><p>編譯過程花費約12分鐘。我並不打算在MBA上安裝Android Studio來為難它，只是礙於Xcode僅支援MacOS…。</p><p><img src="https://i.imgur.com/o1TmwfY.png" alt></p><h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><p>to be continued…</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;因為有跨行動平台的需求，我在幾個解決方案之間考量：
+    
+    </summary>
+    
+      <category term="React Native" scheme="https://laplacetw.github.io/categories/React-Native/"/>
+    
+    
+      <category term="react" scheme="https://laplacetw.github.io/tags/react/"/>
+    
+      <category term="react native" scheme="https://laplacetw.github.io/tags/react-native/"/>
+    
+      <category term="mobile app" scheme="https://laplacetw.github.io/tags/mobile-app/"/>
+    
+  </entry>
   
   <entry>
     <title>Node.js版本更新、Hexo部署更新失敗</title>
@@ -34,11 +60,11 @@
       <category term="Hexo" scheme="https://laplacetw.github.io/categories/Hexo/"/>
     
     
-      <category term="nodejs" scheme="https://laplacetw.github.io/tags/nodejs/"/>
-    
       <category term="hexo" scheme="https://laplacetw.github.io/tags/hexo/"/>
     
       <category term="github pages" scheme="https://laplacetw.github.io/tags/github-pages/"/>
+    
+      <category term="nodejs" scheme="https://laplacetw.github.io/tags/nodejs/"/>
     
   </entry>
   
@@ -404,11 +430,11 @@
       <category term="Data Science" scheme="https://laplacetw.github.io/categories/Data-Science/"/>
     
     
-      <category term="heroku" scheme="https://laplacetw.github.io/tags/heroku/"/>
-    
       <category term="python" scheme="https://laplacetw.github.io/tags/python/"/>
     
       <category term="web crawler" scheme="https://laplacetw.github.io/tags/web-crawler/"/>
+    
+      <category term="heroku" scheme="https://laplacetw.github.io/tags/heroku/"/>
     
       <category term="selenium" scheme="https://laplacetw.github.io/tags/selenium/"/>
     
@@ -491,28 +517,6 @@
       <category term="moviepy" scheme="https://laplacetw.github.io/tags/moviepy/"/>
     
       <category term="mytoolbox" scheme="https://laplacetw.github.io/tags/mytoolbox/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>COSCUP 2020！</title>
-    <link href="https://laplacetw.github.io/coscup-2020/"/>
-    <id>https://laplacetw.github.io/coscup-2020/</id>
-    <published>2020-08-03T08:13:20.000Z</published>
-    <updated>2020-08-05T06:29:26.940Z</updated>
-    
-    <content type="html"><![CDATA[<p>決定得很臨時，但今年不用搶票，只要填寫健康聲明書就能參加了。<a id="more"></a>雖說COSCUP是免費參加的，但小資如我還是有個人贊助點小錢，希望往後自己每年都能參加。剛好我的三倍券也還沒想到要用在哪，於是趕緊綁定信用卡、光速訂了高鐵票和商旅，週五晚間就飛奔到台北準備參加人生第一場COSCUP😎。</p><p>COSCUP 2020官網：<a href="https://coscup.org/2020/zh-TW" target="_blank" rel="noopener">https://coscup.org/2020/zh-TW</a></p><blockquote><p>開發者 (Coders)、使用者 (Users) 和推廣者 (Promoters) 是讓自由及開放原始碼軟體發光發熱的三大支柱，這個研討會就是專為這三種人舉辦的：你可以是 A 軟體的開發者、B 軟體的推廣者、C 軟體的使用者，不論你是已經踏入自由及開放原始碼軟體領域，還是一直站在門口不知如何入門，歡迎你來參加 COSCUP — Conference for Open Source Coders, Users and Promoters!</p></blockquote><p>這兩天的落腳處⬇︎<br><img src="https://i.imgur.com/eIUe5PV.jpg" alt></p><p>COSCUP今年依然在台科大舉辦，我照官網所說的搭捷運到公館站，從2號出口旁沿著舟山路行走至鹿鳴堂，再右轉欒樹道走到底，這才抵達台科大…步行約10分鐘，熱到爆炸。</p><p>Badge⬇︎<br><img src="https://i.imgur.com/7Sy02Dw.jpg" alt></p><p>主議程會場⬇︎<br><img src="https://i.imgur.com/b80Zd26.jpg" alt></p><p>我在行前有根據議程表稍微規劃了想聽的議程，這次也和多年不見的友人約好在COSCUP碰面，時光飛逝相當有感…不過中午外出用餐回來沒趕上唐鳳政委主講的議題，畢竟現在疫情仍未趨緩，各個議程都是有人數管制的，只好在外頭透過直播觀看天才挨踢大臣的演講。</p><p>第一天印象最深刻的就是交大陳志成教授所主講，關於他們的團隊所開發的<a href="https://github.com/free5gc/free5gc" target="_blank" rel="noopener">free5GC</a>，為世界第一套符合國際標準的開放原始碼5G核心網路。<br><img src="https://i.imgur.com/vxqXSla.jpg" alt><br><img src="https://i.imgur.com/RRdmuOt.jpg" alt></p><p>第二天我只能參加上午的議題，然後就要趕搭高鐵回去了，但仍是參加了很棒的兩場議程，其一是Vue的作者、大神<a href="https://twitter.com/youyuxi" target="_blank" rel="noopener">Evan You</a>主講關於Vue第三版的開發過程所涉及的技術難點與設計取捨，雖然受疫情影響是採遠端連線會議，但這依然是令人興奮的議程！有趣的是，在議程最後的QA時間，有人問了Evan You這樣的一個問題：</p><blockquote><p>請問Vue和React有什麼不同呢？</p></blockquote><p>眾人不禁哄堂大笑😂，Evan You也無奈地笑了笑，但他還是相當耐心地解釋、提出他的看法。</p><p>議程結束後，我又立刻趕到另一個會場參加關於Pi Thermal Camera的議題，因為之前用Adafruit AMG8833 Module做過低解析度的熱成像儀，所以個人是相當期待這場議題的，我打算之後購買更高解析度的模組來進行進階實作。</p><p>從Mozilla Taiwan Community的攤位獲得了帥氣的Firefox胸章！⬇︎<br><img src="https://i.imgur.com/3XN2maN.jpg" alt></p><p>收集到了好多貼紙呀🙆‍♂️ ⬇︎<br><img src="https://i.imgur.com/7Jq8Gn9.jpg" alt></p><p>完。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;決定得很臨時，但今年不用搶票，只要填寫健康聲明書就能參加了。
-    
-    </summary>
-    
-      <category term="Workshop" scheme="https://laplacetw.github.io/categories/Workshop/"/>
-    
-    
-      <category term="coscup" scheme="https://laplacetw.github.io/tags/coscup/"/>
     
   </entry>
   
