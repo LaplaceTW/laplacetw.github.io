@@ -126,7 +126,12 @@
 <meta property="og:image" content="https://i.imgur.com/lWhdK1l.png">
 <meta property="og:image" content="https://i.imgur.com/uXqvhWQ.png">
 <meta property="og:image" content="https://i.imgur.com/o1TmwfY.png">
-<meta property="og:updated_time" content="2021-04-25T08:36:42.574Z">
+<meta property="og:image" content="https://i.imgur.com/99DiggT.png">
+<meta property="og:image" content="https://i.imgur.com/MXGG6Ma.png">
+<meta property="og:image" content="https://i.imgur.com/EEBL9Cj.png">
+<meta property="og:image" content="https://i.imgur.com/K7o4Ay3.png">
+<meta property="og:image" content="https://i.imgur.com/c4zxh1X.png">
+<meta property="og:updated_time" content="2021-04-28T15:49:35.042Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React Native 開發環境設置">
 <meta name="twitter:description" content="因為有跨行動平台的需求，我在幾個解決方案之間考量：">
@@ -467,7 +472,7 @@
 <li><a href="https://zh.wikipedia.org/wiki/Xamarin" target="_blank" rel="noopener">Xamarin</a></li>
 </ul>
 <p>基於我對Dart和C#都不甚理解，且想藉機了解React，亦考量各框架的活躍度，因而選擇了React Native。</p>
-<h3 id="MacOS"><a href="#MacOS" class="headerlink" title="MacOS"></a>MacOS</h3><p>React Native官方文件所列出的工具需求：</p>
+<h3 id="MacOS-for-iOS"><a href="#MacOS-for-iOS" class="headerlink" title="MacOS (for iOS)"></a>MacOS (for iOS)</h3><p>React Native官方文件所列出的工具需求：</p>
 <ol>
 <li><p>Node.js 12+</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew install node</span><br></pre></td></tr></table></figure>
@@ -488,16 +493,74 @@
 </li>
 </ol>
 <p>以上的工具都準備好了之後，就可以來建立我們的第一個React Native專案了：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npx react-native init MyFirstApp</span><br></pre></td></tr></table></figure><br><img src="https://i.imgur.com/lWhdK1l.png" alt></p>
-<p>專案資料夾結構⬇︎<br><img src="https://i.imgur.com/uXqvhWQ.png" alt></p>
-<p>編譯iOS App：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> MyFirstApp</span><br><span class="line">$ npx react-native run-ios</span><br></pre></td></tr></table></figure></p>
-<p>編譯過程花費約12分鐘。我並不打算在MBA上安裝Android Studio來為難它，只是礙於Xcode僅支援MacOS…。</p>
+<p>專案資料夾⬇︎<br><img src="https://i.imgur.com/uXqvhWQ.png" alt></p>
+<p>編譯iOS App：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> MyFirstApp</span><br><span class="line">$ npx react-native start</span><br><span class="line">$ npx react-native run-ios</span><br></pre></td></tr></table></figure></p>
+<p>編譯過程約12分鐘。<br>我並不打算在MBA上安裝Android Studio來為難它。</p>
 <p><img src="https://i.imgur.com/o1TmwfY.png" alt></p>
-<h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><p>to be continued…</p>
-<p>Ref.</p>
+<h3 id="Linux-for-Android"><a href="#Linux-for-Android" class="headerlink" title="Linux (for Android)"></a>Linux (for Android)</h3><p>＊Manjaro Linux</p>
+<p>React Native官方文件所列出的工具需求：</p>
+<ol>
+<li><p>Node.js 12+</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pacman -S nodejs npm</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Java Development Kit 8+<br>＊安裝的JDK為開源的Open JDK，而非Oracle JDK。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -S jre-openjdk-headless jre-openjdk jdk-openjdk openjdk-doc openjdk-src</span><br><span class="line"></span><br><span class="line">$ java -version</span><br><span class="line">openjdk version <span class="string">"15.0.2"</span> 2021-01-19</span><br><span class="line">OpenJDK Runtime Environment (build 15.0.2+7)</span><br><span class="line">OpenJDK 64-Bit Server VM (build 15.0.2+7, mixed mode)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Android development environment</p>
 <ul>
+<li><p>Install Android Studio<br>從<a href="https://developer.android.com/android-studio/download" target="_blank" rel="noopener">官網下載</a>並解壓縮。<br>進到解壓縮後的資料夾中執行studio.sh來安裝Android Studio需要的元件(需要一些時間)：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ./bin/studio.sh</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/99DiggT.png" alt><br><img src="https://i.imgur.com/MXGG6Ma.png" alt></p>
+<p>Configure -&gt; Create Desktop Entry可以在launcher建立捷徑。<br>亦可直接將Android Studio釘選在桌面工具列 / Latte Dock。</p>
+</li>
+<li><p>Install the Android SDK<br>雖然安裝Android Studio的時候就會一起安裝最新版本的Android SDK，但官方文件提到React Native需要Android 10 SDK這個版本。</p>
+<p>Configure -&gt; SDK Manager</p>
+<p>SDK Platform分頁 -&gt; Show Package Details -&gt; 勾選Android 10(Q)底下的 :</p>
+<ul>
+<li>Android SDK Platform 29</li>
+<li>Intel x86 Atom_64 System Image</li>
+</ul>
+<p><br>SDK Tools分頁 -&gt; Show Package Details -&gt; 勾選版本29.0.2</p>
+<p>上述項目勾選後點選Apply進行下載安裝(需要一些時間)。</p>
+</li>
+<li><p>Configure the ANDROID_HOME environment variable<br>React Native Tools為了以native code編譯App，需要設定一些環境變數。</p>
+<blockquote>
+<p>Add the following lines to your $HOME/.bash_profile or $HOME/.bashrc(if you are using zsh then ~/.zprofile or ~/.zshrc) config file:<br>export ANDROID_HOME=$HOME/Android/Sdk<br>export PATH=$PATH:$ANDROID_HOME/emulator<br>export PATH=$PATH:$ANDROID_HOME/tools<br>export PATH=$PATH:$ANDROID_HOME/tools/bin<br>export PATH=$PATH:$ANDROID_HOME/platform-tools</p>
+</blockquote>
+<blockquote>
+<p>.bash_profile is specific to bash. If you’re using another shell, you will need to edit the appropriate shell-specific config file.</p>
+</blockquote>
+<p>設定完成後確認環境變數設置：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="variable">$ANDROID_HOME</span></span><br><span class="line">$ <span class="built_in">echo</span> <span class="variable">$PATH</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>Watchman<br>從Github<a href="https://github.com/facebook/watchman/releases/latest" target="_blank" rel="noopener">下載最新版本</a>並解壓縮。<br>進到解壓縮後的資料夾中：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ sudo mkdir -p /usr/<span class="built_in">local</span>/&#123;bin,lib&#125; /usr/<span class="built_in">local</span>/var/run/watchman</span><br><span class="line">$ sudo cp bin/* /usr/<span class="built_in">local</span>/bin</span><br><span class="line">$ sudo cp lib/* /usr/<span class="built_in">local</span>/lib</span><br><span class="line">$ sudo chmod 755 /usr/<span class="built_in">local</span>/bin/watchman</span><br><span class="line">$ sudo chmod 2777 /usr/<span class="built_in">local</span>/var/run/watchman</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>React Native CLI<br>毋需安裝，官方文件建議使用Node.js附帶的npx來存取最新版本：</p>
+<blockquote>
+<p>React Native has a built-in command line interface. Rather than install and manage a specific version of the CLI globally, we recommend you access the current version at runtime using npx, which ships with Node.js. With npx react-native <command>, the current stable version of the CLI will be downloaded and executed at the time the command is run.</p>
+</blockquote>
+</li>
+</ol>
+<p>以上的工具都準備好了之後，就可以來建立我們的第一個React Native專案了：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npx react-native init MyFirstApp</span><br></pre></td></tr></table></figure></p>
+<p>專案資料夾⬇︎<br><img src="https://i.imgur.com/EEBL9Cj.png" alt></p>
+<p>編譯Android App：<br>＊必須先建立並啟動Android Studio模擬器</p>
+<blockquote>
+<p>If you have recently installed Android Studio, you will likely need to create a new AVD. Select “Create Virtual Device…”, then pick any Phone from the list and click “Next”, then select the Q API Level 29 image.</p>
+</blockquote>
+<p><img src="https://i.imgur.com/K7o4Ay3.png" alt></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> MyFirstApp</span><br><span class="line">$ npx react-native start</span><br><span class="line">$ npx react-native run-android</span><br></pre></td></tr></table></figure>
+<p>編譯過程僅數十秒。</p>
+<p><img src="https://i.imgur.com/c4zxh1X.png" alt></p>
+<h3 id="Ref"><a href="#Ref" class="headerlink" title="Ref."></a>Ref.</h3><ul>
 <li><a href="https://reactnative.dev/docs/environment-setup" target="_blank" rel="noopener">React Native - Setting up the development environment</a></li>
+<li><a href="https://nodejs.org/en/download/package-manager" target="_blank" rel="noopener">Node.js - Installing Node.js via package manager</a></li>
+<li><a href="https://linuxconfig.org/how-to-install-java-on-manjaro-linux" target="_blank" rel="noopener">How to install Java on Manjaro Linux</a></li>
+<li><a href="https://facebook.github.io/watchman/docs/install.html" target="_blank" rel="noopener">Watchman - Installation</a></li>
 <li><a href="https://medium.com/itsems-frontend/whats-npx-e83400efe7f8" target="_blank" rel="noopener">npx是什麼? 跟npm差在哪?</a></li>
-<li><a href="https://www.ruanyifeng.com/blog/2019/02/npx.html" target="_blank" rel="noopener">npx 相關指令教學</a></li>
+<li><a href="https://www.ruanyifeng.com/blog/2019/02/npx.html" target="_blank" rel="noopener">npx相關指令教學</a></li>
 </ul>
 
       
@@ -982,7 +1045,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#MacOS"><span class="nav-number">1.</span> <span class="nav-text">MacOS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux"><span class="nav-number">2.</span> <span class="nav-text">Linux</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#MacOS-for-iOS"><span class="nav-number">1.</span> <span class="nav-text">MacOS (for iOS)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux-for-Android"><span class="nav-number">2.</span> <span class="nav-text">Linux (for Android)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ref"><span class="nav-number">3.</span> <span class="nav-text">Ref.</span></a></li></ol></div>
             
 
           </div>
