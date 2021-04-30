@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://laplacetw.github.io/"/>
-  <updated>2021-04-28T15:49:35.042Z</updated>
+  <updated>2021-04-30T10:16:57.799Z</updated>
   <id>https://laplacetw.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>資訊隱藏：Cat Command</title>
+    <link href="https://laplacetw.github.io/stegano-hide-data-in-image-with-cat-cmd/"/>
+    <id>https://laplacetw.github.io/stegano-hide-data-in-image-with-cat-cmd/</id>
+    <published>2021-04-30T04:46:04.000Z</published>
+    <updated>2021-04-30T10:16:57.799Z</updated>
+    
+    <content type="html"><![CDATA[<p>閱讀某文章時提到有些老司機會把車票(?)隱藏在圖片(.jpg)中，覺得蠻有趣的<a id="more"></a>，沒想過cat(concatenate)指令做這件事XD</p><p>因為<a href="https://www.media.mit.edu/pia/Research/deepview/exif.html#JpegMarker" target="_blank" rel="noopener">JPEG的二進位檔為’0xFFD8’起始、’0xFFD9’結尾</a>，’0xFFD8’代表SOI(Start of image)，’0xFFD9’代表EOI(End of image)。即使將其他數據與其合併，圖片預覽程式在讀取二進位檔時遇到’0xFFD9’就會認為圖片已讀取完畢，因而無視後面的數據。<br><img src="https://i.imgur.com/yg6KnRX.png" alt></p><p>然後我在MacOS和Windows 10都試了試：</p><p>Unix-like<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat test.jpg secret.zip &gt; hide.jpg</span><br></pre></td></tr></table></figure></p><p>Windows<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">type</span> test.jpg secret.zip &gt; hide.jpg</span><br></pre></td></tr></table></figure></p><p>合併後得到的檔案看起來依然是一張圖片，但其實和原圖比對，檔案大小是有增加的。<br>將副檔名改為.zip後解壓縮，就能得到被合併進去的隱藏檔案。<br><img src="https://i.imgur.com/NqvpQYT.png" alt></p><p>覺得很有趣所以紀錄一下。😄</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;閱讀某文章時提到有些老司機會把車票(?)隱藏在圖片(.jpg)中，覺得蠻有趣的
+    
+    </summary>
+    
+      <category term="Steganography" scheme="https://laplacetw.github.io/categories/Steganography/"/>
+    
+    
+      <category term="data hiding" scheme="https://laplacetw.github.io/tags/data-hiding/"/>
+    
+  </entry>
   
   <entry>
     <title>React Native 開發環境設置</title>
@@ -182,11 +204,11 @@
       <category term="Data Science" scheme="https://laplacetw.github.io/categories/Data-Science/"/>
     
     
+      <category term="GAN" scheme="https://laplacetw.github.io/tags/GAN/"/>
+    
       <category term="keras" scheme="https://laplacetw.github.io/tags/keras/"/>
     
       <category term="deep learning" scheme="https://laplacetw.github.io/tags/deep-learning/"/>
-    
-      <category term="GAN" scheme="https://laplacetw.github.io/tags/GAN/"/>
     
   </entry>
   
@@ -460,9 +482,9 @@
       <category term="Workshop" scheme="https://laplacetw.github.io/categories/Workshop/"/>
     
     
-      <category term="big data" scheme="https://laplacetw.github.io/tags/big-data/"/>
-    
       <category term="deep learning" scheme="https://laplacetw.github.io/tags/deep-learning/"/>
+    
+      <category term="big data" scheme="https://laplacetw.github.io/tags/big-data/"/>
     
       <category term="cloud computing" scheme="https://laplacetw.github.io/tags/cloud-computing/"/>
     
@@ -491,32 +513,6 @@
       <category term="kafka" scheme="https://laplacetw.github.io/tags/kafka/"/>
     
       <category term="big data" scheme="https://laplacetw.github.io/tags/big-data/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python分割影片為指定長度</title>
-    <link href="https://laplacetw.github.io/python-video-split/"/>
-    <id>https://laplacetw.github.io/python-video-split/</id>
-    <published>2020-08-24T03:38:49.000Z</published>
-    <updated>2020-08-24T06:46:03.546Z</updated>
-    
-    <content type="html"><![CDATA[<p>人們經常在通訊軟體分享各種多媒體訊息，而影片長度或檔案大小可能會有上傳限制，只好將其分割成多個片段上傳。<a id="more"></a>就Line而言，我查到的資訊是限制影片長度5分鐘內、檔案大小300MB以下，就能順利傳送並於聊天室中播放。短片的話自己手動分割一下就行了，但你知道的(?)，有些人分享的片段完整加總起來都數十分鐘甚至一個多小時，仔細觀察那些片段的長度竟然都不一樣，而且還有上字(XXX分享之類的)，這…還真是吃力不討好啊，我只能說祝大大一生平安🙆‍♂️。</p><hr><p>還是交給程式來處理吧，指定影片分割秒數，並自動在片頭上字持續3秒做為順序標記。此範例需用到<a href="https://pypi.org/project/moviepy/" target="_blank" rel="noopener">moviepy</a>套件，且需事先安裝<a href="https://ffmpeg.org/" target="_blank" rel="noopener">FFmpeg</a>和<a href="https://imagemagick.org/script/download.php" target="_blank" rel="noopener">ImageMagick</a>這兩個開源軟體。</p><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="keyword">import</span> moviepy.editor <span class="keyword">as</span> mp</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># e.g. video_split("./LaplaceTW.mp4", 300)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">video_split</span><span class="params">(filepath, duration)</span>:</span></span><br><span class="line">    video = mp.VideoFileClip(filepath).resize(width=<span class="number">720</span>)</span><br><span class="line">    video_length = int(video.duration) <span class="comment"># seconds</span></span><br><span class="line">    parts = int(video_length / duration)</span><br><span class="line">    remaining = video_length - (duration * parts)</span><br><span class="line">    parts = (parts + <span class="number">1</span>) <span class="keyword">if</span> remaining &gt; <span class="number">0</span> <span class="keyword">else</span> parts</span><br><span class="line">    print(<span class="string">"Video Length:"</span>, video_length, <span class="string">" | Split Parts:"</span>, parts)</span><br><span class="line"></span><br><span class="line">    start, end = <span class="number">0</span>, duration</span><br><span class="line">    <span class="keyword">for</span> part <span class="keyword">in</span> range(<span class="number">1</span>, parts + <span class="number">1</span>):</span><br><span class="line">        title = <span class="string">"Part."</span> + str(part)</span><br><span class="line">        text = (mp.TextClip(title, fontsize=<span class="number">50</span>, color=<span class="string">'yellow'</span>)</span><br><span class="line">            .set_pos((<span class="string">"right"</span>, <span class="string">"top"</span>))</span><br><span class="line">            .set_duration(<span class="number">3</span>))</span><br><span class="line"></span><br><span class="line">        clip = video.subclip(start, end)</span><br><span class="line">        clip = mp.CompositeVideoClip([clip, text])</span><br><span class="line">        clip.write_videofile(title + <span class="string">'.mp4'</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> part == parts - <span class="number">1</span> <span class="keyword">and</span> remaining &gt; <span class="number">0</span>:</span><br><span class="line">            start += duration</span><br><span class="line">            end += remaining</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            start += duration</span><br><span class="line">            end += duration</span><br></pre></td></tr></table></figure><p>分割長時間影片 ⬇︎<br><img src="https://i.imgur.com/IgC7WQW.png" alt></p><p>處理結果 ⬇︎<br><img src="https://i.imgur.com/XqVlcYG.gif" alt></p><hr><p>＊若沒有安裝ImageMagick則會發生執行錯誤：[Errno 2] No such file or directory: ‘unset’: ‘unset’<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">OSError: MoviePy Error: creation of None failed because of the following error:</span><br><span class="line"></span><br><span class="line">[Errno 2] No such file or directory: <span class="string">'unset'</span>: <span class="string">'unset'</span>.</span><br><span class="line"></span><br><span class="line">.This error can be due to the fact that ImageMagick is not installed on your computer, </span><br><span class="line">or (<span class="keyword">for</span> Windows users) that you didn<span class="string">'t specify the path to the ImageMagick binary in </span></span><br><span class="line"><span class="string">file conf.py, or that the path you specified is incorrect</span></span><br></pre></td></tr></table></figure></p><p>Ref. <a href="https://github.com/Zulko/moviepy/issues/1003" target="_blank" rel="noopener">TextClip Doesn’t work at all #1003</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;人們經常在通訊軟體分享各種多媒體訊息，而影片長度或檔案大小可能會有上傳限制，只好將其分割成多個片段上傳。
-    
-    </summary>
-    
-      <category term="Python" scheme="https://laplacetw.github.io/categories/Python/"/>
-    
-    
-      <category term="python" scheme="https://laplacetw.github.io/tags/python/"/>
-    
-      <category term="moviepy" scheme="https://laplacetw.github.io/tags/moviepy/"/>
-    
-      <category term="mytoolbox" scheme="https://laplacetw.github.io/tags/mytoolbox/"/>
     
   </entry>
   
