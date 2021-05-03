@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://laplacetw.github.io/sofdev-github-token-auth-needed/</loc>
+    
+    <lastmod>2021-05-03T08:45:22.014Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://laplacetw.github.io/react-native-env-setup/</loc>
     
     <lastmod>2021-05-03T08:16:16.079Z</lastmod>
@@ -68,13 +75,6 @@
     <loc>https://laplacetw.github.io/stegano-least-significant-bit/</loc>
     
     <lastmod>2021-01-22T06:53:16.501Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://laplacetw.github.io/sofdev-github-token-auth-needed/</loc>
-    
-    <lastmod>2021-01-21T10:13:52.062Z</lastmod>
     
   </url>
   
