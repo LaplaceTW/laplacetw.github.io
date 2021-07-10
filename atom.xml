@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://laplacetw.github.io/"/>
-  <updated>2021-04-30T10:16:57.799Z</updated>
+  <updated>2021-07-10T17:48:03.826Z</updated>
   <id>https://laplacetw.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何確認開機隨身碟的Windows版本？</title>
+    <link href="https://laplacetw.github.io/tools-check-win-bootable-usb-version/"/>
+    <id>https://laplacetw.github.io/tools-check-win-bootable-usb-version/</id>
+    <published>2021-07-10T17:05:33.000Z</published>
+    <updated>2021-07-10T17:48:03.826Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近要幫友人的新電腦安裝作業系統，於是找了找手邊的隨身碟，但有段時間沒使用，也記不得裡頭的版本…<a id="more"></a></p><p>然後我就去Google這個問題啦，原來只需要使用「部署映像服務與管理」(Deployment Imaging and Management, DISM)命令列工具就行了。</p><p>將開機隨身碟連接電腦，然後以Admin權限啟動Windows CMD或PowerShell並執行以下命令：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ dism /Get-WimInfo /WimFile:E:\sources\Boot.wim /index:1</span><br></pre></td></tr></table></figure><br>＊請自行代入開機隨身碟在您電腦上的磁碟機代號。</p><p>如此就可以看到作業系統版本號了⬇︎<br><img src="https://i.imgur.com/oaEQdAn.png" alt></p><p>murmur：研究進度壓力山大，好幾個月沒時間更新部落格了…連翻譯完的論文也擱著，只能寫點小小的筆記😞<br>但是我很努力在前進著！</p><p>Ref.</p><ul><li><a href="https://pressf1.pcworld.co.nz/showthread.php?140641-Win10-ISO-on-USB-any-way-to-check-version" target="_blank" rel="noopener">Win10 ISO on USB - any way to check version?</a></li><li><a href="https://docs.microsoft.com/zh-tw/windows-hardware/manufacture/desktop/what-is-dism" target="_blank" rel="noopener">MS Doc - 什麼是DISM?</a></li><li><a href="https://zh.wikipedia.org/wiki/Microsoft_Windows#Windows版本歷史" target="_blank" rel="noopener">Wikipedia - Windows版本歷史</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近要幫友人的新電腦安裝作業系統，於是找了找手邊的隨身碟，但有段時間沒使用，也記不得裡頭的版本…
+    
+    </summary>
+    
+      <category term="Tools" scheme="https://laplacetw.github.io/categories/Tools/"/>
+    
+    
+      <category term="windows" scheme="https://laplacetw.github.io/tags/windows/"/>
+    
+      <category term="boot usb" scheme="https://laplacetw.github.io/tags/boot-usb/"/>
+    
+  </entry>
   
   <entry>
     <title>資訊隱藏：Cat Command</title>
@@ -487,32 +511,6 @@
       <category term="big data" scheme="https://laplacetw.github.io/tags/big-data/"/>
     
       <category term="cloud computing" scheme="https://laplacetw.github.io/tags/cloud-computing/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Apache Kafka安裝測試</title>
-    <link href="https://laplacetw.github.io/data-sci-kafka-hello-world/"/>
-    <id>https://laplacetw.github.io/data-sci-kafka-hello-world/</id>
-    <published>2020-08-26T07:19:58.000Z</published>
-    <updated>2020-08-27T06:16:56.158Z</updated>
-    
-    <content type="html"><![CDATA[<p>紀錄前陣子嘗試建立Kafka平台模擬事件串流的過程。<a id="more"></a>模擬的情境是，假設有人感染了COVID-19，然後我們要利用Kafka Producer發佈該事件通知，使Kafka Consumer接收到訊息並顯示出來。</p><h3 id="What-is-Apache-Kafka"><a href="#What-is-Apache-Kafka" class="headerlink" title="What is Apache Kafka?"></a>What is Apache Kafka?</h3><p><a href="https://kafka.apache.org/" target="_blank" rel="noopener">Apache Kafka官網</a>：</p><blockquote><p>Apache Kafka is an open-source <font color="red">distributed</font> event streaming platform used by thousands of companies for high-performance data pipelines, streaming analytics, data integration, and mission-critical applications.</p></blockquote><p><a href="https://zh.wikipedia.org/wiki/Kafka" target="_blank" rel="noopener">維基中文頁面</a>：</p><blockquote><p>Kafka最初是由領英開發，由Scala和Java編寫，於2011年初開源。該專案的目標是為處理即時資料提供一個統一、高吞吐、低延遲的平台。</p></blockquote><p>在Kafka中有幾個主要的概念：</p><table><thead><tr><th style="text-align:center"></th><th style="text-align:center"></th></tr></thead><tbody><tr><td style="text-align:center">Broker</td><td style="text-align:center">實現資料儲存的主機伺服器</td></tr><tr><td style="text-align:center">Producer</td><td style="text-align:center">訊息的生產者</td></tr><tr><td style="text-align:center">Consumer</td><td style="text-align:center">訊息的消費者</td></tr><tr><td style="text-align:center">Topic</td><td style="text-align:center">訊息的分類</td></tr><tr><td style="text-align:center">Partition</td><td style="text-align:center">Topic中的訊息會被分為若干Partition，以提高訊息處理效率</td></tr></tbody></table><h3 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h3><ul><li>安裝JDK：<a href="https://www.oracle.com/tw/java/technologies/javase-downloads.html" target="_blank" rel="noopener">官網下載連結</a></li><li>下載Apache Kafka並解壓縮：<a href="https://kafka.apache.org/downloads" target="_blank" rel="noopener">官網下載連結</a></li><li>安裝kafka-python套件<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip install kafka-python</span><br></pre></td></tr></table></figure></li></ul><h3 id="Get-Started"><a href="#Get-Started" class="headerlink" title="Get Started"></a>Get Started</h3><p>移動到解壓縮後的Kafka資料夾根目錄</p><ul><li><p>啟動Zookeeper server</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/zookeeper-server-start.sh config/zookeeper.properties</span><br></pre></td></tr></table></figure></li><li><p>啟動Kafka server</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/kafka-server-start.sh config/server.properties</span><br></pre></td></tr></table></figure></li></ul><p>＊<a href="https://zookeeper.apache.org/" target="_blank" rel="noopener">Apache Zookeeper</a>是用來管理Kafka分散式叢集(Brokers)組態設定與其資源配置的服務。<br>＊啟動server若顯示以下錯誤訊息：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Unrecognized VM option <span class="string">'PrintGCDateStamps'</span></span><br><span class="line">Error: Could not create the Java Virtual Machine.</span><br><span class="line">Error: A fatal exception has occurred. Program will <span class="built_in">exit</span>.</span><br></pre></td></tr></table></figure></p><p>參考<a href="https://stackoverflow.com/questions/36970622/kafka-unrecognized-vm-option-printgcdatestamps" target="_blank" rel="noopener">stackoverflow相關討論</a>，修改/bin/kafka-run-class.sh這個檔案：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [[ <span class="string">"<span class="variable">$JAVA_MAJOR_VERSION</span>"</span> -ge <span class="string">"9"</span> ]]</span><br></pre></td></tr></table></figure></p><p><font color="red">將上述的if條件式內容修改為</font></p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JAVA_MAJOR_VERSION=$(<span class="variable">$JAVA</span> -version 2&gt;&amp;1 | sed -E -n <span class="string">'s/.* version "([^.-]*).*/\1/p'</span>)</span><br></pre></td></tr></table></figure><ul><li><p>建立Topic<br>以下指令會建立一個具有一個副本、一個分區的名稱為covid-19的Topic：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic covid-19</span><br></pre></td></tr></table></figure></li><li><p>確認已建立的Topic</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/kafka-topics.sh --list --zookeeper localhost:2181</span><br></pre></td></tr></table></figure></li><li><p>Producer</p><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!usr/bin/env python3</span></span><br><span class="line"><span class="comment"># coding:utf-8</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> kafka <span class="keyword">import</span> KafkaProducer</span><br><span class="line">producer = KafkaProducer(bootstrap_servers=<span class="string">'localhost:9092'</span>)</span><br><span class="line">counter = <span class="number">1</span></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    msg = <span class="string">'[Total: '</span> + str(counter) + <span class="string">']Someone is contracted COVID-19! Be careful!'</span></span><br><span class="line">    msg = msg.encode(<span class="string">'ascii'</span>)</span><br><span class="line">    producer.send(<span class="string">'covid-19'</span>, msg)</span><br><span class="line">    time.sleep(<span class="number">5</span>)</span><br><span class="line">    counter += <span class="number">1</span></span><br></pre></td></tr></table></figure></li><li><p>Consumer</p><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!usr/bin/env python3</span></span><br><span class="line"><span class="comment"># coding:utf-8</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> kafka <span class="keyword">import</span> KafkaConsumer</span><br><span class="line">consumer = KafkaConsumer(<span class="string">'covid-19'</span>)</span><br><span class="line"><span class="keyword">for</span> msg <span class="keyword">in</span> consumer:</span><br><span class="line">    print(msg.value.decode(<span class="string">'ascii'</span>))</span><br></pre></td></tr></table></figure></li></ul><p>可以看到Consumer都接收到了COVID-19事件通知⬇︎<br><img src="https://i.imgur.com/DK82jfm.gif" alt></p><p>Ref. <a href="https://timber.io/blog/hello-world-in-kafka-using-python" target="_blank" rel="noopener">Hello World In Kafka Using Python</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;紀錄前陣子嘗試建立Kafka平台模擬事件串流的過程。
-    
-    </summary>
-    
-      <category term="Data Science" scheme="https://laplacetw.github.io/categories/Data-Science/"/>
-    
-    
-      <category term="python" scheme="https://laplacetw.github.io/tags/python/"/>
-    
-      <category term="kafka" scheme="https://laplacetw.github.io/tags/kafka/"/>
-    
-      <category term="big data" scheme="https://laplacetw.github.io/tags/big-data/"/>
     
   </entry>
   
