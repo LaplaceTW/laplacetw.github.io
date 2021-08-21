@@ -1,0 +1,356 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Luckyball Go!</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,
+            minimum-scale=1,user-scalable=no,viewport-fit=cover">
+    </head>
+    <body>
+        <div id="app">
+            <span id="lottery">
+                <img src="https://img.icons8.com/doodle/48/000000/clover--v1.png"/>
+                抽獎小幫手
+                <img src="https://img.icons8.com/doodle/48/000000/clover--v1.png"/>
+            </span>
+            <div>
+                <span id="title">抽獎主題</span>
+                <input id="title-input" ref="title" type="text">
+            </div>
+            <div id="block">
+                <span>抽獎名單</span>
+                <textarea 
+                    id="names" ref="names" @input="updateNames" @blur="setPlaceholder($event)" 
+                    @focus="clearPlaceholder($event)" cols="30" rows="15">
+                </textarea>
+                <button id="btnGenNum" @click="autoGenNum($event)">自動生成</button>
+            </div>
+            <div id="block" v-model="items">
+                <span>抽獎項目</span>
+                <textarea 
+                    id="items" ref="items" @input="updateItems" @blur="setPlaceholder($event)" 
+                    @focus="clearPlaceholder($event)" cols="30" rows="15">
+                </textarea>
+                <h3 id="condition">{{ statistics }}</h3>
+            </div>
+            <div id="block">
+                <span>抽獎結果</span>
+                <textarea id="lucky" ref="lucky" cols="30" rows="15"></textarea>
+                <button id="btnLottery" @click="luckyballGo">開始抽獎</button>
+            </div>
+            <div>
+                <button id="btnClear" @click="resetAll">全部清除</button>
+            </div>
+            <a href="https://laplacetw.github.io">Made by LaplaceTW</a>
+        </div>
+        <style>
+            @media screen and (max-width:500px){
+                #lottery {
+                    display: block;
+                    color: white;
+                    font-size: 40px;
+                    text-shadow: 3px 3px green;
+                    margin: 0px auto 20px auto;
+                }
+
+                #title {
+                    display: block;
+                    width: 95%;
+                    color: white;
+                    font-size: 30px;
+                    background-color: lightskyblue;
+                    margin: 0px auto;
+                }
+
+                #title-input {
+                    width: 95%;
+                    display: block;
+                    font-size: 25px;
+                    border: none;
+                    padding: 10px 0px;
+                    margin: 0px auto;
+                    text-align: center;
+                }
+            }
+
+            @media screen and (min-width:500px){
+                #lottery {
+                    display: block;
+                    color: white;
+                    font-size: 50px;
+                    text-shadow: 3px 3px green;
+                    margin: 0px auto 20px auto;
+                }
+
+                #title {
+                    display: block;
+                    width: 80%;
+                    color: white;
+                    font-size: 30px;
+                    background-color: lightskyblue;
+                    margin: 0px auto;
+                }
+
+                #title-input {
+                    width:80%;
+                    display: block;
+                    font-size: 25px;
+                    border: none;
+                    padding: 10px 0px;
+                    margin: 0px auto;
+                    text-align: center;
+                }
+            }
+            
+            body {
+                font-family: Noto Sans CJK TC, Microsoft JhengHei, PingFang, STHeiti, sans-serif, serif;
+                background-image: url('https://images.unsplash.com/photo-1518688248740-7c31f1a945c4');
+                background-size: cover;
+                background-color: hsla(0, 0%, 100%, 0.5);
+                background-blend-mode: overlay;
+                background-repeat: no-repeat;
+            }
+
+            #app {
+                text-align: center;
+            }
+
+            #block {
+                display: inline-block;
+                vertical-align: top;
+            }
+
+            #block > span {
+                display: block;
+                width: 100%;
+                color: white;
+                font-size: 30px;
+                background-color: lightskyblue;
+                margin: 20px auto 0px auto;
+            }
+
+            span > img {
+                vertical-align: middle;
+            }
+
+            textarea {
+                display: block;
+                font-size: 20px;
+                border: none;
+                margin: 0px auto;
+            }
+
+            #btnGenNum, #btnLottery {
+                color: white;
+                background-color: lightskyblue;
+                font-size: 20px;
+                border: none;
+                border-radius: 16px;
+                margin: 10px auto 20px auto;
+                padding: 5px 10px;
+            }
+
+            #btnClear {
+                display: inline-block;
+                color: white;
+                background-color: lightpink;
+                font-size: 20px;
+                border: none;
+                border-radius: 16px;
+                margin: 100px auto 20px auto;
+                padding: 5px 10px;
+            }
+
+            a {
+                display: block;
+            }
+        </style>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+        <script>
+            const app = new Vue({
+                el: "#app",
+                data: {
+                    items: [],
+                    names: [],
+                    hintNames: "一行一筆，或點選自動編號。例：\n哆啦A夢\n哆啦B夢\n哆啦C夢",
+                    hintItems: "一行一項，以@標記數量，預設為1。例：\n頭獎\n二獎@2\n三獎@3"
+                },
+                mounted() {
+                    const textareaNames = this.$refs.names;
+                    const textareaItems = this.$refs.items;
+
+                    textareaNames.value = this.hintNames;
+                    textareaItems.value = this.hintItems;
+                },
+                methods: {
+                    setPlaceholder(event) {
+                        event.preventDefault();
+                        const id = event.target.id;
+                        const textareaNames = this.$refs.names;
+                        const textareaItems = this.$refs.items;
+                        
+                        if(id==="names" && !textareaNames.value) {
+                            textareaNames.value = this.hintNames;
+                        } else if (id==="items" && !textareaItems.value){
+                            textareaItems.value = this.hintItems;
+                        }
+                    },
+
+                    clearPlaceholder(event) {
+                        event.preventDefault();
+                        const id = event.target.id;
+                        const textareaNames = this.$refs.names;
+                        const textareaItems = this.$refs.items;
+
+                        if(id==="names" && textareaNames.value===this.hintNames) {
+                            textareaNames.value = "";
+                        } else if (id==="items" && textareaItems.value===this.hintItems){
+                            textareaItems.value = "";
+                        }
+                    },
+
+                    autoGenNum(event) {
+                        event.preventDefault();
+                        let nums = prompt("請輸入抽獎人數：");
+                        if(Number(nums)) {  // input check
+                            nums = Number(nums);
+
+                            let count = 1;
+                            let textareaNums = "";
+                            while(count <= nums) {
+                                if(count > 1) {
+                                    textareaNums += '\n' + count;
+                                } else {
+                                    textareaNums += count;
+                                }
+                                
+                                count ++;
+                            }
+                            
+                            this.$refs.names.value = textareaNums;
+                            this.names = textareaNums.split(/\n/);
+                        } else {
+                            alert("請輸入數字！");
+                        }
+                    },
+
+                    updateNames() {
+                        let arrNames = [];
+                        let textarea = this.$refs.names.value.split(/\n/);
+
+                        textarea.forEach(name => {
+                            if(name) arrNames.push(name);
+                        });
+                        
+                        this.names = arrNames;
+                    },
+
+                    updateItems() {
+                        let arrItems = [];
+                        let textarea = this.$refs.items.value.split(/\n/);
+
+                        textarea.forEach(item => {
+                            if(item) arrItems.push(item);
+                        });
+                        
+                        this.items = arrItems;
+                    },
+
+                    countItems() {
+                        let items = [];
+                        this.items.forEach(elem => {
+                            let item = elem.split(/@/);
+                            if(item.length > 1) {
+                                let num = Number(item[1]);
+                                while(num > 0) {
+                                    items.push(item[0]);
+                                    num -= 1;
+                                }
+                            } else {
+                                items.push(item[0]);
+                            }
+                        });
+
+                        return items;
+                    },
+
+                    getRandomInt(min, max) {
+                        min = Math.ceil(min);
+                        max = Math.floor(max);
+                        return Math.floor(Math.random() * (max - min)) + min;
+                    },
+
+                    luckyballGo() {
+                        const showRandomNum = () => {
+                            return new Promise((resolve, reject) => {
+                                let delay = 50;
+                                let times = 15;
+                                const textareaLucky = this.$refs.lucky;
+
+                                let timerID = setInterval(() => {
+                                    if(times > 0) {
+                                        times -= 1;
+                                        textareaLucky.value = this.getRandomInt(10000, 99999);
+                                    } else {
+                                        clearInterval(timerID);
+                                        resolve();
+                                    }
+                                }, delay);
+                            });
+                        }
+
+                        let result = [];
+                        const items = this.countItems();
+                        if(this.names.length >= items.length) {
+                            showRandomNum().then(() => {
+                                const lenNames = this.names.length;
+                                
+                                items.forEach(item => {
+                                    let randomNum = this.getRandomInt(0, lenNames);
+                                    while(result.includes(randomNum)) {
+                                        randomNum = this.getRandomInt(0, lenNames);
+                                    }
+
+                                    result.push(randomNum);
+                                });
+
+                                console.log(result);
+                                let strLucky = "";
+                                const textareaLucky = this.$refs.lucky;
+                                [...Array(items.length).keys()].forEach(idx => {
+                                    strLucky += items[idx] + ': ' + this.names[result[idx]] + '\n';
+                                });
+
+                                textareaLucky.value = strLucky;
+                            });
+                        } else {
+                            alert("唉呀！抽獎人數比獎項少呀！");
+                        }
+                    },
+
+                    resetAll() {
+                        const title = this.$refs.title;
+                        const textareaNames = this.$refs.names;
+                        const textareaItems = this.$refs.items;
+                        const textareaLucky = this.$refs.lucky;
+
+                        this.names = [];
+                        this.items = [];
+                        title.value = "";
+                        textareaNames.value = this.hintNames;
+                        textareaItems.value = this.hintItems;
+                        textareaLucky.value = "";
+                    }
+                },
+                computed: {
+                    statistics() {
+                        const items = this.countItems();
+                        let lenNames = this.names.length? this.names.length : 0;
+                        let lenItems = items.length? items.length : 0;
+                        return '統計：' + lenNames + ' 人抽出 ' + lenItems + ' 位。'
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
