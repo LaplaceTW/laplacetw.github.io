@@ -1,0 +1,31 @@
+{
+    "name": "Pitting APP",
+    "short_name": "Pitting",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "orientation": "portrait-primary",
+    "background_color": "#fff",
+    "description": "A pitting edema detection app.",
+    "icons": [
+      {
+          "src": "/static/images/app-icon-48x48.png",
+          "type": "image/png",
+          "sizes": "48x48"
+      },
+      {
+        "src": "/static/images/app-icon-96x96.png",
+        "type": "image/png",
+        "sizes": "96x96"
+      },
+      {
+        "src": "/static/images/app-icon-144x144.png",
+        "type": "image/png",
+        "sizes": "144x144"
+      },
+      {
+        "src": "/static/images/app-icon-192x192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      }
+    ]
+  }
