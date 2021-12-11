@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://laplacetw.github.io/"/>
-  <updated>2021-08-04T15:24:32.710Z</updated>
+  <updated>2021-12-11T09:53:07.737Z</updated>
   <id>https://laplacetw.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>N200RE_V3無線路由器韌體更新</title>
+    <link href="https://laplacetw.github.io/update-firmware-mini-wireless-router/"/>
+    <id>https://laplacetw.github.io/update-firmware-mini-wireless-router/</id>
+    <published>2021-12-11T09:21:56.000Z</published>
+    <updated>2021-12-11T09:53:07.737Z</updated>
+    
+    <content type="html"><![CDATA[<p>今日調整了無線路由器的擺放位置<a id="more"></a>，進了管理後台看看就順手想更新韌體，想說買來使用到現在從沒更新過韌體。</p><p>結果啊…台灣官網產品頁面已經移除了N200RE(V3/V4)，只剩下N200RE_V5，這是要人去哪下載韌體？🥲</p><p>查看了英文官網產品頁面，發現依然保留著舊款的N200RE(V3/V4)，明顯和N200RE_V5是被區分為不同型號的產品，也因此得以下載到較新的韌體。</p><p>載點連結：</p><ul><li><a href="https://www.totolink.net/home/menu/detail/menu_listtpl/download/id/158/ids/36.html" target="_blank" rel="noopener">N200RE (V3/V4) Fireware Download</a></li><li><a href="https://www.totolink.net/home/menu/detail/menu_listtpl/download/id/204/ids/36.html" target="_blank" rel="noopener">N200RE_V5 Fireware Download</a></li></ul><p><img src="https://i.imgur.com/NpcVRAV.png" alt></p><p>即便做了很多事情，過去半年幾乎是沒動力寫點什麼，從自己的研究進度log來看，6月開始著手開發PWA、跑實驗到現在，明顯感覺到自己的近視度數增加了不少…希望能快點結束。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;今日調整了無線路由器的擺放位置
+    
+    </summary>
+    
+      <category term="Daily" scheme="https://laplacetw.github.io/categories/Daily/"/>
+    
+    
+      <category term="IoT" scheme="https://laplacetw.github.io/tags/IoT/"/>
+    
+      <category term="wireless" scheme="https://laplacetw.github.io/tags/wireless/"/>
+    
+  </entry>
   
   <entry>
     <title>更換日光燈具為LED燈具</title>
@@ -477,36 +501,6 @@
       <category term="chatbot" scheme="https://laplacetw.github.io/tags/chatbot/"/>
     
       <category term="telegram" scheme="https://laplacetw.github.io/tags/telegram/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>在Heroku遠端主機控制瀏覽器</title>
-    <link href="https://laplacetw.github.io/data-sci-heroku-selenium-chrome-driver/"/>
-    <id>https://laplacetw.github.io/data-sci-heroku-selenium-chrome-driver/</id>
-    <published>2020-09-06T10:01:30.000Z</published>
-    <updated>2020-09-17T04:11:16.585Z</updated>
-    
-    <content type="html"><![CDATA[<p>如題。<a id="more"></a>最近在研究Telegram Bot API，雖然讀過文件知道許多語言都已經有不少第三方框架支援，基於某些應用目的不想被框架綁住，所以打算自己寫。然後我就耗了整整兩天，嘗試如何讓部署在Heroku上的Bot能順利使用headless browser擷取到我要的數據…。說也奇怪，本機執行是沒問題的，但在遠端主機就是一直丟出Timeout Error，原來遠端主機控制Chrome訪問目標網頁的時候總是遭遇某DDoS Protection服務所阻擋，但經過一番嘗試目前仍是應對不了這個情況，耗了好幾天…於是學到了windows.navigator.webdriver這個參數。</p><p>*假設Heroku APP已建立。</p><h3 id="Add-Config-Vars-amp-Buildpacks"><a href="#Add-Config-Vars-amp-Buildpacks" class="headerlink" title="Add Config Vars &amp; Buildpacks"></a>Add Config Vars &amp; Buildpacks</h3><p></p><p>在APP的Setting頁面，設定以下兩個環境變數：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CHROMEDRIVER_PATH = /app/.chromedriver/bin/chromedriver</span><br><span class="line">GOOGLE_CHROME_BIN = /app/.apt/usr/bin/google-chrome</span><br></pre></td></tr></table></figure></p><p>在APP的Setting頁面，設定以下兩個buildpack：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/heroku/heroku-buildpack-google-chrome</span><br><span class="line">https://github.com/heroku/heroku-buildpack-chromedriver</span><br></pre></td></tr></table></figure></p><p></p><p><br><img src="https://i.imgur.com/qOPtW4a.png" alt></p><h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><p></p><p>程式的部分，Chrome driver的參數會使用到上述所設定的環境變數。<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_chrome</span><span class="params">()</span>:</span></span><br><span class="line">    op = webdriver.ChromeOptions()</span><br><span class="line">    op.binary_location = os.environ.get(<span class="string">"GOOGLE_CHROME_BIN"</span>)</span><br><span class="line">    op.add_argument(<span class="string">"--headless"</span>)</span><br><span class="line">    op.add_argument(<span class="string">"--disable-dev-shm-usage"</span>)</span><br><span class="line">    op.add_argument(<span class="string">"--no-sandbox"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    # avoid detection 好孩子先不要 ^.&lt;</span></span><br><span class="line"><span class="string">    op.add_argument('--disable-infobars')</span></span><br><span class="line"><span class="string">    op.add_experimental_option('useAutomationExtension', False)</span></span><br><span class="line"><span class="string">    op.add_experimental_option("excludeSwitches", ["enable-automation"])</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> webdriver.Chrome(executable_path=os.environ.get(<span class="string">"CHROMEDRIVER_PATH"</span>), options=op)</span><br></pre></td></tr></table></figure></p><h3 id="Deploy"><a href="#Deploy" class="headerlink" title="Deploy"></a>Deploy</h3><p></p><p>然後就可以進行部署使用了，Heroku APP會需要安裝許多依賴套件而增加100+MB的使用空間。</p><p>透過APP bash測試從證交所擷取上市股票代號一覽表⬇︎<br><img src="https://i.imgur.com/SrXtcYd.png" alt></p><h3 id="Ref"><a href="#Ref" class="headerlink" title="Ref."></a>Ref.</h3><p></p><p><br>＊<a href="https://www.andressevilla.com/running-chromedriver-with-python-selenium-on-heroku/" target="_blank" rel="noopener">Running ChromeDriver with Python Selenium on Heroku</a><br>＊<a href="https://selenium-python.readthedocs.io/" target="_blank" rel="noopener">Selenium 官方文件</a></p><h3 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h3><p></p><p><br>關於動態網頁資料擷取的小技巧：雖然Selenium WebDriverWait提供explicit waits可等待指定頁面元素載入，但實際上並沒有這麼順利，不過這也是讓我覺得學習web crawler有趣的地方(儘管有時候很頭疼😖)。有時候會發生指定元素確實在頁面上載入完成了，但內容卻是空空如也，又或許是我慧根不夠用不好<a href="https://selenium-python.readthedocs.io/waits.html?highlight=WebDriverWait#explicit-waits" target="_blank" rel="noopener">text_to_be_present_in_element</a>，試了半天還是抓不到我要的數據。哭啊，我就是要擷取內容文字咩！只好換個方式等待：</p><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium.webdriver.support.ui <span class="keyword">import</span> WebDriverWait</span><br><span class="line"></span><br><span class="line">driver = get_chrome()</span><br><span class="line">driver.get(<span class="string">""</span>)</span><br><span class="line">is_text = <span class="keyword">lambda</span> driver: driver.find_element_by_css_selector(<span class="string">''</span>).text.strip() != <span class="string">''</span></span><br><span class="line">WebDriverWait(driver, <span class="number">30</span>, <span class="number">0.5</span>).until(is_text)</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;如題。
-    
-    </summary>
-    
-      <category term="Data Science" scheme="https://laplacetw.github.io/categories/Data-Science/"/>
-    
-    
-      <category term="python" scheme="https://laplacetw.github.io/tags/python/"/>
-    
-      <category term="web crawler" scheme="https://laplacetw.github.io/tags/web-crawler/"/>
-    
-      <category term="heroku" scheme="https://laplacetw.github.io/tags/heroku/"/>
-    
-      <category term="selenium" scheme="https://laplacetw.github.io/tags/selenium/"/>
-    
-      <category term="chrome driver" scheme="https://laplacetw.github.io/tags/chrome-driver/"/>
     
   </entry>
   
