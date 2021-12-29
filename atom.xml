@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://laplacetw.github.io/"/>
-  <updated>2021-12-11T09:53:07.737Z</updated>
+  <updated>2021-12-29T17:08:08.014Z</updated>
   <id>https://laplacetw.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>WebRTC getUserMedia( )在行動裝置上的異常行為</title>
+    <link href="https://laplacetw.github.io/webrtc-getusermedia-constraints/"/>
+    <id>https://laplacetw.github.io/webrtc-getusermedia-constraints/</id>
+    <published>2021-12-29T17:08:27.000Z</published>
+    <updated>2021-12-29T17:08:08.014Z</updated>
+    
+    <content type="html"><![CDATA[<p>發生了令人感到非常沮喪的事，所以來更新吧(?)<a id="more"></a></p><blockquote><p>Never trust the f**king verbal job offer, NEVER.</p></blockquote><p>本來打算在整個研究結束後，再來整理關於編寫PWA(Progressive Web App)過程中的各種問題，不過那可能還要好些時間…而且我開始以筆記軟體為主，畢竟寫作相對耗時。昨日整理研究紀錄(就只是類似流水帳的東西)，正好是關於在行動裝置瀏覽器上拍攝影片的問題，於是我仔細測試了一下並做記錄。</p><p>在iOS Safari錄製影像時，無論裝置為直向或橫向拍攝，影片寬高都會符合constraints設定，但畫面顯示會異常，裝置直向時顯示橫向、裝置橫向時顯示直向。在<a href="https://stackoverflow.com/a/62598616" target="_blank" rel="noopener">stackoverflow</a>有相關討論提到：</p><ul><li>getUserMedia()在行動裝置上會有一些奇怪的行為，無論是iOS或Android</li><li>或許是因為瀏覽器的出現早於可旋轉畫面的裝置，因而瀏覽器的設計思維是橫向模式(寬 &gt; 高)</li></ul><p>測試結果如下，video rotation是指相對於拍攝畫面而言。</p><table><thead><tr><th style="text-align:center">constraints<br>width x height</th><th style="text-align:center">device orientation</th><th style="text-align:center">display<br>width x height</th><th style="text-align:center">video rotation</th></tr></thead><tbody><tr><td style="text-align:center">             320 x 240</td><td style="text-align:center">portrait</td><td style="text-align:center">240 x 320</td><td style="text-align:center">-90 degrees</td></tr><tr><td style="text-align:center">             320 x 240</td><td style="text-align:center">landscape</td><td style="text-align:center">320 x 240</td><td style="text-align:center">0 degrees</td></tr><tr><td style="text-align:center">             240 x 320</td><td style="text-align:center">portrait</td><td style="text-align:center">320 x 240</td><td style="text-align:center">-90 degrees</td></tr><tr><td style="text-align:center">             240 x 320</td><td style="text-align:center">landscape</td><td style="text-align:center">240 x 320</td><td style="text-align:center">0 degrees</td></tr></tbody></table><p><img src="https://i.imgur.com/7jJaabj.png" alt></p><p>我在CodePen寫了簡單的測試實例：<a href="https://codepen.io/laplacetw/pen/BaZRMrm" target="_blank" rel="noopener">WebRTC constraints test on mobile</a><br>從互換的寬高設定和裝置方向變化來觀察顯示畫面：</p><table><thead><tr><th style="text-align:center">portrait</th><th style="text-align:center">landscape</th></tr></thead><tbody><tr><td style="text-align:center"><img src="https://i.imgur.com/oz556WP.gif" alt></td><td style="text-align:center"><img src="https://i.imgur.com/2YmR8DB.gif" alt></td></tr></tbody></table>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;發生了令人感到非常沮喪的事，所以來更新吧(?)
+    
+    </summary>
+    
+      <category term="Web Dev" scheme="https://laplacetw.github.io/categories/Web-Dev/"/>
+    
+    
+      <category term="pwa" scheme="https://laplacetw.github.io/tags/pwa/"/>
+    
+      <category term="webRTC" scheme="https://laplacetw.github.io/tags/webRTC/"/>
+    
+  </entry>
   
   <entry>
     <title>N200RE_V3無線路由器韌體更新</title>
@@ -274,11 +298,11 @@
       <category term="Data Science" scheme="https://laplacetw.github.io/categories/Data-Science/"/>
     
     
-      <category term="GAN" scheme="https://laplacetw.github.io/tags/GAN/"/>
-    
       <category term="keras" scheme="https://laplacetw.github.io/tags/keras/"/>
     
       <category term="deep learning" scheme="https://laplacetw.github.io/tags/deep-learning/"/>
+    
+      <category term="GAN" scheme="https://laplacetw.github.io/tags/GAN/"/>
     
   </entry>
   
@@ -475,32 +499,6 @@
       <category term="psycopg2" scheme="https://laplacetw.github.io/tags/psycopg2/"/>
     
       <category term="postgresql" scheme="https://laplacetw.github.io/tags/postgresql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python:快速建立Telegram聊天機器人</title>
-    <link href="https://laplacetw.github.io/python-botlegram/"/>
-    <id>https://laplacetw.github.io/python-botlegram/</id>
-    <published>2020-09-17T04:17:59.000Z</published>
-    <updated>2020-10-03T04:25:41.363Z</updated>
-    
-    <content type="html"><![CDATA[<p>寫了一個套件，雖然現在還沒啥功能，只能發送文字和照片。<a id="more"></a>也不是只有搞了個套件，還嘗試了用<a href="https://www.sphinx-doc.org/en/master/" target="_blank" rel="noopener">Sphinx</a>自動產生文件然後托管到<a href="https://readthedocs.org/" target="_blank" rel="noopener">Read The Docs</a>，被autodoc路徑折騰了不少時間…這是另一段故事了。雖然現在才開始研究怎麼寫Telegram Bot，也有多種程式語言的現成框架可以用，但我不想要使用高度封裝的複雜框架，所以決定一邊學習Telegram Bot API，一邊完成這個套件，希望我有足夠的時間和心力 😌</p><h3 id="Botlegram"><a href="#Botlegram" class="headerlink" title="Botlegram"></a>Botlegram</h3><p></p><p>鏘！鏘！經過一番折騰終於發佈到Github上了，我希望能保持它的彈性，不要做多餘的事，它就只是一個Telegram Bot API的Python版本，所以功能函式命名也會盡可能地保持與<a href="https://core.telegram.org/bots/api#available-methods" target="_blank" rel="noopener">Telegram Bot API methods</a>一致。</p><ul><li>source code: <a href="https://github.com/laplacetw/botlegram" target="_blank" rel="noopener">Botlegram</a></li><li>online document: <a href="https://botlegram.readthedocs.io/" target="_blank" rel="noopener">Botlegram Doc</a></li></ul><h3 id="Tutorial"><a href="#Tutorial" class="headerlink" title="Tutorial"></a>Tutorial</h3><p></p><h5 id="準備工作："><a href="#準備工作：" class="headerlink" title="準備工作："></a>準備工作：</h5><ul><li>以下說明是以部署在Heroku為例，所以必須先準備一個<a href="https://www.heroku.com/" target="_blank" rel="noopener">Heroku帳號</a>，然後<a href="https://trailhead.salesforce.com/content/learn/projects/develop-heroku-applications/create-a-heroku-app" target="_blank" rel="noopener">建立一支APP</a></li><li>初次使用Heroku則必須先<a href="https://devcenter.heroku.com/articles/heroku-command-line" target="_blank" rel="noopener">安裝Heroku CLI</a></li><li>下載我預先準備的Telegram Bot懶人包: <a href="https://github.com/laplacetw/botlegram/files/5236011/echoBot.zip" target="_blank" rel="noopener">echo Bot</a></li><li>和Telegram官方帳號<a href="https://telegram.me/BotFather" target="_blank" rel="noopener">BotFather</a>進行對話 (取名叫Bot Father我覺得很有趣 😆&nbsp;)，按指示建立Bot取得專屬token，此token必須由你自己妥善保管，因為<font color="red">任何人都能使用這個token來控制你的Bot</font>。</li></ul><p><img src="https://i.imgur.com/wauvK7S.png" alt></p><h5 id="解壓縮懶人包echoBot-zip"><a href="#解壓縮懶人包echoBot-zip" class="headerlink" title="解壓縮懶人包echoBot.zip"></a>解壓縮懶人包echoBot.zip</h5><p>開啟app.py:</p><ul><li>your_bot_token替換成你的專屬token</li><li>your_host替換成你的Heroku App網址，請注意不可忽略的斜線<br>e.g. “<a href="https://APP_NAME.herokuapp.com/&quot;" target="_blank" rel="noopener">https://APP_NAME.herokuapp.com/&quot;</a></li></ul><h5 id="部署到Heroku"><a href="#部署到Heroku" class="headerlink" title="部署到Heroku"></a>部署到Heroku</h5><p>打開終端機依照下方指令操作，APP_NAME替換成你的Heroku App name<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> echoBot</span><br><span class="line">$ heroku login</span><br><span class="line">$ heroku git:remote -a APP_NAME</span><br><span class="line">$ git add .</span><br><span class="line">$ git commit -am <span class="string">"echo Bot"</span></span><br><span class="line">$ git push heroku master</span><br></pre></td></tr></table></figure></p><h5 id="確認與測試"><a href="#確認與測試" class="headerlink" title="確認與測試"></a>確認與測試</h5><p>部署成功的話，可以在Heroku的APP Logs頁面看到「Webhook is already set」<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Starting process with <span class="built_in">command</span> `gunicorn app:app`</span><br><span class="line">[INFO] Starting gunicorn 20.0.4</span><br><span class="line">[INFO] Listening at: http://0.0.0.0:10426 (4)</span><br><span class="line">[INFO] Using worker: sync</span><br><span class="line">[INFO] Booting worker with pid: 10</span><br><span class="line">[INFO] Booting worker with pid: 11</span><br><span class="line">State changed from starting to up</span><br><span class="line">* [Bot] Webhook is already <span class="built_in">set</span></span><br><span class="line">* [Bot] Webhook is already <span class="built_in">set</span></span><br></pre></td></tr></table></figure></p><p>打開Telegram和你的機器人對話，它應該會開始鸚鵡學舌囉 🐧</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;寫了一個套件，雖然現在還沒啥功能，只能發送文字和照片。
-    
-    </summary>
-    
-      <category term="Python" scheme="https://laplacetw.github.io/categories/Python/"/>
-    
-    
-      <category term="python" scheme="https://laplacetw.github.io/tags/python/"/>
-    
-      <category term="chatbot" scheme="https://laplacetw.github.io/tags/chatbot/"/>
-    
-      <category term="telegram" scheme="https://laplacetw.github.io/tags/telegram/"/>
     
   </entry>
   
