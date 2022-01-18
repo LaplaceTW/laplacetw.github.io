@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://laplacetw.github.io/"/>
-  <updated>2021-12-29T17:08:08.014Z</updated>
+  <updated>2022-01-18T12:49:55.249Z</updated>
   <id>https://laplacetw.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Google Apps Script 與 Hololive (?)</title>
+    <link href="https://laplacetw.github.io/google-apps-script-with-hololive/"/>
+    <id>https://laplacetw.github.io/google-apps-script-with-hololive/</id>
+    <published>2022-01-18T06:35:01.000Z</published>
+    <updated>2022-01-18T12:49:55.249Z</updated>
+    
+    <content type="html"><![CDATA[<p>這是關於<del>DD仔</del>堅持用GAS解決問題的過程。<a id="more"></a>時間過得飛快，我第一次用GAS寫點什麼是2019年中的時候，之後就沒怎麼接觸，而現在已經2022了，然後疫情依然持續。</p><p>TL;DR</p><ul><li>HoloDDer：<a href="https://script.google.com/macros/s/AKfycbx0bzvEjURLpU9wGz588m72iAJXcAyJoQdd45VUAzbK1KBE-kmpcnZe9viAWQpgD2J-/exec" target="_blank" rel="noopener">連結</a></li><li>專案原始碼：<a href="https://github.com/laplacetw/HoloDDer" target="_blank" rel="noopener">https://github.com/laplacetw/HoloDDer</a></li></ul><hr><p>大概一個多月前<del>逐漸越D越多的我</del>突然覺得，YouTube直播點來點去好麻煩，開很多分頁也不是什麼理想的做法，PTT西洽還有人直接開一堆瀏覽器視窗排列在桌面…。總之，這讓我開始思考如何把想看的直播都弄在同一個畫面上這件事，而且要自動載入，不要工人智慧自己輸入網址(´_ゝ`) 所以我就做了關鍵字搜尋，看看有沒有什麼YT多開工具，就是出現了好幾個可以讓你自己輸入多個網址的頁面，嗯，蒸蚌，顯然這不是我要的。</p><p>然後就想說自己寫吧，在查了一些資料後，跟GAS很不熟的我發現它竟然可以輸出HTML，儘管內建的各項API服務都有每日使用額度限制(workspace帳號的quota多於一般帳號)，但對我的目標需求而言很夠用，所以就決定試試了。不過，似乎是因為「想透過頻道確認是否直播中」這樣的<del>單蠢</del>單純想法，所以一開始使用了YouTube Data API來嘗試做出雛形，結果很快就悲劇了இдஇ 原來透過API進行搜索是相當昂貴的請求，這每天的扣打只有10,000個單位，做一次搜尋就要消耗100單位，<del>我們DD仔隨便都監視數十個頻道</del>這點扣打肯定是不夠用的啊，所以就不打算用API了。</p><p><img src="https://i.imgur.com/QCWkue4.png" alt></p><p><del>程式要寫直播也是要看</del>到這裡大概過了一週的時間，然後發現已經有很厲害的網站了：<a href="https://hololive.jetri.co/" target="_blank" rel="noopener">HoloTools</a>、<a href="https://holodex.net/" target="_blank" rel="noopener">Holodex</a>，介面賞心悅目，功能更是豐富。不過，人家是專業的<del>我是客家的</del>，還是讓我繼續往下探索Google Apps Script可以做到什麼程度吧。在這當下要解決的問題就是，我如何能根據口袋<del>裡那張油油的</del>名單去確認並取得目前進行中的直播網址，在做了一些嘗試、繞了一大圈後，我終於回想(?)起來有官方網站(ゝ∀･)b 這樣就好辦了，直接用UrlFetchApp.fetch()就能拿到schedule。</p><p><img src="https://i.imgur.com/lFeAcuP.png" alt></p><p>於是就這樣拼拼湊湊出一個可以根據我寫死在script裡的名單去確認並全部排列顯示的頁面。但還是有很多問題，像是名單寫死要更新就得重新部署，頻道頭像的URL也是同樣情況，如果頻道有更新頭像就會失效，而手動加入的影片則使用預設頭像…於是我有一個<del>大膽的</del>想法：如何透過影片連結取得頻道名稱、頭像等資訊？寫過Python crawler可能直呼簡單，不過，我現在只有UrlFetchApp.fetch()可以用…JS渲染想都別想。Embedded YouTube iframe就更別說了，瀏覽器手裡掐著CORS，iframe裡面的東西只能遠觀不可褻玩。於是又瞎嘗試了一番、繞了好大一圈，還是只能從UrlFetchApp.fetch()回傳的raw data去挖挖看裡面有啥了。接著就是不斷嘗試的過程，說實話想直接在Paas寫crawler來串接(／‵Д′)／~ ╧╧ 但這樣我就認輸咧？爬不到的資料實在讓人很不甘心，終於就在我感到心累<del>想跑去YouTube看VT精華</del>的時候，發現在某個script tag裡面有個叫ytInitialData的變數儲存著JSON格式字串，我要的數據就在這裡面！可是，看得到吃不到，哭啊！UrlFetchApp.fetch()回傳的raw data不知何故，某些符號是呈現ASCII Hex的編碼形式，例如左大括號(curly brackets)就變成「\x7b」，然後又嘗試了一番試圖decode仍是無功而返，決定直接取代處理，因為<del>我心累想跑去看VT精華了</del>它們會導致JSON.parse()莫名解析失敗，同樣內容多次測試，解析失敗的位置都不同…歸剛欸！</p><p>所以我說 r 到底有什麼問題R ? ↓</p><p><img src="https://i.imgur.com/kcrMdBc.png" alt></p><p>後來決定用Regex取出我要的那一段，JSON.parse()就過了…終於啊(´_ゝ`)</p><p><img src="https://i.imgur.com/Xvh7S6K.png" alt></p><p>取得頻道資訊的問題解了，後來我就乾脆做了一個可以使用Google帳號登入的公開部署版本，把個人偏好設定與頻道頭像URL透過另外兩個Apps Script同步儲存在spreadsheet和local storage，如此保證失效的頻道頭像URL能得到更新，也很節省UrlFetchApp.fetch()的使用quota，至於個人使用的版本就只有在local storage儲存偏好設定與頻道頭像URL等數據。其實後來還有考慮要把聊天室也嵌入頁面，但實際測試就跟在YouTube頁面一樣糟，大量的留言會造成頁面響應延遲，<del>因為直播要開始了所以</del>其他過於細節的部分太雜亂就省略吧。</p><p><img src="https://raw.githubusercontent.com/laplacetw/HoloDDer/main/image/demo.gif" width="80%/"></p><p><br>跨年的時候還在想如何拿資料，整排都預設頭像。↓</p><p><img src="https://imgur.com/vje5r37.gif" width="80%/"></p><p>Ref.</p><ul><li><a href="https://developers.google.com/apps-script/overview" target="_blank" rel="noopener">Overview of Google Apps Script</a></li><li><a href="https://developers.google.com/apps-script/guides/services/quotas" target="_blank" rel="noopener">Quotas for Google Services</a></li><li><a href="https://developers.google.com/apps-script/guides/html/best-practices#code.gs" target="_blank" rel="noopener">Best Practices: Separate HTML, CSS, and JavaScript</a></li><li><a href="https://www.wfublog.com/search/label/%E9%9B%BB%E8%85%A6-%20Google-Apps%20Script?&amp;max-results=5" target="_blank" rel="noopener">Google-Apps Script | Blogger 調校資料庫</a></li><li>HTML Parser for Google Apps Script<ul><li><a href="https://github.com/tani/cheeriogs" target="_blank" rel="noopener">Cheerio</a></li><li><a href="https://cheerio.js.org" target="_blank" rel="noopener">Document</a></li></ul></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;這是關於&lt;del&gt;DD仔&lt;/del&gt;堅持用GAS解決問題的過程。
+    
+    </summary>
+    
+      <category term="Google" scheme="https://laplacetw.github.io/categories/Google/"/>
+    
+    
+      <category term="google apps script" scheme="https://laplacetw.github.io/tags/google-apps-script/"/>
+    
+      <category term="spread sheet" scheme="https://laplacetw.github.io/tags/spread-sheet/"/>
+    
+  </entry>
   
   <entry>
     <title>WebRTC getUserMedia( )在行動裝置上的異常行為</title>
@@ -471,34 +495,6 @@
     
     
       <category term="python" scheme="https://laplacetw.github.io/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python:&amp;nbsp;install psycopg2 error</title>
-    <link href="https://laplacetw.github.io/python-install-error-psycopg2/"/>
-    <id>https://laplacetw.github.io/python-install-error-psycopg2/</id>
-    <published>2020-09-20T05:21:32.000Z</published>
-    <updated>2020-09-20T10:52:11.056Z</updated>
-    
-    <content type="html"><![CDATA[<p>啊啊，ERROR。<a id="more"></a></p><p>上一次安裝PostgreSQL是汰換Win 7筆電之前，這次在Mac OS安裝<a href="http://postgresapp.com/" target="_blank" rel="noopener">Postgres.app</a>，然後要安裝psycopg2的時候報錯了。</p><p>傻眼，我有些急用啊，你大哥請支援收銀好嗎？</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Error: pg_config executable not found.</span><br><span class="line"></span><br><span class="line">Please add the directory containing pg_config to the PATH</span><br><span class="line"></span><br><span class="line">(omitted...)</span><br><span class="line"></span><br><span class="line">ERROR: Command errored out with <span class="built_in">exit</span> status 1: python setup.py egg_info Check the logs <span class="keyword">for</span> full <span class="built_in">command</span> output.</span><br></pre></td></tr></table></figure><p>pip報錯說找不到pg_config路徑，要把Postgress.app的bin資料夾路徑加入環境變數，<a href="https://stackoverflow.com/questions/11618898/pg-config-executable-not-found#24684701" target="_blank" rel="noopener">參考stackoverflow上的討論</a>，於安裝時指定其路徑(Mac OS)：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PATH=<span class="string">"/Applications/Postgres.app/Contents/Versions/latest/bin:<span class="variable">$PATH</span>"</span> pip install psycopg2</span><br></pre></td></tr></table></figure><p><img src="https://i.imgur.com/9Y96knz.png" alt></p><h5 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h5><p></p><p><br><a href="http://postgresguide.com/utilities/psql.html" target="_blank" rel="noopener">Psql Commonly used commands</a></p><p>\list: list databases<br>\dt : list tables in current DB<br>\d TABLE_NAME : list table columns<br>\x : enable expanded display (e.g. SELECT * FROM mytable LIMIT 10;)</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;啊啊，ERROR。
-    
-    </summary>
-    
-      <category term="Python" scheme="https://laplacetw.github.io/categories/Python/"/>
-    
-    
-      <category term="python" scheme="https://laplacetw.github.io/tags/python/"/>
-    
-      <category term="error" scheme="https://laplacetw.github.io/tags/error/"/>
-    
-      <category term="psycopg2" scheme="https://laplacetw.github.io/tags/psycopg2/"/>
-    
-      <category term="postgresql" scheme="https://laplacetw.github.io/tags/postgresql/"/>
     
   </entry>
   

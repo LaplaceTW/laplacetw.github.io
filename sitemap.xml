@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://laplacetw.github.io/google-apps-script-with-hololive/</loc>
+    
+    <lastmod>2022-01-18T12:49:55.249Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://laplacetw.github.io/google-app-script-and-spreadsheet/</loc>
+    
+    <lastmod>2022-01-18T06:36:06.097Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://laplacetw.github.io/webrtc-getusermedia-constraints/</loc>
     
     <lastmod>2021-12-29T17:08:08.014Z</lastmod>
@@ -439,13 +453,6 @@
     <loc>https://laplacetw.github.io/create-qrcode-with-image-by-qart-coder/</loc>
     
     <lastmod>2019-05-11T16:03:23.004Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://laplacetw.github.io/google-app-script-and-spreadsheet/</loc>
-    
-    <lastmod>2019-05-09T17:59:27.954Z</lastmod>
     
   </url>
   
