@@ -121,17 +121,17 @@
 <meta property="og:site_name" content="Laplace&#39;s Lab">
 <meta property="og:description" content="這是關於DD仔堅持用GAS解決問題的過程。">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="https://raw.githubusercontent.com/laplacetw/HoloDDer/main/image/demo.gif">
 <meta property="og:image" content="https://i.imgur.com/QCWkue4.png">
 <meta property="og:image" content="https://i.imgur.com/lFeAcuP.png">
 <meta property="og:image" content="https://i.imgur.com/kcrMdBc.png">
 <meta property="og:image" content="https://i.imgur.com/Xvh7S6K.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/laplacetw/HoloDDer/main/image/demo.gif">
 <meta property="og:image" content="https://imgur.com/vje5r37.gif">
-<meta property="og:updated_time" content="2022-01-18T12:49:55.249Z">
+<meta property="og:updated_time" content="2022-01-19T02:50:49.513Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Google Apps Script 與 Hololive (?)">
 <meta name="twitter:description" content="這是關於DD仔堅持用GAS解決問題的過程。">
-<meta name="twitter:image" content="https://i.imgur.com/QCWkue4.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/laplacetw/HoloDDer/main/image/demo.gif">
 
 
 
@@ -463,14 +463,15 @@
       
 
       
-        <p>這是關於<del>DD仔</del>堅持用GAS解決問題的過程。<a id="more"></a>時間過得飛快，我第一次用GAS寫點什麼是2019年中的時候，之後就沒怎麼接觸，而現在已經2022了，然後疫情依然持續。</p>
+        <p>這是關於<del>DD仔</del>堅持用GAS解決問題的過程。<a id="more"></a></p>
 <p>TL;DR</p>
 <ul>
-<li>HoloDDer：<a href="https://script.google.com/macros/s/AKfycbx0bzvEjURLpU9wGz588m72iAJXcAyJoQdd45VUAzbK1KBE-kmpcnZe9viAWQpgD2J-/exec" target="_blank" rel="noopener">連結</a></li>
+<li>HoloDDer：<a href="https://script.google.com/macros/s/AKfycbywEBw2_-AJ5I04qP1EiVUyzWzxRuZEnHTqJeF7hrj8QRQ_bmTWv6R1aZKGXdY-7ddh/exec" target="_blank" rel="noopener">連結</a></li>
 <li>專案原始碼：<a href="https://github.com/laplacetw/HoloDDer" target="_blank" rel="noopener">https://github.com/laplacetw/HoloDDer</a></li>
 </ul>
+<p><img src="https://raw.githubusercontent.com/laplacetw/HoloDDer/main/image/demo.gif" width="80%/"></p>
 <hr>
-<p>大概一個多月前<del>逐漸越D越多的我</del>突然覺得，YouTube直播點來點去好麻煩，開很多分頁也不是什麼理想的做法，PTT西洽還有人直接開一堆瀏覽器視窗排列在桌面…。總之，這讓我開始思考如何把想看的直播都弄在同一個畫面上這件事，而且要自動載入，不要工人智慧自己輸入網址(´_ゝ`) 所以我就做了關鍵字搜尋，看看有沒有什麼YT多開工具，就是出現了好幾個可以讓你自己輸入多個網址的頁面，嗯，蒸蚌，顯然這不是我要的。</p>
+<p>時間過得飛快，我第一次用GAS寫點什麼是2019年中的時候，之後就沒怎麼接觸，而現在已經2022了，然後疫情依然持續。大概一個多月前<del>逐漸越D越多的我</del>突然覺得，YouTube直播點來點去好麻煩，開很多分頁也不是什麼理想的做法，PTT西洽還有人直接開一堆瀏覽器視窗排列在桌面…。總之，這讓我開始思考如何把想看的直播都弄在同一個畫面上這件事，而且要自動載入，不要工人智慧自己輸入網址(´_ゝ`) 所以我就做了關鍵字搜尋，看看有沒有什麼YT多開工具，就是出現了好幾個可以讓你自己輸入多個網址的頁面，嗯，蒸蚌，顯然這不是我要的。</p>
 <p>然後就想說自己寫吧，在查了一些資料後，跟GAS很不熟的我發現它竟然可以輸出HTML，儘管內建的各項API服務都有每日使用額度限制(workspace帳號的quota多於一般帳號)，但對我的目標需求而言很夠用，所以就決定試試了。不過，似乎是因為「想透過頻道確認是否直播中」這樣的<del>單蠢</del>單純想法，所以一開始使用了YouTube Data API來嘗試做出雛形，結果很快就悲劇了இдஇ 原來透過API進行搜索是相當昂貴的請求，這每天的扣打只有10,000個單位，做一次搜尋就要消耗100單位，<del>我們DD仔隨便都監視數十個頻道</del>這點扣打肯定是不夠用的啊，所以就不打算用API了。</p>
 <p><img src="https://i.imgur.com/QCWkue4.png" alt></p>
 <p><del>程式要寫直播也是要看</del>到這裡大概過了一週的時間，然後發現已經有很厲害的網站了：<a href="https://hololive.jetri.co/" target="_blank" rel="noopener">HoloTools</a>、<a href="https://holodex.net/" target="_blank" rel="noopener">Holodex</a>，介面賞心悅目，功能更是豐富。不過，人家是專業的<del>我是客家的</del>，還是讓我繼續往下探索Google Apps Script可以做到什麼程度吧。在這當下要解決的問題就是，我如何能根據口袋<del>裡那張油油的</del>名單去確認並取得目前進行中的直播網址，在做了一些嘗試、繞了一大圈後，我終於回想(?)起來有官方網站(ゝ∀･)b 這樣就好辦了，直接用UrlFetchApp.fetch()就能拿到schedule。</p>
@@ -481,9 +482,8 @@
 <p>後來決定用Regex取出我要的那一段，JSON.parse()就過了…終於啊(´_ゝ`)</p>
 <p><img src="https://i.imgur.com/Xvh7S6K.png" alt></p>
 <p>取得頻道資訊的問題解了，後來我就乾脆做了一個可以使用Google帳號登入的公開部署版本，把個人偏好設定與頻道頭像URL透過另外兩個Apps Script同步儲存在spreadsheet和local storage，如此保證失效的頻道頭像URL能得到更新，也很節省UrlFetchApp.fetch()的使用quota，至於個人使用的版本就只有在local storage儲存偏好設定與頻道頭像URL等數據。其實後來還有考慮要把聊天室也嵌入頁面，但實際測試就跟在YouTube頁面一樣糟，大量的留言會造成頁面響應延遲，<del>因為直播要開始了所以</del>其他過於細節的部分太雜亂就省略吧。</p>
-<p><img src="https://raw.githubusercontent.com/laplacetw/HoloDDer/main/image/demo.gif" width="80%/"></p>
-<p><br>跨年的時候還在想如何拿資料，整排都預設頭像。↓</p>
-<p><img src="https://imgur.com/vje5r37.gif" width="80%/"></p>
+<p><br>跨年的時候還在想如何拿資料，整排都預設頭像囧 ↓</p>
+<p><img src="https://imgur.com/vje5r37.gif" width="80%/"><br><br></p>
 <p>Ref.</p>
 <ul>
 <li><a href="https://developers.google.com/apps-script/overview" target="_blank" rel="noopener">Overview of Google Apps Script</a></li>
