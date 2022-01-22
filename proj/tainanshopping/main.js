@@ -18,7 +18,7 @@ const app = new Vue({
         this.alert("掃瞄器已開啟!");
       } else {
         const qrScanner = new Html5Qrcode("qrScanner");
-        const config = { fps: 10, qrbox: { width: 250, height: 250 } };
+        const config = { fps: 10, qrbox: { width: 200, height: 200 } };
 
         this.qrScanner = qrScanner;
         qrScanner.start({ facingMode: "environment" }, config, this.onScanSuccess);
@@ -94,14 +94,14 @@ const app = new Vue({
         }
       }
     
-      fetch(url, option).then(res => {return res.json()})
-      .then(json => {
+      fetch(url, option).then(res => {
         const modalAdd = new bootstrap.Modal(this.$refs.modalAdd);
-
+        modalAdd.hide();
+        return res.json();
+      })
+      .then(json => {
         if(json.message === 'success') this.alert("登錄成功!");
         else this.alert("登錄錯誤!");
-
-        modalAdd.hide();
       });
     },
 
