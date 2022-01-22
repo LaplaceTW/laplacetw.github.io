@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>台南購物節發票登錄小幫手</title>
+    <meta charset="utf-8"> 
+    <meta name="description" content="台南購物節發票登錄小幫手"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <!-- app block -->
+    <div id="app">
+      <!-- navbar block -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">台南購物節發票登錄小幫手</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link active text-primary linkBtn" @click.prevent="openScanner()">開始掃描</a>
+              <a class="nav-link active text-primary linkBtn" @click.prevent="stopScanner()">停止掃描</a>
+              <a class="nav-link active text-primary linkBtn" href="https://tainanshopping.tw" target="_blank">台南購物節官網</a>
+              <a class="nav-link active text-primary linkBtn" @click.prevent="about()">關於小幫手</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <!-- navbar end -->
+      <!-- qrcode scanner -->
+      <div id="qrScanner" ref="qrScanner" style="width:100%"></div>
+      <!-- Modal Add block -->
+      <div class="modal fade" ref="modalAdd" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title"><i class="bi bi-receipt"></i>&nbsp;登錄發票</h5>
+            </div>
+            <div class="modal-body">
+              <div class="mb-3">
+                <label for="message-text" class="col-form-label">Token :</label>
+                <input class="form-control" ref="token">
+                <label for="message-text" class="col-form-label">發票號碼 :</label>
+                <input class="form-control" ref="numInvoice">
+                <label for="message-text" class="col-form-label">消費日期 :</label>
+                <input class="form-control" ref="dateInvoice">
+                <label for="message-text" class="col-form-label">消費金額 :</label>
+                <input class="form-control" ref="sumInvoice">
+                <label for="message-text" class="col-form-label">賣方統編 :</label>
+                <input class="form-control" ref="sellerTaxID">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+              <button type="button" class="btn btn-success" @click.prevent="submitInvoiceInfo()">送出</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal Add end -->
+      <!-- Modal Alert block -->
+      <div class="modal fade" ref="modalAlert" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title"><i class="bi bi-chat-dots"></i>&nbsp;來自小幫手的訊息</h5>
+            </div>
+            <div class="modal-body">
+              <div class="mb-3">
+                {{ message }}
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-success" data-bs-dismiss="modal" @click.prevent="">我知道了</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal Alert end -->
+      <!-- Modal About block -->
+      <div class="modal fade" ref="modalAbout" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen-md-down">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title"><i class="bi bi-info-circle"></i>&nbsp;關於小幫手</h5>
+            </div>
+            <div class="modal-body">
+              測試測試
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-success" data-bs-dismiss="modal" @click.prevent="">我知道了</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal About end -->
+    </div>
+    <!-- app end -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/html5-qrcode"></script>
+    <script src="./main.js"></script>
+  </body>
+</html>
