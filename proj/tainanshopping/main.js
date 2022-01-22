@@ -38,7 +38,8 @@ const app = new Vue({
 
         this.setModalData(data);
         this.setAppData(data);
-
+        this.stopScanner();
+        
         modalAdd.show();
       }
       catch(err) {
@@ -95,7 +96,6 @@ const app = new Vue({
       }
     
       fetch(url, option).then(res => {
-        this.stopScanner();
         return res.json();
       })
       .then(json => {
