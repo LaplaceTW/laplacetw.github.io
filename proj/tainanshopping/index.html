@@ -44,21 +44,21 @@
                 <label for="message-text" class="col-form-label">Token :</label>
                 <input class="form-control" ref="token">
                 <label for="message-text" class="col-form-label">發票號碼 :</label>
-                <input class="form-control" ref="numInvoice">
+                <input class="form-control" ref="numInvoice" disabled>
                 <label for="message-text" class="col-form-label">消費日期 :</label>
-                <input class="form-control" ref="dateInvoice">
+                <input class="form-control" ref="dateInvoice" disabled>
                 <label for="message-text" class="col-form-label">消費金額 :</label>
-                <input class="form-control" ref="sumInvoice">
+                <input class="form-control" ref="sumInvoice" disabled>
                 <label for="message-text" class="col-form-label">賣方統編 :</label>
-                <input class="form-control" ref="sellerTaxID">
+                <input class="form-control" ref="sellerTaxID" disabled>
                 <label class="col-form-label text-danger">
                   請務必核對發票資訊是否有誤，<br>登錄成功後不可更改。
                 </label>
               </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
               <button type="button" class="btn btn-success" @click.prevent="submitInvoiceInfo()">送出</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @click.prevent="openScanner()">關閉</button>
             </div>
           </div>
         </div>

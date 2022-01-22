@@ -322,11 +322,11 @@
       <category term="Data Science" scheme="https://laplacetw.github.io/categories/Data-Science/"/>
     
     
-      <category term="GAN" scheme="https://laplacetw.github.io/tags/GAN/"/>
-    
       <category term="keras" scheme="https://laplacetw.github.io/tags/keras/"/>
     
       <category term="deep learning" scheme="https://laplacetw.github.io/tags/deep-learning/"/>
+    
+      <category term="GAN" scheme="https://laplacetw.github.io/tags/GAN/"/>
     
   </entry>
   

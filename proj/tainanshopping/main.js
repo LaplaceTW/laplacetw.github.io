@@ -18,7 +18,7 @@ const app = new Vue({
         this.alert("掃瞄器已開啟!");
       } else {
         const qrScanner = new Html5Qrcode("qrScanner");
-        const config = { fps: 10, qrbox: { width: 100, height: 100 } };
+        const config = { fps: 10, qrbox: { width: 150, height: 150 } };
 
         this.qrScanner = qrScanner;
         qrScanner.start({ facingMode: "environment" }, config, this.onScanSuccess);
@@ -30,10 +30,10 @@ const app = new Vue({
         const modalAdd = new bootstrap.Modal(this.$refs.modalAdd);
         const rawData = decodedText.split(':')[0];
         const data = {
-        numInvoice: rawData.substring(0, 10),
-        dateInvoice: rawData.substring(10, 17),
-        sumInvoice: parseInt(rawData.substring(29, 37), 16),
-        sellerTaxID: rawData.substring(45, 53)
+          numInvoice: rawData.substring(0, 10),
+          dateInvoice: rawData.substring(10, 17),
+          sumInvoice: parseInt(rawData.substring(29, 37), 16),
+          sellerTaxID: rawData.substring(45, 53)
         }
 
         this.setModalData(data);
@@ -95,13 +95,12 @@ const app = new Vue({
       }
     
       fetch(url, option).then(res => {
-        const modalAdd = new bootstrap.Modal(this.$refs.modalAdd);
-        modalAdd.hide();
+        this.stopScanner();
         return res.json();
       })
       .then(json => {
         if(json.message === 'success') this.alert("登錄成功!");
-        else this.alert("登錄錯誤!");
+        else this.alert("登錄失敗!");
       });
     },
 
