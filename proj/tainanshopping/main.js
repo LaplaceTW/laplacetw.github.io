@@ -18,7 +18,7 @@ const app = new Vue({
         this.alert("掃瞄器已開啟!");
       } else {
         const qrScanner = new Html5Qrcode("qrScanner");
-        const config = { fps: 10, qrbox: { width: 200, height: 200 } };
+        const config = { fps: 10, qrbox: { width: 100, height: 100 } };
 
         this.qrScanner = qrScanner;
         qrScanner.start({ facingMode: "environment" }, config, this.onScanSuccess);
