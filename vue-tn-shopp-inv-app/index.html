@@ -124,7 +124,7 @@
 <meta property="og:image" content="https://i.imgur.com/8Zz4K9F.png">
 <meta property="og:image" content="https://i.imgur.com/uxBe9GH.png">
 <meta property="og:image" content="https://i.imgur.com/oQSjCMO.jpg">
-<meta property="og:updated_time" content="2022-01-27T10:03:18.915Z">
+<meta property="og:updated_time" content="2022-01-27T11:12:05.230Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="台南購物節發票登錄小幫手">
 <meta name="twitter:description" content="據PTT台南鄉民表示，19年以前是有APP可以直接掃QR Code的，不過後來沒有了。">
@@ -460,7 +460,7 @@
       
 
       
-        <p>據<a href="https://www.ptt.cc/bbs/Tainan/M.1632065603.A.4B8.html" target="_blank" rel="noopener">PTT台南鄉民</a>表示，19年以前是有APP可以直接掃QR Code的，不過後來沒有了。<a id="more"></a>雖然許多人都有使用手機載具，難免還是有拿電子發票證明聯的時候，而輸入發票的頁面操作真的相當不便，特別是輸入賣方統編的部分。儘管活動已接近尾聲，不過都舉辦好幾年了，沒意外應該會繼續舉辦下去吧？因此就嘗試做了小工具來進行自動掃描與登錄。</p>
+        <p>據<a href="https://www.ptt.cc/bbs/Tainan/M.1632065603.A.4B8.html" target="_blank" rel="noopener">PTT台南鄉民</a>表示，19年以前是有APP可以直接掃QR Code的，不過後來沒有了。<a id="more"></a>雖然許多人都有使用手機載具，難免還是有拿電子發票證明聯的時候，而輸入發票的頁面操作真的相當不便，選完年份選月份、選完月份選日期…。儘管活動已接近尾聲，不過都舉辦好幾年了，沒意外應該會繼續舉辦下去吧？因此就嘗試做了小工具來進行自動掃描與登錄。</p>
 <h3 id="使用說明"><a href="#使用說明" class="headerlink" title="使用說明"></a>使用說明</h3><ol>
 <li>在<span style="color:red;">電腦</span>瀏覽器登入<a href="https://tainanshopping.tw/news" target="_blank" rel="noopener">台南購物節官網</a>，按下F12叫出開發人員工具、點選視窗上方的Console頁籤，輸入下方程式碼取得並複製token。<br><br>＊<span style="color:red;">請妥善保管自己的token</span>，即便它的有效性是短暫的。<br><br>＊Mac使用者如何叫出瀏覽器開發人員工具？按下「command + option + i」。<br><br>＊我不確定token的有效時間，可能僅有數小時，因此開始登錄發票前都應該取得新的token。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'script'</span>);<span class="built_in">Object</span>.keys(arr).forEach(<span class="function"><span class="params">key</span> =&gt;</span> &#123;<span class="keyword">if</span>(arr[key].text.includes(<span class="string">'window.__NUXT__'</span>)) <span class="built_in">console</span>.log(arr[key].text.match(<span class="regexp">/(token:").*(?=",email)/</span>)[<span class="number">0</span>].split(<span class="string">'"'</span>)[<span class="number">1</span>]);&#125;);</span><br></pre></td></tr></table></figure>
 </li>
