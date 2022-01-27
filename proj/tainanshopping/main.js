@@ -2,7 +2,7 @@
 const app = new Vue({
   el: "#app",
   data: {
-    qrScanner: null,
+    camera: 'off',
     invoiceDateY: 2022,
     invoiceDateM: 1,
     invoiceDateD: 1,
@@ -11,21 +11,13 @@ const app = new Vue({
     companyNo:"",
     message: ""
   },
-  mounted() {},
   methods: {
-    openScanner() {
-      if(this.qrScanner) {
-        this.alert("掃瞄器已開啟!");
-      } else {
-        const qrScanner = new Html5Qrcode("qrScanner");
-        const config = { fps: 10, qrbox: { width: 150, height: 150 } };
-
-        this.qrScanner = qrScanner;
-        qrScanner.start({ facingMode: "environment" }, config, this.onScanSuccess);
-      }
+    onInit(promise) {
+      promise
+      .catch(console.error);
     },
 
-    onScanSuccess(decodedText, decodedResult) {
+    async onDecode(decodedText) {
       try {
         const modalAdd = new bootstrap.Modal(this.$refs.modalAdd);
         const rawData = decodedText.split(':')[0];
@@ -39,7 +31,7 @@ const app = new Vue({
         this.setModalData(data);
         this.setAppData(data);
         this.stopScanner();
-        
+
         modalAdd.show();
       }
       catch(err) {
@@ -47,10 +39,35 @@ const app = new Vue({
       }
     },
 
+    openScanner() {
+      this.camera = 'auto';
+      this.btnNavClick();
+    },
+
     stopScanner() {
-      if(this.qrScanner) {
-        this.qrScanner.stop();
-        this.qrScanner = null;
+      this.camera = 'off';
+      
+      this.$nextTick(() => {  // clear camera canvas
+        const canvas = document.getElementsByClassName('qrcode-stream-camera')[1];
+        const ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      });
+    },
+      
+    paintOutline(detectedCodes, ctx) {
+      for(const detectedCode of detectedCodes) {
+        const [ firstPoint, ...otherPoints ] = detectedCode.cornerPoints
+
+        ctx.strokeStyle = "red";
+
+        ctx.beginPath();
+        ctx.moveTo(firstPoint.x, firstPoint.y);
+        for(const { x, y } of otherPoints) {
+          ctx.lineTo(x, y);
+        }
+        ctx.lineTo(firstPoint.x, firstPoint.y);
+        ctx.closePath();
+        ctx.stroke();
       }
     },
 
@@ -90,7 +107,7 @@ const app = new Vue({
         body: JSON.stringify(data),
         headers: {
         "content-type": "application/json",
-        "authorization": this.$refs.token.value,
+        "authorization": 'Bearer ' + this.$refs.token.value,
         "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15"
         }
       }
@@ -101,6 +118,7 @@ const app = new Vue({
       .then(json => {
         if(json.message === 'success') this.alert("登錄成功!");
         else this.alert("登錄失敗!");
+        this.openScanner();
       });
     },
 
@@ -114,6 +132,10 @@ const app = new Vue({
     about() {
       const modalAbout = new bootstrap.Modal(this.$refs.modalAbout);
       modalAbout.show();
+    },
+
+    btnNavClick() {
+      this.$refs.btnNav.click();
     }
   }
 });

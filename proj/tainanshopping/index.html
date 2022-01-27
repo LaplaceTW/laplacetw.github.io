@@ -16,22 +16,23 @@
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">台南購物節發票登錄小幫手</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <button ref="btnNav" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
               <a class="nav-link active text-primary linkBtn" @click.prevent="openScanner()">開始掃描</a>
               <a class="nav-link active text-primary linkBtn" @click.prevent="stopScanner()">停止掃描</a>
-              <a class="nav-link active text-primary linkBtn" href="https://tainanshopping.tw" target="_blank">台南購物節官網</a>
+              <a class="nav-link active text-primary linkBtn" href="https://laplacetw.github.io/vue-tn-shopp-inv-app" target="_blank">使用說明</a>
               <a class="nav-link active text-primary linkBtn" @click.prevent="about()">關於小幫手</a>
+              <a class="nav-link active text-primary linkBtn" href="https://tainanshopping.tw" target="_blank">台南購物節官網</a>
             </div>
           </div>
         </div>
       </nav>
       <!-- navbar end -->
       <!-- qrcode scanner -->
-      <div id="qrScanner" ref="qrScanner" style="width:100%"></div>
+      <qrcode-stream :camera="camera" :track="this.paintOutline" @decode="onDecode" @init="onInit"></qrcode-stream>
       <!-- Modal Add block -->
       <div class="modal fade" ref="modalAdd" aria-hidden="true">
         <div class="modal-dialog">
@@ -91,7 +92,8 @@
               <h5 class="modal-title"><i class="bi bi-info-circle"></i>&nbsp;關於小幫手</h5>
             </div>
             <div class="modal-body">
-              測試測試
+              小幫手是一個開源、非官方的輔助發票登錄應用程式。<br>
+              <a class="ms-auto" href="https://github.com/laplacetw/tn-shopp-inv-app" target="_blank"><i class="bi bi-github"></i>&nbsp;laplacetw</a>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-success" data-bs-dismiss="modal" @click.prevent="">我知道了</button>
@@ -104,7 +106,7 @@
     <!-- app end -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/html5-qrcode"></script>
+    <script src="https://unpkg.com/vue-qrcode-reader/dist/VueQrcodeReader.umd.min.js"></script>
     <script src="./main.js"></script>
   </body>
 </html>

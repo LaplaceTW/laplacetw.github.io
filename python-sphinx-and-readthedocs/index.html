@@ -113,20 +113,20 @@
 
 
 
-  <meta name="description" content="當我認真想為個人專案寫文件的時候，於是想到了Sphinx，">
-<meta name="keywords" content="python,sphinx,readthedocs">
+  <meta name="description" content="當我認真想為side project寫文件的時候，於是想到了Sphinx，">
+<meta name="keywords" content="Python,Sphinx,ReadTheDocs">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python:&amp;nbsp;Sphinx ＆ ReadTheDocs">
+<meta property="og:title" content="Python:Sphinx ＆ ReadTheDocs">
 <meta property="og:url" content="https://laplacetw.github.io/python-sphinx-and-readthedocs/index.html">
 <meta property="og:site_name" content="Laplace&#39;s Lab">
-<meta property="og:description" content="當我認真想為個人專案寫文件的時候，於是想到了Sphinx，">
+<meta property="og:description" content="當我認真想為side project寫文件的時候，於是想到了Sphinx，">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://i.imgur.com/XowPf8k.png">
 <meta property="og:image" content="https://i.imgur.com/DhpdU4O.png">
-<meta property="og:updated_time" content="2020-10-04T08:46:54.425Z">
+<meta property="og:updated_time" content="2022-01-27T07:45:46.355Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python:&amp;nbsp;Sphinx ＆ ReadTheDocs">
-<meta name="twitter:description" content="當我認真想為個人專案寫文件的時候，於是想到了Sphinx，">
+<meta name="twitter:title" content="Python:Sphinx ＆ ReadTheDocs">
+<meta name="twitter:description" content="當我認真想為side project寫文件的時候，於是想到了Sphinx，">
 <meta name="twitter:image" content="https://i.imgur.com/XowPf8k.png">
 
 
@@ -146,7 +146,7 @@
 </script>
 
   <title>
-  Python:&nbsp;Sphinx ＆ ReadTheDocs | Laplace's Lab
+  Python:Sphinx ＆ ReadTheDocs | Laplace's Lab
 </title>
   
 
@@ -378,7 +378,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Python:&nbsp;Sphinx ＆ ReadTheDocs
+          <h2 class="post-title" itemprop="name headline">Python:Sphinx ＆ ReadTheDocs
 
               
             
@@ -418,7 +418,7 @@
               </span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Programming-Lang/" itemprop="url" rel="index"><span itemprop="name">Programming Lang</span></a></span>
 
                 
                 
@@ -459,7 +459,7 @@
       
 
       
-        <p>當我認真想為個人專案寫文件的時候，於是想到了Sphinx，<a id="more"></a>雖然還是對路徑設定感到有點苦惱，但自動生成文件真的很香，尤其是託管到Read The Docs還能和Github連動，只要推送更新到Github就會觸發自動建置。</p>
+        <p>當我認真想為side project寫文件的時候，於是想到了Sphinx，<a id="more"></a>雖然還是對路徑設定感到有點苦惱，但自動生成文件真的很香，尤其是託管到Read The Docs還能和Github連動，只要推送更新到Github就會觸發自動建置。</p>
 <h3 id="Sphinx"><a href="#Sphinx" class="headerlink" title="Sphinx"></a>Sphinx</h3><p>
 
 </p><p>總之Sphinx就是能自動生成文件的工具，只要在原始碼中使用<a href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html" target="_blank" rel="noopener">reStructuredText</a>或<a href="https://www.sphinx-doc.org/en/master/usage/markdown.html" target="_blank" rel="noopener">Markdown</a>語法來撰寫文件內容。</p>
@@ -468,7 +468,7 @@
 <li><p>安裝：</p>
  <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip install Sphinx</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>快速啟用：<br> 首先在文件的根目錄建立doc、src兩個資料夾，分別用來放建置文件和原始碼。Sphinx內建sphinx-quickstart腳本，可引導使用者快速完成基本設定：</p>
+<li><p>快速啟用：<br> 首先在文件的根目錄建立doc、src兩個資料夾，分別用來放建置文件和原始碼。Sphinx內建sphinx-quickstart腳本，可引導使用者快速完成基本設定：</p>
  <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> doc</span><br><span class="line">$ sphinx-quickstart</span><br></pre></td></tr></table></figure>
 <p> 這裡選擇獨立的原始碼和建置目錄⬇︎<br> <img src="https://i.imgur.com/XowPf8k.png" alt></p>
 <p> 接著腳本會引導使用者設定文件名稱、版本號、作者等資訊，設定完成後的目錄結構：</p>
@@ -499,21 +499,21 @@
 <p> *注意空格、縮排以及不需要寫出.rst檔名後綴</p>
 <p> 如此在生成文件的時候，首頁目錄就會有mod_a這個頁面，而mod_a頁面內容就在mod_a.rst檔案中撰寫、定義。</p>
 </li>
-<li><p>autodoc：<br> 語法參考：<a href="https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#module-sphinx.ext.autodoc" target="_blank" rel="noopener">sphinx.ext.autodoc</a></p>
+<li><p>autodoc：<br> 語法參考：<a href="https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#module-sphinx.ext.autodoc" target="_blank" rel="noopener">sphinx.ext.autodoc</a></p>
 <p> 簡單舉例，假設上述的mod_a.rst對應到原始碼src/proj/mod_a.py這個模組，那麼mod_a.py可能定義了一些類別或方法，則mod_a.rst的內容除了標題和一些說明文字，autodoc的設定應該長這樣：</p>
  <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.. automodule:: proj.mod_a</span><br><span class="line">    :members:</span><br></pre></td></tr></table></figure>
 <p> 如此audodoc便會自動將模組中的成員引入mod_a.rst頁面，包含以reStructuredText語法所撰寫的註解！例如：</p>
  <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">a</span><span class="params">()</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    write reStructuredText here</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        write reStructuredText here</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>make：<br> 當上述的文件內容都撰寫好了，就可以使用自動建置指令來生成文件：</p>
+<li><p>make：<br> 當上述的文件內容都撰寫好了，就可以使用自動建置指令來生成文件：</p>
  <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ make clean  <span class="comment"># Delete the build cache before building documents</span></span><br><span class="line">$ make html</span><br></pre></td></tr></table></figure>
 <p> 建置完成的html檔會在/doc/build目錄下。</p>
-<p> Sphinx文件實例，供參考：<a href="https://github.com/laplacetw/botlegram-doc" target="_blank" rel="noopener">laplacetw/botlegram-doc</a></p>
+<p> Sphinx文件實例，供參考：<a href="https://github.com/laplacetw/botlegram-doc" target="_blank" rel="noopener">laplacetw/botlegram-doc</a></p>
 </li>
 </ol>
 <h3 id="Read-The-Docs"><a href="#Read-The-Docs" class="headerlink" title="Read The Docs"></a>Read The Docs</h3><p>
 
-</p><p>生成了文件後若打算公開發佈，可以使用<a href="https://readthedocs.org/" target="_blank" rel="noopener">Read The Docs</a>這個基於Sphinx的免費文件託管服務，註冊帳號後，建議與版本控制服務例如Github連動，如此便可以直接從Github匯入我們的Sphinx專案來建立一個Read The Docs專案，之後只要推送更新到Github，那麼Read The Docs便會自動建置更新我們的線上文件了。</p>
+</p><p>生成了文件後若打算公開發佈，可以使用<a href="https://readthedocs.org/" target="_blank" rel="noopener">Read The Docs</a>這個基於Sphinx的免費文件託管服務，註冊帳號後，建議與版本控制服務例如Github連動，如此便可以直接從Github匯入我們的Sphinx專案來建立一個Read The Docs專案，之後只要推送更新到Github，那麼Read The Docs便會自動建置更新我們的線上文件了。</p>
 <p><img src="https://i.imgur.com/DhpdU4O.png" alt></p>
 <p>Read The Docs線上文件實例，供參考：<a href="https://botlegram.readthedocs.io/" target="_blank" rel="noopener">https://botlegram.readthedocs.io/</a></p>
 
@@ -542,11 +542,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/python/" rel="tag"><i class="fas fa-tags"></i> python</a>
+            <a href="/tags/Python/" rel="tag"><i class="fas fa-tags"></i> Python</a>
           
-            <a href="/tags/sphinx/" rel="tag"><i class="fas fa-tags"></i> sphinx</a>
+            <a href="/tags/Sphinx/" rel="tag"><i class="fas fa-tags"></i> Sphinx</a>
           
-            <a href="/tags/readthedocs/" rel="tag"><i class="fas fa-tags"></i> readthedocs</a>
+            <a href="/tags/ReadTheDocs/" rel="tag"><i class="fas fa-tags"></i> ReadTheDocs</a>
           
         </div>
       
@@ -724,17 +724,7 @@
                     
                       
                     
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">22</span>
+                    <span class="site-state-item-count">17</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
@@ -925,7 +915,17 @@
                     
                       
                     
-                    <span class="site-state-item-count">87</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">92</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -985,7 +985,7 @@
           <div class="widget-wrap">
               <div id="myCanvasContainer" class="widget tagcloud">
                   <canvas width="250" height="250" id="resCanvas" style="width=100%">
-                      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ANEC/">ANEC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DIY/">DIY</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GAN/">GAN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IoT/">IoT</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NLP/">NLP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/adafruit/">adafruit</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algae-control/">algae control</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apple-watch/">apple watch</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aquarium/">aquarium</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/arduino/">arduino</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/big-data/">big data</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/boot-usb/">boot usb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chatbot/">chatbot</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chrome-driver/">chrome driver</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cifar-10/">cifar-10</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/civil-law/">civil law</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cloud-computing/">cloud computing</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/computer-vision/">computer vision</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/coscup/">coscup</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/covid-2019/">covid-2019</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cyanobacteria/">cyanobacteria</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/darknet/">darknet</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-hiding/">data hiding</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/deep-learning/">deep learning</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/">django</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/e-payment/">e-payment</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ecg/">ecg</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/error/">error</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/excel/">excel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github-pages/">github pages</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/google-apps-script/">google apps script</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/google-form/">google form</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/headshot/">headshot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/heroku/">heroku</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hspice/">hspice</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/influenza/">influenza</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios/">ios</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ipass/">ipass</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka/">kafka</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kde/">kde</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keras/">keras</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/manjaro/">manjaro</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matplotlib/">matplotlib</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mnist/">mnist</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mobile-app/">mobile app</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/moviepy/">moviepy</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mytoolbox/">mytoolbox</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nvidia/">nvidia</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pdf/">pdf</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pivot-table/">pivot table</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/planted-tank/">planted tank</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/plug-socket/">plug socket</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postgresql/">postgresql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/psycopg2/">psycopg2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pwa/">pwa</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pyhton/">pyhton</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">25</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qr-code/">qr code</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/raspberry-pi/">raspberry pi</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-native/">react native</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/readthedocs/">readthedocs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regex/">regex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/safari/">safari</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/selenium/">selenium</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/semantic-analysis/">semantic analysis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sharepoint/">sharepoint</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shortcuts/">shortcuts</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sphinx/">sphinx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spread-sheet/">spread sheet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/telegram/">telegram</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/thermal-camera/">thermal camera</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/travis-ci/">travis ci</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vs-code/">vs code</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/waived-succession/">waived succession</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web-crawler/">web crawler</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webRTC/">webRTC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/">windows</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wireless/">wireless</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yolo/">yolo</a><span class="tag-list-count">1</span></li></ul>
+                      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ANEC/">ANEC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Adafruit/">Adafruit</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Arduino/">Arduino</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CIFAR-10/">CIFAR-10</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CUDA/">CUDA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Chrome-driver/">Chrome driver</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DIY/">DIY</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Darknet/">Darknet</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/">Django</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ECG/">ECG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GAN/">GAN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github/">Github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github-Pages/">Github Pages</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github-pages/">Github pages</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Apps-Script/">Google Apps Script</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Form/">Google Form</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Heroku/">Heroku</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hspice/">Hspice</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IoT/">IoT</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kafka/">Kafka</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Keras/">Keras</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Line-bot/">Line bot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MNIST/">MNIST</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MS-Office/">MS Office</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac-OS/">Mac OS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Manjaro/">Manjaro</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matplotlib/">Matplotlib</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NLP/">NLP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NVIDIA/">NVIDIA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nodejs/">Nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PDF/">PDF</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PWA/">PWA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PostgreSQL/">PostgreSQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pyhton/">Pyhton</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">24</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Raspberry-Pi/">Raspberry Pi</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-Native/">React Native</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ReadTheDocs/">ReadTheDocs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Safari/">Safari</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Selenium/">Selenium</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SharePoint/">SharePoint</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sphinx/">Sphinx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Steganography/">Steganography</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Telegram-bot/">Telegram bot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Travis-CI/">Travis CI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VS-Code/">VS Code</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/">Vue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebRTC/">WebRTC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/YOLO/">YOLO</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algae-control/">algae control</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apple-watch/">apple watch</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aquarium/">aquarium</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/big-data/">big data</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/boot-usb/">boot usb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chat-bot/">chat bot</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/civil-law/">civil law</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cloud-computing/">cloud computing</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/computer-vision/">computer vision</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/coscup/">coscup</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/covid-2019/">covid-2019</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cyanobacteria/">cyanobacteria</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/deep-learning/">deep learning</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/e-payment/">e-payment</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/error/">error</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/excel/">excel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/headshot/">headshot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/influenza/">influenza</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ipass/">ipass</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mobile-app/">mobile app</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/moviepy/">moviepy</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mytoolbox/">mytoolbox</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pivot-table/">pivot table</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/planted-tank/">planted tank</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/plug-socket/">plug socket</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/psycopg2/">psycopg2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qr-code/">qr code</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regex/">regex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/semantic-analysis/">semantic analysis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shortcuts/">shortcuts</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spreadsheet/">spreadsheet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/thermal-camera/">thermal camera</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/waived-succession/">waived succession</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web-crawler/">web crawler</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wireless/">wireless</a><span class="tag-list-count">1</span></li></ul>
                   </canvas>
               </div>
               <!-- google ad-01 -->
@@ -1222,7 +1222,7 @@
   var disqus_config = function() {
     this.page.url = "https://laplacetw.github.io/python-sphinx-and-readthedocs/";
     this.page.identifier = "python-sphinx-and-readthedocs/";
-    this.page.title = 'Python:&nbsp;Sphinx ＆ ReadTheDocs';
+    this.page.title = 'Python:Sphinx ＆ ReadTheDocs';
     };
   function loadComments() {
     var d = document, s = d.createElement('script');
