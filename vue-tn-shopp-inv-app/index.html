@@ -121,14 +121,15 @@
 <meta property="og:site_name" content="Laplace&#39;s Lab">
 <meta property="og:description" content="儘管此活動已舉辦多年，但我是去年聽朋友說才知道(￣▽￣)~* 而即使手機載具已經很普及，難免還是有拿電子發票證明聯的時候…且我發現長輩還是習慣索取紙本發票囧rz。">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="https://i.imgur.com/um0AuNU.png">
 <meta property="og:image" content="https://i.imgur.com/8Zz4K9F.png">
 <meta property="og:image" content="https://i.imgur.com/uxBe9GH.png">
 <meta property="og:image" content="https://i.imgur.com/oQSjCMO.jpg">
-<meta property="og:updated_time" content="2022-02-01T07:21:10.930Z">
+<meta property="og:updated_time" content="2022-02-01T10:47:43.130Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="台南購物節發票登錄APP(非官方)">
 <meta name="twitter:description" content="儘管此活動已舉辦多年，但我是去年聽朋友說才知道(￣▽￣)~* 而即使手機載具已經很普及，難免還是有拿電子發票證明聯的時候…且我發現長輩還是習慣索取紙本發票囧rz。">
-<meta name="twitter:image" content="https://i.imgur.com/8Zz4K9F.png">
+<meta name="twitter:image" content="https://i.imgur.com/um0AuNU.png">
 
 
 
@@ -460,21 +461,21 @@
       
 
       
-        <p>儘管此活動已舉辦多年，但我是去年聽朋友說才知道(￣▽￣)~* 而即使手機載具已經很普及，難免還是有拿電子發票證明聯的時候…且我發現長輩還是習慣索取紙本發票囧rz。<a id="more"></a>據<a href="https://www.ptt.cc/bbs/Tainan/M.1632065603.A.4B8.html" target="_blank" rel="noopener">PTT台南鄉民</a>表示，19年以前是有APP可以直接掃QR Code的，不過後來沒有了。而輸入發票的頁面操作真的會令人煩躁，選完年份選月份、選完月份選日期…全部手動輸入可能好一些。還好現在很難拿到沒有QR Code的紙本發票了，雖然活動已接近尾聲，不過沒意外應該會繼續舉辦下去吧？看著手邊那疊發票，因此就寫了小工具來進行自動掃描與登錄，效率嘛。</p>
+        <p>儘管此活動已舉辦多年，但我是去年聽朋友說才知道(￣▽￣)~* 而即使手機載具已經很普及，難免還是有拿電子發票證明聯的時候…且我發現長輩還是習慣索取紙本發票囧rz。<a id="more"></a>據<a href="https://www.ptt.cc/bbs/Tainan/M.1632065603.A.4B8.html" target="_blank" rel="noopener">PTT台南鄉民</a>表示，19年以前是有APP可以直接掃QR Code的，不過後來沒有了。而輸入發票的頁面操作真的會令人煩躁，選完年份選月份、選完月份選日期…全部手動輸入可能好一些。還好現在很難拿到沒有QR Code的紙本發票了，雖然活動已接近尾聲，不過沒意外應該會繼續舉辦下去吧？看著手邊那疊發票，因此就寫了小工具來進行自動掃描與登錄。</p>
 <h3 id="使用說明"><a href="#使用說明" class="headerlink" title="使用說明"></a>使用說明</h3><ol>
-<li><p>在<span style="color:red;">電腦</span>瀏覽器登入<a href="https://tainanshopping.tw/news" target="_blank" rel="noopener">台南購物節官網</a>後，<span style="color:red;">重新整理頁面</span>，按下F12叫出開發人員工具、點選視窗上方的Console頁籤，輸入下方程式碼取得並複製token。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'script'</span>);<span class="built_in">Object</span>.keys(arr).forEach(<span class="function"><span class="params">key</span> =&gt;</span> &#123;<span class="keyword">if</span>(arr[key].text.includes(<span class="string">'window.__NUXT__'</span>)) <span class="built_in">console</span>.log(arr[key].text.match(<span class="regexp">/(token:").*(?=",email)/</span>)[<span class="number">0</span>].split(<span class="string">'"'</span>)[<span class="number">1</span>]);&#125;);</span><br></pre></td></tr></table></figure>
-<ul>
+<li><ul>
 <li><span style="color:red;">請妥善保管自己的token</span>，即便它的有效性是短暫的。</li>
 <li>每回開始登錄發票前建議重新取得token，失效的token將導致登錄失敗。</li>
-<li>Mac使用者如何叫出瀏覽器開發人員工具？按下「command + option + i」。</li>
-<li>如果您的電腦有視訊鏡頭，也可以直接在電腦上操作。個人是把token丟到Line Keep，透過手機登錄發票。</li>
+<li>手機上操作：登入<a href="https://tainanshopping.tw/news" target="_blank" rel="noopener">台南購物節官網</a>後，打開瀏覽器的瀏覽記錄，找到網址為「tainanshopping.tw / oauth…」的瀏覽紀錄，複製該筆瀏覽紀錄的網址。為方便擷取需要的部分，將剛剛複製的網址貼到手機內建的備忘錄或Line Keep，然後將「token=」等號後面的整串文字(token)複製起來。<br><br><br> <img src="https://i.imgur.com/um0AuNU.png" alt></li>
+<li><p>電腦上操作：登入<a href="https://tainanshopping.tw/news" target="_blank" rel="noopener">台南購物節官網</a>後，<span style="color:red;">重新整理頁面</span>，按下F12叫出開發人員工具、點選視窗上方的Console頁籤，輸入下方程式碼並將輸出的整串文字(token)複製起來。</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'script'</span>);<span class="built_in">Object</span>.keys(arr).forEach(<span class="function"><span class="params">key</span> =&gt;</span> &#123;<span class="keyword">if</span>(arr[key].text.includes(<span class="string">'window.__NUXT__'</span>)) <span class="built_in">console</span>.log(arr[key].text.match(<span class="regexp">/(token:").*(?=",email)/</span>)[<span class="number">0</span>].split(<span class="string">'"'</span>)[<span class="number">1</span>]);&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Mac使用者如何叫出瀏覽器開發人員工具？按下「command + option + i」。<br><br><br><img src="https://i.imgur.com/8Zz4K9F.png" alt><br><img src="https://i.imgur.com/uxBe9GH.png" alt><br><br><br></li>
 </ul>
 </li>
-</ol>
-<p><img src="https://i.imgur.com/8Zz4K9F.png" alt><br><img src="https://i.imgur.com/uxBe9GH.png" alt></p>
-<ol start="2">
-<li><p>免安裝，用瀏覽器打開<a href="https://laplacetw.github.io/proj/tainanshopping/">APP</a>，點選「開始掃描」，請允許APP使用相機。</p>
+</ul>
+</li>
+<li><p>免安裝，用瀏覽器打開<a href="https://laplacetw.github.io/proj/tainanshopping/" targrt="_blank">APP</a>，點選「開始掃描」，請允許APP使用相機。</p>
 </li>
 <li><p>掃描成功會顯示發票號碼、購買日期等相關資訊，將步驟一所複製的token填入視窗最上方的「Token」欄位。</p>
 <ul>
