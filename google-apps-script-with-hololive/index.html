@@ -121,18 +121,18 @@
 <meta property="og:site_name" content="Laplace&#39;s Lab">
 <meta property="og:description" content="這是關於DD仔堅持用GAS解決問題的過程。">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://raw.githubusercontent.com/laplacetw/HoloDDer/main/image/demo.gif">
+<meta property="og:image" content="https://i.imgur.com/Tc0wxqx.gif">
 <meta property="og:image" content="https://i.imgur.com/QCWkue4.png">
 <meta property="og:image" content="https://i.imgur.com/lFeAcuP.png">
 <meta property="og:image" content="https://i.imgur.com/kcrMdBc.png">
 <meta property="og:image" content="https://i.imgur.com/Xvh7S6K.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/laplacetw/HoloDDer/main/image/setting.png">
 <meta property="og:image" content="https://imgur.com/vje5r37.gif">
-<meta property="og:updated_time" content="2022-01-27T07:36:49.991Z">
+<meta property="og:updated_time" content="2022-02-10T16:11:10.757Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Google Apps Script 與 Hololive (?)">
 <meta name="twitter:description" content="這是關於DD仔堅持用GAS解決問題的過程。">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/laplacetw/HoloDDer/main/image/demo.gif">
+<meta name="twitter:image" content="https://i.imgur.com/Tc0wxqx.gif">
 
 
 
@@ -470,7 +470,7 @@
 <li>HoloDDer：<a href="https://script.google.com/macros/s/AKfycbywEBw2_-AJ5I04qP1EiVUyzWzxRuZEnHTqJeF7hrj8QRQ_bmTWv6R1aZKGXdY-7ddh/exec" target="_blank" rel="noopener">連結</a></li>
 <li>專案原始碼：<a href="https://github.com/laplacetw/HoloDDer" target="_blank" rel="noopener">https://github.com/laplacetw/HoloDDer</a></li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/laplacetw/HoloDDer/main/image/demo.gif" width="80%/"></p>
+<p><img src="https://i.imgur.com/Tc0wxqx.gif" width="80%/"></p>
 <hr>
 <p>時間過得飛快，我第一次用GAS寫點什麼是2019年中的時候，之後就沒怎麼接觸，而現在已經2022了，然後疫情依然持續。大概一個多月前<del>逐漸越D越多的我</del>突然覺得，YouTube直播點來點去好麻煩，開很多分頁也不是什麼理想的做法，PTT西洽還有人直接開一堆瀏覽器視窗排列在桌面…。總之，這讓我開始思考如何把想看的直播都弄在同一個畫面上這件事，而且要自動載入，不要工人智慧自己輸入網址(´_ゝ`) 所以我就做了關鍵字搜尋，看看有沒有什麼YT多開工具，就是出現了好幾個可以讓你自己輸入多個網址的頁面，嗯，蒸蚌，顯然這不是我要的。</p>
 <p>然後就想說自己寫吧，在查了一些資料後，跟GAS很不熟的我發現它竟然可以輸出HTML，儘管內建的各項API服務都有每日使用額度限制(workspace帳號的quota多於一般帳號)，但對我的目標需求而言很夠用，所以就決定試試了。不過，似乎是因為「想透過頻道確認是否直播中」這樣的<del>單蠢</del>單純想法，所以一開始使用了YouTube Data API來嘗試做出雛形，結果很快就悲劇了இдஇ 原來透過API進行搜索是相當昂貴的請求，這每天的扣打只有10,000個單位，做一次搜尋就要消耗100單位，<del>我們DD仔隨便都監視數十個頻道</del>這點扣打肯定是不夠用的啊，所以就不打算用API了。</p>
