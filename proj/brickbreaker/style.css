@@ -1,0 +1,24 @@
+canvas {
+    background-size: 300px 423px;
+    background-image: url("./img/bg.png");
+}
+#app {
+    position: relative;
+}
+#ball {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    border-radius: 100%;
+    background-image: url("./img/ball.png");
+    background-position: center;
+    background-size: 100%;
+}
+#paddle {
+    position: absolute;
+    height: 10px;
+    width: 108px;
+    background-image: url("./img/paddle.png");
+    background-position: center;
+    background-size: 100%;
+}
