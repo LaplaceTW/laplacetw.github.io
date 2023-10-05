@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Laplace&#39;s Lab</title>
+  
+  <subtitle>“We&#39;re believers that the best way to learn something is to do it.”</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://laplacetw.github.io/"/>
+  <updated>2022-02-06T07:56:08.032Z</updated>
+  <id>https://laplacetw.github.io/</id>
+  
+  <author>
+    <name>LaplaceTW</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>台南購物節發票登錄APP(非官方)</title>
+    <link href="https://laplacetw.github.io/vue-tn-shopp-inv-app/"/>
+    <id>https://laplacetw.github.io/vue-tn-shopp-inv-app/</id>
+    <published>2022-01-27T08:09:55.000Z</published>
+    <updated>2022-02-06T07:56:08.032Z</updated>
+    
+    <content type="html"><![CDATA[<p>儘管此活動已舉辦多年，但我是去年聽朋友說才知道(￣▽￣)~* 而即使手機載具已經很普及，難免還是有拿電子發票證明聯的時候…且我發現長輩還是習慣索取紙本發票囧rz。<a id="more"></a>據<a href="https://www.ptt.cc/bbs/Tainan/M.1632065603.A.4B8.html" target="_blank" rel="noopener">PTT台南鄉民</a>表示，19年以前是有APP可以直接掃QR Code的，不過後來沒有了。而輸入發票的頁面操作真的會令人煩躁，選完年份選月份、選完月份選日期…全部手動輸入可能好一些。還好現在很難拿到沒有QR Code的紙本發票了，雖然活動已接近尾聲，不過沒意外應該會繼續舉辦下去吧？看著手邊那疊發票，因此就寫了小工具來進行自動掃描與登錄。</p><h3 id="使用說明"><a href="#使用說明" class="headerlink" title="使用說明"></a>使用說明</h3><ol><li><ul><li><span style="color:red;">請妥善保管自己的token</span>，即便它的有效性是短暫的。</li><li>每回開始登錄發票前建議重新取得token，失效的token將導致登錄失敗。</li><li>登入<a href="https://tainanshopping.tw/news" target="_blank" rel="noopener">台南購物節官網</a>後，打開瀏覽器的瀏覽記錄，找到網址為「tainanshopping.tw / oauth…」的瀏覽紀錄，複製該筆瀏覽紀錄的網址。為方便擷取需要的部分，將剛剛複製的網址貼到備忘錄或Line Keep，然後將「token=」等號後面的整串文字(token)複製起來。<br><br><br> <img src="https://i.imgur.com/um0AuNU.png" alt><br><br><br></li></ul></li><li><p>免安裝，用瀏覽器打開<a href="https://laplacetw.github.io/proj/tainanshopping/" targrt="_blank">APP</a>，點選「開始掃描」，請允許APP使用相機。</p></li><li><p>掃描成功會顯示發票號碼、購買日期等相關資訊，將步驟一所複製的token填入視窗最上方的「Token」欄位。</p><ul><li>token只需要填入一次。</li></ul></li></ol><p><img src="https://i.imgur.com/oQSjCMO.jpg" alt></p><ol start="4"><li>確認發票資訊<span style="color:red;">正確無誤</span>後點選送出，登錄成功與否都會有提示訊息，請等待官網伺服器回應。<ul><li>有可能會讀取到右邊的QR Code，但那不是我們需要的資訊，如要避免請於掃描時遮蔽該QR Code。</li></ul></li></ol><h3 id="免責聲明"><a href="#免責聲明" class="headerlink" title="免責聲明"></a>免責聲明</h3><p>此應用程式僅為方便快速登錄發票而製作的<span style="color:red;">非官方</span>APP，無私分享供他人使用，不對任何錯誤或遺漏承擔責任。建議您可以嘗試透過APP登錄一張發票，並前往官網確認有無登錄成功，再決定是否繼續使用。</p><h3 id="財政部-電子發票二維碼規格"><a href="#財政部-電子發票二維碼規格" class="headerlink" title="財政部-電子發票二維碼規格"></a>財政部-電子發票二維碼規格</h3><p><a href="https://www.einvoice.nat.gov.tw/home/DownLoad?fileName=1378690240719_0.pdf" target="_blank" rel="noopener">https://www.einvoice.nat.gov.tw/home/DownLoad?fileName=1378690240719_0.pdf</a></p><h4 id="左方二維條碼記載事項"><a href="#左方二維條碼記載事項" class="headerlink" title="左方二維條碼記載事項:"></a>左方二維條碼記載事項:</h4><ol><li>發票字軌 (10 位):記錄發票完整十碼號碼。</li><li>發票開立日期 (7 位):記錄發票三碼民國年、二碼月份、二碼日期。</li><li>隨機碼 (4 位):記錄發票上隨機碼四碼。</li><li>銷售額 (8 位):記錄發票上未稅之金額總計八碼，將金額轉換以十六進位方式記載。若營業人銷售系統無法順利將稅項分離計算，則以00000000 記載。</li><li>總計額 (8 位):記錄發票上含稅總金額總計八碼，將金額轉換以十六進位方式記載。</li><li>買方統一編號 (8 位):記錄發票上買受人統一編號，若買受人為一般消費者則以 00000000 記載。</li><li>賣方統一編號 (8 位):記錄發票上賣方統一編號。</li><li>加密驗證資訊 (24 位):將發票字軌十碼及隨機碼四碼以字串方式合併後使用 AES 加密並採用 Base64 編碼轉換。</li></ol><ul><li>以上欄位總計 77 碼。下述資訊為接續以上資訊繼續延伸記錄，且每個欄位前皆以間隔符號”:”(冒號)區隔各記載事項，若左方二維條碼不敷記載， 則繼續記載於右方二維條碼。</li></ul><h3 id="Source-Code"><a href="#Source-Code" class="headerlink" title="Source Code"></a>Source Code</h3><p><a href="https://github.com/laplacetw/tn-shopp-inv-app" target="_blank" rel="noopener">tn-shopp-inv-app</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;儘管此活動已舉辦多年，但我是去年聽朋友說才知道(￣▽￣)~* 而即使手機載具已經很普及，難免還是有拿電子發票證明聯的時候…且我發現長輩還是習慣索取紙本發票囧rz。
+    
+    </summary>
+    
+      <category term="Web Dev" scheme="https://laplacetw.github.io/categories/Web-Dev/"/>
+    
+    
+      <category term="Vue" scheme="https://laplacetw.github.io/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Google Apps Script 與 Hololive (?)</title>
+    <link href="https://laplacetw.github.io/google-apps-script-with-hololive/"/>
+    <id>https://laplacetw.github.io/google-apps-script-with-hololive/</id>
+    <published>2022-01-18T06:35:01.000Z</published>
+    <updated>2022-02-10T16:11:10.757Z</updated>
+    
+    <content type="html"><![CDATA[<p>這是關於<del>DD仔</del>堅持用GAS解決問題的過程。<a id="more"></a></p><p>TL;DR</p><ul><li>HoloDDer：<a href="https://script.google.com/macros/s/AKfycbywEBw2_-AJ5I04qP1EiVUyzWzxRuZEnHTqJeF7hrj8QRQ_bmTWv6R1aZKGXdY-7ddh/exec" target="_blank" rel="noopener">連結</a></li><li>專案原始碼：<a href="https://github.com/laplacetw/HoloDDer" target="_blank" rel="noopener">https://github.com/laplacetw/HoloDDer</a></li></ul><p><img src="https://i.imgur.com/Tc0wxqx.gif" width="80%/"></p><hr><p>時間過得飛快，我第一次用GAS寫點什麼是2019年中的時候，之後就沒怎麼接觸，而現在已經2022了，然後疫情依然持續。大概一個多月前<del>逐漸越D越多的我</del>突然覺得，YouTube直播點來點去好麻煩，開很多分頁也不是什麼理想的做法，PTT西洽還有人直接開一堆瀏覽器視窗排列在桌面…。總之，這讓我開始思考如何把想看的直播都弄在同一個畫面上這件事，而且要自動載入，不要工人智慧自己輸入網址(´_ゝ`) 所以我就做了關鍵字搜尋，看看有沒有什麼YT多開工具，就是出現了好幾個可以讓你自己輸入多個網址的頁面，嗯，蒸蚌，顯然這不是我要的。</p><p>然後就想說自己寫吧，在查了一些資料後，跟GAS很不熟的我發現它竟然可以輸出HTML，儘管內建的各項API服務都有每日使用額度限制(workspace帳號的quota多於一般帳號)，但對我的目標需求而言很夠用，所以就決定試試了。不過，似乎是因為「想透過頻道確認是否直播中」這樣的<del>單蠢</del>單純想法，所以一開始使用了YouTube Data API來嘗試做出雛形，結果很快就悲劇了இдஇ 原來透過API進行搜索是相當昂貴的請求，這每天的扣打只有10,000個單位，做一次搜尋就要消耗100單位，<del>我們DD仔隨便都監視數十個頻道</del>這點扣打肯定是不夠用的啊，所以就不打算用API了。</p><p><img src="https://i.imgur.com/QCWkue4.png" alt></p><p><del>程式要寫直播也是要看</del>到這裡大概過了一週的時間，然後發現已經有很厲害的網站了：<a href="https://hololive.jetri.co/" target="_blank" rel="noopener">HoloTools</a>、<a href="https://holodex.net/" target="_blank" rel="noopener">Holodex</a>，介面賞心悅目，功能更是豐富。不過，人家是專業的<del>我是客家的</del>，還是讓我繼續往下探索Google Apps Script可以做到什麼程度吧。在這當下要解決的問題就是，我如何能根據口袋<del>裡那張油油的</del>名單去確認並取得目前進行中的直播網址，在做了一些嘗試、繞了一大圈後，我終於回想(?)起來有官方網站(ゝ∀･)b 這樣就好辦了，直接用UrlFetchApp.fetch()就能拿到schedule。</p><p><img src="https://i.imgur.com/lFeAcuP.png" alt></p><p>於是就這樣拼拼湊湊出一個可以根據我寫死在script裡的名單去確認並全部排列顯示的頁面。但還是有很多問題，像是名單寫死要更新就得重新部署，頻道頭像的URL也是同樣情況，如果頻道有更新頭像就會失效，而手動加入的影片則使用預設頭像…於是我有一個<del>大膽的</del>想法：如何透過影片連結取得頻道名稱、頭像等資訊？寫過Python crawler可能直呼簡單，不過，我現在只有UrlFetchApp.fetch()可以用…JS渲染想都別想。Embedded YouTube iframe就更別說了，瀏覽器手裡掐著CORS，iframe裡面的東西只能遠觀不可褻玩。於是又瞎嘗試了一番、繞了好大一圈，還是只能從UrlFetchApp.fetch()回傳的raw data去挖挖看裡面有啥了。接著就是不斷嘗試的過程，說實話想直接在Paas寫crawler來串接(／‵Д′)／~ ╧╧ 但這樣我就認輸咧？爬不到的資料實在讓人很不甘心，終於就在我感到心累<del>想跑去YouTube看VT精華</del>的時候，發現在某個script tag裡面有個叫ytInitialData的變數儲存著JSON格式字串，我要的數據就在這裡面！可是，看得到吃不到，哭啊！UrlFetchApp.fetch()回傳的raw data不知何故，某些符號是呈現ASCII Hex的編碼形式，例如左大括號(curly brackets)就變成「\x7b」，然後又嘗試了一番試圖decode仍是無功而返，決定直接取代處理，因為<del>我心累想跑去看VT精華了</del>它們會導致JSON.parse()莫名解析失敗，同樣內容多次測試，解析失敗的位置都不同…歸剛欸！</p><p>所以我說 r 到底有什麼問題R ? ⬇︎</p><p><img src="https://i.imgur.com/kcrMdBc.png" alt></p><p>後來決定用Regex取出我要的那一段，JSON.parse()就過了…終於啊(´_ゝ`)</p><p><img src="https://i.imgur.com/Xvh7S6K.png" alt></p><p>取得頻道資訊的問題解了，後來我就乾脆做了一個可以使用Google帳號登入的公開部署版本，把個人偏好設定與頻道頭像URL透過另外兩個Apps Script同步儲存在spreadsheet和local storage，如此保證失效的頻道頭像URL能得到更新，也很節省UrlFetchApp.fetch()的使用quota，至於個人使用的版本就只有在local storage儲存偏好設定與頻道頭像URL等數據。其實後來還有考慮要把聊天室也嵌入頁面，但實際測試就跟在YouTube頁面一樣糟，大量的留言會造成頁面響應延遲，<del>因為直播要開始了所以</del>其他過於細節的部分太雜亂就省略吧。</p><p><img src="https://raw.githubusercontent.com/laplacetw/HoloDDer/main/image/setting.png" alt></p><p><br>跨年的時候還在想如何拿資料，整排都預設頭像囧 ⬇︎</p><p><img src="https://imgur.com/vje5r37.gif" width="80%/"><br><br></p><p>Ref.</p><ul><li><a href="https://developers.google.com/apps-script/overview" target="_blank" rel="noopener">Overview of Google Apps Script</a></li><li><a href="https://developers.google.com/apps-script/guides/services/quotas" target="_blank" rel="noopener">Quotas for Google Services</a></li><li><a href="https://developers.google.com/apps-script/guides/html/best-practices#code.gs" target="_blank" rel="noopener">Best Practices: Separate HTML, CSS, and JavaScript</a></li><li><a href="https://www.wfublog.com/search/label/%E9%9B%BB%E8%85%A6-%20Google-Apps%20Script?&amp;max-results=5" target="_blank" rel="noopener">Google-Apps Script | Blogger 調校資料庫</a></li><li>HTML Parser for Google Apps Script<ul><li><a href="https://github.com/tani/cheeriogs" target="_blank" rel="noopener">Cheerio</a></li><li><a href="https://cheerio.js.org" target="_blank" rel="noopener">Document</a></li></ul></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;這是關於&lt;del&gt;DD仔&lt;/del&gt;堅持用GAS解決問題的過程。
+    
+    </summary>
+    
+      <category term="Google" scheme="https://laplacetw.github.io/categories/Google/"/>
+    
+    
+      <category term="Google Apps Script" scheme="https://laplacetw.github.io/tags/Google-Apps-Script/"/>
+    
+      <category term="spreadsheet" scheme="https://laplacetw.github.io/tags/spreadsheet/"/>
+    
+      <category term="mytoolbox" scheme="https://laplacetw.github.io/tags/mytoolbox/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>WebRTC getUserMedia( )在行動裝置上的異常行為</title>
+    <link href="https://laplacetw.github.io/webrtc-getusermedia-constraints/"/>
+    <id>https://laplacetw.github.io/webrtc-getusermedia-constraints/</id>
+    <published>2021-12-29T17:08:27.000Z</published>
+    <updated>2022-01-27T08:06:33.237Z</updated>
+    
+    <content type="html"><![CDATA[<p>發生了令人感到非常沮喪的事，所以來更新吧(?)<a id="more"></a></p><blockquote><p>Never trust the f**king verbal job offer, NEVER.</p></blockquote><p>本來打算在整個研究結束後，再來整理關於編寫PWA(Progressive Web App)過程中的各種問題，不過那可能還要好些時間…而且我開始以筆記軟體為主，畢竟寫作相對耗時。昨日整理研究紀錄(就只是類似流水帳的東西)，正好是關於在行動裝置瀏覽器上拍攝影片的問題，於是我仔細測試了一下並做記錄。</p><p>在iOS Safari錄製影像時，無論裝置為直向或橫向拍攝，影片寬高都會符合constraints設定，但畫面顯示會異常，裝置直向時顯示橫向、裝置橫向時顯示直向。在<a href="https://stackoverflow.com/a/62598616" target="_blank" rel="noopener">stackoverflow</a>有相關討論提到：</p><ul><li>getUserMedia()在行動裝置上會有一些奇怪的行為，無論是iOS或Android</li><li>或許是因為瀏覽器的出現早於可旋轉畫面的裝置，因而瀏覽器的設計思維是橫向模式(寬 &gt; 高)</li></ul><p>測試結果如下，video rotation是指相對於拍攝畫面而言。</p><table><thead><tr><th style="text-align:center">constraints<br>width x height</th><th style="text-align:center">device orientation</th><th style="text-align:center">display<br>width x height</th><th style="text-align:center">video rotation</th></tr></thead><tbody><tr><td style="text-align:center">             320 x 240</td><td style="text-align:center">portrait</td><td style="text-align:center">240 x 320</td><td style="text-align:center">-90 degrees</td></tr><tr><td style="text-align:center">             320 x 240</td><td style="text-align:center">landscape</td><td style="text-align:center">320 x 240</td><td style="text-align:center">0 degrees</td></tr><tr><td style="text-align:center">             240 x 320</td><td style="text-align:center">portrait</td><td style="text-align:center">320 x 240</td><td style="text-align:center">-90 degrees</td></tr><tr><td style="text-align:center">             240 x 320</td><td style="text-align:center">landscape</td><td style="text-align:center">240 x 320</td><td style="text-align:center">0 degrees</td></tr></tbody></table><p><img src="https://i.imgur.com/7jJaabj.png" alt></p><p>我在CodePen寫了簡單的測試實例：<a href="https://codepen.io/laplacetw/pen/BaZRMrm" target="_blank" rel="noopener">WebRTC constraints test on mobile</a><br>從互換的寬高設定和裝置方向變化來觀察顯示畫面：</p><table><thead><tr><th style="text-align:center">portrait</th><th style="text-align:center">landscape</th></tr></thead><tbody><tr><td style="text-align:center"><img src="https://i.imgur.com/oz556WP.gif" alt></td><td style="text-align:center"><img src="https://i.imgur.com/2YmR8DB.gif" alt></td></tr></tbody></table>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;發生了令人感到非常沮喪的事，所以來更新吧(?)
+    
+    </summary>
+    
+      <category term="Web Dev" scheme="https://laplacetw.github.io/categories/Web-Dev/"/>
+    
+    
+      <category term="PWA" scheme="https://laplacetw.github.io/tags/PWA/"/>
+    
+      <category term="WebRTC" scheme="https://laplacetw.github.io/tags/WebRTC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>N200RE_V3無線路由器韌體更新</title>
+    <link href="https://laplacetw.github.io/update-firmware-mini-wireless-router/"/>
+    <id>https://laplacetw.github.io/update-firmware-mini-wireless-router/</id>
+    <published>2021-12-11T09:21:56.000Z</published>
+    <updated>2022-01-27T08:05:45.533Z</updated>
+    
+    <content type="html"><![CDATA[<p>今日調整了無線路由器的位置<a id="more"></a>，進了管理後台看看就順手想更新韌體，想說買來使用到現在從沒更新過韌體。</p><p>結果啊…台灣官網產品頁面已經移除了N200RE(V3/V4)，只剩下N200RE_V5，這是要人去哪下載韌體？🥲</p><p>查看了英文官網產品頁面，發現依然保留著舊款的N200RE(V3/V4)，明顯和N200RE_V5是被區分為不同型號的產品，也因此得以下載到較新的韌體。</p><p>載點連結：</p><ul><li><a href="https://www.totolink.net/home/menu/detail/menu_listtpl/download/id/158/ids/36.html" target="_blank" rel="noopener">N200RE (V3/V4) Fireware Download</a></li><li><a href="https://www.totolink.net/home/menu/detail/menu_listtpl/download/id/204/ids/36.html" target="_blank" rel="noopener">N200RE_V5 Fireware Download</a></li></ul><p><img src="https://i.imgur.com/NpcVRAV.png" alt></p><p>即便做了很多事情，過去半年幾乎是沒動力寫點什麼，從自己的研究進度log來看，6月開始著手開發PWA、跑實驗到現在，明顯感覺到自己的近視度數增加了不少…希望能快點結束。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;今日調整了無線路由器的位置
+    
+    </summary>
+    
+      <category term="Daily" scheme="https://laplacetw.github.io/categories/Daily/"/>
+    
+    
+      <category term="IoT" scheme="https://laplacetw.github.io/tags/IoT/"/>
+    
+      <category term="wireless" scheme="https://laplacetw.github.io/tags/wireless/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>更換日光燈具為LED燈具</title>
+    <link href="https://laplacetw.github.io/replace-fluorescent-light-fixture-with-LED/"/>
+    <id>https://laplacetw.github.io/replace-fluorescent-light-fixture-with-LED/</id>
+    <published>2021-08-03T16:52:27.000Z</published>
+    <updated>2022-01-27T07:49:55.409Z</updated>
+    
+    <content type="html"><![CDATA[<p>前陣子發現日光燈管出現偶發閃爍，接著亮度開始衰減後，想説要換掉舊燈具<a id="more"></a>，然後就這麼拖過了幾個禮拜，終於在上週末衝去寶家買了LED山形燈具和燈管回來，立刻著手更換！</p><p>＊<span style="color:red;">安全至上，務必先進行斷電，而非僅關閉電燈開關。</span></p><p>移除燈管後，用老虎鉗鬆開燈具中央的膠頭螺絲，以移除燈具上蓋。<br><img src="https://i.imgur.com/oQPsoic.jpg" alt></p><p>移除上蓋後的日光燈具，可見到燈座上的電容、啟動器、安定器等。<br><img src="https://i.imgur.com/cu2A9XK.jpg" alt><br><img src="https://i.imgur.com/bcOMEMn.jpg" alt></p><p>接著斷開燈座與火線、中性線之間的連結，這舊燈座有快速接頭，左右轉一轉，稍微用點力就能拔得下來。拔出兩條電線後就可以鬆開固定螺絲，將燈座卸下來啦。<br><img src="https://i.imgur.com/yMq8mwV.jpg" alt></p><p>換上新的LED燈具，和舊式日光燈具比起來，少了安定器等雜七雜八的元件與線路，整個燈座非常輕薄。快速接頭會標示N/L，火線/中性線各接一邊即可，萬萬不可插同一邊啊，會悲劇。<br><img src="https://i.imgur.com/oaWjNNQ.jpg" alt></p><p>燈座安裝完成後，鎖好上蓋、裝上LED燈管就完成啦。啵亮～而且新燈管消耗功率僅有日光燈管的一半。<br><img src="https://i.imgur.com/Oav4WXv.jpg" alt></p><p>＊推薦參考影片：<a href="https://youtu.be/z_SF2z5aQFs" target="_blank" rel="noopener">宅水電-DIY更換T8 LED山形吸頂燈</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;前陣子發現日光燈管出現偶發閃爍，接著亮度開始衰減後，想説要換掉舊燈具
+    
+    </summary>
+    
+      <category term="Daily" scheme="https://laplacetw.github.io/categories/Daily/"/>
+    
+    
+      <category term="DIY" scheme="https://laplacetw.github.io/tags/DIY/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何確認開機隨身碟的Windows版本？</title>
+    <link href="https://laplacetw.github.io/tools-check-win-bootable-usb-version/"/>
+    <id>https://laplacetw.github.io/tools-check-win-bootable-usb-version/</id>
+    <published>2021-07-10T17:05:33.000Z</published>
+    <updated>2022-01-27T08:03:55.709Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近要幫友人的新電腦安裝作業系統，於是找了找手邊的隨身碟，但有段時間沒使用，也記不得裡頭的版本…<a id="more"></a></p><p>然後我就去Google這個問題啦，原來只需要使用「部署映像服務與管理」(Deployment Imaging and Management, DISM)命令列工具就行了。</p><p>將開機隨身碟連接電腦，然後以Admin權限啟動Windows CMD或PowerShell並執行以下命令：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ dism /Get-WimInfo /WimFile:E:\sources\Boot.wim /index:1</span><br></pre></td></tr></table></figure><br>＊請自行代入開機隨身碟在您電腦上的磁碟機代號。</p><p>如此就可以看到作業系統版本號了⬇︎<br><img src="https://i.imgur.com/oaEQdAn.png" alt></p><p>murmur：研究進度壓力山大，好幾個月沒時間更新部落格了…連翻譯完的論文也擱著，只能寫點小小的筆記😞<br>但是我很努力在前進著！</p><p>Ref.</p><ul><li><a href="https://pressf1.pcworld.co.nz/showthread.php?140641-Win10-ISO-on-USB-any-way-to-check-version" target="_blank" rel="noopener">Win10 ISO on USB - any way to check version?</a></li><li><a href="https://docs.microsoft.com/zh-tw/windows-hardware/manufacture/desktop/what-is-dism" target="_blank" rel="noopener">MS Doc - 什麼是DISM?</a></li><li><a href="https://zh.wikipedia.org/wiki/Microsoft_Windows#Windows版本歷史" target="_blank" rel="noopener">Wikipedia - Windows版本歷史</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近要幫友人的新電腦安裝作業系統，於是找了找手邊的隨身碟，但有段時間沒使用，也記不得裡頭的版本…
+    
+    </summary>
+    
+      <category term="Microsoft" scheme="https://laplacetw.github.io/categories/Microsoft/"/>
+    
+    
+      <category term="Windows" scheme="https://laplacetw.github.io/tags/Windows/"/>
+    
+      <category term="boot usb" scheme="https://laplacetw.github.io/tags/boot-usb/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>資訊隱藏：Cat Command</title>
+    <link href="https://laplacetw.github.io/stegano-hide-data-in-image-with-cat-cmd/"/>
+    <id>https://laplacetw.github.io/stegano-hide-data-in-image-with-cat-cmd/</id>
+    <published>2021-04-30T04:46:04.000Z</published>
+    <updated>2022-01-27T07:56:52.748Z</updated>
+    
+    <content type="html"><![CDATA[<p>閱讀某文章時提到有些老司機會把車票(?)隱藏在圖片(.jpg)中，覺得蠻有趣的<a id="more"></a>，沒想過cat(concatenate)指令做這件事XD</p><p>因為<a href="https://www.media.mit.edu/pia/Research/deepview/exif.html#JpegMarker" target="_blank" rel="noopener">JPEG的二進位檔為’0xFFD8’起始、’0xFFD9’結尾</a>，’0xFFD8’代表SOI(Start of image)，’0xFFD9’代表EOI(End of image)。即使將其他數據與其合併，圖片預覽程式在讀取二進位檔時遇到’0xFFD9’就會認為圖片已讀取完畢，因而無視後面的數據。<br><img src="https://i.imgur.com/yg6KnRX.png" alt></p><p>然後我在MacOS和Windows 10都試了試：</p><p>Unix-like<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat test.jpg secret.zip &gt; hide.jpg</span><br></pre></td></tr></table></figure></p><p>Windows<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">type</span> test.jpg secret.zip &gt; hide.jpg</span><br></pre></td></tr></table></figure></p><p>合併後得到的檔案看起來依然是一張圖片，但其實和原圖比對，檔案大小是有增加的。<br>將副檔名改為.zip後解壓縮，就能得到被合併進去的隱藏檔案。<br><img src="https://i.imgur.com/NqvpQYT.png" alt></p><p>覺得很有趣所以紀錄一下。😄</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;閱讀某文章時提到有些老司機會把車票(?)隱藏在圖片(.jpg)中，覺得蠻有趣的
+    
+    </summary>
+    
+      <category term="Computer Vision" scheme="https://laplacetw.github.io/categories/Computer-Vision/"/>
+    
+    
+      <category term="Steganography" scheme="https://laplacetw.github.io/tags/Steganography/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>React Native:開發環境設置</title>
+    <link href="https://laplacetw.github.io/react-native-env-setup/"/>
+    <id>https://laplacetw.github.io/react-native-env-setup/</id>
+    <published>2021-04-25T08:27:33.000Z</published>
+    <updated>2022-01-27T07:49:15.287Z</updated>
+    
+    <content type="html"><![CDATA[<p>因為有跨行動平台的需求，我在幾個解決方案之間考量：<a id="more"></a></p><ul><li><a href="https://zh.wikipedia.org/wiki/Flutter" target="_blank" rel="noopener">Flutter</a></li><li><a href="https://zh.wikipedia.org/wiki/React_Native" target="_blank" rel="noopener">React Native</a></li><li><a href="https://zh.wikipedia.org/wiki/Xamarin" target="_blank" rel="noopener">Xamarin</a></li></ul><p>基於我對Dart和C#都不甚理解，亦考量各框架的活躍度，因而選擇先試試React Native。</p><h3 id="MacOS-for-iOS"><a href="#MacOS-for-iOS" class="headerlink" title="MacOS (for iOS)"></a>MacOS (for iOS)</h3><p>React Native官方文件所列出的工具需求：</p><ol><li><p>Node.js 12+</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew install node</span><br></pre></td></tr></table></figure><p>＊為了<a href="ttps://laplacetw.github.io/hexo-err-invalid-arg-type">將Node.js更新到12+</a>真的是折騰了些時間，有使用Hexo框架寫部落格的人可別直接安裝最新版啊。</p></li><li><p>Watchman</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew install watchman</span><br></pre></td></tr></table></figure></li><li><p>CocoaPods</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo gem install cocoapods</span><br></pre></td></tr></table></figure></li><li><p>Xcode 10+<br>從<a href="https://apps.apple.com/tw/app/xcode/id497799835" target="_blank" rel="noopener">App Store</a>下載，然後在偏好設定中安裝Xcode Command Line Tools和模擬器。<br><img src="https://i.imgur.com/TVozuay.png" alt><br><img src="https://i.imgur.com/M0FX6FG.png" alt></p></li><li><p>React Native CLI<br>毋需安裝，官方文件建議使用Node.js附帶的npx來存取最新版本：</p><blockquote><p>React Native has a built-in command line interface. Rather than install and manage a specific version of the CLI globally, we recommend you access the current version at runtime using npx, which ships with Node.js. With npx react-native <command>, the current stable version of the CLI will be downloaded and executed at the time the command is run.</p></blockquote></li></ol><p>以上的工具都準備好了之後，就可以來建立我們的第一個React Native專案了：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npx react-native init MyFirstApp</span><br></pre></td></tr></table></figure><br><img src="https://i.imgur.com/lWhdK1l.png" alt></p><p>專案資料夾⬇︎<br><img src="https://i.imgur.com/uXqvhWQ.png" alt></p><p>編譯iOS App：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> MyFirstApp</span><br><span class="line">$ npx react-native start</span><br><span class="line">$ npx react-native run-ios</span><br></pre></td></tr></table></figure></p><p>編譯過程約12分鐘。<br>我並不打算在MBA上安裝Android Studio來為難它。</p><p><img src="https://i.imgur.com/o1TmwfY.png" alt></p><h3 id="Linux-for-Android"><a href="#Linux-for-Android" class="headerlink" title="Linux (for Android)"></a>Linux (for Android)</h3><p>＊Manjaro Linux</p><p>React Native官方文件所列出的工具需求：</p><ol><li><p>Node.js 12+</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pacman -S nodejs npm</span><br></pre></td></tr></table></figure></li><li><p>Java Development Kit 8+<br>＊安裝的JDK為開源的Open JDK，而非Oracle JDK。</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -S jre-openjdk-headless jre-openjdk jdk-openjdk openjdk-doc openjdk-src</span><br><span class="line"></span><br><span class="line">$ java -version</span><br><span class="line">openjdk version <span class="string">"15.0.2"</span> 2021-01-19</span><br><span class="line">OpenJDK Runtime Environment (build 15.0.2+7)</span><br><span class="line">OpenJDK 64-Bit Server VM (build 15.0.2+7, mixed mode)</span><br></pre></td></tr></table></figure></li><li><p>Android development environment</p><ul><li><p>Install Android Studio<br>從<a href="https://developer.android.com/android-studio/download" target="_blank" rel="noopener">官網下載</a>並解壓縮。<br>進到解壓縮後的資料夾中執行studio.sh來安裝Android Studio需要的元件(需要一些時間)：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ./bin/studio.sh</span><br></pre></td></tr></table></figure><p><img src="https://i.imgur.com/99DiggT.png" alt><br><img src="https://i.imgur.com/MXGG6Ma.png" alt></p><p>Configure -&gt; Create Desktop Entry可以在launcher建立捷徑。<br>亦可直接將Android Studio釘選在桌面工具列 / Latte Dock。</p></li><li><p>Install the Android SDK<br>雖然安裝Android Studio的時候就會一起安裝最新版本的Android SDK，但官方文件提到React Native需要Android 10 SDK這個版本。</p><p>Configure -&gt; SDK Manager</p><p>SDK Platform分頁 -&gt; Show Package Details -&gt; 勾選Android 10(Q)底下的 :</p><ul><li>Android SDK Platform 29</li><li>Intel x86 Atom_64 System Image</li></ul></li></ul></li></ol><pre><code>SDK Tools分頁 -&gt; Show Package Details -&gt; 勾選版本29.0.2上述項目勾選後點選Apply進行下載安裝(需要一些時間)。- Configure the ANDROID_HOME environment variableReact Native Tools為了以native code編譯App，需要設定一些環境變數。&gt;Add the following lines to your $HOME/.bash_profile or $HOME/.bashrc(if you are using zsh then ~/.zprofile or ~/.zshrc) config file:export ANDROID_HOME=$HOME/Android/Sdkexport PATH=$PATH:$ANDROID_HOME/emulatorexport PATH=$PATH:$ANDROID_HOME/toolsexport PATH=$PATH:$ANDROID_HOME/tools/binexport PATH=$PATH:$ANDROID_HOME/platform-tools&gt;.bash_profile is specific to bash. If you&apos;re using another shell, you will need to edit the appropriate shell-specific config file.設定完成後確認環境變數設置：{% codeblock lang:sh %}    $ echo $ANDROID_HOME    $ echo $PATH    {% endcodeblock %}</code></pre><ol start="4"><li><p>Watchman<br>從Github<a href="https://github.com/facebook/watchman/releases/latest" target="_blank" rel="noopener">下載最新版本</a>並解壓縮。<br>進到解壓縮後的資料夾中：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ sudo mkdir -p /usr/<span class="built_in">local</span>/&#123;bin,lib&#125; /usr/<span class="built_in">local</span>/var/run/watchman</span><br><span class="line">$ sudo cp bin/* /usr/<span class="built_in">local</span>/bin</span><br><span class="line">$ sudo cp lib/* /usr/<span class="built_in">local</span>/lib</span><br><span class="line">$ sudo chmod 755 /usr/<span class="built_in">local</span>/bin/watchman</span><br><span class="line">$ sudo chmod 2777 /usr/<span class="built_in">local</span>/var/run/watchman</span><br></pre></td></tr></table></figure></li><li><p>React Native CLI<br>毋需安裝，官方文件建議使用Node.js附帶的npx來存取最新版本：</p><blockquote><p>React Native has a built-in command line interface. Rather than install and manage a specific version of the CLI globally, we recommend you access the current version at runtime using npx, which ships with Node.js. With npx react-native <command>, the current stable version of the CLI will be downloaded and executed at the time the command is run.</p></blockquote></li></ol><p>以上的工具都準備好了之後，就可以來建立我們的第一個React Native專案了：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npx react-native init MyFirstApp</span><br></pre></td></tr></table></figure></p><p>專案資料夾⬇︎<br><img src="https://i.imgur.com/EEBL9Cj.png" alt></p><p>編譯Android App：<br>＊必須先建立並啟動Android Studio模擬器</p><blockquote><p>If you have recently installed Android Studio, you will likely need to create a new AVD. Select “Create Virtual Device…”, then pick any Phone from the list and click “Next”, then select the Q API Level 29 image.</p></blockquote><p><img src="https://i.imgur.com/K7o4Ay3.png" alt></p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> MyFirstApp</span><br><span class="line">$ npx react-native start</span><br><span class="line">$ npx react-native run-android</span><br></pre></td></tr></table></figure><p>編譯過程僅數十秒。</p><p><img src="https://i.imgur.com/c4zxh1X.png" alt></p><h3 id="Ref"><a href="#Ref" class="headerlink" title="Ref."></a>Ref.</h3><ul><li><a href="https://reactnative.dev/docs/environment-setup" target="_blank" rel="noopener">React Native - Setting up the development environment</a></li><li><a href="https://nodejs.org/en/download/package-manager" target="_blank" rel="noopener">Node.js - Installing Node.js via package manager</a></li><li><a href="https://linuxconfig.org/how-to-install-java-on-manjaro-linux" target="_blank" rel="noopener">How to install Java on Manjaro Linux</a></li><li><a href="https://facebook.github.io/watchman/docs/install.html" target="_blank" rel="noopener">Watchman - Installation</a></li><li><a href="https://medium.com/itsems-frontend/whats-npx-e83400efe7f8" target="_blank" rel="noopener">npx是什麼? 跟npm差在哪?</a></li><li><a href="https://www.ruanyifeng.com/blog/2019/02/npx.html" target="_blank" rel="noopener">npx相關指令教學</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;因為有跨行動平台的需求，我在幾個解決方案之間考量：
+    
+    </summary>
+    
+      <category term="Web Dev" scheme="https://laplacetw.github.io/categories/Web-Dev/"/>
+    
+    
+      <category term="React" scheme="https://laplacetw.github.io/tags/React/"/>
+    
+      <category term="React Native" scheme="https://laplacetw.github.io/tags/React-Native/"/>
+    
+      <category term="mobile app" scheme="https://laplacetw.github.io/tags/mobile-app/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Node.js版本更新、Hexo部署更新失敗</title>
+    <link href="https://laplacetw.github.io/hexo-err-invalid-arg-type/"/>
+    <id>https://laplacetw.github.io/hexo-err-invalid-arg-type/</id>
+    <published>2021-04-18T07:32:37.000Z</published>
+    <updated>2022-01-27T07:13:47.640Z</updated>
+    
+    <content type="html"><![CDATA[<p>平時會用到Node的時候就只有用Hexo寫部落格，自己對它是非常陌生的，但最近要寫React Native，然後就發現不得了的事情<a id="more"></a>：Node.js版本過舊無法使用React Native -&gt; MacOS版本過舊無法更新Node.js…窩的老天鵝呀。</p><p>於是我就先把MBA從Catalina直接上Big Sur，然後開始折騰如何更新Node.js。我不大記得當初如何在Mac上安裝Node.js的，但應該不是透過Homebrew，因為我無法透過它直接upgrade or uninstall，而用Homebrew直接安裝了新版後，在terminal用指令查Node.js版本依然是舊版。爬文測試後發現要手動移除再用Homebrew重新安裝：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ rm /usr/<span class="built_in">local</span>/bin/node</span><br><span class="line">$ rm /usr/<span class="built_in">local</span>/bin/npm</span><br><span class="line">$ rm /usr/<span class="built_in">local</span>/bin/npx</span><br><span class="line">$ rm /usr/<span class="built_in">local</span>/lib/node_modules</span><br><span class="line"></span><br><span class="line">$ brew install node</span><br></pre></td></tr></table></figure></p><p>＊因為會移除node_modules資料夾，所以我先把hexo-cli資料夾移出，更新完Node.js再丟回去。</p><p>好啦，OS更新了，Node.js也更新了，然後呢？然後我發現Hexo部署更新失敗…窩的老天鵝呀。😭<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">FATAL Something<span class="string">'s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="string">TypeError [ERR_INVALID_ARG_TYPE]: The "mode" argument must be integer. Received an instance of Object</span></span><br></pre></td></tr></table></figure></p><p>去Hexo的官網看看<a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a>在留言發現有相關討論，這竟然是因為Node.js版本太新…看來我只能降版：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ brew search node</span><br><span class="line">==&gt; Formulae</span><br><span class="line">heroku/brew/heroku-node    node-sass                  nodebrew</span><br><span class="line">libbitcoin-node            node@10                    nodeenv</span><br><span class="line">llnode                     node@12                    nodenv</span><br><span class="line">node                       node@14</span><br><span class="line">node-build                 node_exporter</span><br><span class="line"></span><br><span class="line">$ brew install node@12</span><br></pre></td></tr></table></figure></p><p>降版安裝了node@12後，Homebrew提示此版本是「keg-only」，仔細看它的安裝路徑是在/usr/local/opt裡，Homebrew也不會為其建立system link。所以我得手動將node@12路徑加入環境變數，而hexo-cli移動到其根目錄下的/lib/node_modules後也必須手動加入環境變數：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="string">'export PATH="/usr/local/opt/node@12/bin:$PATH"'</span> &gt;&gt; ~/.zshrc</span><br><span class="line">$ <span class="built_in">echo</span> <span class="string">'export PATH="/usr/local/opt/node@12/lib/node_modules/hexo-cli/bin:$PATH"'</span> &gt;&gt; ~/.zshrc</span><br></pre></td></tr></table></figure></p><p>搞定。</p><p>Ref.</p><ul><li><a href="https://khiav223577.github.io/blog/2017/09/24/修復-npm-的漫漫長路/" target="_blank" rel="noopener">修復 npm 的漫漫長路</a></li><li><a href="https://wildjcrt.pixnet.net/blog/post/29182044-the-naming-logic-from-homebrew" target="_blank" rel="noopener">有趣的 Homebrew 命名邏輯</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;平時會用到Node的時候就只有用Hexo寫部落格，自己對它是非常陌生的，但最近要寫React Native，然後就發現不得了的事情
+    
+    </summary>
+    
+      <category term="Blog" scheme="https://laplacetw.github.io/categories/Blog/"/>
+    
+    
+      <category term="Hexo" scheme="https://laplacetw.github.io/tags/Hexo/"/>
+    
+      <category term="Github Pages" scheme="https://laplacetw.github.io/tags/Github-Pages/"/>
+    
+      <category term="Nodejs" scheme="https://laplacetw.github.io/tags/Nodejs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>資訊隱藏：竄改偵測與復原</title>
+    <link href="https://laplacetw.github.io/stegano-tamper-recovery/"/>
+    <id>https://laplacetw.github.io/stegano-tamper-recovery/</id>
+    <published>2021-01-23T09:20:29.000Z</published>
+    <updated>2022-01-27T07:58:34.355Z</updated>
+    
+    <content type="html"><![CDATA[<p>在這學期的資訊隱藏課程內容中，我認為這是最有趣的<a id="more"></a>，利用事先藏入彩色影像中的隱密資訊，竟然可以偵測出遭到竄改的區域，甚至進行一定程度的復原，這好像有點神奇…&nbsp;😲</p><h4 id="資訊嵌入"><a href="#資訊嵌入" class="headerlink" title="資訊嵌入"></a>資訊嵌入</h4><p>藏入的隱密資訊其長度為36-bit，由16-bit authentication data加上20-bit recovery data所組成。生成這36-bit資訊的過程有些繁瑣：</p><ol><li>生成global feature：將影像摘要資訊以MD5生成128-bit hash value，依序分割為8段、每段16-bit進行XOR運算。</li><li>將影像分割為2x2的不重疊區塊，然後做區塊映射：其結果將用來隱藏recovery data，也就是將目標區塊的復原資訊藏在映射區塊。</li><li>生成local feature：將2x2區塊每個像素之RGB各取5-bit最大有效位元(MSB)，再加上1-bit偶校驗(Even Parity)組成該像素的feature data，然後將4組feature data和區塊的row index、column index進行XOR運算。</li><li>生成authentication data：將global feature與2x2區塊的local feature進行XOR運算。</li><li>生成recovery data：計算2x2區塊的像素RGB平均值並轉換色彩空間至YCbCr，將Y加上Cb、Cr各取6-bit MSBs組成20-bit復原資訊。</li></ol><p>根據區塊映射之結果，將映射區塊的authentication data加上目標區塊的recovery data，組合成36-bit隱密資訊並嵌入至映射區塊。嵌入方式為自2x2映射區塊中，從每個像素點之R、G、B各取3-bit最低有效位元(LSB)來使用。</p><p>＊舉例來說，假設目標區塊A的index為(3, 4)，其映射區塊為B(2, 1)，則要嵌入至區塊B的36-bit隱密資訊 = 區塊B的16-bit authentication data + 區塊A的20-bit recovery data。因此，在影像遭到竄改而導致區塊A毀損，而區塊B完好如初的情況下，就可以從區塊B取出復原資訊來修復區塊A。</p><p><img src="https://i.imgur.com/VTzHSXG.png" alt></p><h4 id="竄改偵測"><a href="#竄改偵測" class="headerlink" title="竄改偵測"></a>竄改偵測</h4><p>要知道經過上述處理的影像是否遭到竄改，可透過找出真正的global feature以比對出可能遭到竄改的區域：</p><ol><li>將影像分割為2x2的不重疊區塊，提取出嵌入於區塊中的16-bit authentication data。</li><li>提取global feature：生成區塊的local feature並和authentication data進行XOR運算。</li><li>統計所有區塊提取出的global feature，出現頻率最多次的即為真正的global feature。</li><li>比對所有區塊的global feature，就能劃分出可能遭到竄改的區域。</li></ol><p><img src="https://i.imgur.com/eY5kQvd.png" alt></p><h4 id="影像復原"><a href="#影像復原" class="headerlink" title="影像復原"></a>影像復原</h4><p>透過上述的竄改偵測，若確認影像遭到竄改，可利用嵌入其中的recovery data來嘗試復原影像：</p><ol><li>確認竄改區域，定位被竄改區塊的區塊映射位置。</li><li>比對global feature檢查映射區塊是否也遭到竄改，以確認recovery data的可用性。</li><li>若映射區塊並無遭到竄改，則提取映射區塊中的20-bit recovery data，還原YCbCr(Cb、Cr捨棄的2-bit LSBs補0)並將色彩空間轉換回RGB，以此RGB值來復原被竄改的區塊。</li><li>若映射區塊亦遭到竄改，在recovery data不可用的情況下，就只能使用其所有相鄰區塊的像素平均值來修復了。</li></ol><p><img src="https://i.imgur.com/ffgTaAQ.png" alt></p><p>＊原始碼連結：<a href="https://github.com/laplacetw/stegano/blob/main/tamper-recovery.py" target="_blank" rel="noopener">Github</a><br>＊測試影像來源：<a href="https://unsplash.com/photos/IuDN1alE1GE" target="_blank" rel="noopener">unsplash</a>、<a href="https://unsplash.com/photos/1oAUMHQk7fY" target="_blank" rel="noopener">unsplash</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在這學期的資訊隱藏課程內容中，我認為這是最有趣的
+    
+    </summary>
+    
+      <category term="Computer Vision" scheme="https://laplacetw.github.io/categories/Computer-Vision/"/>
+    
+    
+      <category term="Python" scheme="https://laplacetw.github.io/tags/Python/"/>
+    
+      <category term="Steganography" scheme="https://laplacetw.github.io/tags/Steganography/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>資訊隱藏：離散小波轉換</title>
+    <link href="https://laplacetw.github.io/stegano-distributed-wavelet-transform/"/>
+    <id>https://laplacetw.github.io/stegano-distributed-wavelet-transform/</id>
+    <published>2021-01-21T16:51:30.000Z</published>
+    <updated>2022-01-27T08:01:05.768Z</updated>
+    
+    <content type="html"><![CDATA[<p>單純以LSB的方式嵌入秘密資訊的方式雖簡單又易實現，但載體影像卻難以抵抗各種攻擊。<a id="more"></a>所以接續上篇來寫能抵抗破壞的數位浮水印，只修過一學期相關課程的菜雞我呢，雖然在寫課程作業期間也找了論文來輔助參考，但也算不上系統性的學習相關知識，想從艱困的預算中編列購買相關書籍來研讀的費用啊&nbsp;😶</p><p><a href="https://zh.wikipedia.org/wiki/數位浮水印" target="_blank" rel="noopener">維基百科</a>對數位浮水印的描述：</p><blockquote><p>數位浮水印，是指將特定的資訊嵌入數字訊號中，數位訊號可能是音訊、圖片或是影片等。若要拷貝有數位浮水印的訊號，所嵌入的資訊也會一併被拷貝。數位浮水印可分為浮現式和隱藏式兩種，前者是可被看見的浮水印(visible watermarking)，其所包含的資訊可在觀看圖片或影片時同時被看見。一般來說，浮現式的浮水印通常包含著作權擁有者的名稱或標誌。電視台在畫面角落所放置的標誌，也是浮現式浮水印的一種。</p></blockquote><blockquote><p>隱藏式的浮水印是以數位資料的方式加入音訊、圖片或影片中，但在一般的狀況下無法被看見。隱藏式浮水印的重要應用之一是保護著作權，期望能藉此避免或阻止數位媒體未經授權的複製和拷貝。隱寫術(Steganography)也是數位浮水印的一種應用，雙方可利用隱藏在數位訊號中的資訊進行溝通。數位相片中的註釋資料能記錄相片拍攝的時間、使用的光圈和快門，甚至是相機的廠牌等資訊，這也是數位浮水印的應用之一。某些檔案格式可以包含這些稱為「metadata」的額外資訊。</p></blockquote><p>而數位浮水印的嵌入方式，除了空間域，還有頻率域，也就是將影像轉換至頻率域再進行嵌入。高頻訊號較不易為人眼所察覺，低頻訊號較能抵抗攻擊，在嵌入時可視需求作取捨。</p><p>我以一階<a href="https://zh.wikipedia.org/wiki/哈爾小波轉換" target="_blank" rel="noopener">哈爾小波轉換</a>來進行測試，影像將被分割為LL、HL、LH、HH四個頻帶，其中LL即為能量最為集中的低頻帶，人類視覺對此部分的變化較靈敏。然後將浮水印分割為上下兩個部分，上半部在空間域進行嵌入，下半部則嵌入頻率域的HH頻帶，來看對攻擊的抵抗能力。</p><p>空間域嵌入、頻率域嵌入和還原結果⬇︎<br><img src="https://i.imgur.com/lvk5KXs.png" alt><br>將影像去除中央128x128的區域後的還原結果⬇︎<br><img src="https://i.imgur.com/Ixe4Fl5.png" alt><br>將影像去除中央二個方框區域後的還原結果⬇︎<br><img src="https://i.imgur.com/gW8uUS6.png" alt></p><p>可以明顯的看出，將影像去除128x128的區域後，嵌入於空間域的浮水印只剩渣&nbsp;&nbsp;🤣 &nbsp;&nbsp;而去除方框區域後的浮水印還原結果也能看到白色框線的粗細對比。真的蠻有趣的啊😲</p><p>＊原始碼連結：<a href="https://github.com/laplacetw/stegano/blob/main/dwt.py" target="_blank" rel="noopener">Github</a><br>＊測試影像來源：<a href="https://unsplash.com/photos/r2nJPbEYuSQ" target="_blank" rel="noopener">unsplash</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;單純以LSB的方式嵌入秘密資訊的方式雖簡單又易實現，但載體影像卻難以抵抗各種攻擊。
+    
+    </summary>
+    
+      <category term="Computer Vision" scheme="https://laplacetw.github.io/categories/Computer-Vision/"/>
+    
+    
+      <category term="Python" scheme="https://laplacetw.github.io/tags/Python/"/>
+    
+      <category term="Steganography" scheme="https://laplacetw.github.io/tags/Steganography/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Github:basic auth using a password to Git is deprecated</title>
+    <link href="https://laplacetw.github.io/sofdev-github-token-auth-needed/"/>
+    <id>https://laplacetw.github.io/sofdev-github-token-auth-needed/</id>
+    <published>2021-01-21T09:10:55.000Z</published>
+    <updated>2022-01-27T07:54:18.282Z</updated>
+    
+    <content type="html"><![CDATA[<p>推送更新後收到Github官方的通知信，內容說到以密碼為執行Git操作的基本身份認證方式已經要棄用了<a id="more"></a>，要使用者改用Access Token。</p><p>通知信中給了一個連結：<a href="https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/" target="_blank" rel="noopener">Token authentication requirements for Git operations</a></p><blockquote><p>Workflows affected</p><ul><li>Command line Git access</li><li>Desktop applications using Git (GitHub Desktop is unaffected)</li><li>Any apps/services that access Git repositories on GitHub.com directly using your password</li></ul></blockquote><blockquote><p>The following customers remain unaffected by this change:</p></blockquote><blockquote><ul><li>If you have two-factor authentication enabled for your account, you are already required to use </li><li>token- or SSH-based authentication.</li><li>If you use GitHub Enterprise Server, we have not announced any changes to our on-premises offering.</li><li>If you maintain a GitHub App, GitHub Apps do not support password authentication.</li></ul></blockquote><p>重點就是呢，2021/08/13以前，以密碼為執行Git操作的身份認證方式都還能正常使用，不過還是趕緊改用Access Token吧，生成後要記得設定存取權限，然後將Git密碼改成Access Token就行了。<br><img src="https://i.imgur.com/ZkeH708.png" alt><br>＊<a href="https://stackoverflow.com/questions/20195304/how-do-i-update-the-password-for-git" target="_blank" rel="noopener">How do I update the password for Git?</a></p><p>以下是Github官方文件對於Access Token的一些操作說明：</p><ul><li><a href="https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token" target="_blank" rel="noopener">Creating a personal access token</a></li><li><a href="https://docs.github.com/en/github/using-git/caching-your-github-credentials-in-git" target="_blank" rel="noopener">Caching your GitHub credentials in Git</a></li><li><a href="https://docs.github.com/en/github/using-git/updating-credentials-from-the-macos-keychain" target="_blank" rel="noopener">Updating credentials from the macOS Keychain</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;推送更新後收到Github官方的通知信，內容說到以密碼為執行Git操作的基本身份認證方式已經要棄用了
+    
+    </summary>
+    
+      <category term="Software Dev" scheme="https://laplacetw.github.io/categories/Software-Dev/"/>
+    
+    
+      <category term="Git" scheme="https://laplacetw.github.io/tags/Git/"/>
+    
+      <category term="Github" scheme="https://laplacetw.github.io/tags/Github/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>資訊隱藏：最低有效位元</title>
+    <link href="https://laplacetw.github.io/stegano-least-significant-bit/"/>
+    <id>https://laplacetw.github.io/stegano-least-significant-bit/</id>
+    <published>2021-01-20T06:27:08.000Z</published>
+    <updated>2022-01-27T07:57:41.677Z</updated>
+    
+    <content type="html"><![CDATA[<p>這學期修了很有趣的課程，我覺得隱寫術這個詞還蠻中二的。<a id="more"></a></p><p><a href="https://zh.wikipedia.org/wiki/隱寫術" target="_blank" rel="noopener">維基百科</a>對於隱寫術的描述：</p><blockquote><p>隱寫術是一門關於資訊隱藏的技巧與科學，所謂資訊隱藏指的是不讓除預期的接收者之外的任何人知曉資訊的傳遞事件或者資訊的內容。隱寫術的英文叫做Steganography，來源於特裡特米烏斯的一本講述密碼學與隱寫術的著作Steganographia，該書書名源於希臘語，意為「隱秘書寫」。</p></blockquote><blockquote><p>一般來說，隱寫的資訊看起來像一些其他的東西，例如一張購物清單，一篇文章，一篇圖畫或者其他「偽裝」(cover)的訊息。隱寫的資訊通常用一些傳統的方法進行加密，然後用某種方法修改一個「偽裝文字」(covertext)，使其包含被加密過的訊息，形成所謂的「隱秘文字」(stegotext)。例如，文字的大小、間距、字體，或者掩飾文字的其他特性可以被修改來包含隱藏的資訊。只有接收者知道所使用的隱藏技術，才能夠恢復資訊，然後對其進行解密。</p></blockquote><p>現代的隱寫術是利用數位媒介作為載體，例如影像、聲音以及影片。載體檔案相對隱秘檔案的數據量越大，隱藏後者就越容易。或許是和授課者的專業領域有關，這學期的課都是以影像作為載體使用。</p><p>我想最低有效位元(LSB，Least Significant Bit)應該是最簡單的方法吧，透過將秘密資訊嵌入影像像素的LSB，其對影像的修改程度非常細微，達到肉眼無法察覺的程度。而在嵌入資訊前，對影像進行了量化處理，量化值(Ｌ)的大小對影像品質也有著相對的影響。</p><p><img src="https://i.imgur.com/lg0WsNO.png" alt></p><p>對於嵌入秘密資訊後的影像，再次以同樣的量化值進行處理，以前者減去後者的像素值，就能萃取出嵌入的秘密資訊。實際上在課程作業有用了算數編碼對秘密資訊加密後再嵌入，但自己在實作上的結果並不穩定，得再花點時間找資料研究思考。而最低有效位元的方式雖然簡單，卻也相當脆弱，影像如果被壓縮過，嵌入的資訊也會遭到破壞…。因此在後續的課程也學習到一些進階的方式，令菜雞我覺得很厲害。</p><p>下面的測試影像藏入了這段文字：</p><blockquote><p>After billions of dollars and a decade of work, NASA’s plans to send astronauts back to the moon had a new setback on Saturday. A planned eight-minute test firing of the four engines of a new mega rocket needed for the moon missions came to an abrupt end after only about a minute.As engineers disentangle what went wrong, the first launch of the rocket is likely to slip further into the future, and NASA astronauts may have to wait longer before setting foot on the moon again.</p></blockquote><p>藏入一段文字後的影像，量化值越大，峰值訊噪比就越低⬇︎<br><img src="https://i.imgur.com/vUFXa1i.png" alt></p><p>＊原始碼連結：<a href="https://github.com/laplacetw/stegano/blob/main/lsb.py" target="_blank" rel="noopener">Github</a><br>＊測試影像來源：<a href="https://unsplash.com/photos/r2nJPbEYuSQ" target="_blank" rel="noopener">unsplash</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;這學期修了很有趣的課程，我覺得隱寫術這個詞還蠻中二的。
+    
+    </summary>
+    
+      <category term="Computer Vision" scheme="https://laplacetw.github.io/categories/Computer-Vision/"/>
+    
+    
+      <category term="Python" scheme="https://laplacetw.github.io/tags/Python/"/>
+    
+      <category term="Steganography" scheme="https://laplacetw.github.io/tags/Steganography/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>GANs in Action Ch2：VAE</title>
+    <link href="https://laplacetw.github.io/data-sci-gans-in-action-ch2/"/>
+    <id>https://laplacetw.github.io/data-sci-gans-in-action-ch2/</id>
+    <published>2020-12-15T17:21:36.000Z</published>
+    <updated>2022-01-27T06:46:14.261Z</updated>
+    
+    <content type="html"><![CDATA[<p>範例程式研讀。<a id="more"></a></p><p>＊TensorFlow 2.x 動態圖機制Eager Mode可能會導致範例程式拋出SymbolicException錯誤，需手動關閉：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tf<span class="selector-class">.compat</span><span class="selector-class">.v1</span><span class="selector-class">.disable_eager_execution</span>()</span><br></pre></td></tr></table></figure></p><h3 id="超參數與自訂函式"><a href="#超參數與自訂函式" class="headerlink" title="超參數與自訂函式"></a>超參數與自訂函式</h3><ul><li><p>超參數epsilon_std是在sampling()裡面所使用，但keras.backend.random_normal的參數stddev(標準差)預設值就是1.0。</p></li><li><p>sampling()會在編碼器的結構中接收參數：平均值和對數變異數(z_mean, z_log_var)，返回取樣自平均值=z_mean且標準差=$ \sqrt {z\_log\_var} $之常態分佈的隨機數值陣列，也就是Z(潛在空間，latent space)。</p></li><li><p>vae_loss()負責在VAE訓練過程接收參數：實際值(原始影像)及預測值(解碼器生成影像)來計算Loss，返回二元交叉熵(binary cross entropy)與相對熵(relative entropy)的和。</p></li></ul><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># defining the key parameters</span></span><br><span class="line">batch_size = <span class="number">100</span></span><br><span class="line">original_dim = <span class="number">784</span>  <span class="comment"># MNIST: 28 * 28</span></span><br><span class="line">latent_dim = <span class="number">2</span></span><br><span class="line">intermediate_dim = <span class="number">256</span></span><br><span class="line">epochs = <span class="number">5</span></span><br><span class="line">epsilon_std = <span class="number">1.0</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sampling</span><span class="params">(args: tuple)</span>:</span></span><br><span class="line">    <span class="comment"># we grab the variables from the tuple</span></span><br><span class="line">    z_mean, z_log_var = args</span><br><span class="line">    epsilon = K.random_normal(shape=(K.shape(z_mean)[<span class="number">0</span>], latent_dim), mean=<span class="number">0.</span>, stddev=epsilon_std)</span><br><span class="line">    <span class="keyword">return</span> z_mean + K.exp(z_log_var / <span class="number">2</span>) * epsilon</span><br><span class="line"></span><br><span class="line"><span class="comment"># defining the losses</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">vae_loss</span><span class="params">(x: tf.Tensor, x_decoded_mean: tf.Tensor)</span>:</span></span><br><span class="line">    <span class="comment"># cross entropy</span></span><br><span class="line">    xent_loss = original_dim * metrics.binary_crossentropy(x, x_decoded_mean)</span><br><span class="line">    <span class="comment"># relative entropy</span></span><br><span class="line">    kl_loss = - <span class="number">0.5</span> * K.sum(<span class="number">1</span> + z_log_var - K.square(z_mean) - K.exp(z_log_var), axis=<span class="number">-1</span>)</span><br><span class="line">    vae_loss = K.mean(xent_loss + kl_loss)</span><br><span class="line">    <span class="keyword">return</span> vae_loss</span><br></pre></td></tr></table></figure><h3 id="變分自編碼器模型"><a href="#變分自編碼器模型" class="headerlink" title="變分自編碼器模型"></a>變分自編碼器模型</h3><ul><li><p>Encoder：輸入影像，輸出平均值、對數變異數、潛在空間。</p></li><li><p>Decoder：輸入潛在空間，輸出生成影像。</p></li></ul><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># defining the encoder</span></span><br><span class="line">x = Input(shape=(original_dim,), name=<span class="string">"input"</span>)</span><br><span class="line">h = Dense(intermediate_dim, activation=<span class="string">'relu'</span>, name=<span class="string">"encoding"</span>)(x)</span><br><span class="line"><span class="comment"># mean of the latent space</span></span><br><span class="line">z_mean = Dense(latent_dim, name=<span class="string">"mean"</span>)(h)</span><br><span class="line"><span class="comment"># log variance of the latent space</span></span><br><span class="line">z_log_var = Dense(latent_dim, name=<span class="string">"log-variance"</span>)(h)</span><br><span class="line">z = Lambda(sampling, output_shape=(latent_dim,))([z_mean, z_log_var])</span><br><span class="line">encoder = Model(x, [z_mean, z_log_var, z], name=<span class="string">"encoder"</span>)</span><br><span class="line">encoder.summary()</span><br><span class="line"></span><br><span class="line"><span class="comment"># defining the decoder</span></span><br><span class="line">input_decoder = Input(shape=(latent_dim,), name=<span class="string">"decoder_input"</span>)</span><br><span class="line">decoder_h = Dense(intermediate_dim, activation=<span class="string">'relu'</span>, name=<span class="string">"decoder_h"</span>)(input_decoder)</span><br><span class="line">x_decoded = Dense(original_dim, activation=<span class="string">'sigmoid'</span>, name=<span class="string">"flat_decoded"</span>)(decoder_h)</span><br><span class="line">decoder = Model(input_decoder, x_decoded, name=<span class="string">"decoder"</span>)</span><br><span class="line">decoder.summary()</span><br><span class="line"></span><br><span class="line"><span class="comment"># defining the VAE</span></span><br><span class="line"><span class="comment"># encoder return: [z_mean, z_log_var, z]</span></span><br><span class="line">output_combined = decoder(encoder(x)[<span class="number">2</span>])</span><br><span class="line">vae = Model(x, output_combined, name=<span class="string">"VAE"</span>)</span><br><span class="line">vae.summary()</span><br><span class="line">vae.compile(optimizer=<span class="string">'rmsprop'</span>, loss=vae_loss)</span><br></pre></td></tr></table></figure><h3 id="模型訓練"><a href="#模型訓練" class="headerlink" title="模型訓練"></a>模型訓練</h3><ul><li>VAE的輸出也是影像，所以fit()的Y參數要輸入影像資料而非數據標籤。</li></ul><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># load data</span></span><br><span class="line">(x_train, y_train), (x_test, y_test) = mnist.load_data()</span><br><span class="line">x_train = x_train.astype(<span class="string">'float32'</span>) / <span class="number">255.</span></span><br><span class="line">x_test = x_test.astype(<span class="string">'float32'</span>) / <span class="number">255.</span></span><br><span class="line">x_train = x_train.reshape((len(x_train), np.prod(x_train.shape[<span class="number">1</span>:])))  <span class="comment"># (60000, 784)</span></span><br><span class="line">x_test = x_test.reshape((len(x_test), np.prod(x_test.shape[<span class="number">1</span>:])))      <span class="comment"># (10000, 784)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># training</span></span><br><span class="line">vae.fit(x_train, x_train, shuffle=<span class="keyword">True</span>, epochs=epochs, batch_size=batch_size)</span><br></pre></td></tr></table></figure><h3 id="散點圖"><a href="#散點圖" class="headerlink" title="散點圖"></a>散點圖</h3><ul><li><p>測試資料經編碼後於潛在空間中的分佈情形</p></li><li><p>我另外畫出後續會用來採樣生成圖片的紅框區域<br>  <img src="https://i.imgur.com/21rENRi.png" alt></p></li></ul><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># display a 2D plot of the digit classes in the latent space</span></span><br><span class="line">x_test_encoded = encoder.predict(x_test, batch_size=batch_size)[<span class="number">0</span>]</span><br><span class="line">fig = plt.figure(figsize=(<span class="number">6</span>, <span class="number">6</span>))</span><br><span class="line">plt.scatter(x_test_encoded[:,<span class="number">0</span>], x_test_encoded[:,<span class="number">1</span>], c=y_test, cmap=<span class="string">'viridis'</span>)</span><br><span class="line">plt.colorbar()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure><h3 id="生成圖片"><a href="#生成圖片" class="headerlink" title="生成圖片"></a>生成圖片</h3><ul><li><p>使用<a href="https://numpy.org/doc/stable/reference/generated/numpy.linspace.html" target="_blank" rel="noopener">numpy.linspace()</a>生成區間(0.05, 0.95)的具有n個元素的等差數列，再由<a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html" target="_blank" rel="noopener">scipy.stats.norm.ppf()</a>轉換為常態累積分佈的<a href="https://zh.wikipedia.org/wiki/%E7%99%BE%E5%88%86%E4%BD%8D%E6%95%B0" target="_blank" rel="noopener">百分位數</a>，做為潛在空間取樣座標(grid_x, grid_y)。</p></li><li><p>取樣範圍區間：<a href="https://en.wikipedia.org/wiki/Standard_normal_table#Cumulative" target="_blank" rel="noopener">Z(0.05) = -1.645, z(0.95) = 1.645</a></p></li><li><p>反轉grid_x順序的圖片生成結果，對應散點圖的紅框範圍(原始範例會上下顛倒)<br>  <img src="https://i.imgur.com/elfnFuN.png" alt></p></li></ul><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># display a 2D manifold of the digits</span></span><br><span class="line">n = <span class="number">15</span>  <span class="comment"># figure with 15x15 digits</span></span><br><span class="line">digit_size = <span class="number">28</span></span><br><span class="line">figure = np.zeros((digit_size * n, digit_size * n))</span><br><span class="line"><span class="comment"># linearly spaced coordinates on the unit square were transformed through the inverse CDF (ppf) of the Gaussian</span></span><br><span class="line"><span class="comment"># to produce values of the latent variables z, since the prior of the latent space is Gaussian</span></span><br><span class="line">grid_x = norm.ppf(np.linspace(<span class="number">0.05</span>, <span class="number">0.95</span>, n))</span><br><span class="line">grid_y = norm.ppf(np.linspace(<span class="number">0.05</span>, <span class="number">0.95</span>, n))</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i, yi <span class="keyword">in</span> (enumerate(grid_x)):</span><br><span class="line">    <span class="keyword">for</span> j, xi <span class="keyword">in</span> enumerate(grid_y):</span><br><span class="line">        z_sample = np.array([[xi, yi]])</span><br><span class="line">        x_decoded = decoder.predict(z_sample)</span><br><span class="line">        digit = x_decoded[<span class="number">0</span>].reshape(digit_size, digit_size)</span><br><span class="line">        figure[i * digit_size: (i + <span class="number">1</span>) * digit_size,</span><br><span class="line">               j * digit_size: (j + <span class="number">1</span>) * digit_size] = digit</span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">10</span>, <span class="number">10</span>))</span><br><span class="line">plt.imshow(figure, cmap=<span class="string">'Greys_r'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure><p>Ref. <a href="https://github.com/GANs-in-Action/gans-in-action" target="_blank" rel="noopener">https://github.com/GANs-in-Action/gans-in-action</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;範例程式研讀。
+    
+    </summary>
+    
+      <category term="Data Science" scheme="https://laplacetw.github.io/categories/Data-Science/"/>
+    
+    
+      <category term="Python" scheme="https://laplacetw.github.io/tags/Python/"/>
+    
+      <category term="GAN" scheme="https://laplacetw.github.io/tags/GAN/"/>
+    
+      <category term="Keras" scheme="https://laplacetw.github.io/tags/Keras/"/>
+    
+      <category term="deep learning" scheme="https://laplacetw.github.io/tags/deep-learning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS 捷徑製作：縮網址</title>
+    <link href="https://laplacetw.github.io/ios-shortcut-tinyurl/"/>
+    <id>https://laplacetw.github.io/ios-shortcut-tinyurl/</id>
+    <published>2020-12-06T12:52:38.000Z</published>
+    <updated>2022-01-27T07:20:30.055Z</updated>
+    
+    <content type="html"><![CDATA[<p>因為APP的系統版本支援問題，從iOS 11更新上iOS 14，研究了一下捷徑功能。<a id="more"></a></p><p><a href="https://support.apple.com/zh-tw/guide/shortcuts/welcome/ios" target="_blank" rel="noopener">捷徑</a>能做的事情很多，光是能在網頁執行自己編寫的JavaScript就很不得了…是危險的味道呢(pero，儘管網路上很容易就能找到一堆方便的腳本，甚至也有提供人們公開發佈捷徑腳本的網站。這就是為何iOS 13開始對捷徑內容審查變得嚴格(其實也只是要你按下允許不受信任的捷徑為個人行為背書)，而IBM Security的研究人員於2019年也曾提出警告<a href="https://www.zdnet.com/article/siri-shortcuts-can-be-abused-for-extortion-demands-malware-propagation/" target="_blank" rel="noopener">iOS捷徑可能被用於勒索攻擊</a>。</p><hr><p>要製作TinyURL縮址的話，得知道縮址的時候如何發出請求，在TinyURL首頁有個「Add TinyURL to your browser’s toolbar」的說明，這裡就提供了連結：</p><blockquote><p>tinyurl.com/create.php?url=</p></blockquote><ol><li><p>建立一個新捷徑 &gt; 點選右上角打開捷徑設定 &gt; 啟用「在分享表單中顯示」&gt; 「分享表單類型」設定為「文字＆URL」<br> <img src="https://i.imgur.com/46xfJ1k.png" alt></p></li><li><ul><li>新增動作 &gt; 「網頁」&gt; 「URL」&gt; 輸入下方網址，後面接變數「捷徑輸入」<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://tinyurl.com/create.php?url=</span><br></pre></td></tr></table></figure></li><li>新增動作 &gt; 「網頁」&gt; 「取得URL內容」</li><li>新增動作 &gt; 「文件」&gt; 「<span style="color:red">從RTF製作HTML</span>」(動作會自行填入變數「URL內容」取代「RTF」)<br><img src="https://i.imgur.com/z4ptJEb.png" alt></li></ul></li><li><ul><li>新增動作 &gt; 「文件」&gt; 「符合文字」&gt; 選擇變數「從HTML製作RTF」&gt; 輸入下方的Regex(Regular Expression)<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(?&lt;=data-clipboard-text=<span class="string">").*(?="</span>&gt;&lt;small&gt;)</span><br></pre></td></tr></table></figure></li><li>新增動作 &gt; 「分享」&gt; 「拷貝到剪貼板」</li><li>新增動作 &gt; 「工序指令」&gt; 「退出捷徑」<br><img src="https://i.imgur.com/1yFJdId.png" alt></li></ul></li><li><p>點選「下一步」幫捷徑取個名字就完成了。接著使用瀏覽器開啟任意網頁，打開分享選單往下找就能看到方才製作的捷徑，也可以點選「編輯動作」&gt; 「加入喜好項目」來置頂捷徑。<br> <img src="https://i.imgur.com/jHcprZX.png" alt></p></li><li><p>點選執行縮網址捷徑，首次使用會詢問是否允許捷徑存取tinyurl.com這個網站(注意到「<span style="color:red">此捷徑將可傳送資料到這些網站</span>」了嗎？看不懂腳本在做什麼而使用它是有風險的)。按下允許後捷徑便會將正在瀏覽的網頁進行縮址，接著自動複製並關閉捷徑，然後就可以在任何地方貼上縮好的網址啦。<br> <img src="https://i.imgur.com/yHnHz2z.png" alt></p></li></ol><hr><p>備註：</p><ol><li>事實上我有嘗試要直接透過Regex比對HTML元素來找到縮好的網址，但「從URL內容製作HTML」的動作所輸出的變數卻是「從HTML製作RTF」…而直接比對「取得URL內容」的輸出也沒有結果，該動作的說明寫著「對於下載檔案和網頁內容或提出API要求十分有效」啊啊啊🤪</li><li>關於捷徑中所使用的Regex語法似乎有些特別，我在Reddit找到一篇不錯的參考：<a href="https://www.reddit.com/r/shortcuts/comments/b5labq/match_text_examples_for_the_beginner_a_regex/" target="_blank" rel="noopener">Match Text Examples for the Beginner – A Regex Cookbook and Primer for Siri Shortcuts</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;因為APP的系統版本支援問題，從iOS 11更新上iOS 14，研究了一下捷徑功能。
+    
+    </summary>
+    
+      <category term="Apple" scheme="https://laplacetw.github.io/categories/Apple/"/>
+    
+    
+      <category term="iOS" scheme="https://laplacetw.github.io/tags/iOS/"/>
+    
+      <category term="shortcuts" scheme="https://laplacetw.github.io/tags/shortcuts/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Zsh安裝和VS Code顯示設定</title>
+    <link href="https://laplacetw.github.io/mac-zsh-and-vscode/"/>
+    <id>https://laplacetw.github.io/mac-zsh-and-vscode/</id>
+    <published>2020-11-15T13:48:44.000Z</published>
+    <updated>2022-01-27T07:28:20.166Z</updated>
+    
+    <content type="html"><![CDATA[<p>順便筆記一下安裝指令。<a id="more"></a></p><h3 id="Install-Oh-My-Zsh"><a href="#Install-Oh-My-Zsh" class="headerlink" title="Install Oh My Zsh"></a>Install Oh My Zsh</h3><p>參考<a href="https://mrmad.com.tw/macos-terminal-oh-my-zsh" target="_blank" rel="noopener">瘋先生MRMAD的快速教學</a>。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ sh -c <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)</span>"</span></span><br><span class="line">$ vim ~/.zshrc  <span class="comment"># change ZSH_THEME as "agnoster"</span></span><br><span class="line">$ <span class="built_in">echo</span> <span class="string">'syntax on'</span> &gt;&gt; ~/.vimrc  <span class="comment"># enable syntax highlight</span></span><br><span class="line">$ <span class="built_in">echo</span> <span class="string">'set nu!'</span> &gt;&gt; ~/.vimrc    <span class="comment"># enable line numbers</span></span><br><span class="line">$ <span class="built_in">source</span> ~/.zshrc  <span class="comment"># make changes reload</span></span><br></pre></td></tr></table></figure><p>安裝、設定完成會發現Terminal顯示亂碼的情形，因為agnoster主題包含特殊符號，需安裝Powerline系列字體才能正常顯示：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/Downloads &amp;&amp; git <span class="built_in">clone</span> https://github.com/powerline/fonts.git</span><br><span class="line">$ <span class="built_in">cd</span> fonts &amp;&amp; ./install.sh</span><br><span class="line">$ <span class="built_in">cd</span> &amp;&amp; rm -rf ~/Downloads/fonts</span><br></pre></td></tr></table></figure></p><p>接著打開Terminal偏好設定 &gt; 描述檔 &gt; 字體，變更為Powerline系列的字體。我是用Source Code Pro for Powerline，另外路徑的背景顏色預設會有過深的問題，可以調整ANSI顏色選項的藍色部分為淺一點的顏色。</p><p>＊<span style="color:red;">on my sh默認設定檔為~/.zshrc</span>，若原本bash設定檔是寫在~/.bash_profile，則須在zshrc中寫入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [ -f ~/.bash_profile ]; <span class="keyword">then</span></span><br><span class="line">  . ~/.bash_profile</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure></p><h3 id="VS-Code-Integrated-Terminal"><a href="#VS-Code-Integrated-Terminal" class="headerlink" title="VS Code Integrated Terminal"></a>VS Code Integrated Terminal</h3><p>Terminal顯示亂碼在VS Code裡頭也會見到，同樣要修改字體為Powerline系列字體：設定 &gt; 功能 &gt; 終端機 &gt; Integrated: Font Family。</p><p>顏色設定可以在設定中搜尋workbench，找到Workbench: Color Customizations的選項，點選「在settings.json內編輯」，相關參數設定可參考VS Code官網的說明：<a href="https://code.visualstudio.com/api/references/theme-color#integrated-terminal-colors" target="_blank" rel="noopener">Integrated Terminal Colors</a></p><p><img src="https://i.imgur.com/yn3BTug.png" alt></p><p>不過我另外有找到一個設定檔的<a href="https://github.com/Tyriar/vscode-snazzy" target="_blank" rel="noopener">懶人包</a>，或許可以直接套用，再來做調整比較省事 😄</p><p><img src="https://i.imgur.com/Fuw8S8v.png" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;順便筆記一下安裝指令。
+    
+    </summary>
+    
+      <category term="Apple" scheme="https://laplacetw.github.io/categories/Apple/"/>
+    
+    
+      <category term="Mac OS" scheme="https://laplacetw.github.io/tags/Mac-OS/"/>
+    
+      <category term="VS Code" scheme="https://laplacetw.github.io/tags/VS-Code/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Manjaro安裝VirtualBox</title>
+    <link href="https://laplacetw.github.io/linux-manjaro-virtualbox/"/>
+    <id>https://laplacetw.github.io/linux-manjaro-virtualbox/</id>
+    <published>2020-11-15T12:35:00.000Z</published>
+    <updated>2022-01-27T07:25:47.878Z</updated>
+    
+    <content type="html"><![CDATA[<p>因為某堂課程的作業需要M$環境…<a id="more"></a>就為了操作檔案加密，我本來挖出了退役的舊筆電，結果它是Windows 7家用版，無法使用那該死的檔案加密功能！只好裝起虛擬機 🤬</p><h4 id="Enabling-Virtualisation"><a href="#Enabling-Virtualisation" class="headerlink" title="Enabling Virtualisation"></a>Enabling Virtualisation</h4><p>在安裝VirtualBox之前，必須先進BIOS檢查，確認已啟用CPU虛擬化，否則會跳出VERR_SVM_DIABLED錯誤。</p><h4 id="Install-VirtualBox"><a href="#Install-VirtualBox" class="headerlink" title="Install VirtualBox"></a>Install VirtualBox</h4><p>我們會需要安裝virtualbox和host modules，後者得根據系統核心來安裝對應的版本：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># check the version of Linux kernel</span></span><br><span class="line">$ mhwd-kernel -li</span><br><span class="line">Currently running: 4.19.126-1-MANJARO (linux419)</span><br><span class="line">The following kernels are installed <span class="keyword">in</span> your system:</span><br><span class="line">   * linux419</span><br></pre></td></tr></table></figure></p><p>執行系統更新並根據系統核心版本安裝virtualbox：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># &#123;KERNEL_VERSION&#125;-virtualbox-host-modules</span></span><br><span class="line">$ sudo pacman -Syu virtualbox linux419-virtualbox-host-modules</span><br></pre></td></tr></table></figure></p><p>如果有跑系統更新，建議安裝完成後重新啟動。或手動將virtualbox載入系統核心：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vboxreload</span><br></pre></td></tr></table></figure></p><p>確認VirtualBox版本：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ vboxmanage --version</span><br><span class="line">6.1.16r140961</span><br></pre></td></tr></table></figure></p><h4 id="Host-Config"><a href="#Host-Config" class="headerlink" title="Host Config"></a>Host Config</h4><p>在啟動virtualbox之前，還要將自己的系統帳號加入vboxusers使用者群組才行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo gpasswd -a &#123;USERNAME&#125; vboxusers</span><br></pre></td></tr></table></figure></p><p>記得登出或重啟系統以使帳號設定變更生效，然後就可以啟動virtualbox啦：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ virtualbox</span><br></pre></td></tr></table></figure></p><p><img src="https://i.imgur.com/qf6bNsr.png" alt><br><img src="https://i.imgur.com/gO2vZqD.png" alt></p><h4 id="Access-USB-Device"><a href="#Access-USB-Device" class="headerlink" title="Access USB Device"></a>Access USB Device</h4><p>＊2021/04/18 update<br>最近需要Win10環境和USB裝置來讀取個東西，所以就先用隨身碟測試，但裝置管理員卻顯示錯誤代碼10。問Google得到很多結果都說是沒有設定vboxusers group…查了半天原來是需要安裝<a href="https://www.virtualbox.org/wiki/Downloads" target="_blank" rel="noopener">VirtualBox Extension Pack</a>。</p><p>下載、安裝後在擴充功能列表就可以看到Extension Pack⬇︎<br><img src="https://i.imgur.com/Yx5CRJC.png" alt></p><p>接著在VM的個別設定中將USB控制器設定為2.0/3.0⬇︎<br><img src="https://i.imgur.com/nIqXdHh.png" alt></p><p>重啟VM後插入USB裝置，就可以在VM功能選單&gt;裝置&gt;USB選取要掛載的USB裝置了。</p><p>Ref.</p><ul><li><a href="https://wiki.manjaro.org/index.php/VirtualBox" target="_blank" rel="noopener">https://wiki.manjaro.org/index.php/VirtualBox</a></li><li><a href="https://iqmore.tw/oracle-vm-virtualbox-extension-pack-windows-10-usb-3-0" target="_blank" rel="noopener">VirtualBox 安裝 Extension Pack，讓 Windows 10 虛擬機支援 USB 3.0</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;因為某堂課程的作業需要M$環境…
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://laplacetw.github.io/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="https://laplacetw.github.io/tags/Linux/"/>
+    
+      <category term="Manjaro" scheme="https://laplacetw.github.io/tags/Manjaro/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Travis CI使用設置</title>
+    <link href="https://laplacetw.github.io/sofdev-travis-ci/"/>
+    <id>https://laplacetw.github.io/sofdev-travis-ci/</id>
+    <published>2020-10-03T06:40:57.000Z</published>
+    <updated>2022-01-27T07:55:24.283Z</updated>
+    
+    <content type="html"><![CDATA[<p>以Python Project為例。<a id="more"></a></p><p>說到和Github搭配的自動建置測試工具，第一個想到的應該就是Travis CI了，測試的部分我使用<a href="https://docs.pytest.org/en/stable/index.html" target="_blank" rel="noopener">pytest</a>來寫。那麼就先到<a href="(https://travis-ci.org/">Travis CI</a>註冊帳號吧，直接使用Github帳號登入，方便從Github倉庫直接加入專案。</p><p><img src="https://i.imgur.com/mIbm9Ul.png" alt></p><p>測試時若需要環境變數可以在設定頁面加入⬇︎<br><img src="https://i.imgur.com/n8PM94F.png" alt></p><p>接著要在專案根目錄新增一個名稱為 .travis.yml的檔案，這是Travis CI進行建置測試時的腳本。以下是我參考<a href="https://docs.travis-ci.com/user/languages/python/" target="_blank" rel="noopener">官方文件</a>所寫的 .travis.yml內容：<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">language:</span> <span class="string">python</span></span><br><span class="line"><span class="attr">python:</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">"3.5"</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">"3.6"</span>      <span class="comment"># current default Python on Travis CI</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">"3.7"</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">"3.8"</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">"nightly"</span>  <span class="comment"># nightly build</span></span><br><span class="line"><span class="comment"># command to install dependencies</span></span><br><span class="line"><span class="attr">install:</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">pip</span> <span class="string">install</span> <span class="bullet">-r</span> <span class="string">requirements.txt</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">pip</span> <span class="string">install</span> <span class="string">pytest</span></span><br><span class="line"><span class="comment"># command to run tests</span></span><br><span class="line"><span class="attr">script:</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">pytest</span></span><br></pre></td></tr></table></figure></p><p>由上面的測試腳本內容可以看到，Travis CI會依照python區塊所設定，建置Python 3.5~3.8加上<a href="https://docs.travis-ci.com/user/languages/python/#nightly-build-support" target="_blank" rel="noopener">nightly</a>等5個版本的測試環境，進行測試之前會依照install區塊的指令安裝依賴套件，script區塊則是運行測試相關的指令設定，若是有設定環境變數，則必須在此區塊設定「export {var_name}=${env_var_name}」，如此便能在測試程式碼中透過var_name取得環境變數。</p><p>上述設定完成後，只要推送更新到Github，便會觸發Travis CI進行自動建置測試，建置結果也會發信通知我們。<del>然後我的Telegrambot就會因為測試而發送一堆訊息給我。</del><br><img src="https://i.imgur.com/Tkail1B.png" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;以Python Project為例。
+    
+    </summary>
+    
+      <category term="Software Dev" scheme="https://laplacetw.github.io/categories/Software-Dev/"/>
+    
+    
+      <category term="python" scheme="https://laplacetw.github.io/tags/python/"/>
+    
+      <category term="Travis CI" scheme="https://laplacetw.github.io/tags/Travis-CI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python:Sphinx ＆ ReadTheDocs</title>
+    <link href="https://laplacetw.github.io/python-sphinx-and-readthedocs/"/>
+    <id>https://laplacetw.github.io/python-sphinx-and-readthedocs/</id>
+    <published>2020-10-01T07:19:00.000Z</published>
+    <updated>2022-01-27T07:45:46.355Z</updated>
+    
+    <content type="html"><![CDATA[<p>當我認真想為side project寫文件的時候，於是想到了Sphinx，<a id="more"></a>雖然還是對路徑設定感到有點苦惱，但自動生成文件真的很香，尤其是託管到Read The Docs還能和Github連動，只要推送更新到Github就會觸發自動建置。</p><h3 id="Sphinx"><a href="#Sphinx" class="headerlink" title="Sphinx"></a>Sphinx</h3><p></p><p>總之Sphinx就是能自動生成文件的工具，只要在原始碼中使用<a href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html" target="_blank" rel="noopener">reStructuredText</a>或<a href="https://www.sphinx-doc.org/en/master/usage/markdown.html" target="_blank" rel="noopener">Markdown</a>語法來撰寫文件內容。</p><p>官方入門指南：<a href="https://www.sphinx-doc.org/en/master/usage/quickstart.html" target="_blank" rel="noopener">Sphinx Quick Start</a></p><ol><li><p>安裝：</p> <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip install Sphinx</span><br></pre></td></tr></table></figure></li><li><p>快速啟用：<br> 首先在文件的根目錄建立doc、src兩個資料夾，分別用來放建置文件和原始碼。Sphinx內建sphinx-quickstart腳本，可引導使用者快速完成基本設定：</p> <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> doc</span><br><span class="line">$ sphinx-quickstart</span><br></pre></td></tr></table></figure><p> 這裡選擇獨立的原始碼和建置目錄⬇︎<br> <img src="https://i.imgur.com/XowPf8k.png" alt></p><p> 接著腳本會引導使用者設定文件名稱、版本號、作者等資訊，設定完成後的目錄結構：</p> <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── doc</span><br><span class="line">│   ├── Makefile</span><br><span class="line">│   ├── build</span><br><span class="line">│   ├── make.bat</span><br><span class="line">│   └── <span class="built_in">source</span></span><br><span class="line">│       ├── _static</span><br><span class="line">│       ├── _templates</span><br><span class="line">│       ├── conf.py</span><br><span class="line">│       └── index.rst</span><br><span class="line">└── src</span><br></pre></td></tr></table></figure><p> 從上面的目錄結構可以看到，doc目錄下有自動建置的指令檔，source目錄中則是文件相關的資源檔，包含靜態檔案、設定檔conf.py以及首頁index.rst。</p></li><li><p>conf.py基本設定：</p><ul><li><p>原始碼路徑：</p><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -- Path setup --------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># If extensions (or modules to document with autodoc) are in another directory,</span></span><br><span class="line"><span class="comment"># add these directories to sys.path here. If the directory is relative to the</span></span><br><span class="line"><span class="comment"># documentation root, use os.path.abspath to make it absolute, like shown here.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.path.insert(<span class="number">0</span>, os.path.abspath(<span class="string">'../../src'</span>))</span><br></pre></td></tr></table></figure><p>路徑不能亂設定，例如<a href="https://stackoverflow.com/questions/20251007/sphinx-and-relative-imports-in-python-3" target="_blank" rel="noopener">將package目錄直接設定為原始碼路徑</a>，然後就導致各種import error然後文件建置失敗😅</p></li><li><p>一般設定</p><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -- General configuration ---------------------------------------------------</span></span><br><span class="line">master_doc = <span class="string">'index'</span>  <span class="comment"># main page: index.rst</span></span><br><span class="line">autodoc_member_order = <span class="string">'bysource'</span>  <span class="comment"># optional</span></span><br></pre></td></tr></table></figure><p>如果不希望autodoc自動對member排序就設定為’bysource’。</p></li><li><p>擴充功能</p><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Add any Sphinx extension module names here, as strings. They can be</span></span><br><span class="line"><span class="comment"># extensions coming with Sphinx (named 'sphinx.ext.*') or your custom</span></span><br><span class="line"><span class="comment"># ones.</span></span><br><span class="line">extensions = [<span class="string">'sphinx.ext.autodoc'</span>]</span><br></pre></td></tr></table></figure></li><li><p>佈景主題</p><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># The theme to use for HTML and HTML Help pages.  See the documentation for</span></span><br><span class="line"><span class="comment"># a list of builtin themes.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">html_theme = <span class="string">'alabaster'</span>  <span class="comment"># default</span></span><br></pre></td></tr></table></figure><p>更多主題：<a href="https://www.sphinx-doc.org/en/master/usage/theming.html" target="_blank" rel="noopener">Sphinx Doc / Theming</a></p></li></ul></li><li><p>index.rst主頁設定：<br> 打開index.rst會看到標題和toctree目錄設定，.rst也就是reStructuredText格式的文件，因此文件的每一個頁面都會有一個.rst檔，按需求自行新增。假設我有index.rst和mod_a.rst兩個頁面，那麼toctree目錄設定應該長這樣：</p> <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.. toctree::</span><br><span class="line">    :maxdepth: 2</span><br><span class="line">    :caption: Contents:</span><br><span class="line"></span><br><span class="line">    mod_a</span><br></pre></td></tr></table></figure><p> *注意空格、縮排以及不需要寫出.rst檔名後綴</p><p> 如此在生成文件的時候，首頁目錄就會有mod_a這個頁面，而mod_a頁面內容就在mod_a.rst檔案中撰寫、定義。</p></li><li><p>autodoc：<br> 語法參考：<a href="https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#module-sphinx.ext.autodoc" target="_blank" rel="noopener">sphinx.ext.autodoc</a></p><p> 簡單舉例，假設上述的mod_a.rst對應到原始碼src/proj/mod_a.py這個模組，那麼mod_a.py可能定義了一些類別或方法，則mod_a.rst的內容除了標題和一些說明文字，autodoc的設定應該長這樣：</p> <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.. automodule:: proj.mod_a</span><br><span class="line">    :members:</span><br></pre></td></tr></table></figure><p> 如此audodoc便會自動將模組中的成員引入mod_a.rst頁面，包含以reStructuredText語法所撰寫的註解！例如：</p> <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">a</span><span class="params">()</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    write reStructuredText here</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        write reStructuredText here</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">pass</span></span><br></pre></td></tr></table></figure></li><li><p>make：<br> 當上述的文件內容都撰寫好了，就可以使用自動建置指令來生成文件：</p> <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ make clean  <span class="comment"># Delete the build cache before building documents</span></span><br><span class="line">$ make html</span><br></pre></td></tr></table></figure><p> 建置完成的html檔會在/doc/build目錄下。</p><p> Sphinx文件實例，供參考：<a href="https://github.com/laplacetw/botlegram-doc" target="_blank" rel="noopener">laplacetw/botlegram-doc</a></p></li></ol><h3 id="Read-The-Docs"><a href="#Read-The-Docs" class="headerlink" title="Read The Docs"></a>Read The Docs</h3><p></p><p>生成了文件後若打算公開發佈，可以使用<a href="https://readthedocs.org/" target="_blank" rel="noopener">Read The Docs</a>這個基於Sphinx的免費文件託管服務，註冊帳號後，建議與版本控制服務例如Github連動，如此便可以直接從Github匯入我們的Sphinx專案來建立一個Read The Docs專案，之後只要推送更新到Github，那麼Read The Docs便會自動建置更新我們的線上文件了。</p><p><img src="https://i.imgur.com/DhpdU4O.png" alt></p><p>Read The Docs線上文件實例，供參考：<a href="https://botlegram.readthedocs.io/" target="_blank" rel="noopener">https://botlegram.readthedocs.io/</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;當我認真想為side project寫文件的時候，於是想到了Sphinx，
+    
+    </summary>
+    
+      <category term="Programming Lang" scheme="https://laplacetw.github.io/categories/Programming-Lang/"/>
+    
+    
+      <category term="Python" scheme="https://laplacetw.github.io/tags/Python/"/>
+    
+      <category term="Sphinx" scheme="https://laplacetw.github.io/tags/Sphinx/"/>
+    
+      <category term="ReadTheDocs" scheme="https://laplacetw.github.io/tags/ReadTheDocs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>拋棄繼承聲請記事</title>
+    <link href="https://laplacetw.github.io/asserting-waived-succession/"/>
+    <id>https://laplacetw.github.io/asserting-waived-succession/</id>
+    <published>2020-09-30T04:53:07.000Z</published>
+    <updated>2022-01-27T06:41:20.975Z</updated>
+    
+    <content type="html"><![CDATA[<p>總算處理完所有必要文件順利送到郵局了，但遇到中秋連假，所以下週才會寄出。<a id="more"></a>儘管我仍無法理解人生怎麼會突然就稀巴爛，然後一轉眼便是十年，我仍在收拾殘局，然而有人卻已匆匆謝幕。看著戶籍謄本思索了幾秒，人生就只是這樣呢，我們終究都要化為記事欄裡頭的幾行字，但就是有人過得辛苦，有人過得舒服。</p><p>一樣米養百樣人，若是遇到豬隊友，為免夜長夢多、債留子孫，繼承這事可就得審慎處理。雖然在2009年民法繼承編修訂後已採「當然限定繼承」，不用再向法院聲請，繼承人僅需繼承所得的遺產為限，負清償責任。但在我和具法律專業背景友人詢問後，了解到限定繼承需開具遺產清冊陳報法院這件事，光想就覺得麻煩，更何況以我自身而言，只求別再受前人債務拖累、斷送餘生，所以說還是乾脆點聲明拋棄繼承。</p><h3 id="相關法條"><a href="#相關法條" class="headerlink" title="相關法條"></a>相關法條</h3><p></p><p><a href="(https://law.moj.gov.tw/LawClass/LawParaDeatil.aspx?pcode=B0000001&amp;bp=126">民法第五編：繼承</a></p><p><a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=B0000001&amp;flno=1138" target="_blank" rel="noopener">民法第1138條</a>：</p><blockquote><p>「遺產繼承人，除配偶外，依左列順序定之：</p><ul><li>一、直系血親卑親屬。</li><li>二、父母。</li><li>三、兄弟姊妹。</li><li>四、祖父母。</li></ul></blockquote><p><a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?PCODE=B0000001&amp;FLNO=1147" target="_blank" rel="noopener">民法第1147條</a>：</p><blockquote><p>「繼承，因被繼承人死亡而開始。」</p></blockquote><p><a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=B0000001&amp;flno=1148" target="_blank" rel="noopener">民法第1148條</a>：</p><blockquote><p>「繼承人自繼承開始時，除本法另有規定外，承受被繼承人財產上之一切權利、義務。但權利、義務專屬於被繼承人本身者，不在此限。<font color="red">繼承人對於被繼承人之債務，以因繼承所得遺產為限，負清償責任。</font>」</p></blockquote><p><a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=B0000001&amp;flno=1153" target="_blank" rel="noopener">民法第1153條</a>：</p><blockquote><p>「<font color="red">繼承人對於被繼承人之債務，以因繼承所得遺產為限，負連帶責任。</font>繼承人相互間對於被繼承人之債務，除法律另有規定或另有約定外，按其應繼分比例負擔之。」</p></blockquote><p><a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?PCODE=B0000001&amp;FLNO=1174" target="_blank" rel="noopener">民法第1174條</a>：</p><blockquote><p>「繼承人得拋棄其繼承權。前項拋棄，應於<font color="red">知悉其得繼承之時起三個月內</font>，以書面向法院為之。<font color="red">拋棄繼承後，應以書面通知因其拋棄而應為繼承之人</font>。但不能通知者，不在此限。」</p></blockquote><p><a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?PCODE=B0000001&amp;FLNO=1175" target="_blank" rel="noopener">民法第1175條</a>：</p><blockquote><p>「繼承之拋棄，溯及於繼承開始時發生效力。」</p></blockquote><p><a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=B0000001&amp;flno=1176" target="_blank" rel="noopener">民法第1176條 部分條文</a>：</p><blockquote><p>「因他人拋棄繼承而應為繼承之人，為拋棄繼承時，<font color="red">應於知悉其得繼承之日起三個月內為之。</font>」</p></blockquote><h3 id="辦理拋棄繼承"><a href="#辦理拋棄繼承" class="headerlink" title="辦理拋棄繼承"></a>辦理拋棄繼承</h3><p></p><p><br>根據我在網路上搜集到的資料，各地方法院的聲請書格式或規定似乎有些微差異(白眼，所以要辦理拋棄繼承的第一件事，便是先確認「被繼承人戶籍所在地之管轄法院」，這樣你才知道該去哪下載聲請書的格式。但網路下載的格式可能會因為疏於更新而過舊，像我<del>這樣超TUEEE的勇者</del>總是比較謹慎的，當然是直接跑去法院購買紙本格式最保險。拋棄繼承聲請要在得知繼承事實發生的那一刻算起三個月內提出，聲請費用為1000塊，一個人聲請或全家一起聲請都是相同費用，若採用郵寄的方式則檢附1000塊郵政匯票，受款人為管轄法院。</p><p>＊若管轄法院在臺北、臺中、臺南、臺東之類的名字有「臺」的縣市，要寫繁體的「臺」，而且必須寫全稱，例如「臺灣臺南地方法院」。</p><p>供參考：<a href="https://tnd.judicial.gov.tw/doc/%AEa%A8%C6/%A9%DF%B1%F3%C4~%A9%D3%C1n%BD%D0%AA%AC.pdf" target="_blank" rel="noopener">臺南地方法院拋棄繼承聲請書格式</a></p><p>接著依照聲請書裡頭的格式依序填寫拋棄繼承書狀、繼承系統表、繼承權拋棄書，至於通知書跟收據我就沒用到了，因為我是寄存證信函通知下一順位的繼承人。</p><p>再來就是取得辦理拋棄繼承應檢附的資料：</p><ol><li><a href="https://www.ris.gov.tw/app/portal/741" target="_blank" rel="noopener">印鑑證明</a>：滿7歲之聲請人，如聲請人未滿20歲另應有法定代理人(父母皆須有)或監護人之印鑑證明；受拋棄繼承通知之人如以本狀第六頁收據蓋印鑑證明章表明已收受，亦須提供。</li><li>印鑑證明章：印鑑證明章如在本狀第三頁已蓋印完畢，可供法院核對之狀況下，則可不必攜章至本院(請聲請人自行判斷蓋印是否清楚)。</li><li>戶籍謄本：被繼承人除戶戶籍謄本、死者配偶(死者死亡時仍與其有婚姻關係之人；已往生者亦需要)、聲請人、聲請人之法定代理人(或有監護權之人)、同繼承順位未拋棄之人、第一繼承順位已先死者及其子女，或同繼承順位均拋棄而下一繼承順位之人(已往生者亦需要，如下一順位繼承人均已往生，則下下順位之繼承人亦需要，比如第一順位均拋棄，第二順位均往生，則要提供第三順位繼承人之戶謄)均需提供一份，該些人員有同戶籍者可提供全戶一份。</li></ol><p>我是用郵寄方式進行聲請，只要確認書狀聲請人印鑑用印清晰可辨識即可，不需要印鑑證明章。</p><p>＊聲請人如為胎兒，應附上媽媽手冊封面、第一次產檢、最新產檢等文件之影本。<br>＊<font color="red">戶籍謄本記事欄不可省略</font>。</p><p><img src="https://i.imgur.com/DYTMqFI.jpg" alt></p><p>處理到這就差存證信函影本了(通知其他順位繼承人之證明書)。</p><h3 id="撰寫存證信函"><a href="#撰寫存證信函" class="headerlink" title="撰寫存證信函"></a>撰寫存證信函</h3><p></p><p><br>存證信函需要「N+2」份，N是收件人的人數，+2則是自己和郵局都會留存一份副本，<font color="red">正本ㄧ定要寄出去千萬不要自己留著做紀念</font>，而我們留存的副本就影印一份檢附在聲請書中一併送交法院辦理。一開始我還傻傻的跑去郵局說要買存證信函用紙，然後郵局人員就拿出長得像中學生考試用紙的東東，而且那紙張還超薄…後來郵局人員就說可以上網<a href="https://www.post.gov.tw/post/internet/Download/index.jsp?ID=220301" target="_blank" rel="noopener">下載格式</a>以電腦繕打後複印，然後我就說不買了😅 </p><p>多位寄件人或多位收件人相同住址則可以寫在一起，例如：</p><p>寄件人：XXX、YYY<br>詳細住址：xxxxxxxxxxxxxxxxx</p><p>如果人丁興旺寫不下(?)，網路上的參考資料是建議可以直接註記「如附件」，然後把寄件者跟收件者都條列在附件。但也有人遇到<a href="https://home.gamer.com.tw/creationDetail.php?sn=4560024" target="_blank" rel="noopener">部份郵局不接受附件</a>的情形，可能要先詢問自家附近的郵局進行確認。</p><p><img src="https://i.imgur.com/HJdkBMW.png" alt></p><p>至於內文的部分，我是直接參考聲請書的範例去寫：</p><blockquote><p>寄件人XXX、YYY，因被繼承人ZZZ於民國YY年MM月DD日亡故，對其遺產，依法有繼承權。茲出於寄件人自由意思，爰依民法第一一七四條規定拋棄繼承權，全部遺產由收件人繼承，絕無異議，特此通知。</p></blockquote><p>我建議存證信函撰寫完<font color="red">先轉為PDF格式再列印</font>，避免發生部分文字跑版，因為我使用超商雲端列印，然後下方的合計區塊文字就變成一坨இдஇ</p><p>＊存證信函是採雙掛號方式郵寄，如果有先到郵局買信封可以先索取雙掛號回執拿回去先填寫，到時候要去寄才不會搞太久。<br>＊存證信函撰寫完列印出來後，<font color="red">寄件人要在每一份存證信函上簽名或蓋章</font>。</p><h3 id="送件"><a href="#送件" class="headerlink" title="送件"></a>送件</h3><p></p><p><br>當聲請書、檢附資料以及存證信函這三件事都處理好，將自己留存的存證信函副本影印，就可以將聲請書、存證信函影本以及其他檢附資料一起寄出了。法院收件受理後，若有需要補費、補件、聲請准許或駁回，都會以掛號通知各聲請人，倘若收到「拋棄繼承准予核備函」就代表聲請核准囉。</p><p>2020/09/30：送件中</p><p>2020/10/05：送達法院</p><p>2020/10/22：聲請通過，法院發文通知「本件拋棄繼承權准予備查」</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;總算處理完所有必要文件順利送到郵局了，但遇到中秋連假，所以下週才會寄出。
+    
+    </summary>
+    
+      <category term="Daily" scheme="https://laplacetw.github.io/categories/Daily/"/>
+    
+    
+      <category term="civil law" scheme="https://laplacetw.github.io/tags/civil-law/"/>
+    
+      <category term="waived succession" scheme="https://laplacetw.github.io/tags/waived-succession/"/>
+    
+  </entry>
+  
+</feed>
