@@ -21,19 +21,9 @@
 <h3 style="color: #3385ff;text-align: center;">
   本部落格已搬遷, 3秒後跳轉...
 </h3>
-<script>
-  const path = '/tags/index.html'.replaceAll('/', '');
-  const meta = document.createElement('meta');
-  meta.setAttribute('http-equiv', 'refresh');
-  meta.setAttribute('name', 'redirect');
-  if (path.includes('index')) {
-    meta.setAttribute('content', '3;url=https://laplace.tw');
-  } else {
-    meta.setAttribute('content', `3;url=https://laplace.tw/posts/${path}`);
-  }
-  document.head.appendChild(meta);
-</script>
-<!--meta name="redirect" http-equiv="refresh" content="3;url=https://laplace.tw" /-->
+
+<meta name="redirect" http-equiv="refresh" content="3;url=https://laplace.tw/tags/index.html">
+
 <link rel="canonical" href="laplace.tw">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
@@ -131,7 +121,7 @@
 
 
   <meta name="description" content="Load MNIST Data Set">
-<meta name="keywords" content="Keras,deep learning,MNIST,computer vision">
+<meta name="keywords" content="Keras,deep learning,computer vision,MNIST">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MLP with Keras 手寫數字辨識測試">
 <meta property="og:url" content="https://laplacetw.github.io/data-sci-ml-hello-world-mnist/index.html">
@@ -550,9 +540,9 @@
           
             <a href="/tags/deep-learning/" rel="tag"><i class="fas fa-tags"></i> deep learning</a>
           
-            <a href="/tags/MNIST/" rel="tag"><i class="fas fa-tags"></i> MNIST</a>
-          
             <a href="/tags/computer-vision/" rel="tag"><i class="fas fa-tags"></i> computer vision</a>
+          
+            <a href="/tags/MNIST/" rel="tag"><i class="fas fa-tags"></i> MNIST</a>
           
         </div>
       

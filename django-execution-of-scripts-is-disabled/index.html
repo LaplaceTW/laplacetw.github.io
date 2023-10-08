@@ -21,19 +21,9 @@
 <h3 style="color: #3385ff;text-align: center;">
   本部落格已搬遷, 3秒後跳轉...
 </h3>
-<script>
-  const path = '/tags/index.html'.replaceAll('/', '');
-  const meta = document.createElement('meta');
-  meta.setAttribute('http-equiv', 'refresh');
-  meta.setAttribute('name', 'redirect');
-  if (path.includes('index')) {
-    meta.setAttribute('content', '3;url=https://laplace.tw');
-  } else {
-    meta.setAttribute('content', `3;url=https://laplace.tw/posts/${path}`);
-  }
-  document.head.appendChild(meta);
-</script>
-<!--meta name="redirect" http-equiv="refresh" content="3;url=https://laplace.tw" /-->
+
+<meta name="redirect" http-equiv="refresh" content="3;url=https://laplace.tw/tags/index.html">
+
 <link rel="canonical" href="laplace.tw">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
@@ -131,7 +121,7 @@
 
 
   <meta name="description" content="問題來源 : 今日在Win10作業系統下建立Python virtual environment for Django，接著要用Scripts/activate指令啟動虛擬環境時，CLI顯示了這個令人錯愕的訊息: 「檔案無法載入，因為這個系統已停用指令碼執行」">
-<meta name="keywords" content="Pyhton,Django,error">
+<meta name="keywords" content="Django,Pyhton,error">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Error:檔案無法載入，因為這個系統已停用指令碼執行">
 <meta property="og:url" content="https://laplacetw.github.io/django-execution-of-scripts-is-disabled/index.html">
@@ -504,9 +494,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Pyhton/" rel="tag"><i class="fas fa-tags"></i> Pyhton</a>
-          
             <a href="/tags/Django/" rel="tag"><i class="fas fa-tags"></i> Django</a>
+          
+            <a href="/tags/Pyhton/" rel="tag"><i class="fas fa-tags"></i> Pyhton</a>
           
             <a href="/tags/error/" rel="tag"><i class="fas fa-tags"></i> error</a>
           
